@@ -5,7 +5,7 @@ export default defineConfig({
   markdown: {
     image: {
       lazyLoading: true
-    }
+    },
   },
   locales: {
     root: {
@@ -64,8 +64,8 @@ export default defineConfig({
               { text: 'GSG Conference 2024', link: 'en/Extra/GSG Conference 2024' },
             ],
           },
-        ]
-      }
+        ],
+      },
     },
     en: {
       label: 'English',

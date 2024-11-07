@@ -75,10 +75,10 @@ export default defineConfig({
         socialLinks: [
           { icon: 'github', link: 'https://github.com/HGS-web/HGS/' },
           { icon: 'facebook', link: 'https://www.facebook.com/HellenicGEOSOCIETY/' },
-          { iconm: 'mail', link: 'mailto:hellenicgeosociety@gmail.com' }
+          { iconm: 'Contact', link: 'mailto:hellenicgeosociety@gmail.com' }
         ],
         footer: {
-          message: 'Developed by Alexandros Liaskos',
+          message: 'Developed by Alexandros P. Liaskos',
           copyright: 'Copyright © 2024 Hellenic Geographical Society'
         },
       },
@@ -145,10 +145,10 @@ export default defineConfig({
         socialLinks: [
           { icon: 'github', link: 'https://github.com/HGS-web/HGS/' },
           { icon: 'facebook', link: 'https://www.facebook.com/HellenicGEOSOCIETY/' },
-          { iconm: 'mail', link: 'mailto:hellenicgeosociety@gmail.com' }
+          { iconm: 'Contact', link: 'mailto:hellenicgeosociety@gmail.com' }
         ],
         footer: {
-          message: 'Developed by Alexandros Liaskos',
+          message: 'Developed by Alexandros P. Liaskos',
           copyright: 'Copyright © 2024 Hellenic Geographical Society'
         },
         sidebar: [
@@ -269,10 +269,10 @@ export default defineConfig({
         socialLinks: [
           { icon: 'github', link: 'https://github.com/HGS-web/HGS/' },
           { icon: 'facebook', link: 'https://www.facebook.com/HellenicGEOSOCIETY/' },
-          { iconm: 'mail', link: 'mailto:hellenicgeosociety@gmail.com' }
+          { iconm: 'Contact', link: 'mailto:hellenicgeosociety@gmail.com' }
         ],
         footer: {
-          message: 'Δημιουργός: Αλέξανδρος Λιάσκος',
+          message: 'Δημιουργός: Αλέξανδρος Π. Λιάσκος',
           copyright: 'Copyright © 2024 Hellenic Geographical Society'
         },
         sidebar: [

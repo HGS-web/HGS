@@ -21,5 +21,11 @@ jobs:
     - name: Install dependencies
       run: npm install
 
+    - name: Add node_modules/.bin to PATH
+      run: echo "PATH=$(npm bin):$PATH" >> $GITHUB_ENV
+
+    - name: Set execute permissions for vitepress
+      run: chmod +x ./node_modules/.bin/vitepress
+
     - name: Run deploy script
       run: sh deploy.sh

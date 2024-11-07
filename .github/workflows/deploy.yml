@@ -21,6 +21,12 @@ jobs:
     - name: Install dependencies
       run: npm install
 
+    - name: Add node_modules/.bin to PATH
+      run: echo "::add-path::$(npm bin)"
+
+    - name: Set execute permissions for vitepress
+      run: chmod +x ./node_modules/.bin/vitepress
+
     - name: Build project
       run: npm run docs:build  
 
@@ -28,4 +34,4 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./build  
+        publish_dir: ./build

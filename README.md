@@ -1,7 +1,7 @@
 # Hellenic Geographical Society (HGS) Website
 
 ## Overview
-The official website for the (https://hgs-web.github.io/HGS/)[Hellenic Geographical Society].
+The official website for the [Hellenic Geographical Society](https://hgs-web.github.io/HGS/).
 ## Tech Stack
 - [VitePress v1.5.0](https://vitepress.dev/) - Vue-powered Static Site Generator
 - Vue.js - For interactive components

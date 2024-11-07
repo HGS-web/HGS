@@ -1,16 +1,16 @@
 ---
 layout: home
-hero:
-  name: Hellenic Geographical Society
-  tagline: Since 1901
-  image:
-    src: '/logo.png'
-    alt: 'HGS Logo'
-  actions:
-    - theme: brand
-      text: Learn More
-      link: /en/The Society/History
-    - theme: alt
-      text: News
-      link: /en/Extra/News
 ---
+
+<script setup>
+import BackgroundGif from './.vitepress/theme/components/BackgroundGif.vue'
+</script>
+
+<BackgroundGif>
+  <h1>Welcome to the Hellenic Geographical Society</h1>
+  <p>Explore the world of geography, research, and collaboration.</p>
+  <p>
+    <a href="/en/The Society/History" class="vp-button vp-button--brand">Learn More</a>
+    <a href="/en/Extra/News" class="vp-button vp-button--alt">News</a>
+  </p>
+</BackgroundGif>

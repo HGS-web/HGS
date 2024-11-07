@@ -1,17 +1,5 @@
 {
-  "name": "hellenic-geo-society",
-  "version": "1.0.0",
-  "description": "Hellenic Geographical Society Website",
-  "type": "module",
-  "scripts": {
-    "docs:dev": "vitepress dev docs",
-    "docs:preview": "vitepress preview docs",
-    "docs:build": "vitepress build docs"
-  },
-  "devDependencies": {
-    "@types/node": "^20.0.0",
-    "typescript": "^5.0.0",
-    "vitepress": "^1.5.0",
-    "vue": "^3.4.19"
+  "dependencies": {
+    "vitepress": "^1.5.0"
   }
 }

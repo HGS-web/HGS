@@ -72,6 +72,13 @@ export default defineConfig({
             ],
           },
         ],
+        socialLinks: [
+          { icon: 'github', link: 'https://github.com/HGS-web/HGS/' }
+        ],
+        footer: {
+          message: 'Developed by Alexandros Liaskos',
+          copyright: 'Copyright © 2024 Hellenic Geographical Society'
+        },
       },
     },
     en: {

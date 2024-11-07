@@ -1,7 +1,8 @@
 {
 
   "dependencies": {
-    "vitepress": "^1.5.0",
+    "vitepress": "^1.5.0"
+  },
   "name": "hellenic-geo-society",
   "version": "1.0.0",
   "description": "Hellenic Geographical Society Website",

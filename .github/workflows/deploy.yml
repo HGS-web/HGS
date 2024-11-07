@@ -30,6 +30,8 @@ jobs:
           cache: npm
       - name: Setup Pages
         uses: actions/configure-pages@v4
+      - name: Adjust permissions
+        run: chmod +x node_modules/.bin/vitepress
       - name: Update npm
         run: npm install -g npm@latest
       - name: Install dependencies

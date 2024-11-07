@@ -31,4 +31,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: docs/.vitepress/dist
-          publish_branch: gh-pages  
+          publish_branch: gh-pages
+          destination_dir: .  
+          keep_files: false
+          force_orphan: true

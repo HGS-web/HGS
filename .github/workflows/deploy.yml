@@ -21,9 +21,6 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Add node_modules/.bin to PATH
-      run: echo "PATH=$(npm bin):$PATH" >> $GITHUB_ENV
-
     - name: Build project
       run: npm run docs:build  
 

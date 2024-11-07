@@ -73,7 +73,9 @@ export default defineConfig({
           },
         ],
         socialLinks: [
-          { icon: 'github', link: 'https://github.com/HGS-web/HGS/' }
+          { icon: 'github', link: 'https://github.com/HGS-web/HGS/' },
+          { icon: 'facebook', link: 'https://www.facebook.com/HellenicGEOSOCIETY/' },
+          { iconm: 'email', link: 'mailto:hellenicgeosociety@gmail.com' }
         ],
         footer: {
           message: 'Developed by Alexandros Liaskos',
@@ -140,6 +142,15 @@ export default defineConfig({
             ],
           },
         ],
+        socialLinks: [
+          { icon: 'github', link: 'https://github.com/HGS-web/HGS/' },
+          { icon: 'facebook', link: 'https://www.facebook.com/HellenicGEOSOCIETY/' },
+          { iconm: 'email', link: 'mailto:hellenicgeosociety@gmail.com' }
+        ],
+        footer: {
+          message: 'Developed by Alexandros Liaskos',
+          copyright: 'Copyright © 2024 Hellenic Geographical Society'
+        },
         sidebar: [
           {
             text: 'The Society',
@@ -255,6 +266,15 @@ export default defineConfig({
             ],
           },
         ],
+        socialLinks: [
+          { icon: 'github', link: 'https://github.com/HGS-web/HGS/' },
+          { icon: 'facebook', link: 'https://www.facebook.com/HellenicGEOSOCIETY/' },
+          { iconm: 'email', link: 'mailto:hellenicgeosociety@gmail.com' }
+        ],
+        footer: {
+          message: 'Δημιουργός: Αλέξανδρος Λιάσκος',
+          copyright: 'Copyright © 2024 Hellenic Geographical Society'
+        },
         sidebar: [
           {
             text: 'Η Εταιρεία',

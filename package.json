@@ -4,11 +4,11 @@
   "description": "Hellenic Geographical Society Website",
   "type": "module",
   "scripts": {
-    "docs:dev": "vitepress dev docs",
-    "docs:preview": "vitepress preview docs",
-    "docs:serve": "vitepress serve docs",
-    "docs:build": "vitepress build docs",
-    "docs:deploy": "vitepress build docs && cd docs/.vitepress/dist && git init && git add -A && git commit -m 'deploy' && git push -f https://github.com/HGS-web/HGS.git main:public"
+    "docs:dev": "npx vitepress dev docs",
+    "docs:preview": "npx vitepress preview docs",
+    "docs:serve": "npx vitepress serve docs",
+    "docs:build": "npx vitepress build docs",
+    "docs:deploy": "npx vitepress build docs && cd docs/.vitepress/dist && git init && git add -A && git commit -m 'deploy' && git push -f https://github.com/HGS-web/HGS.git main:main"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",

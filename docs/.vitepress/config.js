@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  base: '/HGS/dist/',
+  base: '/HGS/',
   markdown: {
     image: {
       lazyLoading: true

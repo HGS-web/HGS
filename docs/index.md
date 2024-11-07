@@ -1,3 +1,7 @@
+<script setup>
+import BackgroundImage from './.vitepress/theme/components/BackgroundImage.vue'
+</script>
+<BackgroundImage>
 ---
 layout: home
 hero:
@@ -18,6 +22,4 @@ hero:
 <script setup>
 import BackgroundImage from './.vitepress/theme/components/BackgroundImage.vue'
 </script>
-
-<BackgroundImage>
 </BackgroundImage>

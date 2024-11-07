@@ -1,5 +1,5 @@
 # Hellenic Geographical Society (HGS)
-<img src="[../../assets/approved.png](https://github.com/user-attachments/assets/95cb5605-be13-485d-ba62-b2f378f2227f)" alt="Approved Status Icon" width="20" height="20" style="vertical-align: bottom;">
+<img src="https://github.com/user-attachments/assets/95cb5605-be13-485d-ba62-b2f378f2227f" width="20" height="20" style="vertical-align: bottom;">
 
 ## Overview
 The official website for the [Hellenic Geographical Society](https://hgs-web.github.io/HGS/).

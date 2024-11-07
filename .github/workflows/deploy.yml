@@ -1,0 +1,54 @@
+# Workflow for deploying the VitePress site to GitHub Pages
+name: Deploy VitePress Site to GitHub Pages
+
+on:
+  # Runs on pushes to the main branch
+  push:
+    branches: [localhost]
+  # Allows manual triggering of the workflow
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  # Job to build the VitePress site
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Ensures full history is fetched if lastUpdated is enabled
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18  # Specify the Node.js version
+          cache: npm        # Cache npm dependencies
+
+      - name: Install Dependencies
+        run: npm ci  # Install dependencies using clean install
+
+      - name: Build VitePress Site
+        run: npm run docs:build  # Build your site
+
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: docs/.vitepress/dist  # Path to the built site files
+
+  # Job to deploy the site to GitHub Pages
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build  # Depends on the build job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
+

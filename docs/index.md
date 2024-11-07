@@ -14,7 +14,3 @@ hero:
       text: News
       link: /en/Extra/News
 ---
-
-<script setup>
-import BackgroundImage from './.vitepress/theme/components/BackgroundImage.vue'
-</script>

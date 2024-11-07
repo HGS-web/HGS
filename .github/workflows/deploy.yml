@@ -33,5 +33,3 @@ jobs:
           publish_dir: docs/.vitepress/dist
           publish_branch: gh-pages
           destination_dir: ./dist/
-          keep_files: false
-          force_orphan: true

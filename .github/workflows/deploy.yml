@@ -33,4 +33,3 @@ jobs:
           publish_dir: docs/.vitepress/dist
           destination_dir: ./dist/
           force_orphan: true
-          nojekyll: false

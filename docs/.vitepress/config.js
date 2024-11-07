@@ -7,6 +7,9 @@ export default defineConfig({
       lazyLoading: true
     },
   },
+  head: [
+    ['link', { rel: 'stylesheet', href: '/custom.css' }]
+  ],
   locales: {
     root: {
       title: 'Hellenic Geographical Society',

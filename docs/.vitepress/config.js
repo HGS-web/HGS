@@ -64,6 +64,13 @@ export default defineConfig({
               { text: 'GSG Conference 2024', link: 'en/Extra/GSG Conference 2024' },
             ],
           },
+          {
+            text: 'Language',
+            items: [
+              { text: 'English', link: '/' },
+              { text: 'Ελληνικά', link: '/el/' }
+            ],
+          },
         ],
       },
     },

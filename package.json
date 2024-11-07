@@ -5,11 +5,10 @@
   "type": "module",
   "scripts": {
     "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "docs:serve": "vitepress serve docs",
     "docs:build": "vitepress build docs",
-    "docs:deploy": "vitepress build docs && cd docs/.vitepress/dist && git init && git add -A && git commit -m 'deploy' && git push -f https://github.com/AlexandrosLiaskos/HGS.git main:public"
+    "docs:deploy": "vitepress build docs && cd docs/.vitepress/dist && git init && git add -A && git commit -m 'deploy' && git push -f https://github.com/HGS-web/HGS.git main:public"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",

@@ -4,7 +4,7 @@ hero:
   name: Hellenic Geographical Society
   tagline: Since 1901
   image:
-    src: '/logo.png'
+    src: '/HGS/logo.png'
     alt: 'HGS Logo'
   actions:
     - theme: brand

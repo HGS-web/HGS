@@ -41,6 +41,8 @@ jobs:
         run: npm ci # or pnpm install / yarn install
       - name: Build with VitePress
         run: npm run docs:build # or pnpm docs:build / yarn docs:build
+      - name: Create .nojekyll file
+        run: touch docs/.vitepress/dist/.nojekyll
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

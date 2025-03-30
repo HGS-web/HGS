@@ -223,10 +223,10 @@ export default defineConfig({
             ],
           },
           {
-            text: 'Συνεργασίες',
+            text: 'Συνεργασίες - Δίκτυα',
             items: [
-              { text: 'Ακαδημαϊκοί και Επιστημονικοί Φορείς', link: '/el/Collaborations/Academic and Scientific Bodies' },
-              { text: 'Γεωγραφικές Εταιρείες και Δίκτυα', link: '/el/Collaborations/Geographical Societies and Networks' },
+              { text: 'Ακαδημαϊκοί φορείς', link: '/el/Collaborations/Academic and Scientific Bodies' },
+              { text: 'Γεωγραφικές Εταιρείες / Επιτροπές', link: '/el/Collaborations/Geographical Societies and Networks' },
               { text: 'Άλλα', link: '/el/Collaborations/Other' },
             ],
           },
@@ -284,10 +284,10 @@ export default defineConfig({
             ],
           },
           {
-            text: 'Συνεργασίες',
+            text: 'Συνεργασίες - Δίκτυα',
             items: [
-              { text: 'Ακαδημαϊκοί και Επιστημονικοί Φορείς', link: '/el/Collaborations/Academic and Scientific Bodies' },
-              { text: 'Γεωγραφικές Εταιρείες και Δίκτυα', link: '/el/Collaborations/Geographical Societies and Networks' },
+              { text: 'Ακαδημαϊκοί φορείς', link: '/el/Collaborations/Academic and Scientific Bodies' },
+              { text: 'Γεωγραφικές Εταιρείες / Επιτροπές', link: '/el/Collaborations/Geographical Societies and Networks' },
               { text: 'Άλλα', link: '/el/Collaborations/Other' },
             ],
           },

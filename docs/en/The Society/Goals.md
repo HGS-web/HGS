@@ -1,21 +1,16 @@
 # Goals
 
-Σκοπός της Εταιρείας σύμφωνα με το καταστατικό της είναι "... η από πάσης γεωγραφικής απόψεως γνώσις των Ελληνικών χωρών, ή προαγωγή της γεωγραφικής επιστήμης καθόλου και η διάδοσις γεωγραφικών γνώσεων. Η εταιρεία θα επιδιώξη την πραγματοποίηση του σκοπού αυτής, α) δι’εκδόσεως ειδικού περιοδικού και σχετικών δημοσιευμάτων, β) διά του καταρτισμού Γεωγραφικού Αρχείου του Κράτους, γ) δι’ επιστημονικών ανακοινώσεων, διαλέξεων και εκδρομών, δ) δια της ιδρύσεως ειδικής βιβλιοθήκης, βιβλίων, χαρτών και εικόνων, 3) δια της οργανώσεως ειδικών επιστημονικών αποστολών προς γεωγραφικής έρευναν τμημάτων της Ελλάδος και των συνορευουσών προς αυτήν χωρών, στ) δια της προκηρύξεως διαγωνισμών και απονομής βραβείων, ζ) δια παντός άλλου τρόπου τον οποίον ήθελε κρίνει συντελεστικόν το Διοικητικόν Συμβούλιον."
+The purpose of the Society according to its statute is *"... the knowledge of the Greek lands from every geographical perspective, the advancement of geographical science in general, and the dissemination of geographical knowledge. The Society will pursue the realization of this purpose, a) through the publication of a special journal and related publications, b) through the establishment of a Geographical Archive of the State, c) through scientific announcements, lectures, and excursions, d) through the establishment of a special library of books, maps, and images, e) through the organization of special scientific missions for the geographical research of parts of Greece and its neighboring countries, f) through the announcement of competitions and awarding of prizes, g) through any other means which the Board of Directors would deem conducive."*
 
-Αθήναι, Σεπτέμβριος 1928
+*Athens, September 1928*
 
-Ο βασικός στόχος της  ΕΓΕ είναι να αναβαθμίσει τη θέση της επιστήμης της Γεωγραφίας στην Ελλάδα μέσα από μια σειρά από δραστηριότητες για τα μέλη της όπως:
+The Hellenic Geographical Society (HGS) works diligently to highlight the importance of the science and research of Geography in Greece, inspiring and supporting its members through a rich series of actions:
 
-  1. Οργάνωση συνεδρίων και άλλων επιστημονικών εκδηλώσεων
+*   **Organizing Conferences and Scientific Events:** We create platforms where ideas meet knowledge, bringing together geographers, researchers, and professionals.
+*   **Publications:** We promote the dissemination of geographical knowledge through publications such as conference proceedings, journals, and scientific books.
+*   **Supporting the Science and Profession of Geographer:** We defend the scientific and professional rights of our members, actively intervening with the relevant authorities.
+*   **Contributing to Public Life:** We provide the expertise of geographical science to decision-makers, offering solutions to critical spatial problems in our country.
+*   **Enhancing the Teaching of Geography:** We work to upgrade the teaching of Geography at all levels of Greek education.
+*   **International Presence:** We actively participate in the most important European and international geographical associations and committees (IGU, EUGEO, EUROGEO), placing Greece at the center of the global geographical community.
 
-  2. Δημιουργία δημοσιεύσεων κάθε είδους (πρακτικά συνεδρίων, περιοδικά και βιβλία)
-
-  3. Υποστήριξη της επιστήμης της Γεωγραφίας και των Γεωγράφων στην Ελλάδα
-
-  4. Υποστήριξη του επαγγέλματος του Γεωγράφου παρεμβαίνοντας και διεκδικώντας σε κάθε φορέα τα επιστημονικά και επαγγελματικά δικαιώματα των μελών της 
-
-  5. Παρεμβαίνοντας στην δημόσια ζωή της χώρας παρέχοντες την εμπειρία της επιστήμης της Γεωγραφίας στους λήπτες αποφάσεων για την επίλυση χωρικών προβλημάτων που ταλανίζουν την χώρα μας
-
-  6. Υποστήριξη της διδασκαλίας της Γεωγραφίας σε όλα τα επίπεδα της Ελληνικής εκπαίδευσης
-  
-  7. Συμμετέχοντας στην πανευρωπαϊκή (EUROGEO) και στη διεθνή (IGU) ένωση Γεωγράφων να προσφέρει στην επιστήμη της Γεωγραφίας.
+With vision, knowledge, and action, the HGS moves forward dynamically, highlighting Geography as a key tool for understanding and solving the challenges of the modern world.

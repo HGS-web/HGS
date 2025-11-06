@@ -1,15 +1,9 @@
-# Academic and Scientific Bodies 
+# Academic and Scientific Bodies
 
-- National Centre for Social Research (ΕΚΚΕ)
-
-- National Technical University of Athens (NKUA)
-
-- Aegean University
-
-- Aristotle University of Thessaloniki (AUT)
-
+- National Centre for Social Research (EKKE)
+- National Technical University of Athens (NTUA)
+- University of the Aegean
+- Aristotle University of Thessaloniki (AUTH)
 - Harokopio University
-
 - National and Kapodistrian University of Athens (NKUA)
-
-- The French School of Athens
+- The French School at Athens (EfA)

@@ -1,3 +1,3 @@
-# Κοινωνικά Δίκτυα 
+# Κοινωνικά Δίκτυα
 
-facebook: @hellenicGeographicalSociety
+facebook: [@hellenicGeographicalSociety](https://www.facebook.com/HellenicGEOSOCIETY/)

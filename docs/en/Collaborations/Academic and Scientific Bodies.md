@@ -1,5 +1,7 @@
 # Academic and Scientific Bodies 
 
+![HGS Logo](/logo.png)
+
 - National Centre for Social Research (ΕΚΚΕ)
 
 - National Technical University of Athens (NKUA)

@@ -1,5 +1,84 @@
 # Ακαδημαϊκοί και Επιστημονικοί Φορείς 
 
+<table style="border-collapse: collapse; width: 100%;">
+  <tr>
+    <td style="padding: 12px 0;">
+      Εθνικό Κέντρο Κοινωνικών Ερευνών - Ινστιτούτο Κοινωνικών Ερευνών (ΕΚΚΕ - ΙΚΕ)
+      (<a href="https://www.ekke.gr/">περισσότερα</a>)
+    </td>
+    <td style="padding: 12px 0; width: 80px;">
+      <img src="https://raw.githubusercontent.com/HGS-web/HGS/main/docs/public/ekke_ike_logo.jpg" height="60">
+    </td>
+  </tr>
+
+  <tr>
+    <td style="padding: 12px 0;">
+      Εθνικό Μετσόβιο Πολυτεχνείο (ΕΜΠ)
+      (<a href="https://ntua.gr/el/">περισσότερα</a>)
+    </td>
+    <td style="padding: 12px 0; width: 80px;">
+      <img src="https://raw.githubusercontent.com/HGS-web/HGS/main/docs/public/logo_ntua.svg" height="60">
+    </td>
+  </tr>
+
+  <tr>
+    <td style="padding: 12px 0;">
+      Πανεπιστήμιο Αιγαίου
+      (<a href="https://www.aegean.gr/">περισσότερα</a>)
+    </td>
+    <td style="padding: 12px 0; width: 80px;">
+      <img src="https://raw.githubusercontent.com/HGS-web/HGS/main/docs/public/logo_sfiga_uof_aegean_el-en.svg" height="60">
+    </td>
+  </tr>
+
+  <tr>
+    <td style="padding: 12px 0;">
+      Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης (ΑΠΘ)
+      (<a href="https://www.auth.gr/">περισσότερα</a>)
+    </td>
+    <td style="padding: 12px 0; width: 80px;">
+      <img src="https://raw.githubusercontent.com/HGS-web/HGS/main/docs/public/LogoAUTHblack300ppi.png" height="60">
+    </td>
+  </tr>
+
+  <tr>
+    <td style="padding: 12px 0;">
+      Χαροκόπειο Πανεπιστήμιο
+      (<a href="https://www.hua.gr/">περισσότερα</a>)
+    </td>
+    <td style="padding: 12px 0; width: 80px;">
+      <img src="https://raw.githubusercontent.com/HGS-web/HGS/main/docs/public/HUA-Logo-Black-RGB.png" height="60">
+    </td>
+  </tr>
+
+  <tr>
+    <td style="padding: 12px 0;">
+      Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών (ΕΚΠΑ)
+      (<a href="https://www.uoa.gr/">περισσότερα</a>)
+    </td>
+    <td style="padding: 12px 0; width: 80px;">
+      <img src="https://raw.githubusercontent.com/HGS-web/HGS/main/docs/public/LOGO_UOA%20b_w.jpg" height="60">
+    </td>
+  </tr>
+
+  <tr>
+    <td style="padding: 12px 0;">
+      Γαλλική Σχολή της Αθήνας
+      (<a href="https://www.efa.gr/?lang=el">περισσότερα</a>)
+    </td>
+    <td style="padding: 12px 0; width: 80px;">
+      <img src="https://raw.githubusercontent.com/HGS-web/HGS/main/docs/public/efa_logo.jpg" height="60">
+    </td>
+  </tr>
+</table>
+
+
+
+
+
+
+
+
 - Εθνικό Κέντρο Κοινωνικών Ερευνών - Ινστιτούτο Κοινωνικών Ερευνών (ΕΚΚΕ - ΙΚΕ) ([περισσότερα](https://www.ekke.gr/))
 - Εθνικό Μετσόβιο Πολυτεχνείο (ΕΜΠ) ([περισσότερα](https://ntua.gr/el/))
 - Πανεπιστήμιο Αιγαίου ([περισσότερα](https://www.aegean.gr/))

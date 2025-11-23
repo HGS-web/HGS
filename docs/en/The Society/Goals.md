@@ -1,22 +1,6 @@
 # Goals
 
-According to its founding statute, the purpose of the Society is _"…the advancement of knowledge concerning all aspects of the geography of Greek regions, the promotion of geographical science in general, and the dissemination of geographical knowledge. The Society shall pursue the fulfilment of this purpose:  
-
-a) through the publication of a dedicated journal and related materials,  
-
-b) through the establishment of a National Geographic Archive,  
-
-c) through scientific announcements, lectures, and field excursions,  
-
-d) through the creation of a specialised library of books, maps, and images,  
-
-e) through the organisation of scientific missions for the geographical investigation of areas of Greece and neighbouring countries,  
-
-f) through the announcement of competitions and the awarding of prizes,  
-
-g) and through any other means deemed necessary by the Board of Directors."  
-
-Athens, September 1928_
+According to its founding statute, the purpose of the Society is _"…the advancement of knowledge concerning all aspects of the geography of Greek regions, the promotion of geographical science in general, and the dissemination of geographical knowledge. The Society shall pursue the fulfilment of this purpose: a) through the publication of a dedicated journal and related materials, b) through the establishment of a National Geographic Archive, c) through scientific announcements, lectures, and field excursions, d) through the creation of a specialised library of books, maps, and images, e) through the organisation of scientific missions for the geographical investigation of areas of Greece and neighbouring countries, f) through the announcement of competitions and the awarding of prizes, g) and through any other means deemed necessary by the Board of Directors." Athens, September 1928_
 
 The primary goal of the Hellenic Geographical Society is to enhance the standing of Geography as a scientific discipline in Greece through a wide range of activities offered to its members, such as:
 

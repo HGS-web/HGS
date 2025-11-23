@@ -1,21 +1,31 @@
 # Goals
 
-Σκοπός της Εταιρείας σύμφωνα με το καταστατικό της είναι "... η από πάσης γεωγραφικής απόψεως γνώσις των Ελληνικών χωρών, ή προαγωγή της γεωγραφικής επιστήμης καθόλου και η διάδοσις γεωγραφικών γνώσεων. Η εταιρεία θα επιδιώξη την πραγματοποίηση του σκοπού αυτής, α) δι’εκδόσεως ειδικού περιοδικού και σχετικών δημοσιευμάτων, β) διά του καταρτισμού Γεωγραφικού Αρχείου του Κράτους, γ) δι’ επιστημονικών ανακοινώσεων, διαλέξεων και εκδρομών, δ) δια της ιδρύσεως ειδικής βιβλιοθήκης, βιβλίων, χαρτών και εικόνων, 3) δια της οργανώσεως ειδικών επιστημονικών αποστολών προς γεωγραφικής έρευναν τμημάτων της Ελλάδος και των συνορευουσών προς αυτήν χωρών, στ) δια της προκηρύξεως διαγωνισμών και απονομής βραβείων, ζ) δια παντός άλλου τρόπου τον οποίον ήθελε κρίνει συντελεστικόν το Διοικητικόν Συμβούλιον."
+According to its founding statute, the purpose of the Society is _"…the advancement of knowledge concerning all aspects of the geography of Greek regions, the promotion of geographical science in general, and the dissemination of geographical knowledge. The Society shall pursue the fulfilment of this purpose:  
 
-Αθήναι, Σεπτέμβριος 1928
+a) through the publication of a dedicated journal and related materials,  
 
-Ο βασικός στόχος της  ΕΓΕ είναι να αναβαθμίσει τη θέση της επιστήμης της Γεωγραφίας στην Ελλάδα μέσα από μια σειρά από δραστηριότητες για τα μέλη της όπως:
+b) through the establishment of a National Geographic Archive,  
 
-  1. Οργάνωση συνεδρίων και άλλων επιστημονικών εκδηλώσεων
+c) through scientific announcements, lectures, and field excursions,  
 
-  2. Δημιουργία δημοσιεύσεων κάθε είδους (πρακτικά συνεδρίων, περιοδικά και βιβλία)
+d) through the creation of a specialised library of books, maps, and images,  
 
-  3. Υποστήριξη της επιστήμης της Γεωγραφίας και των Γεωγράφων στην Ελλάδα
+e) through the organisation of scientific missions for the geographical investigation of areas of Greece and neighbouring countries,  
 
-  4. Υποστήριξη του επαγγέλματος του Γεωγράφου παρεμβαίνοντας και διεκδικώντας σε κάθε φορέα τα επιστημονικά και επαγγελματικά δικαιώματα των μελών της 
+f) through the announcement of competitions and the awarding of prizes,  
 
-  5. Παρεμβαίνοντας στην δημόσια ζωή της χώρας παρέχοντες την εμπειρία της επιστήμης της Γεωγραφίας στους λήπτες αποφάσεων για την επίλυση χωρικών προβλημάτων που ταλανίζουν την χώρα μας
+g) and through any other means deemed necessary by the Board of Directors."  
 
-  6. Υποστήριξη της διδασκαλίας της Γεωγραφίας σε όλα τα επίπεδα της Ελληνικής εκπαίδευσης
-  
-  7. Συμμετέχοντας στην πανευρωπαϊκή (EUROGEO) και στη διεθνή (IGU) ένωση Γεωγράφων να προσφέρει στην επιστήμη της Γεωγραφίας.
+Athens, September 1928_
+
+The primary goal of the Hellenic Geographical Society is to enhance the standing of Geography as a scientific discipline in Greece through a wide range of activities offered to its members, such as:
+
+- Organising conferences and other scientific events  
+- Producing various types of publications (conference proceedings, journals, and books)  
+- Supporting the discipline of Geography and Greek geographers  
+- Advancing the professional rights of geographers by intervening and advocating before institutions on behalf of its members  
+- Contributing to public life by providing geographical expertise to decision-makers in addressing spatial problems affecting the country  
+- Supporting the teaching of Geography at all levels of the Greek educational system  
+- Contributing to the advancement of geographical science through participation in the European Association of Geographers ([European Association of Geographers – EUROGEO](https://www.eurogeography.eu/)) and the International Geographical Union ([International Geographical Union – IGU](https://igu-online.org/))
+
+With vision, knowledge, and action, the Hellenic Geographical Society moves forward dynamically, highlighting Geography as a fundamental tool for understanding and addressing the challenges of the modern world.

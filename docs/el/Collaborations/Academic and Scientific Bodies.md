@@ -1,6 +1,6 @@
 # Ακαδημαϊκοί και Επιστημονικοί Φορείς 
 
-## Επιλογή 1: Κείμενο + logo με Διαχωρισμό με λεπτή γραμή
+## <mark> Επιλογή 1: Κείμενο + logo με Διαχωρισμό με λεπτή γραμή </mark>
 <div style="display:flex; justify-content:space-between; align-items:center; gap:16px; padding:12px 0;">
   <div>
     Εθνικό Κέντρο Κοινωνικών Ερευνών - Ινστιτούτο Κοινωνικών Ερευνών (ΕΚΚΕ - ΙΚΕ)
@@ -64,7 +64,7 @@
 </div>
 
 
-## Επιλογή 2: Πίνακας με Κείμενο + logo 
+## <mark> Επιλογή 2: Πίνακας με Κείμενο + logo </mark>
 
 <table style="border-collapse: collapse; width: 100%; border: none; background-color: transparent;">
   <tr>
@@ -138,7 +138,7 @@
   </tr>
 </table>
 
-## Επιλογή 3: Χωρις logos με bullets 
+## <mark> Επιλογή 3: Χωρις logos με bullets </mark>
 - Εθνικό Κέντρο Κοινωνικών Ερευνών - Ινστιτούτο Κοινωνικών Ερευνών (ΕΚΚΕ - ΙΚΕ) ([περισσότερα](https://www.ekke.gr/))
 - Εθνικό Μετσόβιο Πολυτεχνείο (ΕΜΠ) ([περισσότερα](https://ntua.gr/el/))
 - Πανεπιστήμιο Αιγαίου ([περισσότερα](https://www.aegean.gr/))

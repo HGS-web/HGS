@@ -1,7 +1,11 @@
 # Άλλα 
 
-- [Κοινωνικός Άτλαντας της Αθήνας](https://www.athenssocialatlas.gr/)
-- [Κοινωνικός Άτλαντας Θεσσαλονίκης](https://thessalonikisocialatlas.arch.auth.gr/)
-- [Διεθνές Δίκτυο Ατλάντων](https://www.atlasglobalnetwork.com/)
-- [Βραδιά Γεωγραφίας (Geonight)](https://www.geonight.net/)
-- [MINERVA Project (Erasmus+)](https://minerva-erasmus.com/)
+- Κοινωνικός Άτλαντας της Αθήνας [(περισσότερα)](https://www.athenssocialatlas.gr/)
+  
+- Κοινωνικός Άτλαντας Θεσσαλονίκης [(περισσότερα)](https://thessalonikisocialatlas.arch.auth.gr/)
+
+- Διεθνές Δίκτυο Ατλάντων [(περισσότερα)](https://www.atlasglobalnetwork.com/)
+
+- Βραδιά Γεωγραφίας - Geonight [(περισσότερα)](https://www.geonight.net/)
+
+- MINERVA Erasmus+ Project [(περισσότερα)](https://minerva-erasmus.com/)

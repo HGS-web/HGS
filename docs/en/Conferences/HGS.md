@@ -1,4 +1,4 @@
-# GSG Conferences 
+# Past HGS Conferences 
 
 - 1987 - 1st Conference of the Hellenic Geographical Society - Athens, GR
 
@@ -22,4 +22,4 @@
 
 - 2017 - 11th International Conference of the Hellenic Geographical Society - Lavrion, GR
 
-- 2019 - 12th International Conference of the Hellenic Geographical Society - Naxos, GR
+- 2019 - 12th International Conference of the Hellenic Geographical Society - Athens, GR

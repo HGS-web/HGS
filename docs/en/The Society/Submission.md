@@ -40,8 +40,7 @@ Current members of the Hellenic Geographical Society are entitled to the followi
 - Free Attendance at Workshops and Lectures organised by the Society, offering access to informative events at no cost  
 - Voting Rights in elections, allowing you to contribute to shaping the future of the Society  
 
-For any clarification or questions, you may contact the Secretary of the Hellenic Geographical Society, Mr Spyrellis, at  
-[geographicalsocietyhellas@gmail.com](mailto:geographicalsocietyhellas@gmail.com)
+For any clarification or questions, you may contact the Secretary of the Hellenic Geographical Society, Stavros - Nikiforos Spyrellis, at [geographicalsocietyhellas@gmail.com](mailto:geographicalsocietyhellas@gmail.com)
 
 We sincerely thank you for your participation and ongoing support.
 

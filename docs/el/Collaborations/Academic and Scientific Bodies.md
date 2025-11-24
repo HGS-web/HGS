@@ -6,7 +6,7 @@
     Εθνικό Κέντρο Κοινωνικών Ερευνών - Ινστιτούτο Κοινωνικών Ερευνών (ΕΚΚΕ - ΙΚΕ)
     (<a href="https://www.ekke.gr/">περισσότερα</a>)
   </div>
-  <img src="https://raw.githubusercontent.com/HGS-web/HGS/main/docs/public/ekke_ike_logo.jpg" 
+  <img src="https://raw.githubusercontent.com/HGS-web/HGS/main/docs/public/Logo_EKKE_White_gr2.jpg"
        style="height:60px; max-width:120px; object-fit:contain;">
 </div>
 <hr style="border:0; border-top:1px solid #ddd;">

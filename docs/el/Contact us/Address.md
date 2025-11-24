@@ -10,4 +10,4 @@
 
 # Social media
 
-__facebook__: [@hellenicGeographicalSociety]([@hellenicGeographicalSociety](https://www.facebook.com/profile.php?id=61558192471144))
+__facebook__: [@hellenicGeographicalSociety](https://www.facebook.com/profile.php?id=61558192471144)

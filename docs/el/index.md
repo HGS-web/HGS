@@ -4,7 +4,7 @@ hero:
   name: Ελληνική Γεωγραφική Εταιρεία
   tagline: Από το 1901
   image: 
-    src: '/logo.png'
+    src: '/Logo_EGE.png'
     alt: 'HGS Logo'
   actions:
     - theme: brand

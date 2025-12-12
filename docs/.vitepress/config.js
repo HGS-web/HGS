@@ -19,7 +19,7 @@ export default defineConfig({
               { text: 'History', link: 'en/The Society/History' },
               { text: 'Function', link: 'en/The Society/Function' },
               { text: 'Goals', link: 'en/The Society/Goals' },
-              { text: 'Registration', link: 'en/The Society/Submission' },
+              { text: 'Registration', link: 'en/The Society/Registration' },
             ],
           },
           {
@@ -37,7 +37,7 @@ export default defineConfig({
               { text: 'Other', link: 'en/Conferences/Other' },
             ],
           },
-          { text: 'Contact us', link: 'en/Contact us/Address' },
+          { text: 'Contact us', link: 'en/Contact us/index' },
           {
             text: 'Language',
             items: [
@@ -69,7 +69,7 @@ export default defineConfig({
               { text: 'History', link: 'en/The Society/History' },
               { text: 'Function', link: 'en/The Society/Function' },
               { text: 'Goals', link: 'en/The Society/Goals' },
-              { text: 'Registration', link: 'en/The Society/Submission' },
+              { text: 'Registration', link: 'en/The Society/Registration' },
             ],
           },
           {
@@ -87,7 +87,7 @@ export default defineConfig({
               { text: 'Other', link: 'en/Conferences/Other' },
             ],
           },
-          { text: 'Contact us', link: 'en/Contact us/Address' },
+          { text: 'Contact us', link: 'en/Contact us/index' },
         ],
         socialLinks: [
           { icon: 'github', link: 'https://github.com/HGS-web/HGS/' },
@@ -113,7 +113,7 @@ export default defineConfig({
               { text: 'Ιστορία', link: '/el/The Society/History' },
               { text: 'Λειτουργία', link: '/el/The Society/Function' },
               { text: 'Στόχοι', link: '/el/The Society/Goals' },
-              { text: 'Εγγραφή', link: '/el/The Society/Submission' },
+              { text: 'Εγγραφή', link: '/el/The Society/Registration' },
             ],
           },
           {
@@ -131,7 +131,7 @@ export default defineConfig({
               { text: 'Άλλα', link: '/el/Conferences/Other' },
             ],
           },
-          { text: 'Επικοινωνία', link: '/el/Contact us/Address' },
+          { text: 'Επικοινωνία', link: '/el/Contact us/index' },
         ],
         socialLinks: [
           { icon: 'github', link: 'https://github.com/HGS-web/HGS/' },

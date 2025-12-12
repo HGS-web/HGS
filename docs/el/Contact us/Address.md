@@ -1,13 +1,13 @@
-# Διεύθυνση 
+# Επικοινωνία
+
+## Διεύθυνση
 
 Βουκουρεστίου 11, 106 71, Αθήνα ([Δείτε στο χάρτη](https://maps.app.goo.gl/g7kBUna8MDYhGkAF7))
 
+## Ηλεκτρονικό ταχυδρομείο
 
+Το **e-mail** επικοινωνίας είναι: geographicalsocietyhellas@gmail.com
 
-# Ηλεκτρονικό ταχυδρομείο
+## Κοινωνικά Δίκτυα
 
-Το __e-mail__ επικοινωνίας είναι: geographicalsocietyhellas@gmail.com
-
-# Social media
-
-__facebook__: [@hellenicGeographicalSociety](https://www.facebook.com/profile.php?id=61558192471144)
+**Facebook**: [@hellenicGeographicalSociety](https://www.facebook.com/profile.php?id=61558192471144)

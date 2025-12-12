@@ -4,7 +4,7 @@ Dear Member,
 
 The Board of Directors of the Hellenic Geographical Society welcomes you to the geographical community.
 
-On behalf of the Board, and as part of the Society’s renewed activities, we kindly invite you once again to renew your annual membership via bank transfer to the Society's Bank Account in Piraeus Bank:
+On behalf of the Board, and as part of the Society’s renewed activities, we kindly invite you once again to renew your annual membership via bank transfer to the Society's Bank Account in Piraeus Bank. 
 
 Banking Information:
 

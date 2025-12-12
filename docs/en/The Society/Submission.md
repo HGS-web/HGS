@@ -4,9 +4,15 @@ Dear Member,
 
 The Board of Directors of the Hellenic Geographical Society welcomes you to the geographical community.
 
-On behalf of the Board, and as part of the Society’s renewed activities, we kindly invite you once again to renew your annual membership via bank transfer to the Society's Bank Account:
+On behalf of the Board, and as part of the Society’s renewed activities, we kindly invite you once again to renew your annual membership via bank transfer to the Society's Bank Account in Piraeus Bank:
 
-<mark>___!!!HERE BANKING DETAILS FOR RENEWING REGISTRATION!!!___</mark>
+Banking Information:
+
+- IBAN: __GR9801720440005044113342752__
+
+- BIC / SWIFT: __PIRBGRAA__
+
+- Information for Beneficiary: __Membrship HGS + year__
 
 These subscriptions are vital to the Society's operations, growth, and long-term sustainability. They also enable us to organise events and to promote the geographical sciences. We sincerely thank you for your support of this effort. By maintaining your membership, you contribute to the advancement of the Hellenic Geographical Society’s initiatives for the benefit of the Greek geographical community.
 

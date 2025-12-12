@@ -2,9 +2,11 @@
 
 Dear Member,
 
-The Board of Directors of the Hellenic Geographical Society welcomes you to the geographical community.
+The Board of Directors of the Hellenic Geographical Society welcomes you to the Greek geographical community.
 
-On behalf of the Board, and as part of the Society’s renewed activities, we kindly invite you once again to renew your annual membership via bank transfer to the Society's Bank Account in Piraeus Bank. 
+On behalf of the Board of Directors, we invite you to become a member of the Hellenic Geographical Society. To complete your registration, please fill in the membership form and send it to the HGS email address [geographicalsocietyhellas@gmail.com](mailto:geographicalsocietyhellas@gmail.com)
+
+We also invite you to pay or renew your membership fee via bank transfer to the HGS account at Piraeus Bank.
 
 Banking Information:
 

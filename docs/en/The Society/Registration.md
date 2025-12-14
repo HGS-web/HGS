@@ -5,6 +5,8 @@ Dear Member,
 The Board of Directors of the Hellenic Geographical Society welcomes you to the Greek geographical community.
 
 On behalf of the Board of Directors, we invite you to become a member of the Hellenic Geographical Society. To complete your registration, please fill in the __membership form__ and send it to the HGS email address [geographicalsocietyhellas@gmail.com](mailto:geographicalsocietyhellas@gmail.com)
+[Download the registration form (DOCX)](/public/files/Eggrafi_EGE.docx)
+
 
 We also invite you to pay or renew your membership fee via bank transfer to the HGS account at Piraeus Bank.
 

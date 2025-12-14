@@ -8,8 +8,6 @@ On behalf of the Board of Directors, we invite you to become a member of the Hel
 
 [Here you can download the registration form](/public/files/Eggrafi_EGE.docx)
 
-TEST
-
 We also invite you to pay or renew your membership fee via bank transfer to the HGS account at Piraeus Bank.
 
 Banking Information:

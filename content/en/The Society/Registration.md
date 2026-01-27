@@ -1,0 +1,57 @@
+# Registration
+
+Dear Member,
+
+The Board of Directors of the Hellenic Geographical Society welcomes you to the Greek geographical community.
+
+On behalf of the Board of Directors, we invite you to become a member of the Hellenic Geographical Society. To complete your registration, please fill in the <a href="/registration-form.docx" target="_blank"><strong>registration form</strong></a> and send it to the HGS email address [geographicalsocietyhellas@gmail.com](mailto:geographicalsocietyhellas@gmail.com)
+
+<a href="/registration-form.docx" target="_blank">Here you can download the registration form</a>
+
+We also invite you to pay or renew your membership fee via bank transfer to the HGS account at Piraeus Bank.
+
+Banking Information:
+
+- IBAN: __GR9801720440005044113342752__
+
+- BIC / SWIFT: __PIRBGRAA__
+
+- Information for Beneficiary: __Membrship HGS + year__
+
+These subscriptions are vital to the Society's operations, growth, and long-term sustainability. They also enable us to organise events and to promote the geographical sciences. We sincerely thank you for your support of this effort. By maintaining your membership, you contribute to the advancement of the Hellenic Geographical Society’s initiatives for the benefit of the Greek geographical community.
+
+With geographical regards,
+
+The Board of Directors  
+Hellenic Geographical Society
+
+## Membership Fees
+
+__Annual membership:__  
+- Research staff: €20  
+- Students: €10  
+
+As a __member__ of the Hellenic Geographical Society, you will be able to:  
+- Stay informed about Scientific Events & International Conferences  
+- Access Authoritative Studies  
+- Collaborate with People Who Share Your Interests  
+- Promote Education  
+- Strengthen Geographical Knowledge & Environmental Awareness  
+- Support Research & Innovation  
+
+___Become a member today and actively contribute to the development and dissemination of geographical knowledge in Greece and worldwide!___  
+
+___Let us shape the future of geography together!___  
+
+___Join the geographical community!___  
+
+Current members of the Hellenic Geographical Society are entitled to the following benefits:  
+- Reduced Registration Fee for participation in HGS conferences and other scientific events in which the Society takes part  
+- Free Attendance at Workshops and Lectures organised by the Society, offering access to informative events at no cost  
+- Voting Rights in elections, allowing you to contribute to shaping the future of the Society  
+
+For any clarification or questions, you may contact the Secretary of the Hellenic Geographical Society at [geographicalsocietyhellas@gmail.com](mailto:geographicalsocietyhellas@gmail.com)
+
+We sincerely thank you for your participation and ongoing support.
+
+With your contribution, the Hellenic Geographical Society continues to promote geographical science and strengthen the scientific community.

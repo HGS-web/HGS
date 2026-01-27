@@ -11,9 +11,9 @@ interface FadeInProps {
   direction?: "up" | "down" | "left" | "right" | "none";
 }
 
-export function FadeIn({ 
-  children, 
-  delay = 0, 
+export function FadeIn({
+  children,
+  delay = 0,
   duration = 0.5,
   className,
   direction = "up"
@@ -28,16 +28,16 @@ export function FadeIn({
 
   return (
     <motion.div
-      initial={{ 
-        opacity: 0, 
+      initial={{
+        opacity: 0,
         ...directions[direction]
       }}
-      animate={{ 
-        opacity: 1, 
-        y: 0, 
-        x: 0 
+      animate={{
+        opacity: 1,
+        y: 0,
+        x: 0
       }}
-      transition={{ 
+      transition={{
         duration,
         delay,
         ease: [0.25, 0.4, 0.25, 1]
@@ -57,9 +57,9 @@ interface FadeInViewProps {
   direction?: "up" | "down" | "left" | "right" | "none";
 }
 
-export function FadeInView({ 
-  children, 
-  delay = 0, 
+export function FadeInView({
+  children,
+  delay = 0,
   duration = 0.5,
   className,
   direction = "up"
@@ -74,17 +74,17 @@ export function FadeInView({
 
   return (
     <motion.div
-      initial={{ 
-        opacity: 0, 
+      initial={{
+        opacity: 0,
         ...directions[direction]
       }}
-      whileInView={{ 
-        opacity: 1, 
-        y: 0, 
-        x: 0 
+      whileInView={{
+        opacity: 1,
+        y: 0,
+        x: 0
       }}
       viewport={{ once: true, margin: "-50px" }}
-      transition={{ 
+      transition={{
         duration,
         delay,
         ease: [0.25, 0.4, 0.25, 1]
@@ -102,8 +102,8 @@ interface StaggerContainerProps {
   staggerDelay?: number;
 }
 
-export function StaggerContainer({ 
-  children, 
+export function StaggerContainer({
+  children,
   className,
   staggerDelay = 0.1
 }: StaggerContainerProps) {
@@ -127,19 +127,19 @@ export function StaggerContainer({
   );
 }
 
-export function StaggerItem({ 
-  children, 
-  className 
-}: { 
-  children: ReactNode; 
-  className?: string 
+export function StaggerItem({
+  children,
+  className
+}: {
+  children: ReactNode;
+  className?: string
 }) {
   return (
     <motion.div
       variants={{
         hidden: { opacity: 0, y: 20 },
-        visible: { 
-          opacity: 1, 
+        visible: {
+          opacity: 1,
           y: 0,
           transition: {
             duration: 0.5,
@@ -165,8 +165,8 @@ export function ScaleIn({ children, delay = 0, className }: ScaleInProps) {
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ 
-        duration: 0.4, 
+      transition={{
+        duration: 0.4,
         delay,
         ease: [0.25, 0.4, 0.25, 1]
       }}

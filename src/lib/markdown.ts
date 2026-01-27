@@ -70,7 +70,10 @@ export async function getMarkdownContent(
     const fileContents = fs.readFileSync(filePath, "utf8");
     const { data, content: rawContent } = matter(fileContents);
 
-    const processedContent = await remark().use(html).process(rawContent);
+    // Allow inline HTML inside our Markdown content (we control the content folder).
+    const processedContent = await remark()
+      .use(html, { sanitize: false })
+      .process(rawContent);
     const content = processedContent.toString();
 
     return {
@@ -98,7 +101,10 @@ export async function getHomeContent(locale: string): Promise<MarkdownContent | 
     const fileContents = fs.readFileSync(filePath, "utf8");
     const { data, content: rawContent } = matter(fileContents);
 
-    const processedContent = await remark().use(html).process(rawContent);
+    // Allow inline HTML inside our Markdown content (we control the content folder).
+    const processedContent = await remark()
+      .use(html, { sanitize: false })
+      .process(rawContent);
     const content = processedContent.toString();
 
     return {

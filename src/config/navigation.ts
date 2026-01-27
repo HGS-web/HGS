@@ -20,9 +20,9 @@ export const navigation: Record<Locale, NavItem[]> = {
     {
       label: "Collaborations",
       children: [
-        { label: "Academic Bodies", href: "/en/collaborations/academic" },
-        { label: "Geographical Societies", href: "/en/collaborations/societies" },
-        { label: "Other Networks", href: "/en/collaborations/other" },
+        { label: "Academic and Scientific Bodies", href: "/en/collaborations/academic" },
+        { label: "Geographical Societies and Networks", href: "/en/collaborations/societies" },
+        { label: "Other", href: "/en/collaborations/other" },
       ],
     },
     {
@@ -55,9 +55,9 @@ export const navigation: Record<Locale, NavItem[]> = {
     {
       label: "Συνεργασίες",
       children: [
-        { label: "Ακαδημαϊκοί Φορείς", href: "/el/collaborations/academic" },
-        { label: "Γεωγραφικές Εταιρείες", href: "/el/collaborations/societies" },
-        { label: "Άλλα Δίκτυα", href: "/el/collaborations/other" },
+        { label: "Ακαδημαϊκοί και Επιστημονικοί Φορείς", href: "/el/collaborations/academic" },
+        { label: "Γεωγραφικές Εταιρείες και Δίκτυα", href: "/el/collaborations/societies" },
+        { label: "Άλλα", href: "/el/collaborations/other" },
       ],
     },
     {

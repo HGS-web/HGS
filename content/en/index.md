@@ -44,8 +44,8 @@ hero:
 
 <div class="cta-banner">
   <span class="cta-eyebrow">2026</span>
-  <h3>13th Panhellenic Geographical Conference</h3>
-  <p>The largest scientific gathering of geographers in Greece. Join us!</p>
+  <h3>13th International Conference of the Hellenic Geographical Society</h3>
+  <p>Geography Matters - 27-28 November 2026, Athens, Greece.</p>
   <a href="/en/Conference2026/" class="cta-button">Learn More →</a>
 </div>
 

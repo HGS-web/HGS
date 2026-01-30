@@ -14,28 +14,24 @@ export function generateStaticParams() {
 
 const conferenceText = {
   en: {
-    subtitle: "13th Panhellenic Geographical Conference",
-    date: "Date",
-    location: "Location",
-    topics: "Topics",
-    contact: "Contact",
-    tba: "To be announced",
-    moreInfo: "For more information, please contact us",
-    backToHome: "Back to Home",
-    registration: "Registration",
-    registrationOpen: "Registration will open soon",
+    title: "13th International Conference of the Hellenic Geographical Society",
+    theme: "Geography Matters",
+    dateLabel: "Date",
+    dateValue: "27-28 November 2026",
+    locationLabel: "Location",
+    locationValue: "Athens, Greece",
+    contactLabel: "Contact",
+    contactBlurb: "For more information, please contact us",
   },
   el: {
-    subtitle: "13ο Πανελλήνιο Γεωγραφικό Συνέδριο",
-    date: "Ημερομηνία",
-    location: "Τοποθεσία",
-    topics: "Θεματικές",
-    contact: "Επικοινωνία",
-    tba: "Θα ανακοινωθεί",
-    moreInfo: "Για περισσότερες πληροφορίες, επικοινωνήστε μαζί μας",
-    backToHome: "Πίσω στην Αρχική",
-    registration: "Εγγραφή",
-    registrationOpen: "Οι εγγραφές θα ανοίξουν σύντομα",
+    title: "13th International Conference of the Hellenic Geographical Society",
+    theme: "Geography Matters",
+    dateLabel: "Date",
+    dateValue: "27-28 November 2026",
+    locationLabel: "Location",
+    locationValue: "Athens, Greece",
+    contactLabel: "Contact",
+    contactBlurb: "For more information, please contact us",
   },
 };
 
@@ -58,13 +54,10 @@ export default async function Conference2026Page({ params }: PageProps) {
                 2026
               </span>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-black mb-6">
-                {t.subtitle}
+                {t.title}
               </h1>
-              <p className="text-lg text-black/60 max-w-2xl mx-auto">
-                {validLocale === "en"
-                  ? "The Hellenic Geographical Society announces the organization of the 13th Panhellenic Geographical Conference."
-                  : "Η Ελληνική Γεωγραφική Εταιρεία ανακοινώνει τη διοργάνωση του 13ου Πανελλήνιου Γεωγραφικού Συνεδρίου."
-                }
+              <p className="text-xl text-black/70 max-w-2xl mx-auto">
+                {t.theme}
               </p>
             </div>
           </FadeIn>
@@ -81,9 +74,9 @@ export default async function Conference2026Page({ params }: PageProps) {
                   <div className="p-2 rounded-lg bg-black/5">
                     <Calendar className="h-5 w-5 text-black/60" />
                   </div>
-                  <h3 className="text-lg font-semibold text-black">{t.date}</h3>
+                  <h3 className="text-lg font-semibold text-black">{t.dateLabel}</h3>
                 </div>
-                <p className="text-black/50">{t.tba}</p>
+                <p className="text-black/60">{t.dateValue}</p>
               </div>
             </FadeInView>
 
@@ -93,27 +86,12 @@ export default async function Conference2026Page({ params }: PageProps) {
                   <div className="p-2 rounded-lg bg-black/5">
                     <MapPin className="h-5 w-5 text-black/60" />
                   </div>
-                  <h3 className="text-lg font-semibold text-black">{t.location}</h3>
+                  <h3 className="text-lg font-semibold text-black">{t.locationLabel}</h3>
                 </div>
-                <p className="text-black/50">{t.tba}</p>
+                <p className="text-black/60">{t.locationValue}</p>
               </div>
             </FadeInView>
           </div>
-
-          {/* Contact */}
-          <FadeInView delay={0.3}>
-            <div className="mt-12 p-8 rounded-2xl border border-black/10 bg-white shadow-sm text-center">
-              <h3 className="text-xl font-semibold text-black mb-4">{t.contact}</h3>
-              <p className="text-black/60 mb-6">{t.moreInfo}</p>
-              <a
-                href="mailto:info@geographiki.gr"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white font-medium rounded-full hover:bg-black/90 transition-all"
-              >
-                <Mail className="h-4 w-4" />
-                info@geographiki.gr
-              </a>
-            </div>
-          </FadeInView>
 
           {/* Markdown content if exists */}
           {content && (
@@ -124,6 +102,21 @@ export default async function Conference2026Page({ params }: PageProps) {
               />
             </FadeInView>
           )}
+
+          {/* Contact */}
+          <FadeInView delay={0.5}>
+            <div className="mt-12 p-8 rounded-2xl border border-black/10 bg-white shadow-sm text-center">
+              <h3 className="text-xl font-semibold text-black mb-4">{t.contactLabel}</h3>
+              <p className="text-black/60 mb-6">{t.contactBlurb}</p>
+              <a
+                href="mailto:info@geographiki.gr"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white font-medium rounded-full hover:bg-black/90 transition-all"
+              >
+                <Mail className="h-4 w-4" />
+                info@geographiki.gr
+              </a>
+            </div>
+          </FadeInView>
         </div>
       </section>
     </>

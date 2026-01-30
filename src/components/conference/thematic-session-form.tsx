@@ -39,7 +39,9 @@ export function ThematicSessionForm({ locale }: ThematicSessionFormProps) {
     { ...emptyOrganizer },
   ]);
   const [title, setTitle] = React.useState("");
-  const [topic, setTopic] = React.useState(topicOptions[0]);
+  const [topic, setTopic] = React.useState<(typeof topicOptions)[number] | "custom">(
+    topicOptions[0]
+  );
   const [customTopic, setCustomTopic] = React.useState("");
   const [summary, setSummary] = React.useState("");
   const [keywords, setKeywords] = React.useState("");

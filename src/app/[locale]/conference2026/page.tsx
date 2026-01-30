@@ -56,43 +56,33 @@ export default async function Conference2026Page({ params }: PageProps) {
               <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-black">
                 {t.title}
               </h1>
-              <h2 className="mt-6 text-2xl sm:text-3xl lg:text-4xl font-semibold text-black/80">
+              <h2 className="mt-5 text-2xl sm:text-3xl lg:text-4xl font-semibold text-black/80">
                 {t.theme}
               </h2>
+              <p className="mt-4 text-base sm:text-lg text-black/60">
+                {t.dateValue} &bull; {t.locationValue}
+              </p>
             </div>
           </FadeIn>
         </div>
       </section>
 
       {/* Info + Content */}
-      <section className="py-10">
+      <section className="py-6">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <FadeInView delay={0.1}>
-            <div className="text-center">
-              <p className="text-base sm:text-lg text-black/60">
-                <span className="font-semibold text-black">{t.dateLabel}:</span>{" "}
-                {t.dateValue}
-              </p>
-              <p className="mt-2 text-base sm:text-lg text-black/60">
-                <span className="font-semibold text-black">{t.locationLabel}:</span>{" "}
-                {t.locationValue}
-              </p>
-            </div>
-          </FadeInView>
-
           {/* Markdown content if exists */}
           {content && (
-            <FadeInView delay={0.2}>
+            <FadeInView delay={0.1}>
               <div
-                className="mt-10 markdown-content"
+                className="mt-8 markdown-content"
                 dangerouslySetInnerHTML={{ __html: content.content }}
               />
             </FadeInView>
           )}
 
           {/* Contact */}
-          <FadeInView delay={0.3}>
-            <div className="mt-10 p-8 rounded-2xl border border-black/10 bg-white shadow-sm text-center">
+          <FadeInView delay={0.2}>
+            <div className="mt-8 p-8 rounded-2xl border border-black/10 bg-white shadow-sm text-center">
               <h3 className="text-xl font-semibold text-black mb-4">{t.contactLabel}</h3>
               <p className="text-black/60 mb-6">{t.contactBlurb}</p>
               <a

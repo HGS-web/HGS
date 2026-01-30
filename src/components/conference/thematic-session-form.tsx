@@ -270,7 +270,11 @@ export function ThematicSessionForm({ locale }: ThematicSessionFormProps) {
             <select
               className="rounded-lg border border-black/10 px-3 py-2 text-sm"
               value={topic}
-              onChange={(event) => setTopic(event.target.value)}
+              onChange={(event) =>
+                setTopic(
+                  event.target.value as (typeof topicOptions)[number] | "custom"
+                )
+              }
               required
             >
               {topicOptions.map((option) => (

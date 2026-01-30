@@ -18,4 +18,4 @@
 
 ### Επικοινωνία
 
-Για περισσότερες πληροφορίες, επικοινωνήστε μαζί μας στο [info@geographiki.gr](mailto:info@geographiki.gr)
+Για περισσότερες πληροφορίες, επικοινωνήστε μαζί μας στο [geographicalsocietyhellas@gmail.com](mailto:geographicalsocietyhellas@gmail.com)

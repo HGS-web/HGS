@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Calendar, MapPin, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import { getMarkdownContent } from "@/lib/markdown";
 import { FadeIn, FadeInView } from "@/components/ui/motion";
 import type { Locale } from "@/config/site";
@@ -64,48 +64,35 @@ export default async function Conference2026Page({ params }: PageProps) {
         </div>
       </section>
 
-      {/* Info Cards */}
-      <section className="py-16">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <FadeInView delay={0.1}>
-              <div className="p-6 rounded-2xl border border-black/10 bg-white shadow-sm">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 rounded-lg bg-black/5">
-                    <Calendar className="h-5 w-5 text-black/60" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-black">{t.dateLabel}</h3>
-                </div>
-                <p className="text-black/60">{t.dateValue}</p>
-              </div>
-            </FadeInView>
-
-            <FadeInView delay={0.2}>
-              <div className="p-6 rounded-2xl border border-black/10 bg-white shadow-sm">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 rounded-lg bg-black/5">
-                    <MapPin className="h-5 w-5 text-black/60" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-black">{t.locationLabel}</h3>
-                </div>
-                <p className="text-black/60">{t.locationValue}</p>
-              </div>
-            </FadeInView>
-          </div>
+      {/* Info + Content */}
+      <section className="py-10">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <FadeInView delay={0.1}>
+            <div className="text-center">
+              <p className="text-base sm:text-lg text-black/60">
+                <span className="font-semibold text-black">{t.dateLabel}:</span>{" "}
+                {t.dateValue}
+              </p>
+              <p className="mt-2 text-base sm:text-lg text-black/60">
+                <span className="font-semibold text-black">{t.locationLabel}:</span>{" "}
+                {t.locationValue}
+              </p>
+            </div>
+          </FadeInView>
 
           {/* Markdown content if exists */}
           {content && (
-            <FadeInView delay={0.4}>
+            <FadeInView delay={0.2}>
               <div
-                className="mt-12 markdown-content"
+                className="mt-10 markdown-content"
                 dangerouslySetInnerHTML={{ __html: content.content }}
               />
             </FadeInView>
           )}
 
           {/* Contact */}
-          <FadeInView delay={0.5}>
-            <div className="mt-12 p-8 rounded-2xl border border-black/10 bg-white shadow-sm text-center">
+          <FadeInView delay={0.3}>
+            <div className="mt-10 p-8 rounded-2xl border border-black/10 bg-white shadow-sm text-center">
               <h3 className="text-xl font-semibold text-black mb-4">{t.contactLabel}</h3>
               <p className="text-black/60 mb-6">{t.contactBlurb}</p>
               <a

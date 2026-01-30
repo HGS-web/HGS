@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import * as Dialog from "@radix-ui/react-dialog";
-import { supabaseClient } from "@/lib/supabase-client";
+import { getSupabaseClient } from "@/lib/supabase-client";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -51,6 +51,8 @@ export function ThematicSessionForm({ locale }: ThematicSessionFormProps) {
   const [dialogOpen, setDialogOpen] = React.useState(false);
   const [successOpen, setSuccessOpen] = React.useState(false);
 
+  const supabaseClient = React.useMemo(() => getSupabaseClient(), []);
+
   const wordCount = summary.trim() ? summary.trim().split(/\s+/).length : 0;
   const keywordList = keywords
     .split(/[,\n]/)
@@ -97,6 +99,11 @@ export function ThematicSessionForm({ locale }: ThematicSessionFormProps) {
 
     if (!organizers[0].firstName || !organizers[0].lastName || !organizers[0].email) {
       setError("Please complete the required organizer fields.");
+      return;
+    }
+
+    if (!supabaseClient) {
+      setError("Submission is currently unavailable. Please try again later.");
       return;
     }
 
@@ -347,13 +354,18 @@ export function ThematicSessionForm({ locale }: ThematicSessionFormProps) {
         {error && <p className="text-sm font-medium text-red-500">{error}</p>}
 
         <div className="flex flex-wrap items-center gap-3">
-          <Button type="submit" disabled={isSubmitting}>
+          <Button type="submit" disabled={isSubmitting || !supabaseClient}>
             {isSubmitting ? "Submitting..." : "Submit thematic session"}
           </Button>
           <p className="text-xs text-black/50">
             You will be asked to confirm before the submission is sent.
           </p>
         </div>
+        {!supabaseClient && (
+          <p className="text-xs text-black/50">
+            Submissions are temporarily unavailable. Please try again later.
+          </p>
+        )}
       </form>
 
       <Dialog.Root open={dialogOpen} onOpenChange={setDialogOpen}>

@@ -53,13 +53,13 @@ export default async function Conference2026Page({ params }: PageProps) {
               <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium bg-black/5 text-black/80 rounded-full">
                 2026
               </span>
-              <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-black">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-black tracking-tight">
                 {t.title}
               </h1>
-              <h2 className="mt-5 text-2xl sm:text-3xl lg:text-4xl font-semibold text-black/80">
+              <h2 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-semibold text-black/70">
                 {t.theme}
               </h2>
-              <p className="mt-4 text-base sm:text-lg text-black/60">
+              <p className="mt-4 text-sm sm:text-base text-black/60">
                 {t.dateValue} &bull; {t.locationValue}
               </p>
             </div>

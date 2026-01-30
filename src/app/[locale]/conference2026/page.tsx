@@ -53,12 +53,12 @@ export default async function Conference2026Page({ params }: PageProps) {
               <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium bg-black/5 text-black/80 rounded-full">
                 2026
               </span>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-black mb-6">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black">
                 {t.title}
               </h1>
-              <p className="text-xl text-black/70 max-w-2xl mx-auto">
+              <h2 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-bold text-black/80">
                 {t.theme}
-              </p>
+              </h2>
             </div>
           </FadeIn>
         </div>

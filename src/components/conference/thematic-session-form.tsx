@@ -354,18 +354,13 @@ export function ThematicSessionForm({ locale }: ThematicSessionFormProps) {
         {error && <p className="text-sm font-medium text-red-500">{error}</p>}
 
         <div className="flex flex-wrap items-center gap-3">
-          <Button type="submit" disabled={isSubmitting || !supabaseClient}>
+          <Button type="submit" disabled={isSubmitting}>
             {isSubmitting ? "Submitting..." : "Submit thematic session"}
           </Button>
           <p className="text-xs text-black/50">
             You will be asked to confirm before the submission is sent.
           </p>
         </div>
-        {!supabaseClient && (
-          <p className="text-xs text-black/50">
-            Submissions are temporarily unavailable. Please try again later.
-          </p>
-        )}
       </form>
 
       <Dialog.Root open={dialogOpen} onOpenChange={setDialogOpen}>

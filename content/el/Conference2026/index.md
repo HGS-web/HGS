@@ -21,24 +21,49 @@ Suggested topics include, but are not limited to:
 
 ### Important dates
 
-- 30 January 2026: Call for thematic session proposals
-- 15 February 2026: Deadline for thematic session proposals
-- 1 March 2026: Call for abstracts
-- 1 May 2026: Deadline for abstract submission
-- 1 July 2026: Notifications to authors
-- 1 July to 31 August 2026: Early bird registration
-- 30 September: Late bird registration deadline
-- 27 & 28 November 2026: Conference
-- 29 November 2026: Post-conference field trip (TBC)
+- **30 January 2026**: Call for thematic session proposals
+- **15 February 2026**: Deadline for thematic session proposals
+- **1 March 2026**: Call for abstracts
+- **1 May 2026**: Deadline for abstract submission
+- **1 July 2026**: Notifications to authors
+- **1 July to 31 August 2026**: Early bird registration
+- **30 September**: Late bird registration deadline
+- **27 & 28 November 2026**: Conference
+- **29 November 2026**: Post-conference field trip (TBC)
 
 ### Registration fees
 
-| Category | Early Bird (until 31 Aug) | Late bird Registration (until 30 September) |
-| --- | --- | --- |
-| Regular fee | 60 € | 80 € |
-| HGS Members (in good standing) | 40 € | 50 € |
-| Students | 20 € | 30 € |
-| HGS Student Members | 10 € | 15 € |
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Early Bird (until 31 Aug)</th>
+      <th>Late bird Registration (until 30 September)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Regular fee</td>
+      <td>60 €</td>
+      <td>80 €</td>
+    </tr>
+    <tr>
+      <td>HGS Members (in good standing)</td>
+      <td>40 €</td>
+      <td>50 €</td>
+    </tr>
+    <tr>
+      <td>Students</td>
+      <td>20 €</td>
+      <td>30 €</td>
+    </tr>
+    <tr>
+      <td>HGS Student Members</td>
+      <td>10 €</td>
+      <td>15 €</td>
+    </tr>
+  </tbody>
+</table>
 
 ### General information
 

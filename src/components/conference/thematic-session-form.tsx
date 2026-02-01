@@ -256,10 +256,8 @@ export function ThematicSessionForm({ locale }: ThematicSessionFormProps) {
 
         <section className="space-y-4">
           <div>
-            <h4 className="text-lg font-semibold text-black">Thematic session details</h4>
-            <p className="text-sm text-black/60">
-              Provide the thematic session content below.
-            </p>
+            <h4 className="text-lg font-semibold text-black">Session details</h4>
+            <p className="text-sm text-black/60">Provide the session content below.</p>
           </div>
 
           <label className="flex flex-col gap-2 text-sm text-black/70">
@@ -289,13 +287,13 @@ export function ThematicSessionForm({ locale }: ThematicSessionFormProps) {
                   {option}
                 </option>
               ))}
-              <option value="custom">Custom topic</option>
+              <option value="custom">Other topic</option>
             </select>
           </label>
 
           {topic === "custom" && (
             <label className="flex flex-col gap-2 text-sm text-black/70">
-              Custom topic *
+              Other topic *
               <input
                 className="rounded-lg border border-black/10 px-3 py-2 text-sm"
                 value={customTopic}
@@ -342,7 +340,7 @@ export function ThematicSessionForm({ locale }: ThematicSessionFormProps) {
           </label>
 
           <label className="flex flex-col gap-2 text-sm text-black/70">
-            Additional comments
+            Additional comments (optional)
             <textarea
               className="min-h-[80px] rounded-lg border border-black/10 px-3 py-2 text-sm"
               value={comments}
@@ -355,18 +353,19 @@ export function ThematicSessionForm({ locale }: ThematicSessionFormProps) {
 
         <div className="flex flex-wrap items-center gap-3">
           <Button type="submit" disabled={isSubmitting}>
-            {isSubmitting ? "Submitting..." : "Submit thematic session"}
+            {isSubmitting ? "Submitting..." : "Submit session"}
           </Button>
           <p className="text-xs text-black/50">
             You will be asked to confirm before the submission is sent.
           </p>
+          <p className="text-xs text-black/50">* Mandatory fields.</p>
         </div>
       </form>
 
       <Dialog.Root open={dialogOpen} onOpenChange={setDialogOpen}>
         <Dialog.Portal>
           <Dialog.Overlay className="fixed inset-0 z-50 bg-black/40" />
-          <Dialog.Content className="fixed left-[50%] top-[50%] z-50 w-full max-w-lg -translate-x-1/2 -translate-y-1/2 rounded-2xl bg-white p-6 shadow-lg">
+          <Dialog.Content className="fixed left-[50%] top-[50%] z-50 w-[calc(100%-2rem)] max-w-lg -translate-x-1/2 -translate-y-1/2 rounded-2xl bg-white p-6 shadow-lg sm:w-full max-h-[90vh] overflow-y-auto">
             <Dialog.Title className="text-lg font-semibold text-black">
               Confirm your submission
             </Dialog.Title>
@@ -404,13 +403,13 @@ export function ThematicSessionForm({ locale }: ThematicSessionFormProps) {
       <Dialog.Root open={successOpen} onOpenChange={setSuccessOpen}>
         <Dialog.Portal>
           <Dialog.Overlay className="fixed inset-0 z-50 bg-black/40" />
-          <Dialog.Content className="fixed left-[50%] top-[50%] z-50 w-full max-w-md -translate-x-1/2 -translate-y-1/2 rounded-2xl bg-white p-6 shadow-lg">
+          <Dialog.Content className="fixed left-[50%] top-[50%] z-50 w-[calc(100%-2rem)] max-w-md -translate-x-1/2 -translate-y-1/2 rounded-2xl bg-white p-6 shadow-lg sm:w-full max-h-[90vh] overflow-y-auto">
             <Dialog.Title className="text-lg font-semibold text-black">
               Submission received
             </Dialog.Title>
             <Dialog.Description className="mt-2 text-sm text-black/60">
-              Thank you. Your thematic session proposal has been submitted for the HGS
-              2026 conference.
+              Thank you. Your session proposal has been submitted for the HGS 2026
+              conference.
             </Dialog.Description>
             <div className="mt-6 flex justify-end">
               <Dialog.Close asChild>

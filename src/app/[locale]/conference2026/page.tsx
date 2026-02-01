@@ -130,241 +130,241 @@ const organizingCommittee = [
 
 const scientificCommittee = [
   {
-    name: "Sidiropoulos Giorgios",
-    url: "https://geography.aegean.gr/ppl/index_en.php?content=0&bio=geos",
-  },
-  {
-    name: "Chorianopoulos Ioannis",
-    url: "https://geography.aegean.gr/ppl/index_en.php?content=0&bio=ichorian",
-  },
-  {
-    name: "Petrakou Ilektra",
-    url: "https://geography.aegean.gr/ppl/index_en.php?content=0&bio=ipetr",
-  },
-  {
-    name: "Petropoulou Christy",
-    url: "https://geography.aegean.gr/ppl/index_en.php?content=0&bio=christy.p",
-  },
-  {
-    name: "Stratigea Anastasia",
-    url: "https://www.survey.ntua.gr/en/dep/stratigea-anastasia",
-  },
-  {
-    name: "Koutrolikou Penny",
-    url: "https://www.arch.ntua.gr/index.php/person/koutrolikou-panagiota-penny/?lang=en",
-  },
-  {
-    name: "Micha Irini",
-    url: "https://www.arch.ntua.gr/index.php/person/micha-irini/?lang=en",
-  },
-  {
-    name: "Kandylis Giorgos",
-    url: "https://www.ekke.gr/en/centre/personnel/kandilis-georgios",
-  },
-  {
-    name: "Fereniki Vatavali",
-    url: "https://www.ekke.gr/en/centre/personnel/vatavali-fereniki",
-  },
-  {
-    name: "Baltas Pavlos",
-    url: "https://www.ekke.gr/en/centre/personnel/mpaltas-paulos",
-  },
-  {
-    name: "Pratsinakis Manolis",
-    url: "https://geo.hua.gr/en/personnel/manolis-pratsinakis-2/",
-  },
-  {
-    name: "Tsilimigkas Georgios",
-    url: "https://geography.aegean.gr/ppl/index_en.php?content=0&bio=gtsil",
-  },
-  {
-    name: "Mavrommatis Giorgos",
-    url: "https://geo.hua.gr/en/personnel/giorgos-mavrommatis-2/",
-  },
-  {
-    name: "Faka Antigoni",
-    url: "https://geo.hua.gr/en/personnel/antigoni-faka-2/",
-  },
-  {
-    name: "Panagiotis Artelaris",
-    url: "https://geo.hua.gr/en/personnel/artelaris-panagiotis-2/",
-  },
-  {
-    name: "Drakou Evangelia",
-    url: "https://geo.hua.gr/en/personnel/evangelia-drakou-2/",
-  },
-  {
-    name: "Tragaki Alexandra",
-    url: "https://geo.hua.gr/en/personnel/alexandra-tragaki/",
-  },
-  {
-    name: "Paidakaki Angeliki",
-    url: "https://geo.hua.gr/en/personnel/angeliki-paidakaki-2/",
-  },
-  {
-    name: "Metaxides Nikolas",
-    url: "https://geo.hua.gr/en/personnel/metaxidis-nikos/",
-  },
-  {
-    name: "Lagarias Apostolos",
-    url: "http://www.prd.uth.gr/en/staff/lagarias_a/",
-  },
-  {
-    name: "Vergou Pinelopi",
-    url: "https://www.econ.uth.gr/en/department/staff/special-teaching-staff/147-laboratory-teaching-staff/82-dr-pinelopi-vergou",
-  },
-  {
-    name: "Kourachanis Nikos",
-    url: "https://socialpolicy.panteion.gr/en/people/nkourachanis",
-  },
-  {
-    name: "Hara Kouki",
-    url: "https://sociology.soc.uoc.gr/en/human-resources/teaching-research-staff-dep/kouki-hara-en/",
-  },
-  {
-    name: "Arampatzi Athina",
-  },
-  {
-    name: "Loukas Triantis",
-    url: "https://architecture.web.auth.gr/en/27134-2/",
-  },
-  {
-    name: "Evangelia Athanassiou",
-    url: "https://architecture.web.auth.gr/en/athanasiou-euangelia/",
-  },
-  {
-    name: "Charis Christodoulou",
-    url: "https://architecture.web.auth.gr/en/christodoulou-charis/",
-  },
-  {
-    name: "Konstantina Kalfa",
-    url: "https://www.asfa.gr/didaktiko-prosopiko/konstantina-kalfa/",
-  },
-  {
-    name: "Chadjimichalis Costis",
-    url: "https://geo.hua.gr/en/personnel/chadjimichalis-costis/",
-  },
-  {
-    name: "Kostas Gourzis",
-    url: "https://lgrl.aegean.gr/el/personnel/gourzis-kostas/",
-  },
-  {
-    name: "Iosifidis Theodoros",
-    url: "https://geography.aegean.gr/ppl/index_en.php?content=0&bio=thiwsi",
-  },
-  {
-    name: "Gavalas Vassilis",
-    url: "https://geography.aegean.gr/ppl/index.php?content=0&bio=bgav",
-  },
-  {
-    name: "Efthimios Bakogiannis",
-    url: "https://www.survey.ntua.gr/en/dep/bakogiannis-euthimios",
-  },
-  {
-    name: "Maria Papadopoulou",
-    url: "https://www.survey.ntua.gr/en/dep/papadopoulou-maria",
-  },
-  {
-    name: "Aspassia Kouzoupi",
-    url: "https://www.arch.uth.gr/el/staff/A_Kouzoupi",
-  },
-  {
     name: "Dimitrios Alexakis",
     url: "https://www.ims.forth.gr/en/profile/view?id=97",
   },
   {
-    name: "Andreas Tsatsaris",
-    url: "https://geo.uniwa.gr/en/profile/tsatsaris-andreas/",
-  },
-  {
-    name: "Athena Athanasiou",
-    url: "https://anthropology.panteion.gr/index.php/el/dep/198-athanasiou-athena",
-  },
-  {
-    name: "Soulakellis Nikolaos",
-    url: "https://geography.aegean.gr/ppl/index_en.php?content=0&bio=nsoul",
-  },
-  {
-    name: "Gialis Stelios",
-    url: "https://geography.aegean.gr/ppl/index_en.php?content=0&bio=stgialis",
-  },
-  {
-    name: "Nicos Souliotis",
-    url: "https://www.ekke.gr/en/centre/personnel/souliotis-nikolaos",
-  },
-  {
-    name: "Giorgos Bithymitris",
-    url: "https://www.ekke.gr/en/centre/personnel/mpithimitris-georgios",
-  },
-  {
-    name: "Christos Chalkias",
-  },
-  {
-    name: "Konstantinos Tsanakas",
-  },
-  {
-    name: "George Petropoulos",
-    url: "https://geo.hua.gr/en/personnel/petropoulos-george-p/",
-  },
-  {
-    name: "Ifigeneia Kokkali",
-    url: "https://www.prd.uth.gr/en/staff/kokkali_i/",
+    name: "Athina Arampatzi",
   },
   {
     name: "Vassilis Arapoglou",
     url: "https://socialpolicy.panteion.gr/en/people/varapoglou",
   },
   {
-    name: "Akrivi Leka",
-    url: "https://www.survey.ntua.gr/en/laboratory-staff/leka-akrivi",
+    name: "Panagiotis Artelaris",
+    url: "https://geo.hua.gr/en/personnel/artelaris-panagiotis-2/",
   },
   {
-    name: "Michalis Vaitis",
-    url: "https://geography.aegean.gr/ppl/index.php?content=0&bio=vaitis",
+    name: "Athena Athanasiou",
+    url: "https://anthropology.panteion.gr/index.php/el/dep/198-athanasiou-athena",
   },
   {
-    name: "Nikolaos Zouros",
-    url: "https://geography.aegean.gr/ppl/index.php?content=0&bio=nzour",
+    name: "Evangelia Athanassiou",
+    url: "https://architecture.web.auth.gr/en/athanasiou-euangelia/",
   },
   {
-    name: "Athanasios Kizos",
-    url: "https://geography.aegean.gr/ppl/index.php?content=0&bio=akizos",
+    name: "Efthimios Bakogiannis",
+    url: "https://www.survey.ntua.gr/en/dep/bakogiannis-euthimios",
   },
   {
-    name: "Tscheulin Thomas",
-    url: "https://geography.aegean.gr/ppl/index.php?content=0&bio=t.tscheulin",
+    name: "Pavlos Baltas",
+    url: "https://www.ekke.gr/en/centre/personnel/mpaltas-paulos",
   },
   {
-    name: "Dimitris Kavroudakis",
-    url: "https://geography.aegean.gr/ppl/index.php?content=0&bio=dimitrisk",
+    name: "Giorgos Bithymitris",
+    url: "https://www.ekke.gr/en/centre/personnel/mpithimitris-georgios",
   },
   {
-    name: "Efi Kostopoulou",
-    url: "https://geography.aegean.gr/ppl/index.php?content=0&bio=ekost",
+    name: "Costis Chadjimichalis",
+    url: "https://geo.hua.gr/en/personnel/chadjimichalis-costis/",
   },
   {
-    name: "Lia Galani",
-    url: "http://www.primedu.uoa.gr/galanh-apostolia-lia.html",
+    name: "Christos Chalkias",
+  },
+  {
+    name: "Ioannis Chorianopoulos",
+    url: "https://geography.aegean.gr/ppl/index_en.php?content=0&bio=ichorian",
+  },
+  {
+    name: "Charis Christodoulou",
+    url: "https://architecture.web.auth.gr/en/christodoulou-charis/",
+  },
+  {
+    name: "Evangelia Drakou",
+    url: "https://geo.hua.gr/en/personnel/evangelia-drakou-2/",
+  },
+  {
+    name: "Antigoni Faka",
+    url: "https://geo.hua.gr/en/personnel/antigoni-faka-2/",
   },
   {
     name: "Charalambos Fasoulas",
     url: "https://www.nhmc.uoc.gr/archives/nhmc-person/charalampos-fassoulas#:~:text=%CE%A3%CF%8D%CE%BD%CF%84%CE%BF%CE%BC%CE%BF%20%CE%92%CE%B9%CE%BF%CE%B3%CF%81%CE%B1%CF%86%CE%B9%CE%BA%CF%8C,%CE%A6.",
   },
   {
-    name: "Nikos Labrinos",
-    url: "https://eled.auth.gr/about/personnel/lambrinos/",
+    name: "Lia Galani",
+    url: "http://www.primedu.uoa.gr/galanh-apostolia-lia.html",
   },
   {
-    name: "Angeliki Rokka",
-    url: "https://eled.duth.gr/author/arokka/",
+    name: "Vassilis Gavalas",
+    url: "https://geography.aegean.gr/ppl/index.php?content=0&bio=bgav",
+  },
+  {
+    name: "Stelios Gialis",
+    url: "https://geography.aegean.gr/ppl/index_en.php?content=0&bio=stgialis",
   },
   {
     name: "Katerina Gkoltsiou",
     url: "http://efp.aua.gr/el/userpage/2395",
   },
   {
-    name: "Pavlis Evangelos",
+    name: "Kostas Gourzis",
+    url: "https://lgrl.aegean.gr/el/personnel/gourzis-kostas/",
+  },
+  {
+    name: "Theodoros Iosifidis",
+    url: "https://geography.aegean.gr/ppl/index_en.php?content=0&bio=thiwsi",
+  },
+  {
+    name: "Konstantina Kalfa",
+    url: "https://www.asfa.gr/didaktiko-prosopiko/konstantina-kalfa/",
+  },
+  {
+    name: "Giorgos Kandylis",
+    url: "https://www.ekke.gr/en/centre/personnel/kandilis-georgios",
+  },
+  {
+    name: "Dimitris Kavroudakis",
+    url: "https://geography.aegean.gr/ppl/index.php?content=0&bio=dimitrisk",
+  },
+  {
+    name: "Athanasios Kizos",
+    url: "https://geography.aegean.gr/ppl/index.php?content=0&bio=akizos",
+  },
+  {
+    name: "Ifigeneia Kokkali",
+    url: "https://www.prd.uth.gr/en/staff/kokkali_i/",
+  },
+  {
+    name: "Efi Kostopoulou",
+    url: "https://geography.aegean.gr/ppl/index.php?content=0&bio=ekost",
+  },
+  {
+    name: "Hara Kouki",
+    url: "https://sociology.soc.uoc.gr/en/human-resources/teaching-research-staff-dep/kouki-hara-en/",
+  },
+  {
+    name: "Aspassia Kouzoupi",
+    url: "https://www.arch.uth.gr/el/staff/A_Kouzoupi",
+  },
+  {
+    name: "Nikos Kourachanis",
+    url: "https://socialpolicy.panteion.gr/en/people/nkourachanis",
+  },
+  {
+    name: "Penny Koutrolikou",
+    url: "https://www.arch.ntua.gr/index.php/person/koutrolikou-panagiota-penny/?lang=en",
+  },
+  {
+    name: "Nikos Labrinos",
+    url: "https://eled.auth.gr/about/personnel/lambrinos/",
+  },
+  {
+    name: "Apostolos Lagarias",
+    url: "http://www.prd.uth.gr/en/staff/lagarias_a/",
+  },
+  {
+    name: "Akrivi Leka",
+    url: "https://www.survey.ntua.gr/en/laboratory-staff/leka-akrivi",
+  },
+  {
+    name: "Giorgos Mavrommatis",
+    url: "https://geo.hua.gr/en/personnel/giorgos-mavrommatis-2/",
+  },
+  {
+    name: "Nikolas Metaxides",
+    url: "https://geo.hua.gr/en/personnel/metaxidis-nikos/",
+  },
+  {
+    name: "Irini Micha",
+    url: "https://www.arch.ntua.gr/index.php/person/micha-irini/?lang=en",
+  },
+  {
+    name: "Angeliki Paidakaki",
+    url: "https://geo.hua.gr/en/personnel/angeliki-paidakaki-2/",
+  },
+  {
+    name: "Maria Papadopoulou",
+    url: "https://www.survey.ntua.gr/en/dep/papadopoulou-maria",
+  },
+  {
+    name: "Evangelos Pavlis",
     url: "https://aoa.aua.gr/?teacher=pavlis-evangelos",
+  },
+  {
+    name: "Ilektra Petrakou",
+    url: "https://geography.aegean.gr/ppl/index_en.php?content=0&bio=ipetr",
+  },
+  {
+    name: "George Petropoulos",
+    url: "https://geo.hua.gr/en/personnel/petropoulos-george-p/",
+  },
+  {
+    name: "Christy Petropoulou",
+    url: "https://geography.aegean.gr/ppl/index_en.php?content=0&bio=christy.p",
+  },
+  {
+    name: "Manolis Pratsinakis",
+    url: "https://geo.hua.gr/en/personnel/manolis-pratsinakis-2/",
+  },
+  {
+    name: "Angeliki Rokka",
+    url: "https://eled.duth.gr/author/arokka/",
+  },
+  {
+    name: "Giorgios Sidiropoulos",
+    url: "https://geography.aegean.gr/ppl/index_en.php?content=0&bio=geos",
+  },
+  {
+    name: "Nikolaos Soulakellis",
+    url: "https://geography.aegean.gr/ppl/index_en.php?content=0&bio=nsoul",
+  },
+  {
+    name: "Nicos Souliotis",
+    url: "https://www.ekke.gr/en/centre/personnel/souliotis-nikolaos",
+  },
+  {
+    name: "Anastasia Stratigea",
+    url: "https://www.survey.ntua.gr/en/dep/stratigea-anastasia",
+  },
+  {
+    name: "Konstantinos Tsanakas",
+  },
+  {
+    name: "Andreas Tsatsaris",
+    url: "https://geo.uniwa.gr/en/profile/tsatsaris-andreas/",
+  },
+  {
+    name: "Thomas Tscheulin",
+    url: "https://geography.aegean.gr/ppl/index.php?content=0&bio=t.tscheulin",
+  },
+  {
+    name: "Georgios Tsilimigkas",
+    url: "https://geography.aegean.gr/ppl/index_en.php?content=0&bio=gtsil",
+  },
+  {
+    name: "Alexandra Tragaki",
+    url: "https://geo.hua.gr/en/personnel/alexandra-tragaki/",
+  },
+  {
+    name: "Loukas Triantis",
+    url: "https://architecture.web.auth.gr/en/27134-2/",
+  },
+  {
+    name: "Michalis Vaitis",
+    url: "https://geography.aegean.gr/ppl/index.php?content=0&bio=vaitis",
+  },
+  {
+    name: "Fereniki Vatavali",
+    url: "https://www.ekke.gr/en/centre/personnel/vatavali-fereniki",
+  },
+  {
+    name: "Pinelopi Vergou",
+    url: "https://www.econ.uth.gr/en/department/staff/special-teaching-staff/147-laboratory-teaching-staff/82-dr-pinelopi-vergou",
+  },
+  {
+    name: "Nikolaos Zouros",
+    url: "https://geography.aegean.gr/ppl/index.php?content=0&bio=nzour",
   },
 ];
 
@@ -406,10 +406,10 @@ export default async function Conference2026Page({ params }: PageProps) {
           <FadeInView delay={0.1}>
             <div className="grid gap-6 lg:grid-cols-2">
               <div className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
-                <h3 className="text-xl font-semibold text-black">Thematic Sessions</h3>
+                <h3 className="text-xl font-semibold text-black">Sessions</h3>
                 <p className="mt-3 text-sm text-black/60">
-                  Submit a thematic session proposal for the 13th International Conference
-                  of the Hellenic Geographical Society (2026).
+                  Submit a session proposal for the 13th International Conference of the
+                  Hellenic Geographical Society (2026).
                 </p>
                 <ThematicSessionForm locale={validLocale} />
               </div>
@@ -483,7 +483,9 @@ export default async function Conference2026Page({ params }: PageProps) {
             <div className="mt-8 rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
               <h3 className="text-xl font-semibold text-black mb-6">{t.scientificLabel}</h3>
               <div className="flex flex-wrap gap-3">
-                {scientificCommittee.map((member) =>
+                {[...scientificCommittee]
+                  .sort((a, b) => a.name.localeCompare(b.name))
+                  .map((member) =>
                   member.url ? (
                     <a
                       key={member.name}

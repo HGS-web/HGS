@@ -4,4 +4,45 @@ Modern Geography encompasses a broad spectrum of subjects, interacting with the 
 
 In an era of significant changes and uncertainty, major challenges - such as the climate crisis, humanitarian disasters and intensification of social inequalities, and geopolitical tensions and authoritarianism in governance - necessitate innovative, interdisciplinary and multiscalar inquiries.
 
-The Board of Directors of the HGS invites you to participate in the 13th International Conference by submitting thematic sessions proposals in any area of physical or human geography.
+The Board of Directors of the HGS invites you to participate in the 13th International Conference by proposing sessions and abstracts in any area of physical or human geography.
+
+Suggested topics include, but are not limited to:
+1. Geography: Theory, Methods, Education and Practice
+2. Physical Geography, Climate Change, Coastal Systems and Natural Hazards
+3. Marine, Island and Mediterranean Geographies
+4. Urban Geography, Housing and Trends of Socio-Spatial Inequalities
+5. Demographic Dynamics: Population, Migration and Mobility Flows
+6. Political and Economic Geographies
+7. Cultural Geography, Heritage and Landscapes
+8. Spatial Planning, Regional Development and Territorial Governance
+9. Transport, Mobility and Infrastructure
+10. Geospatial Technologies, Digital and Computational Geographies
+11. Geography and Education – Educating Geographers
+
+### Important dates
+
+- 30 January 2026: Call for thematic session proposals
+- 15 February 2026: Deadline for thematic session proposals
+- 1 March 2026: Call for abstracts
+- 1 May 2026: Deadline for abstract submission
+- 1 July 2026: Notifications to authors
+- 1 July to 31 August 2026: Early bird registration
+- 30 September: Late bird registration deadline
+- 27 & 28 November 2026: Conference
+- 29 November 2026: Post-conference field trip (TBC)
+
+### Registration fees
+
+| Category | Early Bird (until 31 Aug) | Late bird Registration (until 30 September) |
+| --- | --- | --- |
+| Regular fee | 60 € | 80 € |
+| HGS Members (in good standing) | 40 € | 50 € |
+| Students | 20 € | 30 € |
+| HGS Student Members | 10 € | 15 € |
+
+### General information
+
+- Official language: English
+- Venues:
+  - Harokopio University of Athens, Athens, El. Venizelou Ave. 70, 17676, Kallithea, Athens
+  - National Centre for Social Research, Archimidous 8, 17675, Kallithea, Athens

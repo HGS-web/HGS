@@ -192,7 +192,7 @@ export function ThematicSessionForm({ locale }: ThematicSessionFormProps) {
                 <label className="flex flex-col gap-2 text-sm text-black/70">
                   First name *
                   <input
-                    className="rounded-lg border border-black/10 px-3 py-2 text-sm"
+                    className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm"
                     value={organizer.firstName}
                     onChange={(event) =>
                       handleOrganizerChange(index, "firstName", event.target.value)
@@ -203,7 +203,7 @@ export function ThematicSessionForm({ locale }: ThematicSessionFormProps) {
                 <label className="flex flex-col gap-2 text-sm text-black/70">
                   Last name *
                   <input
-                    className="rounded-lg border border-black/10 px-3 py-2 text-sm"
+                    className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm"
                     value={organizer.lastName}
                     onChange={(event) =>
                       handleOrganizerChange(index, "lastName", event.target.value)
@@ -214,7 +214,7 @@ export function ThematicSessionForm({ locale }: ThematicSessionFormProps) {
                 <label className="flex flex-col gap-2 text-sm text-black/70">
                   Affiliation
                   <input
-                    className="rounded-lg border border-black/10 px-3 py-2 text-sm"
+                    className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm"
                     value={organizer.affiliation}
                     onChange={(event) =>
                       handleOrganizerChange(index, "affiliation", event.target.value)
@@ -225,7 +225,7 @@ export function ThematicSessionForm({ locale }: ThematicSessionFormProps) {
                   Email *
                   <input
                     type="email"
-                    className="rounded-lg border border-black/10 px-3 py-2 text-sm"
+                    className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm"
                     value={organizer.email}
                     onChange={(event) =>
                       handleOrganizerChange(index, "email", event.target.value)
@@ -236,7 +236,7 @@ export function ThematicSessionForm({ locale }: ThematicSessionFormProps) {
                 <label className="flex flex-col gap-2 text-sm text-black/70">
                   Country
                   <input
-                    className="rounded-lg border border-black/10 px-3 py-2 text-sm"
+                    className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm"
                     value={organizer.country}
                     onChange={(event) =>
                       handleOrganizerChange(index, "country", event.target.value)
@@ -263,7 +263,7 @@ export function ThematicSessionForm({ locale }: ThematicSessionFormProps) {
           <label className="flex flex-col gap-2 text-sm text-black/70">
             Session title *
             <input
-              className="rounded-lg border border-black/10 px-3 py-2 text-sm"
+              className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm"
               value={title}
               onChange={(event) => setTitle(event.target.value)}
               required
@@ -273,7 +273,7 @@ export function ThematicSessionForm({ locale }: ThematicSessionFormProps) {
           <label className="flex flex-col gap-2 text-sm text-black/70">
             Topic *
             <select
-              className="rounded-lg border border-black/10 px-3 py-2 text-sm"
+              className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm"
               value={topic}
               onChange={(event) =>
                 setTopic(
@@ -295,7 +295,7 @@ export function ThematicSessionForm({ locale }: ThematicSessionFormProps) {
             <label className="flex flex-col gap-2 text-sm text-black/70">
               Other topic *
               <input
-                className="rounded-lg border border-black/10 px-3 py-2 text-sm"
+                className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm"
                 value={customTopic}
                 onChange={(event) => setCustomTopic(event.target.value)}
                 required
@@ -307,7 +307,7 @@ export function ThematicSessionForm({ locale }: ThematicSessionFormProps) {
             Summary (max 300 words) *
             <textarea
               className={cn(
-                "min-h-[140px] rounded-lg border border-black/10 px-3 py-2 text-sm",
+                "min-h-[140px] w-full rounded-lg border border-black/10 px-3 py-2 text-sm",
                 wordCount > 300 && "border-red-500"
               )}
               value={summary}
@@ -323,7 +323,7 @@ export function ThematicSessionForm({ locale }: ThematicSessionFormProps) {
             Keywords (max 5, separated by comma or new line)
             <textarea
               className={cn(
-                "min-h-[80px] rounded-lg border border-black/10 px-3 py-2 text-sm",
+                "min-h-[80px] w-full rounded-lg border border-black/10 px-3 py-2 text-sm",
                 keywordList.length > 5 && "border-red-500"
               )}
               value={keywords}
@@ -342,7 +342,7 @@ export function ThematicSessionForm({ locale }: ThematicSessionFormProps) {
           <label className="flex flex-col gap-2 text-sm text-black/70">
             Additional comments (optional)
             <textarea
-              className="min-h-[80px] rounded-lg border border-black/10 px-3 py-2 text-sm"
+              className="min-h-[80px] w-full rounded-lg border border-black/10 px-3 py-2 text-sm"
               value={comments}
               onChange={(event) => setComments(event.target.value)}
             />

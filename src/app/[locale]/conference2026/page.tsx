@@ -405,7 +405,7 @@ export default async function Conference2026Page({ params }: PageProps) {
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <FadeInView delay={0.1}>
             <div className="grid gap-6 lg:grid-cols-2">
-              <div className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
+              <div className="min-w-0 rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
                 <h3 className="text-xl font-semibold text-black">Sessions</h3>
                 <p className="mt-3 text-sm text-black/60">
                   Submit a session proposal for the 13th International Conference of the
@@ -413,7 +413,7 @@ export default async function Conference2026Page({ params }: PageProps) {
                 </p>
                 <ThematicSessionForm locale={validLocale} />
               </div>
-              <div className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
+              <div className="min-w-0 rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
                 <h3 className="text-xl font-semibold text-black">Abstracts</h3>
                 <p className="mt-3 text-sm text-black/60">
                   The call for abstracts will open in early March 2026. This section is

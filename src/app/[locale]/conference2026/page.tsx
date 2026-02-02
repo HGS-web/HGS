@@ -339,10 +339,6 @@ const scientificCommittee = [
     url: "https://geography.aegean.gr/ppl/index.php?content=0&bio=t.tscheulin",
   },
   {
-    name: "Georgios Tsilimigkas",
-    url: "https://geography.aegean.gr/ppl/index_en.php?content=0&bio=gtsil",
-  },
-  {
     name: "Alexandra Tragaki",
     url: "https://geo.hua.gr/en/personnel/alexandra-tragaki/",
   },
@@ -484,7 +480,14 @@ export default async function Conference2026Page({ params }: PageProps) {
               <h3 className="text-xl font-semibold text-black mb-6">{t.scientificLabel}</h3>
               <div className="flex flex-wrap gap-3">
                 {[...scientificCommittee]
-                  .sort((a, b) => a.name.localeCompare(b.name))
+                  .sort((a, b) => {
+                    const lastA = a.name.split(" ").slice(-1).join(" ");
+                    const lastB = b.name.split(" ").slice(-1).join(" ");
+                    const lastCompare = lastA.localeCompare(lastB);
+                    return lastCompare !== 0
+                      ? lastCompare
+                      : a.name.localeCompare(b.name);
+                  })
                   .map((member) =>
                   member.url ? (
                     <a

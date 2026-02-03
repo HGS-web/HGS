@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Facebook, Github, Mail, MapPin } from "lucide-react";
+import { Facebook, Linkedin, Mail, MapPin } from "lucide-react";
 import { siteConfig, type Locale } from "@/config/site";
 
 interface FooterProps {
@@ -64,13 +64,13 @@ export function Footer({ locale }: FooterProps) {
                 <Facebook className="h-5 w-5" />
               </a>
               <a
-                href={siteConfig.social.github}
+                href={siteConfig.social.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-lg bg-black/5 text-black/60 hover:bg-black/10 hover:text-black transition-all"
-                aria-label="GitHub"
+                aria-label="LinkedIn"
               >
-                <Github className="h-5 w-5" />
+                <Linkedin className="h-5 w-5" />
               </a>
             </div>
           </div>

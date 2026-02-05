@@ -131,7 +131,6 @@ const organizingCommittee = [
     name: "Polychronis Kolokoussis",
     affiliation: "National Technical University of Athens",
     url: "http://users.ntua.gr/polkol/index-en.html",
-    email: "pol@survey.ntua.gr",
   },
 ];
 
@@ -472,16 +471,6 @@ export default async function Conference2026Page({ params }: PageProps) {
                         ) : (
                           member.name
                         )}
-                        {member.email ? (
-                          <div className="mt-1 text-xs text-black/50">
-                            <a
-                              href={`mailto:${member.email}`}
-                              className="hover:text-black/80 hover:underline"
-                            >
-                              {member.email}
-                            </a>
-                          </div>
-                        ) : null}
                       </td>
                         <td className="py-3 text-black/70">{member.affiliation}</td>
                       </tr>

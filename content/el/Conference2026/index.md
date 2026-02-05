@@ -21,8 +21,8 @@ Suggested topics include, but are not limited to:
 
 ### Important dates
 
-- **30 January 2026**: Call for thematic session proposals
-- **15 February 2026**: Deadline for thematic session proposals
+- **30 January 2026**: Call for session proposals
+- **15 February 2026**: Deadline for session proposals
 - **1 March 2026**: Call for abstracts
 - **1 May 2026**: Deadline for abstract submission
 - **1 July 2026**: Notifications to authors

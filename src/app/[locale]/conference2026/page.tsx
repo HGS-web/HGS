@@ -126,6 +126,13 @@ const organizingCommittee = [
     affiliation: "National Technical University of Athens",
     url: "https://www.survey.ntua.gr/en/laboratory-staff/pigaki-maria",
   },
+  {
+    designation: "Committee Member",
+    name: "Polychronis Kolokoussis",
+    affiliation: "National Technical University of Athens",
+    url: "http://users.ntua.gr/polkol/index-en.html",
+    email: "pol@survey.ntua.gr",
+  },
 ];
 
 const scientificCommittee = [
@@ -170,6 +177,7 @@ const scientificCommittee = [
   },
   {
     name: "Christos Chalkias",
+    url: "https://geo.hua.gr/en/personnel/christos-chalkias/",
   },
   {
     name: "Ioannis Chorianopoulos",
@@ -451,20 +459,30 @@ export default async function Conference2026Page({ params }: PageProps) {
                         <td className="py-3 pr-4 font-medium text-black">
                           {member.designation}
                         </td>
-                        <td className="py-3 pr-4">
-                          {member.url ? (
+                      <td className="py-3 pr-4">
+                        {member.url ? (
+                          <a
+                            href={member.url}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="text-black hover:underline"
+                          >
+                            {member.name}
+                          </a>
+                        ) : (
+                          member.name
+                        )}
+                        {member.email ? (
+                          <div className="mt-1 text-xs text-black/50">
                             <a
-                              href={member.url}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="text-black hover:underline"
+                              href={`mailto:${member.email}`}
+                              className="hover:text-black/80 hover:underline"
                             >
-                              {member.name}
+                              {member.email}
                             </a>
-                          ) : (
-                            member.name
-                          )}
-                        </td>
+                          </div>
+                        ) : null}
+                      </td>
                         <td className="py-3 text-black/70">{member.affiliation}</td>
                       </tr>
                     ))}

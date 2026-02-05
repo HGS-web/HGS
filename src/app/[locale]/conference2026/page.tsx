@@ -92,6 +92,7 @@ const organizingCommittee = [
     designation: "Webmaster",
     name: "A. Liaskos",
     affiliation: "National & Kapodistrian University of Athens",
+    url: "https://www.liaskos.eu/",
   },
   {
     designation: "Committee Member",

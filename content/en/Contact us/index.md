@@ -10,6 +10,6 @@ Our contact email is: geographicalsocietyhellas@gmail.com
 
 ## Social Media
 
-**Facebook**: [@hellenicGeographicalSociety](https://www.facebook.com/profile.php?id=61558192471144)
-
 **LinkedIn**: [Hellenic Geographical Society](https://www.linkedin.com/company/hellenic-geographical-society/)
+
+**Facebook**: [@hellenicGeographicalSociety](https://www.facebook.com/profile.php?id=61558192471144)

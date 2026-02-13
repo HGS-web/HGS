@@ -22,7 +22,7 @@ Suggested topics include, but are not limited to:
 ### Important dates
 
 - **30 January 2026**: Call for session proposals
-- <span style="color:#e63946">**20 February 2026**: New deadline for session proposals</span>
+- <span style="color:#e63946"><strong>20 February 2026</strong>: New deadline for session proposals</span>
 - **1 March 2026**: Call for abstracts
 - **1 May 2026**: Deadline for abstract submission
 - **1 July 2026**: Notifications to authors

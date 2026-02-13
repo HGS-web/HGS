@@ -188,6 +188,10 @@ const scientificCommittee = [
     url: "https://architecture.web.auth.gr/en/christodoulou-charis/",
   },
   {
+    name: "Michalis Diakakis",
+    url: "http://scholar.uoa.gr/diakakism/home"
+  },
+  {
     name: "Evangelia Drakou",
     url: "https://geo.hua.gr/en/personnel/evangelia-drakou-2/",
   },
@@ -357,6 +361,10 @@ const scientificCommittee = [
   {
     name: "Michalis Vaitis",
     url: "https://geography.aegean.gr/ppl/index.php?content=0&bio=vaitis",
+  },
+  {
+    name: "Emmanuel Vassilakis",
+    url: "http://scholar.uoa.gr/evasilak"
   },
   {
     name: "Fereniki Vatavali",

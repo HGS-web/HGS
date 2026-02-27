@@ -380,6 +380,8 @@ const scientificCommittee = [
   },
 ];
 
+const SESSIONS_OPEN = false;
+
 export default async function Conference2026Page({ params }: PageProps) {
   const { locale } = await params;
   const validLocale = (locale === "el" ? "el" : "en") as Locale;
@@ -419,11 +421,24 @@ export default async function Conference2026Page({ params }: PageProps) {
             <div className="grid gap-6 lg:grid-cols-2">
               <div className="min-w-0 rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
                 <h3 className="text-xl font-semibold text-black">Sessions</h3>
-                <p className="mt-3 text-sm text-black/60">
-                  Submit a session proposal for the 13th International Conference of the
-                  Hellenic Geographical Society (2026).
-                </p>
-                <ThematicSessionForm locale={validLocale} />
+                {SESSIONS_OPEN ? (
+                  <>
+                    <p className="mt-3 text-sm text-black/60">
+                      Submit a session proposal for the 13th International Conference of the
+                      Hellenic Geographical Society (2026).
+                    </p>
+                    <ThematicSessionForm locale={validLocale} />
+                  </>
+                ) : (
+                  <>
+                    <p className="mt-3 text-sm text-black/60">
+                      The call for sessions has now closed. Thank you to everyone who submitted a proposal.
+                    </p>
+                    <div className="mt-6 rounded-xl border border-dashed border-black/20 bg-black/5 p-4 text-sm text-black/50">
+                      Session submissions are no longer available.
+                    </div>
+                  </>
+                )}
               </div>
               <div className="min-w-0 rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
                 <h3 className="text-xl font-semibold text-black">Abstracts</h3>

@@ -3,6 +3,11 @@ import { getMarkdownContent } from "@/lib/markdown";
 import { FadeIn, FadeInView } from "@/components/ui/motion";
 import type { Locale } from "@/config/site";
 import { ThematicSessionForm } from "@/components/conference/thematic-session-form";
+import { SessionList } from "@/components/conference/session-list";
+import { RegistrationDialog } from "@/components/conference/registration-dialog";
+import { AbstractDialog } from "@/components/conference/abstract-dialog";
+import { PaymentDialog } from "@/components/conference/payment-dialog";
+import { ClipboardList, FileText, Receipt } from "lucide-react";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -430,25 +435,77 @@ export default async function Conference2026Page({ params }: PageProps) {
                     <ThematicSessionForm locale={validLocale} />
                   </>
                 ) : (
-                  <>
-                    <p className="mt-3 text-sm text-black/60">
-                      The call for sessions has now closed. Thank you to everyone who submitted a proposal.
-                    </p>
-                    <div className="mt-6 rounded-xl border border-dashed border-black/20 bg-black/5 p-4 text-sm text-black/50">
-                      Session submissions are no longer available.
-                    </div>
-                  </>
+                  <SessionList />
                 )}
               </div>
               <div className="min-w-0 rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
-                <h3 className="text-xl font-semibold text-black">Abstracts</h3>
-                <p className="mt-3 text-sm text-black/60">
-                  The call for abstracts will open in early March 2026. This section is
-                  currently locked; please check back soon.
+                <h3 className="text-xl font-semibold text-black">Abstracts &amp; Registration</h3>
+                <p className="mt-3 mb-5 text-sm text-black/60">
+                  Complete your participation in three steps.
                 </p>
-                <div className="mt-6 rounded-xl border border-dashed border-black/20 bg-black/5 p-4 text-sm text-black/50">
-                  Abstract submissions are not yet available.
+
+                <div className="flex flex-col gap-4">
+                  {/* Step 1 */}
+                  <div className="rounded-xl border border-black/10 p-4">
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="p-2 rounded-lg bg-black/5 shrink-0">
+                        <ClipboardList className="h-4 w-4 text-black/60" />
+                      </div>
+                      <span className="text-xs font-medium text-black/40 uppercase tracking-wider">Step 1</span>
+                    </div>
+                    <p className="text-sm font-semibold text-black mb-1">Register</p>
+                    <p className="text-xs text-black/50 mb-3">
+                      Fill in your details, select your registration category, and indicate whether you plan to submit an abstract.
+                    </p>
+                    <RegistrationDialog>
+                      <button className="w-full py-2 bg-black text-white text-sm font-medium rounded-full hover:bg-black/80 transition-colors cursor-pointer">
+                        Register Now
+                      </button>
+                    </RegistrationDialog>
+                  </div>
+
+                  {/* Step 2 */}
+                  <div className="rounded-xl border border-black/10 p-4">
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="p-2 rounded-lg bg-black/5 shrink-0">
+                        <FileText className="h-4 w-4 text-black/60" />
+                      </div>
+                      <span className="text-xs font-medium text-black/40 uppercase tracking-wider">Step 2</span>
+                    </div>
+                    <p className="text-sm font-semibold text-black mb-1">Submit Abstract</p>
+                    <p className="text-xs text-black/50 mb-3">
+                      Submit your abstract (max 500 words) and select your thematic session. Deadline: 1 May 2026.
+                    </p>
+                    <AbstractDialog>
+                      <button className="w-full py-2 border border-black/15 text-black text-sm font-medium rounded-full hover:bg-black/5 transition-colors cursor-pointer">
+                        Submit Abstract
+                      </button>
+                    </AbstractDialog>
+                  </div>
+
+                  {/* Step 3 */}
+                  <div className="rounded-xl border border-black/10 p-4">
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="p-2 rounded-lg bg-black/5 shrink-0">
+                        <Receipt className="h-4 w-4 text-black/60" />
+                      </div>
+                      <span className="text-xs font-medium text-black/40 uppercase tracking-wider">Step 3</span>
+                    </div>
+                    <p className="text-sm font-semibold text-black mb-1">Upload Payment Receipt</p>
+                    <p className="text-xs text-black/50 mb-3">
+                      After completing your bank transfer, upload your Αποδεικτικό Πληρωμής. HGS members may also upload a separate membership receipt.
+                    </p>
+                    <PaymentDialog>
+                      <button className="w-full py-2 border border-black/15 text-black text-sm font-medium rounded-full hover:bg-black/5 transition-colors cursor-pointer">
+                        Upload Receipt
+                      </button>
+                    </PaymentDialog>
+                  </div>
                 </div>
+
+                <p className="mt-4 text-xs text-black/40 text-center">
+                  Steps 2 and 3 can be completed in any order or at a later date.
+                </p>
               </div>
             </div>
           </FadeInView>

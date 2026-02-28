@@ -21,7 +21,7 @@ const schema = z.object({
   session_id:        z.string().min(1, "Please select a session"),
   co_authors:        z.string().optional(),
   presentation_type: z.enum(["oral", "poster"], {
-    errorMap: () => ({ message: "Please select a presentation type" }),
+    error: "Please select a presentation type",
   }),
   abstract_text:     z.string().optional(),
 })

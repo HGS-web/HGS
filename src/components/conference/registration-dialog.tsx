@@ -21,7 +21,7 @@ const schema = z.object({
   affiliation:          z.string().min(1, "Required"),
   country:              z.string().min(1, "Required"),
   registration_type:    z.enum(["regular", "hgs_member", "student", "hgs_student"], {
-    errorMap: () => ({ message: "Please select a registration type" }),
+    error: "Please select a registration type",
   }),
   abstract_intent:      z.enum(["oral", "poster", "none"]),
   dietary:              z.enum(["none", "vegetarian", "vegan", "kosher", "gluten_free", "other"]),

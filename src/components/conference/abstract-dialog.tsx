@@ -42,7 +42,7 @@ export function AbstractDialog({ children }: { children: React.ReactNode }) {
   const { register, handleSubmit, watch, reset, formState: { errors, isSubmitting } } =
     useForm<FormData>({
       resolver: zodResolver(schema),
-      defaultValues: { presentation_type: "oral", abstract_text: "" },
+      defaultValues: { abstract_text: "" },
     })
 
   const abstractText = watch("abstract_text") ?? ""

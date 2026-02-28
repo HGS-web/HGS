@@ -11,22 +11,18 @@ import {
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
 import { Select } from "@/components/ui/select"
 
 const schema = z.object({
-  first_name:           z.string().min(1, "Required"),
-  last_name:            z.string().min(1, "Required"),
-  email:                z.string().email("Invalid email"),
-  affiliation:          z.string().min(1, "Required"),
-  country:              z.string().min(1, "Required"),
-  registration_type:    z.enum(["regular", "hgs_member", "student", "hgs_student"], {
+  first_name:        z.string().min(1, "Required"),
+  last_name:         z.string().min(1, "Required"),
+  email:             z.string().email("Invalid email"),
+  affiliation:       z.string().min(1, "Required"),
+  country:           z.string().min(1, "Required"),
+  registration_type: z.enum(["regular", "hgs_member", "student", "hgs_student"], {
     error: "Please select a registration type",
   }),
-  abstract_intent:      z.enum(["oral", "poster", "none"]),
-  dietary:              z.enum(["none", "vegetarian", "vegan", "kosher", "gluten_free", "other"]),
-  dietary_other:        z.string().optional(),
-  special_requirements: z.string().optional(),
+  abstract_intent:   z.enum(["yes", "no"]),
 })
 
 type FormData = z.infer<typeof schema>
@@ -44,10 +40,9 @@ export function RegistrationDialog({ children }: { children: React.ReactNode }) 
   const { register, handleSubmit, watch, reset, formState: { errors, isSubmitting } } =
     useForm<FormData>({
       resolver: zodResolver(schema),
-      defaultValues: { abstract_intent: "none", dietary: "none" },
+      defaultValues: { abstract_intent: "no" },
     })
 
-  const dietary    = watch("dietary")
   const emailValue = watch("email")
 
   const verifyEmail = async () => {
@@ -76,10 +71,13 @@ export function RegistrationDialog({ children }: { children: React.ReactNode }) 
     if (existing) { setIsDuplicate(true); setServerError("duplicate"); return }
 
     const { error } = await supabase.from("registrations").insert([{
-      ...data,
-      email: normalized,
-      dietary_other: data.dietary === "other" ? (data.dietary_other ?? "") : null,
-      special_requirements: data.special_requirements ?? "",
+      first_name:        data.first_name,
+      last_name:         data.last_name,
+      email:             normalized,
+      affiliation:       data.affiliation,
+      country:           data.country,
+      registration_type: data.registration_type,
+      abstract_intent:   data.abstract_intent === "yes" ? "oral" : "none",
     }])
 
     if (error) { setServerError("Something went wrong. Please try again."); return }
@@ -190,39 +188,11 @@ export function RegistrationDialog({ children }: { children: React.ReactNode }) 
               </div>
 
               <div className="space-y-1.5">
-                <Label htmlFor="r-intent">Abstract Submission</Label>
+                <Label htmlFor="r-intent">Will you submit an abstract?</Label>
                 <Select id="r-intent" {...register("abstract_intent")}>
-                  <option value="none">Not submitting an abstract</option>
-                  <option value="oral">Oral presentation</option>
-                  <option value="poster">Poster presentation</option>
+                  <option value="no">No</option>
+                  <option value="yes">Yes</option>
                 </Select>
-              </div>
-
-              <div className="space-y-1.5">
-                <Label htmlFor="r-dietary">Dietary Requirements</Label>
-                <Select id="r-dietary" {...register("dietary")}>
-                  <option value="none">None</option>
-                  <option value="vegetarian">Vegetarian</option>
-                  <option value="vegan">Vegan</option>
-                  <option value="kosher">Kosher</option>
-                  <option value="gluten_free">Gluten-free</option>
-                  <option value="other">Other</option>
-                </Select>
-              </div>
-
-              {dietary === "other" && (
-                <div className="space-y-1.5">
-                  <Label htmlFor="r-dietary-other">Please specify *</Label>
-                  <Input id="r-dietary-other" {...register("dietary_other")} />
-                </div>
-              )}
-
-              <div className="space-y-1.5">
-                <Label htmlFor="r-special">
-                  Special Requirements{" "}
-                  <span className="font-normal text-black/40">(optional)</span>
-                </Label>
-                <Textarea id="r-special" rows={2} placeholder="Accessibility needs, etc." {...register("special_requirements")} />
               </div>
 
               {serverError && (

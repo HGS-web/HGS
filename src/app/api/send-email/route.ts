@@ -81,10 +81,6 @@ const regTypeLabel: Record<string, string> = {
   hgs_student: "HGS Student Member (Early Bird €10 / Late €15)",
 }
 
-const dietaryLabel: Record<string, string> = {
-  none: "None", vegetarian: "Vegetarian", vegan: "Vegan",
-  kosher: "Kosher", gluten_free: "Gluten-free", other: "Other",
-}
 
 function row(label: string, value: string, shaded = false) {
   const bg = shaded ? "background:#f9fafb;" : ""
@@ -139,9 +135,7 @@ export async function POST(req: NextRequest) {
         ${row("Affiliation", data.affiliation, true)}
         ${row("Country", data.country)}
         ${row("Registration type", regTypeLabel[data.registration_type] ?? data.registration_type, true)}
-        ${data.abstract_intent !== "none" ? row("Abstract intent", data.abstract_intent === "oral" ? "Oral presentation" : "Poster presentation") : ""}
-        ${row("Dietary", data.dietary === "other" ? (data.dietary_other ?? "") : (dietaryLabel[data.dietary] ?? "None"), data.abstract_intent !== "none")}
-        ${data.special_requirements ? row("Special requirements", data.special_requirements) : ""}
+        ${row("Abstract submission", data.abstract_intent === "yes" ? "Yes" : "No")}
       </table>
       <p style="color:#374151;font-size:13px;line-height:1.6;font-family:Arial,Helvetica,sans-serif;">
         Bank transfer details for payment will be communicated separately.
@@ -161,7 +155,6 @@ export async function POST(req: NextRequest) {
         ${row("Title", data.title, true)}
         ${data.co_authors ? row("Co-authors", data.co_authors) : ""}
         ${row("Session", data.session_title ? `#${data.session_id} – ${data.session_title}` : `Session ${data.session_id}`, !!data.co_authors)}
-        ${row("Presentation", data.presentation_type === "oral" ? "Oral presentation" : "Poster presentation", !data.co_authors)}
       </table>
       <p style="color:#374151;line-height:1.6;font-family:Arial,Helvetica,sans-serif;">
         Author notifications will be sent by <strong>1 July 2026</strong>.

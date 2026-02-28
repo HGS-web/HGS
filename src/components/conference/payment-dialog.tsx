@@ -17,7 +17,7 @@ import { Select } from "@/components/ui/select"
 const schema = z.object({
   email:        z.string().email("Invalid email"),
   receipt_type: z.enum(["conference", "hgs_membership"], {
-    errorMap: () => ({ message: "Please select a receipt type" }),
+    error: "Please select a receipt type",
   }),
   notes: z.string().optional(),
 })

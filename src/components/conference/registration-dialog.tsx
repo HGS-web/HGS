@@ -178,12 +178,15 @@ export function RegistrationDialog({ children }: { children: React.ReactNode }) 
                 <Label htmlFor="r-type">Registration Type *</Label>
                 <Select id="r-type" {...register("registration_type")} aria-invalid={!!errors.registration_type}>
                   <option value="">Select…</option>
-                  <option value="regular">Regular — Early Bird €60 / Late €80</option>
-                  <option value="hgs_member">HGS Member — Early Bird €40 / Late €50</option>
-                  <option value="student">Student — Early Bird €20 / Late €30</option>
-                  <option value="hgs_student">HGS Student Member — Early Bird €10 / Late €15</option>
+                  <option value="regular">Regular — €60</option>
+                  <option value="hgs_member">HGS Member — €40</option>
+                  <option value="student">Student — €20</option>
+                  <option value="hgs_student">HGS Student Member — €10</option>
                 </Select>
                 {errors.registration_type && <p className="text-xs text-red-500">{errors.registration_type.message}</p>}
+                <p className="text-xs text-black/40">
+                  Early bird rates apply until <strong className="text-black/50">31 August 2026</strong>. Fees increase after this date (Regular €80, HGS Member €50, Student €30, HGS Student Member €15).
+                </p>
               </div>
 
               <div className="space-y-1.5">

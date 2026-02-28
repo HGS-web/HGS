@@ -52,17 +52,19 @@ export function SessionList() {
         The call for sessions has now closed. The following thematic sessions have been accepted.
       </p>
 
-      <ol className="mt-4 space-y-1.5">
+      <ol className="mt-4 space-y-2">
         {sessions.map((session) => (
           <li key={session.id}>
             <button
               onClick={() => setSelected(session)}
-              className="w-full text-left text-sm text-black/70 hover:text-black transition-colors group flex items-start gap-2"
+              className="w-full text-left rounded-xl border border-black/8 bg-black/[0.02] hover:bg-black/[0.05] hover:border-black/15 transition-colors cursor-pointer px-4 py-3 flex items-start gap-3 group"
             >
-              <span className="shrink-0 font-medium text-black/35 w-6 text-right tabular-nums">
+              <span className="shrink-0 text-xs font-semibold text-black/30 tabular-nums mt-0.5 w-5 text-right">
                 {session.id}.
               </span>
-              <span className="group-hover:underline underline-offset-2">{session.title}</span>
+              <span className="text-sm text-black/70 group-hover:text-black transition-colors leading-snug">
+                {session.title}
+              </span>
             </button>
           </li>
         ))}

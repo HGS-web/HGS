@@ -16,14 +16,11 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select } from "@/components/ui/select"
 
 const schema = z.object({
-  email:             z.string().email("Invalid email"),
-  title:             z.string().min(3, "Please enter the abstract title"),
-  session_id:        z.string().min(1, "Please select a session"),
-  co_authors:        z.string().optional(),
-  presentation_type: z.enum(["oral", "poster"], {
-    error: "Please select a presentation type",
-  }),
-  abstract_text:     z.string().optional(),
+  email:         z.string().email("Invalid email"),
+  title:         z.string().min(3, "Please enter the abstract title"),
+  session_id:    z.string().min(1, "Please select a session"),
+  co_authors:    z.string().optional(),
+  abstract_text: z.string().optional(),
 })
 
 type FormData = z.infer<typeof schema>
@@ -90,14 +87,14 @@ export function AbstractDialog({ children }: { children: React.ReactNode }) {
     const session   = sessions.find(s => s.id === sessionId)
 
     const { error } = await supabase.from("abstracts").insert([{
-      first_name: reg.first_name,
-      last_name:  reg.last_name,
-      email:      normalized,
-      affiliation: reg.affiliation,
-      session_id: sessionId,
-      title:      data.title,
-      co_authors: data.co_authors ?? "",
-      presentation_type: data.presentation_type,
+      first_name:    reg.first_name,
+      last_name:     reg.last_name,
+      email:         normalized,
+      affiliation:   reg.affiliation,
+      session_id:    sessionId,
+      title:         data.title,
+      co_authors:    data.co_authors ?? "",
+      presentation_type: "oral",
       abstract_text: data.abstract_text?.trim() || null,
       file_path,
     }])
@@ -117,7 +114,6 @@ export function AbstractDialog({ children }: { children: React.ReactNode }) {
         co_authors: data.co_authors,
         session_id: sessionId,
         session_title: session?.title,
-        presentation_type: data.presentation_type,
       }),
     }).catch(() => {})
 
@@ -191,14 +187,6 @@ export function AbstractDialog({ children }: { children: React.ReactNode }) {
                 <Input id="a-coauth" placeholder="e.g. Smith J., Doe A." {...register("co_authors")} />
               </div>
 
-              <div className="space-y-1.5">
-                <Label htmlFor="a-type">Presentation Type *</Label>
-                <Select id="a-type" {...register("presentation_type")} aria-invalid={!!errors.presentation_type}>
-                  <option value="oral">Oral presentation</option>
-                  <option value="poster">Poster presentation</option>
-                </Select>
-                {errors.presentation_type && <p className="text-xs text-red-500">{errors.presentation_type.message}</p>}
-              </div>
 
               <div className="space-y-1.5">
                 <div className="flex items-center justify-between">

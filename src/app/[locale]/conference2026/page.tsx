@@ -1,4 +1,4 @@
-import { Mail } from "lucide-react";
+import { Mail, CalendarDays, FileText, Users } from "lucide-react";
 import { getMarkdownContent } from "@/lib/markdown";
 import { FadeIn, FadeInView } from "@/components/ui/motion";
 import type { Locale } from "@/config/site";
@@ -443,9 +443,21 @@ export default async function Conference2026Page({ params }: PageProps) {
               </div>
               <div className="min-w-0 rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
                 <h3 className="text-xl font-semibold text-black">Abstract Submission</h3>
-                <p className="mt-2 text-sm text-black/60">
-                  Submit your abstract for the 13th HGS International Conference. Max 300 words · Deadline: 1 May 2026.
-                </p>
+
+                <div className="mt-3 flex flex-wrap gap-2">
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700">
+                    <CalendarDays className="h-3 w-3 shrink-0" />
+                    Deadline: 1 May 2026
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-black/10 bg-black/[0.03] px-3 py-1 text-xs text-black/55">
+                    <FileText className="h-3 w-3 shrink-0" />
+                    Max 300 words
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-black/10 bg-black/[0.03] px-3 py-1 text-xs text-black/55">
+                    <Users className="h-3 w-3 shrink-0" />
+                    Up to 2 presentations per participant
+                  </span>
+                </div>
 
                 {/* ── Step 1: Register ── enabled from 1 Jul 2026
                 <RegistrationDialog>...</RegistrationDialog>
@@ -457,9 +469,11 @@ export default async function Conference2026Page({ params }: PageProps) {
 
                 <AbstractForm />
 
-                <p className="mt-3 text-xs text-black/40 text-center">
-                  Early bird registration opens <strong className="text-black/50">1 July 2026</strong>.
-                </p>
+                <div className="mt-4 rounded-xl border border-black/8 bg-black/[0.02] px-4 py-3 text-center">
+                  <p className="text-xs text-black/55">
+                    Registration opens <strong className="text-black/70">1 July 2026</strong> — early bird rates until <strong className="text-black/70">31 August 2026</strong>.
+                  </p>
+                </div>
               </div>
             </div>
           </FadeInView>

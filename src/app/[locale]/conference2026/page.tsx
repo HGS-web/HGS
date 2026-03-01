@@ -425,7 +425,8 @@ export default async function Conference2026Page({ params }: PageProps) {
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <FadeInView delay={0.1}>
             <div className="grid gap-6 lg:grid-cols-2">
-              <div className="min-w-0 min-h-0 rounded-2xl border border-black/10 bg-white p-6 shadow-sm flex flex-col">
+              <div className="relative min-h-[28rem] lg:min-h-0">
+                <div className="lg:absolute lg:inset-0 min-w-0 rounded-2xl border border-black/10 bg-white p-6 shadow-sm flex flex-col">
                 <h3 className="text-xl font-semibold text-black">Sessions</h3>
                 {SESSIONS_OPEN ? (
                   <>
@@ -438,6 +439,7 @@ export default async function Conference2026Page({ params }: PageProps) {
                 ) : (
                   <SessionList />
                 )}
+              </div>
               </div>
               <div className="min-w-0 rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
                 <h3 className="text-xl font-semibold text-black">Abstracts &amp; Registration</h3>

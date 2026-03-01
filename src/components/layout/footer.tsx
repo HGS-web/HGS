@@ -159,7 +159,9 @@ export function Footer({ locale }: FooterProps) {
             <p className="text-xs text-black/40">
               Developed by{" "}
               <a
-                href="mailto:alexliaskos@geol.uoa.gr"
+                href="https://liaskos.eu"
+                target="_blank"
+                rel="noreferrer"
                 className="hover:text-black transition-colors"
               >
                 Alexandros P. Liaskos

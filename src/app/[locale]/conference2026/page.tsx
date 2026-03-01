@@ -533,7 +533,7 @@ export default async function Conference2026Page({ params }: PageProps) {
             <div className="mt-8 rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
               <h3 className="text-xl font-semibold text-black mb-1">Thematic Areas</h3>
               <p className="text-sm text-black/50 mb-4">Abstracts may be submitted under any of the following conference themes:</p>
-              <div className="grid gap-2 sm:grid-cols-2">
+              <div className="grid gap-2 sm:grid-cols-2" style={{ gridAutoFlow: "column", gridTemplateRows: "repeat(6, auto)" }}>
                 {[
                   "Geography: Theory, Methods, Education and Practice",
                   "Physical Geography, Climate Change, Coastal Systems and Natural Hazards",

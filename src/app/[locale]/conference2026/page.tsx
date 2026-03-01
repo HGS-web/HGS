@@ -493,7 +493,7 @@ export default async function Conference2026Page({ params }: PageProps) {
                     </div>
                     <p className="text-sm font-semibold text-black mb-1">Upload Payment Receipt</p>
                     <p className="text-xs text-black/50 mb-3">
-                      After completing your bank transfer, upload your Αποδεικτικό Πληρωμής. HGS members may also upload a separate membership receipt.
+                      After completing your bank transfer, upload your payment receipt. HGS members may also upload a separate membership receipt.
                     </p>
                     <div className="rounded-lg bg-black/[0.03] border border-black/8 p-3 mb-3 space-y-1">
                       <p className="text-xs font-semibold text-black/60 uppercase tracking-wider">Bank Details</p>

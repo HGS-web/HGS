@@ -124,8 +124,7 @@ export function AbstractDialog({ children }: { children: React.ReactNode }) {
         email: normalized,
         title: data.title,
         co_authors: data.co_authors,
-        session_id: sessionId,
-        session_title: session?.title,
+        session: sessionLabel,
       }),
     }).catch(() => {})
 

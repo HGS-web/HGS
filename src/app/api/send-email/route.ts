@@ -163,12 +163,39 @@ export async function POST(req: NextRequest) {
         ${Array.isArray(data.co_authors) && data.co_authors.length > 0
           ? row("Co-authors", data.co_authors.map((ca: { first_name: string; last_name: string; email: string }) => `${ca.first_name} ${ca.last_name} (${ca.email})`).join(", "))
           : ""}
-        ${row("Session", data.session_title ? `#${data.session_id} – ${data.session_title}` : `Session ${data.session_id}`, Array.isArray(data.co_authors) && data.co_authors.length > 0)}
+        ${row("Session", data.session || "—", Array.isArray(data.co_authors) && data.co_authors.length > 0)}
       </table>
       <p style="color:#374151;line-height:1.6;font-family:Arial,Helvetica,sans-serif;">
         Author notifications will be sent by <strong>1 July 2026</strong>.
       </p>
     `)
+
+    // Notify each co-author
+    if (Array.isArray(data.co_authors) && data.co_authors.length > 0) {
+      const coAuthorSubject = "You have been added as co-author – HGS Conference 2026"
+      for (const ca of data.co_authors as { first_name: string; last_name: string; email: string }[]) {
+        const coHtml = wrap(`
+          <h2 style="margin:0 0 8px;font-size:16px;color:#111827;font-family:Arial,Helvetica,sans-serif;">Dear ${esc(ca.first_name)},</h2>
+          <p style="color:#374151;line-height:1.6;font-family:Arial,Helvetica,sans-serif;">
+            You have been listed as a co-author on an abstract submitted for the
+            <strong>13th International Conference of the Hellenic Geographical Society</strong>.
+          </p>
+          <table style="width:100%;border-collapse:collapse;margin:20px 0;table-layout:fixed;">
+            ${row("Abstract title", data.title, true)}
+            ${row("Submitting author", `${data.first_name} ${data.last_name} (${data.email})`)}
+            ${row("Session", data.session || "—", true)}
+          </table>
+          <p style="color:#374151;line-height:1.6;font-family:Arial,Helvetica,sans-serif;">
+            If you believe this was a mistake, please contact the submitting author or
+            <a href="${SUPPORT_MAILTO}" style="color:#1a1a1a;font-weight:600;">reach out to us</a>.
+          </p>
+          <p style="color:#374151;line-height:1.6;font-family:Arial,Helvetica,sans-serif;">
+            Author notifications will be sent by <strong>1 July 2026</strong>.
+          </p>
+        `)
+        resend.emails.send({ from: FROM, to: ca.email, subject: coAuthorSubject, html: coHtml }).catch(() => {})
+      }
+    }
   } else if (type === "receipt") {
     subject = "Payment Receipt Received – HGS Conference 2026"
     html = wrap(`

@@ -525,6 +525,89 @@ export default async function Conference2026Page({ params }: PageProps) {
             </FadeInView>
           )}
 
+          {/* Registration Fees, General Info & Bank Details */}
+          <FadeInView delay={0.12}>
+            <div className="mt-8 grid gap-6 lg:grid-cols-2">
+              {/* Registration Fees */}
+              <div className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
+                <h3 className="text-xl font-semibold text-black mb-4">Registration Fees</h3>
+                <div className="overflow-x-auto">
+                  <table className="min-w-full text-left text-sm text-black/70">
+                    <thead className="text-xs uppercase tracking-wide text-black/50">
+                      <tr>
+                        <th className="py-2 pr-4">Category</th>
+                        <th className="py-2 pr-4">Early Bird<span className="normal-case block text-[10px] text-black/35">until 31 Aug</span></th>
+                        <th className="py-2">Late Bird<span className="normal-case block text-[10px] text-black/35">until 30 Sep</span></th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-black/10">
+                      <tr>
+                        <td className="py-3 pr-4">Regular</td>
+                        <td className="py-3 pr-4 font-medium">€60</td>
+                        <td className="py-3 text-black/40">€80</td>
+                      </tr>
+                      <tr>
+                        <td className="py-3 pr-4">HGS Members <span className="text-xs text-black/40">(in good standing)</span></td>
+                        <td className="py-3 pr-4 font-medium">€40</td>
+                        <td className="py-3 text-black/40">€50</td>
+                      </tr>
+                      <tr>
+                        <td className="py-3 pr-4">Students</td>
+                        <td className="py-3 pr-4 font-medium">€20</td>
+                        <td className="py-3 text-black/40">€30</td>
+                      </tr>
+                      <tr>
+                        <td className="py-3 pr-4">HGS Student Members</td>
+                        <td className="py-3 pr-4 font-medium">€10</td>
+                        <td className="py-3 text-black/40">€15</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              {/* General Information & Bank Details */}
+              <div className="space-y-6">
+                <div className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
+                  <h3 className="text-xl font-semibold text-black mb-4">General Information</h3>
+                  <div className="space-y-3 text-sm text-black/70">
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-wider text-black/40 mb-1">Official Language</p>
+                      <p>English</p>
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-wider text-black/40 mb-1">Venues</p>
+                      <ul className="space-y-2">
+                        <li>
+                          <p className="font-medium text-black/80">Harokopio University of Athens</p>
+                          <p className="text-xs text-black/50">El. Venizelou Ave. 70, 17676, Kallithea, Athens</p>
+                        </li>
+                        <li>
+                          <p className="font-medium text-black/80">National Centre for Social Research</p>
+                          <p className="text-xs text-black/50">Archimidous 8, 17675, Kallithea, Athens</p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
+                  <h3 className="text-xl font-semibold text-black mb-4">Bank Details</h3>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-black/50">IBAN</span>
+                      <span className="font-mono text-black/80 text-xs">GR9801720440005044113342752</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-black/50">BIC / SWIFT</span>
+                      <span className="font-mono text-black/80 text-xs">PIRBGRAA</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </FadeInView>
+
           {/* Organizing Committee */}
           <FadeInView delay={0.15}>
             <div className="mt-8 rounded-2xl border border-black/10 bg-white p-6 shadow-sm">

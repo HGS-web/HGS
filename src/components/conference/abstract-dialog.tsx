@@ -25,7 +25,7 @@ const schema = z.object({
   email:         z.string().email("Invalid email"),
   title:         z.string().min(3, "Please enter the abstract title"),
   session_id:    z.string().min(1, "Please select a session"),
-  co_authors:    z.array(coAuthorSchema).default([]),
+  co_authors:    z.array(coAuthorSchema),
   abstract_text: z.string().optional(),
 })
 

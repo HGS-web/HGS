@@ -94,30 +94,24 @@ export function AbstractDialog({ children }: { children: React.ReactNode }) {
     const sessionId = parseInt(data.session_id)
     const session   = sessions.find(s => s.id === sessionId)
 
-    const { data: inserted, error } = await supabase.from("abstracts").insert([{
+    const coAuthorsJson = data.co_authors.length > 0
+      ? JSON.stringify(data.co_authors)
+      : ""
+
+    const { error } = await supabase.from("abstracts").insert([{
       first_name:    reg.first_name,
       last_name:     reg.last_name,
       email:         normalized,
       affiliation:   reg.affiliation,
       session_id:    sessionId,
+      session_title: session ? `${session.id}. ${session.title}` : null,
       title:         data.title,
+      co_authors:    coAuthorsJson,
       abstract_text: data.abstract_text?.trim() || null,
       file_path,
     }]).select("id").single()
 
-    if (error || !inserted) { setServerError("Something went wrong. Please try again."); return }
-
-    if (data.co_authors.length > 0) {
-      const { error: coAuthErr } = await supabase.from("abstract_co_authors").insert(
-        data.co_authors.map(ca => ({
-          abstract_id: inserted.id,
-          first_name:  ca.first_name,
-          last_name:   ca.last_name,
-          email:       ca.email,
-        }))
-      )
-      if (coAuthErr) { setServerError("Something went wrong saving co-authors. Please try again."); return }
-    }
+    if (error) { setServerError("Something went wrong. Please try again."); return }
 
     fetch("/api/send-email", {
       method: "POST",

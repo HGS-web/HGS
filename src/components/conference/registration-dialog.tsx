@@ -23,6 +23,7 @@ const schema = z.object({
     error: "Please select a registration type",
   }),
   abstract_intent:   z.enum(["yes", "no"]),
+  mailing_consent:   z.boolean(),
 })
 
 type FormData = z.infer<typeof schema>
@@ -40,7 +41,7 @@ export function RegistrationDialog({ children }: { children: React.ReactNode }) 
   const { register, handleSubmit, watch, reset, formState: { errors, isSubmitting } } =
     useForm<FormData>({
       resolver: zodResolver(schema),
-      defaultValues: { abstract_intent: "no" },
+      defaultValues: { abstract_intent: "no", mailing_consent: false },
     })
 
   const emailValue = watch("email")
@@ -78,6 +79,7 @@ export function RegistrationDialog({ children }: { children: React.ReactNode }) 
       country:           data.country,
       registration_type: data.registration_type,
       abstract_intent:   data.abstract_intent === "yes" ? "oral" : "none",
+      mailing_consent:   data.mailing_consent,
     }])
 
     if (error) { setServerError("Something went wrong. Please try again."); return }
@@ -194,6 +196,18 @@ export function RegistrationDialog({ children }: { children: React.ReactNode }) 
                   <option value="yes">Yes</option>
                 </Select>
               </div>
+
+              <label className="flex items-start gap-3 cursor-pointer group">
+                <input
+                  type="checkbox"
+                  {...register("mailing_consent")}
+                  className="mt-0.5 h-4 w-4 shrink-0 cursor-pointer accent-black"
+                />
+                <span className="text-xs text-black/50 leading-relaxed group-hover:text-black/70 transition-colors">
+                  I would like to receive updates about future HGS events, conferences, and announcements.
+                  You can unsubscribe at any time.
+                </span>
+              </label>
 
               {serverError && (
                 <div className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-3 py-2">

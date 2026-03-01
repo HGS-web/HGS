@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__claude_ai_Supabase__list_projects",
+      "mcp__claude_ai_Supabase__list_tables",
+      "mcp__claude_ai_Supabase__apply_migration",
+      "Bash(npm install resend react-hook-form @hookform/resolvers zod)",
+      "Bash(npm run build)",
+      "mcp__claude_ai_Supabase__execute_sql"
+    ]
+  }
+}

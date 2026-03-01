@@ -203,7 +203,7 @@ export function RegistrationDialog({ children }: { children: React.ReactNode }) 
 
               {/* GDPR consent – required */}
               <div className="rounded-xl border border-black/10 bg-black/[0.02] p-3 space-y-2.5">
-                <p className="text-xs font-semibold text-black/60 uppercase tracking-wider">Data Protection (GDPR)</p>
+                <p className="text-xs font-semibold text-black/60 uppercase tracking-wider">Data Protection (GDPR) *</p>
                 <p className="text-xs text-black/50 leading-relaxed">
                   The Hellenic Geographical Society (HGS) collects and processes your personal data
                   for the purpose of organising the 13th International Conference and for the ongoing
@@ -219,7 +219,7 @@ export function RegistrationDialog({ children }: { children: React.ReactNode }) 
                     className="mt-0.5 h-4 w-4 shrink-0 cursor-pointer accent-black"
                   />
                   <span className="text-xs text-black/70 leading-relaxed group-hover:text-black transition-colors">
-                    I have read and consent to the processing of my personal data as described above. *
+                    I have read and consent to the processing of my personal data as described above.
                   </span>
                 </label>
                 {errors.gdpr_consent && (
@@ -228,17 +228,22 @@ export function RegistrationDialog({ children }: { children: React.ReactNode }) 
               </div>
 
               {/* Mailing consent – optional */}
-              <label className="flex items-start gap-3 cursor-pointer group">
-                <input
-                  type="checkbox"
-                  {...register("mailing_consent")}
-                  className="mt-0.5 h-4 w-4 shrink-0 cursor-pointer accent-black"
-                />
-                <span className="text-xs text-black/50 leading-relaxed group-hover:text-black/70 transition-colors">
-                  I would like to receive updates about future HGS events, conferences, and announcements.
-                  You can unsubscribe at any time.
-                </span>
-              </label>
+              <div className="space-y-1.5">
+                <label className="flex items-start gap-3 cursor-pointer group">
+                  <input
+                    type="checkbox"
+                    {...register("mailing_consent")}
+                    className="mt-0.5 h-4 w-4 shrink-0 cursor-pointer accent-black"
+                  />
+                  <span className="text-xs text-black/50 leading-relaxed group-hover:text-black/70 transition-colors">
+                    I would like to receive updates about future HGS events, conferences, and announcements.
+                  </span>
+                </label>
+                <p className="text-xs text-black/35 leading-relaxed pl-7">
+                  You can change this preference at any time by contacting{" "}
+                  <a href="mailto:ekarkani@geol.uoa.gr" className="underline">ekarkani@geol.uoa.gr</a>.
+                </p>
+              </div>
 
               {serverError && (
                 <div className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-3 py-2">

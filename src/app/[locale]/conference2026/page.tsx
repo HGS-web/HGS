@@ -425,7 +425,7 @@ export default async function Conference2026Page({ params }: PageProps) {
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <FadeInView delay={0.1}>
             <div className="grid gap-6 lg:grid-cols-2">
-              <div className="min-w-0 rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
+              <div className="min-w-0 rounded-2xl border border-black/10 bg-white p-6 shadow-sm flex flex-col max-h-[calc(100vh-8rem)]">
                 <h3 className="text-xl font-semibold text-black">Sessions</h3>
                 {SESSIONS_OPEN ? (
                   <>
@@ -544,7 +544,6 @@ export default async function Conference2026Page({ params }: PageProps) {
                   "Transport, Mobility and Infrastructure",
                   "Geospatial Technologies, Digital and Computational Geographies",
                   "Geography and Education – Educating Geographers",
-                  "Feminist Urban Geography",
                 ].map((topic, i) => (
                   <div key={i} className="flex items-start gap-2.5 rounded-lg border border-black/5 bg-black/[0.02] px-3 py-2">
                     <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-black/5 text-[10px] font-semibold text-black/35 tabular-nums">{i + 1}</span>

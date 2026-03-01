@@ -31,6 +31,7 @@ const schema = z.object({
   session_id:    z.string().min(1, "Please select a session"),
   co_authors:    z.array(coAuthorSchema),
   abstract_text: z.string().min(1, "Please enter your abstract text"),
+  notes:         z.string(),
 })
 
 type FormData = z.infer<typeof schema>
@@ -119,7 +120,7 @@ export function AbstractForm() {
   const { register, handleSubmit, watch, reset, control, formState: { errors, isSubmitting } } =
     useForm<FormData>({
       resolver: zodResolver(schema),
-      defaultValues: { abstract_text: "", co_authors: [] },
+      defaultValues: { abstract_text: "", notes: "", co_authors: [] },
     })
 
   const { fields, append, remove } = useFieldArray({ control, name: "co_authors" })
@@ -158,7 +159,7 @@ export function AbstractForm() {
       title:         data.title,
       co_authors:    coAuthorsText,
       abstract_text: data.abstract_text.trim(),
-      file_path:     null,
+      notes:         data.notes.trim(),
     }]).select("id").single()
 
     if (error) { setServerError("Something went wrong. Please try again."); return }
@@ -298,6 +299,20 @@ export function AbstractForm() {
         />
         {overLimit && <p className="text-xs text-red-500">Abstract exceeds 300 words.</p>}
         {!overLimit && errors.abstract_text && <p className="text-xs text-red-500">{errors.abstract_text.message}</p>}
+      </div>
+
+      {/* Additional notes */}
+      <div className="space-y-1.5">
+        <Label htmlFor="a-notes">
+          Additional Notes{" "}
+          <span className="font-normal text-black/40">(optional)</span>
+        </Label>
+        <Textarea
+          id="a-notes"
+          rows={3}
+          placeholder="Any additional information for the scientific committee…"
+          {...register("notes")}
+        />
       </div>
 
       {serverError && (

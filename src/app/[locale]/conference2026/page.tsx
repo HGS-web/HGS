@@ -7,6 +7,7 @@ import { SessionList } from "@/components/conference/session-list";
 import { RegistrationDialog } from "@/components/conference/registration-dialog";
 import { AbstractDialog } from "@/components/conference/abstract-dialog";
 import { PaymentDialog } from "@/components/conference/payment-dialog";
+import { AddToCalendar } from "@/components/conference/add-to-calendar";
 import { ClipboardList, FileText, Receipt } from "lucide-react";
 
 interface PageProps {
@@ -553,9 +554,12 @@ export default async function Conference2026Page({ params }: PageProps) {
                     <span className="absolute inset-0 animate-ping rounded-full bg-emerald-400 opacity-30" />
                   </div>
                   <div className="flex-1 -mt-1 rounded-xl bg-emerald-50 border border-emerald-200/60 px-4 py-3">
-                    <div className="flex items-center gap-2 mb-0.5">
-                      <span className="inline-block rounded-full bg-emerald-500 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white">Now</span>
-                      <p className="text-xs font-medium text-emerald-700">1 Mar – 1 May 2026</p>
+                    <div className="flex items-center justify-between mb-0.5">
+                      <div className="flex items-center gap-2">
+                        <span className="inline-block rounded-full bg-emerald-500 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white">Now</span>
+                        <p className="text-xs font-medium text-emerald-700">1 Mar – 1 May 2026</p>
+                      </div>
+                      <AddToCalendar title="Abstract Submission Deadline – HGS Conference" start="20260501" />
                     </div>
                     <p className="text-sm font-semibold text-emerald-900">Abstract submission open</p>
                   </div>
@@ -563,16 +567,19 @@ export default async function Conference2026Page({ params }: PageProps) {
 
                 {/* Upcoming milestones */}
                 {[
-                  { date: "1 Jul 2026", label: "Notifications to authors" },
-                  { date: "1 Jul – 31 Aug 2026", label: "Early bird registration" },
-                  { date: "30 Sep 2026", label: "Late bird registration deadline" },
-                  { date: "27 – 28 Nov 2026", label: "Conference", highlight: true },
-                  { date: "29 Nov 2026", label: "Post-conference field trip (TBC)" },
+                  { date: "1 Jul 2026", label: "Notifications to authors", calStart: "20260701" },
+                  { date: "1 Jul – 31 Aug 2026", label: "Early bird registration", calStart: "20260701", calEnd: "20260901" },
+                  { date: "30 Sep 2026", label: "Late bird registration deadline", calStart: "20260930" },
+                  { date: "27 – 28 Nov 2026", label: "Conference", highlight: true, calStart: "20261127", calEnd: "20261129" },
+                  { date: "29 Nov 2026", label: "Post-conference field trip (TBC)", calStart: "20261129" },
                 ].map((item) => (
                   <div key={item.date} className="relative flex items-start gap-4 pb-4">
                     <div className={`relative z-10 mt-1.5 h-[15px] w-[15px] shrink-0 rounded-full border-2 ${item.highlight ? "border-black/40 bg-black/10" : "border-black/15 bg-white"}`} />
-                    <div>
-                      <p className="text-xs font-medium text-black/40">{item.date}</p>
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between gap-2">
+                        <p className="text-xs font-medium text-black/40">{item.date}</p>
+                        <AddToCalendar title={`${item.label} – HGS Conference`} start={item.calStart} end={item.calEnd} />
+                      </div>
                       <p className={`text-sm ${item.highlight ? "font-semibold text-black/80" : "text-black/60"}`}>{item.label}</p>
                     </div>
                   </div>

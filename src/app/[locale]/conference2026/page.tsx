@@ -525,6 +525,62 @@ export default async function Conference2026Page({ params }: PageProps) {
             </FadeInView>
           )}
 
+          {/* Key Dates */}
+          <FadeInView delay={0.11}>
+            <div className="mt-8 rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
+              <h3 className="text-xl font-semibold text-black mb-6">Key Dates</h3>
+              <div className="relative space-y-0">
+                {/* Timeline line */}
+                <div className="absolute left-[7px] top-2 bottom-2 w-px bg-black/10" />
+
+                {/* Past milestones */}
+                {[
+                  { date: "30 Jan 2026", label: "Call for session proposals" },
+                  { date: "20 Feb 2026", label: "Deadline for session proposals" },
+                ].map((item) => (
+                  <div key={item.date} className="relative flex items-start gap-4 pb-4">
+                    <div className="relative z-10 mt-1.5 h-[15px] w-[15px] shrink-0 rounded-full border-2 border-black/15 bg-black/5" />
+                    <div>
+                      <p className="text-xs font-medium text-black/30">{item.date}</p>
+                      <p className="text-sm text-black/35 line-through decoration-black/15">{item.label}</p>
+                    </div>
+                  </div>
+                ))}
+
+                {/* Active phase */}
+                <div className="relative flex items-start gap-4 pb-4">
+                  <div className="relative z-10 mt-1.5 h-[15px] w-[15px] shrink-0 rounded-full border-2 border-emerald-500 bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.4)]">
+                    <span className="absolute inset-0 animate-ping rounded-full bg-emerald-400 opacity-30" />
+                  </div>
+                  <div className="flex-1 -mt-1 rounded-xl bg-emerald-50 border border-emerald-200/60 px-4 py-3">
+                    <div className="flex items-center gap-2 mb-0.5">
+                      <span className="inline-block rounded-full bg-emerald-500 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white">Now</span>
+                      <p className="text-xs font-medium text-emerald-700">1 Mar – 1 May 2026</p>
+                    </div>
+                    <p className="text-sm font-semibold text-emerald-900">Abstract submission open</p>
+                  </div>
+                </div>
+
+                {/* Upcoming milestones */}
+                {[
+                  { date: "1 Jul 2026", label: "Notifications to authors" },
+                  { date: "1 Jul – 31 Aug 2026", label: "Early bird registration" },
+                  { date: "30 Sep 2026", label: "Late bird registration deadline" },
+                  { date: "27 – 28 Nov 2026", label: "Conference", highlight: true },
+                  { date: "29 Nov 2026", label: "Post-conference field trip (TBC)" },
+                ].map((item) => (
+                  <div key={item.date} className="relative flex items-start gap-4 pb-4">
+                    <div className={`relative z-10 mt-1.5 h-[15px] w-[15px] shrink-0 rounded-full border-2 ${item.highlight ? "border-black/40 bg-black/10" : "border-black/15 bg-white"}`} />
+                    <div>
+                      <p className="text-xs font-medium text-black/40">{item.date}</p>
+                      <p className={`text-sm ${item.highlight ? "font-semibold text-black/80" : "text-black/60"}`}>{item.label}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </FadeInView>
+
           {/* Registration Fees, General Info & Bank Details */}
           <FadeInView delay={0.12}>
             <div className="mt-8 grid gap-6 lg:grid-cols-2">

@@ -18,15 +18,3 @@ Suggested topics include, but are not limited to:
 9. Transport, Mobility and Infrastructure
 10. Geospatial Technologies, Digital and Computational Geographies
 11. Geography and Education – Educating Geographers
-
-### Important dates
-
-- **30 January 2026**: Call for session proposals
-- <span style="color:#e63946"><strong>20 February 2026</strong>: New deadline for session proposals</span>
-- **1 March 2026**: Call for abstracts
-- **1 May 2026**: Deadline for abstract submission
-- **1 July 2026**: Notifications to authors
-- **1 July to 31 August 2026**: Early bird registration
-- **30 September**: Late bird registration deadline
-- **27 & 28 November 2026**: Conference
-- **29 November 2026**: Post-conference field trip (TBC)

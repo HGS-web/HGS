@@ -81,7 +81,7 @@ export function RegistrationDialog({ children }: { children: React.ReactNode }) 
       affiliation:       data.affiliation,
       country:           data.country,
       registration_type: data.registration_type,
-      abstract_intent:   data.abstract_intent === "yes" ? "oral" : "none",
+      abstract_intent:   data.abstract_intent,
       mailing_consent:   data.mailing_consent,
       gdpr_consent:      data.gdpr_consent,
     }])

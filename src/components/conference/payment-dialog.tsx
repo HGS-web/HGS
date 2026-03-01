@@ -77,6 +77,7 @@ export function PaymentDialog({ children }: { children: React.ReactNode }) {
   const [open, setOpen]               = useState(false)
   const [success, setSuccess]         = useState(false)
   const [serverError, setServerError] = useState<string | null>(null)
+  const [isDuplicate, setIsDuplicate] = useState(false)
 
   const [confFile, setConfFile]         = useState<File | null>(null)
   const [confError, setConfError]       = useState<string | null>(null)
@@ -99,6 +100,7 @@ export function PaymentDialog({ children }: { children: React.ReactNode }) {
 
   const onSubmit = async (data: FormData) => {
     setServerError(null)
+    setIsDuplicate(false)
 
     if (!confFile) { setConfError("Please upload your conference payment receipt."); return }
 
@@ -112,6 +114,11 @@ export function PaymentDialog({ children }: { children: React.ReactNode }) {
 
     if (regErr) { setServerError(`Database error: ${regErr.message}`); return }
     if (!reg)   { setServerError("This email is not registered. Please register first."); return }
+
+    const { data: existing } = await supabase
+      .from("payment_receipts").select("id").ilike("email", normalized).maybeSingle()
+
+    if (existing) { setIsDuplicate(true); setServerError("duplicate"); return }
 
     const uploadAndInsert = async (file: File, receiptType: "conference" | "hgs_membership") => {
       const ext  = file.name.split(".").pop()
@@ -152,7 +159,7 @@ export function PaymentDialog({ children }: { children: React.ReactNode }) {
   const handleOpenChange = (val: boolean) => {
     if (!val) {
       reset()
-      setSuccess(false); setServerError(null)
+      setSuccess(false); setServerError(null); setIsDuplicate(false)
       setConfFile(null); setConfError(null)
       setHgsFile(null);  setHgsError(null)
     }
@@ -234,10 +241,17 @@ export function PaymentDialog({ children }: { children: React.ReactNode }) {
 
               {serverError && (
                 <div className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
-                  <p>
-                    {serverError}{" — "}
-                    <a href={SUPPORT_HREF} className="underline font-medium">contact us</a> if the issue persists.
-                  </p>
+                  {isDuplicate ? (
+                    <p>
+                      Payment receipts have already been submitted for this email. To make changes, please{" "}
+                      <a href={SUPPORT_HREF} className="underline font-medium">contact us</a>.
+                    </p>
+                  ) : (
+                    <p>
+                      {serverError}{" — "}
+                      <a href={SUPPORT_HREF} className="underline font-medium">contact us</a> if the issue persists.
+                    </p>
+                  )}
                 </div>
               )}
 

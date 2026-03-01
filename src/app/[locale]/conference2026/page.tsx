@@ -455,7 +455,7 @@ export default async function Conference2026Page({ params }: PageProps) {
                   </span>
                   <span className="inline-flex items-center gap-1.5 rounded-full border border-black/10 bg-black/[0.03] px-3 py-1 text-xs text-black/55">
                     <Users className="h-3 w-3 shrink-0" />
-                    Up to 2 presentations per participant
+                    Each participant may author or co-author up to two presentations
                   </span>
                 </div>
 

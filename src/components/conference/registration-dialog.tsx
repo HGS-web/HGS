@@ -206,11 +206,10 @@ export function RegistrationDialog({ children }: { children: React.ReactNode }) 
                 <p className="text-xs font-semibold text-black/60 uppercase tracking-wider">Data Protection (GDPR)</p>
                 <p className="text-xs text-black/50 leading-relaxed">
                   The Hellenic Geographical Society (HGS) collects and processes your personal data
-                  (name, email, affiliation, country, registration details) solely for the purpose of
-                  organising the 13th International Conference. Your data will not be shared with third
-                  parties and will be retained for a period not exceeding two years after the conference.
-                  You have the right to access, correct, or request deletion of your data at any time by
-                  contacting{" "}
+                  for the purpose of organising the 13th International Conference and for the ongoing
+                  records of the Society in connection with future events and activities. Your data will
+                  not be shared with third parties. You have the right to access, correct, or request
+                  deletion of your data at any time by contacting{" "}
                   <a href="mailto:ekarkani@geol.uoa.gr" className="underline">ekarkani@geol.uoa.gr</a>.
                 </p>
                 <label className="flex items-start gap-3 cursor-pointer group">

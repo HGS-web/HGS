@@ -138,7 +138,14 @@ export async function POST(req: NextRequest) {
         ${row("Abstract submission", data.abstract_intent === "yes" ? "Yes" : "No")}
       </table>
       <p style="color:#374151;font-size:13px;line-height:1.6;font-family:Arial,Helvetica,sans-serif;">
-        Bank transfer details for payment will be communicated separately.
+        Please complete your payment via bank transfer using the details below:
+      </p>
+      <table style="width:100%;border-collapse:collapse;margin:12px 0;table-layout:fixed;">
+        ${row("IBAN", "GR9801720440005044113342752", true)}
+        ${row("BIC / SWIFT", "PIRBGRAA")}
+      </table>
+      <p style="color:#374151;font-size:13px;line-height:1.6;font-family:Arial,Helvetica,sans-serif;">
+        After completing the transfer, upload your payment receipt on the conference page.
         Abstract submission deadline: <strong>1 May 2026</strong>.
       </p>
     `)

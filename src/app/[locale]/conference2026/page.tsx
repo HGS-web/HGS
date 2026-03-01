@@ -4,11 +4,12 @@ import { FadeIn, FadeInView } from "@/components/ui/motion";
 import type { Locale } from "@/config/site";
 import { ThematicSessionForm } from "@/components/conference/thematic-session-form";
 import { SessionList } from "@/components/conference/session-list";
-import { RegistrationDialog } from "@/components/conference/registration-dialog";
+// import { RegistrationDialog } from "@/components/conference/registration-dialog"; // Step 1 – enabled from 1 Jul 2026
 import { AbstractDialog } from "@/components/conference/abstract-dialog";
-import { PaymentDialog } from "@/components/conference/payment-dialog";
+// import { PaymentDialog } from "@/components/conference/payment-dialog"; // Step 3 – enabled from 1 Jul 2026
 import { AddToCalendar } from "@/components/conference/add-to-calendar";
-import { ClipboardList, FileText, Receipt } from "lucide-react";
+import { FileText } from "lucide-react";
+// import { ClipboardList, Receipt } from "lucide-react"; // Step 1 & Step 3 icons – enabled from 1 Jul 2026
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -442,13 +443,14 @@ export default async function Conference2026Page({ params }: PageProps) {
               </div>
               </div>
               <div className="min-w-0 rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
-                <h3 className="text-xl font-semibold text-black">Abstracts &amp; Registration</h3>
+                <h3 className="text-xl font-semibold text-black">Abstract Submission</h3>
                 <p className="mt-3 mb-5 text-sm text-black/60">
-                  Complete your participation in three steps.
+                  Submit your abstract for the 13th HGS International Conference.
                 </p>
 
                 <div className="flex flex-col gap-4">
-                  {/* Step 1 */}
+
+                  {/* ── Step 1: Register ── enabled from 1 Jul 2026
                   <div className="rounded-xl border border-black/10 p-4">
                     <div className="flex items-center gap-3 mb-2">
                       <div className="p-2 rounded-lg bg-black/5 shrink-0">
@@ -466,27 +468,27 @@ export default async function Conference2026Page({ params }: PageProps) {
                       </button>
                     </RegistrationDialog>
                   </div>
+                  ── end Step 1 ── */}
 
-                  {/* Step 2 */}
+                  {/* Abstract */}
                   <div className="rounded-xl border border-black/10 p-4">
                     <div className="flex items-center gap-3 mb-2">
                       <div className="p-2 rounded-lg bg-black/5 shrink-0">
                         <FileText className="h-4 w-4 text-black/60" />
                       </div>
-                      <span className="text-xs font-medium text-black/40 uppercase tracking-wider">Step 2</span>
                     </div>
                     <p className="text-sm font-semibold text-black mb-1">Submit Abstract</p>
                     <p className="text-xs text-black/50 mb-3">
-                      Submit your abstract (max 500 words) and select your thematic session. Deadline: 1 May 2026.
+                      Submit your abstract (max 300 words) and select your thematic session. Deadline: 1 May 2026.
                     </p>
                     <AbstractDialog>
-                      <button className="w-full py-2 border border-black/15 text-black text-sm font-medium rounded-full hover:bg-black/5 transition-colors cursor-pointer">
+                      <button className="w-full py-2 bg-black text-white text-sm font-medium rounded-full hover:bg-black/80 transition-colors cursor-pointer">
                         Submit Abstract
                       </button>
                     </AbstractDialog>
                   </div>
 
-                  {/* Step 3 */}
+                  {/* ── Step 3: Upload Payment Receipt ── enabled from 1 Jul 2026
                   <div className="rounded-xl border border-black/10 p-4">
                     <div className="flex items-center gap-3 mb-2">
                       <div className="p-2 rounded-lg bg-black/5 shrink-0">
@@ -509,11 +511,9 @@ export default async function Conference2026Page({ params }: PageProps) {
                       </button>
                     </PaymentDialog>
                   </div>
-                </div>
+                  ── end Step 3 ── */}
 
-                <p className="mt-4 text-xs text-black/40 text-center">
-                  Steps 2 and 3 can be completed in any order or at a later date.
-                </p>
+                </div>
               </div>
             </div>
           </FadeInView>

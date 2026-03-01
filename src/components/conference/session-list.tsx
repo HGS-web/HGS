@@ -52,7 +52,7 @@ export function SessionList() {
         The call for sessions has now closed. The following thematic sessions have been accepted.
       </p>
 
-      <ol className="mt-4 space-y-2 max-h-[600px] overflow-y-auto pr-1">
+      <ol className="mt-4 space-y-2 max-h-[calc(100vh-16rem)] overflow-y-auto pr-1">
         {sessions.map((session) => (
           <li key={session.id}>
             <button

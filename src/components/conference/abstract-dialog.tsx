@@ -1,10 +1,10 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useState } from "react"
 import { useForm, useFieldArray } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
-import { CheckCircle2, UploadCloud, X, UserPlus } from "lucide-react"
+import { CheckCircle2, X, UserPlus } from "lucide-react"
 import { getSupabaseClient } from "@/lib/supabase-client"
 import { sessions } from "@/data/sessions"
 import {
@@ -16,17 +16,21 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select } from "@/components/ui/select"
 
 const coAuthorSchema = z.object({
-  first_name: z.string().min(1, "Required"),
-  last_name:  z.string().min(1, "Required"),
-  email:      z.string().email("Invalid email"),
+  first_name:  z.string().min(1, "Required"),
+  last_name:   z.string().min(1, "Required"),
+  email:       z.string().email("Invalid email"),
+  affiliation: z.string().min(1, "Required"),
 })
 
 const schema = z.object({
+  first_name:    z.string().min(1, "Required"),
+  last_name:     z.string().min(1, "Required"),
   email:         z.string().email("Invalid email"),
+  affiliation:   z.string().min(1, "Required"),
   title:         z.string().min(3, "Please enter the abstract title"),
   session_id:    z.string().min(1, "Please select a session"),
   co_authors:    z.array(coAuthorSchema),
-  abstract_text: z.string().optional(),
+  abstract_text: z.string().min(1, "Please enter your abstract text"),
 })
 
 type FormData = z.infer<typeof schema>
@@ -42,8 +46,6 @@ export function AbstractDialog({ children }: { children: React.ReactNode }) {
   const [success, setSuccess]         = useState(false)
   const [serverError, setServerError] = useState<string | null>(null)
   const [isDuplicate, setIsDuplicate] = useState(false)
-  const [file, setFile]               = useState<File | null>(null)
-  const fileRef = useRef<HTMLInputElement>(null)
 
   const { register, handleSubmit, watch, reset, control, formState: { errors, isSubmitting } } =
     useForm<FormData>({
@@ -55,7 +57,7 @@ export function AbstractDialog({ children }: { children: React.ReactNode }) {
 
   const abstractText = watch("abstract_text") ?? ""
   const words        = wordCount(abstractText)
-  const overLimit    = words > 500
+  const overLimit    = words > 300
 
   const onSubmit = async (data: FormData) => {
     setServerError(null)
@@ -65,50 +67,29 @@ export function AbstractDialog({ children }: { children: React.ReactNode }) {
 
     const normalized = data.email.trim().toLowerCase()
 
-    const { data: reg, error: regErr } = await supabase
-      .from("registrations")
-      .select("first_name, last_name, affiliation")
-      .ilike("email", normalized)
-      .maybeSingle()
-
-    if (regErr) { setServerError(`Database error: ${regErr.message}`); return }
-    if (!reg)   { setServerError("This email is not registered. Please register first."); return }
-
     const { data: existing } = await supabase
       .from("abstracts").select("id").ilike("email", normalized).maybeSingle()
 
     if (existing) { setIsDuplicate(true); setServerError("duplicate"); return }
 
-    const hasText = (data.abstract_text ?? "").trim().length > 0
-    if (!hasText && !file) { setServerError("Please provide abstract text or upload a file."); return }
-
-    let file_path: string | null = null
-    if (file) {
-      const ext  = file.name.split(".").pop()
-      const path = `${Date.now()}-${reg.last_name}_${reg.first_name}.${ext}`
-      const { error: uploadErr } = await supabase.storage.from("abstracts").upload(path, file)
-      if (uploadErr) { setServerError("File upload failed. Please try again."); return }
-      file_path = path
-    }
-
-    const sessionId = parseInt(data.session_id)
-    const session   = sessions.find(s => s.id === sessionId)
+    const sessionId    = parseInt(data.session_id)
+    const session      = sessions.find(s => s.id === sessionId)
     const sessionLabel = session ? `${session.id}. ${session.title}` : String(sessionId)
 
     const coAuthorsText = data.co_authors.length > 0
-      ? data.co_authors.map(ca => `${ca.first_name} ${ca.last_name} (${ca.email})`).join("; ")
+      ? data.co_authors.map(ca => `${ca.first_name} ${ca.last_name} (${ca.email}, ${ca.affiliation})`).join("; ")
       : ""
 
     const { error } = await supabase.from("abstracts").insert([{
-      first_name:    reg.first_name,
-      last_name:     reg.last_name,
+      first_name:    data.first_name,
+      last_name:     data.last_name,
       email:         normalized,
-      affiliation:   reg.affiliation,
+      affiliation:   data.affiliation,
       session:       sessionLabel,
       title:         data.title,
       co_authors:    coAuthorsText,
-      abstract_text: data.abstract_text?.trim() || null,
-      file_path,
+      abstract_text: data.abstract_text.trim(),
+      file_path:     null,
     }]).select("id").single()
 
     if (error) { setServerError("Something went wrong. Please try again."); return }
@@ -117,14 +98,14 @@ export function AbstractDialog({ children }: { children: React.ReactNode }) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        type: "abstract",
-        first_name: reg.first_name,
-        last_name:  reg.last_name,
-        affiliation: reg.affiliation,
-        email: normalized,
-        title: data.title,
-        co_authors: data.co_authors,
-        session: sessionLabel,
+        type:        "abstract",
+        first_name:  data.first_name,
+        last_name:   data.last_name,
+        affiliation: data.affiliation,
+        email:       normalized,
+        title:       data.title,
+        co_authors:  data.co_authors,
+        session:     sessionLabel,
       }),
     }).catch(() => {})
 
@@ -132,7 +113,7 @@ export function AbstractDialog({ children }: { children: React.ReactNode }) {
   }
 
   const handleOpenChange = (val: boolean) => {
-    if (!val) { reset(); setSuccess(false); setServerError(null); setIsDuplicate(false); setFile(null) }
+    if (!val) { reset(); setSuccess(false); setServerError(null); setIsDuplicate(false) }
     setOpen(val)
   }
 
@@ -159,20 +140,38 @@ export function AbstractDialog({ children }: { children: React.ReactNode }) {
           <>
             <DialogHeader>
               <DialogTitle>Submit Your Abstract</DialogTitle>
-              <DialogDescription>Max 500 words · English · Deadline: 1 May 2026</DialogDescription>
+              <DialogDescription>Max 300 words · English · Deadline: 1 May 2026</DialogDescription>
             </DialogHeader>
 
-            <div className="mb-3 p-3 bg-black/5 rounded-lg text-xs text-black/50 leading-relaxed">
-              Type your abstract below <strong>or</strong> upload a file (.docx preferred).
-            </div>
-
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+
+              {/* Author */}
+              <div className="grid grid-cols-2 gap-3">
+                <div className="space-y-1.5">
+                  <Label htmlFor="a-first">First Name *</Label>
+                  <Input id="a-first" {...register("first_name")} aria-invalid={!!errors.first_name} />
+                  {errors.first_name && <p className="text-xs text-red-500">{errors.first_name.message}</p>}
+                </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="a-last">Last Name *</Label>
+                  <Input id="a-last" {...register("last_name")} aria-invalid={!!errors.last_name} />
+                  {errors.last_name && <p className="text-xs text-red-500">{errors.last_name.message}</p>}
+                </div>
+              </div>
+
               <div className="space-y-1.5">
-                <Label htmlFor="a-email">Registration Email *</Label>
-                <Input id="a-email" type="email" placeholder="Use the email you registered with" {...register("email")} aria-invalid={!!errors.email} />
+                <Label htmlFor="a-email">Email *</Label>
+                <Input id="a-email" type="email" {...register("email")} aria-invalid={!!errors.email} />
                 {errors.email && <p className="text-xs text-red-500">{errors.email.message}</p>}
               </div>
 
+              <div className="space-y-1.5">
+                <Label htmlFor="a-aff">Affiliation *</Label>
+                <Input id="a-aff" placeholder="University / Institution" {...register("affiliation")} aria-invalid={!!errors.affiliation} />
+                {errors.affiliation && <p className="text-xs text-red-500">{errors.affiliation.message}</p>}
+              </div>
+
+              {/* Abstract details */}
               <div className="space-y-1.5">
                 <Label htmlFor="a-title">Abstract Title *</Label>
                 <Input id="a-title" {...register("title")} aria-invalid={!!errors.title} />
@@ -199,7 +198,7 @@ export function AbstractDialog({ children }: { children: React.ReactNode }) {
                   </Label>
                   <button
                     type="button"
-                    onClick={() => append({ first_name: "", last_name: "", email: "" })}
+                    onClick={() => append({ first_name: "", last_name: "", email: "", affiliation: "" })}
                     className="flex items-center gap-1.5 text-xs text-black/50 hover:text-black border border-black/15 rounded-lg px-2.5 py-1.5 hover:bg-black/5 transition-colors cursor-pointer"
                   >
                     <UserPlus className="h-3.5 w-3.5" />
@@ -257,58 +256,41 @@ export function AbstractDialog({ children }: { children: React.ReactNode }) {
                             <p className="text-xs text-red-500">{errors.co_authors[index]!.email!.message}</p>
                           )}
                         </div>
+                        <div className="space-y-1">
+                          <Label htmlFor={`ca-af-${index}`} className="text-xs">Affiliation *</Label>
+                          <Input
+                            id={`ca-af-${index}`}
+                            placeholder="University / Institution"
+                            {...register(`co_authors.${index}.affiliation`)}
+                            aria-invalid={!!errors.co_authors?.[index]?.affiliation}
+                          />
+                          {errors.co_authors?.[index]?.affiliation && (
+                            <p className="text-xs text-red-500">{errors.co_authors[index]!.affiliation!.message}</p>
+                          )}
+                        </div>
                       </div>
                     ))}
                   </div>
                 )}
               </div>
 
+              {/* Abstract text */}
               <div className="space-y-1.5">
                 <div className="flex items-center justify-between">
-                  <Label htmlFor="a-text">Abstract Text</Label>
+                  <Label htmlFor="a-text">Abstract Text *</Label>
                   <span className={`text-xs ${overLimit ? "text-red-500 font-medium" : "text-black/40"}`}>
-                    {words} / 500 words
+                    {words} / 300 words
                   </span>
                 </div>
                 <Textarea
                   id="a-text"
                   rows={7}
-                  placeholder="Paste or type your abstract here (max 500 words)…"
+                  placeholder="Paste or type your abstract here (max 300 words)…"
                   {...register("abstract_text")}
-                  aria-invalid={overLimit}
+                  aria-invalid={overLimit || !!errors.abstract_text}
                 />
-                {overLimit && <p className="text-xs text-red-500">Abstract exceeds 500 words.</p>}
-              </div>
-
-              <div className="space-y-1.5">
-                <Label>
-                  Or Upload File{" "}
-                  <span className="font-normal text-black/40">(.docx / .pdf, max 10 MB)</span>
-                </Label>
-                {file ? (
-                  <div className="flex items-center gap-2 p-2 border border-black/10 rounded-lg text-sm">
-                    <span className="flex-1 truncate">{file.name}</span>
-                    <button
-                      type="button"
-                      onClick={() => { setFile(null); if (fileRef.current) fileRef.current.value = "" }}
-                      className="text-black/30 hover:text-black transition-colors cursor-pointer"
-                    >
-                      <X className="h-4 w-4" />
-                    </button>
-                  </div>
-                ) : (
-                  <label className="flex flex-col items-center gap-2 border-2 border-dashed border-black/10 rounded-lg p-5 text-sm text-black/40 cursor-pointer hover:border-black/20 hover:bg-black/5 transition-colors">
-                    <UploadCloud className="h-6 w-6" />
-                    <span>Click to select file</span>
-                    <input
-                      ref={fileRef}
-                      type="file"
-                      accept=".docx,.doc,.pdf"
-                      className="sr-only"
-                      onChange={e => setFile(e.target.files?.[0] ?? null)}
-                    />
-                  </label>
-                )}
+                {overLimit && <p className="text-xs text-red-500">Abstract exceeds 300 words.</p>}
+                {!overLimit && errors.abstract_text && <p className="text-xs text-red-500">{errors.abstract_text.message}</p>}
               </div>
 
               {serverError && (

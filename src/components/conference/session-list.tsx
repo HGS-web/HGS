@@ -49,7 +49,7 @@ export function SessionList() {
   return (
     <div className="flex flex-col flex-1 min-h-0">
       <p className="mt-3 text-sm text-black/60">
-        The call for sessions has now closed. The following thematic sessions have been accepted.
+        The call for sessions has now closed. The following sessions have been accepted.
       </p>
 
       <ol className="mt-4 space-y-2 flex-1 min-h-0 overflow-y-auto pr-1">

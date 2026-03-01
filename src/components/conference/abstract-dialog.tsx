@@ -94,7 +94,6 @@ export function AbstractDialog({ children }: { children: React.ReactNode }) {
       session_id:    sessionId,
       title:         data.title,
       co_authors:    data.co_authors ?? "",
-      presentation_type: "oral",
       abstract_text: data.abstract_text?.trim() || null,
       file_path,
     }])

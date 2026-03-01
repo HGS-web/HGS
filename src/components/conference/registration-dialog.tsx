@@ -228,7 +228,8 @@ export function RegistrationDialog({ children }: { children: React.ReactNode }) 
               </div>
 
               {/* Mailing consent – optional */}
-              <div className="space-y-1.5">
+              <div className="rounded-xl border border-black/10 bg-black/[0.02] p-3 space-y-2.5">
+                <p className="text-xs font-semibold text-black/60 uppercase tracking-wider">Stay Updated</p>
                 <label className="flex items-start gap-3 cursor-pointer group">
                   <input
                     type="checkbox"

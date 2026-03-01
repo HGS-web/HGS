@@ -1,10 +1,10 @@
 "use client"
 
 import { useState, useRef } from "react"
-import { useForm } from "react-hook-form"
+import { useForm, useFieldArray } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
-import { CheckCircle2, UploadCloud, X } from "lucide-react"
+import { CheckCircle2, UploadCloud, X, UserPlus } from "lucide-react"
 import { getSupabaseClient } from "@/lib/supabase-client"
 import { sessions } from "@/data/sessions"
 import {
@@ -15,11 +15,17 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select } from "@/components/ui/select"
 
+const coAuthorSchema = z.object({
+  first_name: z.string().min(1, "Required"),
+  last_name:  z.string().min(1, "Required"),
+  email:      z.string().email("Invalid email"),
+})
+
 const schema = z.object({
   email:         z.string().email("Invalid email"),
   title:         z.string().min(3, "Please enter the abstract title"),
   session_id:    z.string().min(1, "Please select a session"),
-  co_authors:    z.string().optional(),
+  co_authors:    z.array(coAuthorSchema).default([]),
   abstract_text: z.string().optional(),
 })
 
@@ -39,11 +45,13 @@ export function AbstractDialog({ children }: { children: React.ReactNode }) {
   const [file, setFile]               = useState<File | null>(null)
   const fileRef = useRef<HTMLInputElement>(null)
 
-  const { register, handleSubmit, watch, reset, formState: { errors, isSubmitting } } =
+  const { register, handleSubmit, watch, reset, control, formState: { errors, isSubmitting } } =
     useForm<FormData>({
       resolver: zodResolver(schema),
-      defaultValues: { abstract_text: "" },
+      defaultValues: { abstract_text: "", co_authors: [] },
     })
+
+  const { fields, append, remove } = useFieldArray({ control, name: "co_authors" })
 
   const abstractText = watch("abstract_text") ?? ""
   const words        = wordCount(abstractText)
@@ -86,19 +94,30 @@ export function AbstractDialog({ children }: { children: React.ReactNode }) {
     const sessionId = parseInt(data.session_id)
     const session   = sessions.find(s => s.id === sessionId)
 
-    const { error } = await supabase.from("abstracts").insert([{
+    const { data: inserted, error } = await supabase.from("abstracts").insert([{
       first_name:    reg.first_name,
       last_name:     reg.last_name,
       email:         normalized,
       affiliation:   reg.affiliation,
       session_id:    sessionId,
       title:         data.title,
-      co_authors:    data.co_authors ?? "",
       abstract_text: data.abstract_text?.trim() || null,
       file_path,
-    }])
+    }]).select("id").single()
 
-    if (error) { setServerError("Something went wrong. Please try again."); return }
+    if (error || !inserted) { setServerError("Something went wrong. Please try again."); return }
+
+    if (data.co_authors.length > 0) {
+      const { error: coAuthErr } = await supabase.from("abstract_co_authors").insert(
+        data.co_authors.map(ca => ({
+          abstract_id: inserted.id,
+          first_name:  ca.first_name,
+          last_name:   ca.last_name,
+          email:       ca.email,
+        }))
+      )
+      if (coAuthErr) { setServerError("Something went wrong saving co-authors. Please try again."); return }
+    }
 
     fetch("/api/send-email", {
       method: "POST",
@@ -178,14 +197,78 @@ export function AbstractDialog({ children }: { children: React.ReactNode }) {
                 {errors.session_id && <p className="text-xs text-red-500">{errors.session_id.message}</p>}
               </div>
 
-              <div className="space-y-1.5">
-                <Label htmlFor="a-coauth">
-                  Co-authors{" "}
-                  <span className="font-normal text-black/40">(optional)</span>
-                </Label>
-                <Input id="a-coauth" placeholder="e.g. Smith J., Doe A." {...register("co_authors")} />
-              </div>
+              {/* Co-authors */}
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <Label>
+                    Co-authors{" "}
+                    <span className="font-normal text-black/40">(optional)</span>
+                  </Label>
+                  <button
+                    type="button"
+                    onClick={() => append({ first_name: "", last_name: "", email: "" })}
+                    className="flex items-center gap-1.5 text-xs text-black/50 hover:text-black border border-black/15 rounded-lg px-2.5 py-1.5 hover:bg-black/5 transition-colors cursor-pointer"
+                  >
+                    <UserPlus className="h-3.5 w-3.5" />
+                    Add co-author
+                  </button>
+                </div>
 
+                {fields.length > 0 && (
+                  <div className="space-y-3">
+                    {fields.map((field, index) => (
+                      <div key={field.id} className="rounded-xl border border-black/8 bg-black/[0.02] p-3 space-y-2">
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs font-medium text-black/40">Co-author {index + 1}</span>
+                          <button
+                            type="button"
+                            onClick={() => remove(index)}
+                            className="text-black/30 hover:text-black transition-colors cursor-pointer"
+                          >
+                            <X className="h-4 w-4" />
+                          </button>
+                        </div>
+                        <div className="grid grid-cols-2 gap-2">
+                          <div className="space-y-1">
+                            <Label htmlFor={`ca-fn-${index}`} className="text-xs">First Name *</Label>
+                            <Input
+                              id={`ca-fn-${index}`}
+                              {...register(`co_authors.${index}.first_name`)}
+                              aria-invalid={!!errors.co_authors?.[index]?.first_name}
+                            />
+                            {errors.co_authors?.[index]?.first_name && (
+                              <p className="text-xs text-red-500">{errors.co_authors[index]!.first_name!.message}</p>
+                            )}
+                          </div>
+                          <div className="space-y-1">
+                            <Label htmlFor={`ca-ln-${index}`} className="text-xs">Last Name *</Label>
+                            <Input
+                              id={`ca-ln-${index}`}
+                              {...register(`co_authors.${index}.last_name`)}
+                              aria-invalid={!!errors.co_authors?.[index]?.last_name}
+                            />
+                            {errors.co_authors?.[index]?.last_name && (
+                              <p className="text-xs text-red-500">{errors.co_authors[index]!.last_name!.message}</p>
+                            )}
+                          </div>
+                        </div>
+                        <div className="space-y-1">
+                          <Label htmlFor={`ca-em-${index}`} className="text-xs">Email *</Label>
+                          <Input
+                            id={`ca-em-${index}`}
+                            type="email"
+                            {...register(`co_authors.${index}.email`)}
+                            aria-invalid={!!errors.co_authors?.[index]?.email}
+                          />
+                          {errors.co_authors?.[index]?.email && (
+                            <p className="text-xs text-red-500">{errors.co_authors[index]!.email!.message}</p>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
 
               <div className="space-y-1.5">
                 <div className="flex items-center justify-between">

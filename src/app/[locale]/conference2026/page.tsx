@@ -514,6 +514,10 @@ export default async function Conference2026Page({ params }: PageProps) {
                   ── end Step 3 ── */}
 
                 </div>
+
+                <p className="mt-4 text-xs text-black/40 text-center">
+                  Early bird registration opens <strong className="text-black/50">1 July 2026</strong>.
+                </p>
               </div>
             </div>
           </FadeInView>

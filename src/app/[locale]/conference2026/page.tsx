@@ -425,7 +425,7 @@ export default async function Conference2026Page({ params }: PageProps) {
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <FadeInView delay={0.1}>
             <div className="grid gap-6 lg:grid-cols-2">
-              <div className="min-w-0 rounded-2xl border border-black/10 bg-white p-6 shadow-sm flex flex-col max-h-[calc(100vh-8rem)]">
+              <div className="min-w-0 rounded-2xl border border-black/10 bg-white p-6 shadow-sm flex flex-col">
                 <h3 className="text-xl font-semibold text-black">Sessions</h3>
                 {SESSIONS_OPEN ? (
                   <>
@@ -439,7 +439,7 @@ export default async function Conference2026Page({ params }: PageProps) {
                   <SessionList />
                 )}
               </div>
-              <div className="min-w-0 rounded-2xl border border-black/10 bg-white p-6 shadow-sm lg:sticky lg:top-24 self-start">
+              <div className="min-w-0 rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
                 <h3 className="text-xl font-semibold text-black">Abstracts &amp; Registration</h3>
                 <p className="mt-3 mb-5 text-sm text-black/60">
                   Complete your participation in three steps.

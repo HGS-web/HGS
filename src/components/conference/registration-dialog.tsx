@@ -210,7 +210,7 @@ export function RegistrationDialog({ children }: { children: React.ReactNode }) 
                   records of the Society in connection with future events and activities. Your data will
                   not be shared with third parties. You have the right to access, correct, or request
                   deletion of your data at any time by contacting{" "}
-                  <a href="mailto:ekarkani@geol.uoa.gr" className="underline">ekarkani@geol.uoa.gr</a>.
+                  <a href="mailto:geographicalsocietyhellas@gmail.com" className="underline">geographicalsocietyhellas@gmail.com</a>.
                 </p>
                 <label className="flex items-start gap-3 cursor-pointer group">
                   <input
@@ -241,7 +241,7 @@ export function RegistrationDialog({ children }: { children: React.ReactNode }) 
                 </label>
                 <p className="text-xs text-black/35 leading-relaxed pl-7">
                   You can change this preference at any time by contacting{" "}
-                  <a href="mailto:ekarkani@geol.uoa.gr" className="underline">ekarkani@geol.uoa.gr</a>.
+                  <a href="mailto:geographicalsocietyhellas@gmail.com" className="underline">geographicalsocietyhellas@gmail.com</a>.
                 </p>
               </div>
 

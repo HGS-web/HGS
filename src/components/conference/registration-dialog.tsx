@@ -24,6 +24,9 @@ const schema = z.object({
   }),
   abstract_intent:   z.enum(["yes", "no"]),
   mailing_consent:   z.boolean(),
+  gdpr_consent:      z.boolean().refine(v => v === true, {
+    message: "You must accept the data processing terms to proceed.",
+  }),
 })
 
 type FormData = z.infer<typeof schema>
@@ -41,7 +44,7 @@ export function RegistrationDialog({ children }: { children: React.ReactNode }) 
   const { register, handleSubmit, watch, reset, formState: { errors, isSubmitting } } =
     useForm<FormData>({
       resolver: zodResolver(schema),
-      defaultValues: { abstract_intent: "no", mailing_consent: false },
+      defaultValues: { abstract_intent: "no", mailing_consent: false, gdpr_consent: false },
     })
 
   const emailValue = watch("email")
@@ -80,6 +83,7 @@ export function RegistrationDialog({ children }: { children: React.ReactNode }) 
       registration_type: data.registration_type,
       abstract_intent:   data.abstract_intent === "yes" ? "oral" : "none",
       mailing_consent:   data.mailing_consent,
+      gdpr_consent:      data.gdpr_consent,
     }])
 
     if (error) { setServerError("Something went wrong. Please try again."); return }
@@ -197,6 +201,34 @@ export function RegistrationDialog({ children }: { children: React.ReactNode }) 
                 </Select>
               </div>
 
+              {/* GDPR consent – required */}
+              <div className="rounded-xl border border-black/10 bg-black/[0.02] p-3 space-y-2.5">
+                <p className="text-xs font-semibold text-black/60 uppercase tracking-wider">Data Protection (GDPR)</p>
+                <p className="text-xs text-black/50 leading-relaxed">
+                  The Hellenic Geographical Society (HGS) collects and processes your personal data
+                  (name, email, affiliation, country, registration details) solely for the purpose of
+                  organising the 13th International Conference. Your data will not be shared with third
+                  parties and will be retained for a period not exceeding two years after the conference.
+                  You have the right to access, correct, or request deletion of your data at any time by
+                  contacting{" "}
+                  <a href="mailto:ekarkani@geol.uoa.gr" className="underline">ekarkani@geol.uoa.gr</a>.
+                </p>
+                <label className="flex items-start gap-3 cursor-pointer group">
+                  <input
+                    type="checkbox"
+                    {...register("gdpr_consent")}
+                    className="mt-0.5 h-4 w-4 shrink-0 cursor-pointer accent-black"
+                  />
+                  <span className="text-xs text-black/70 leading-relaxed group-hover:text-black transition-colors">
+                    I have read and consent to the processing of my personal data as described above. *
+                  </span>
+                </label>
+                {errors.gdpr_consent && (
+                  <p className="text-xs text-red-500">{errors.gdpr_consent.message}</p>
+                )}
+              </div>
+
+              {/* Mailing consent – optional */}
               <label className="flex items-start gap-3 cursor-pointer group">
                 <input
                   type="checkbox"

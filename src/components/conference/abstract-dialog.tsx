@@ -313,10 +313,6 @@ export function AbstractForm() {
         </div>
       )}
 
-      <p className="text-xs text-black/40 text-center">
-        Each participant may author or co-author up to two presentations.
-      </p>
-
       <button
         type="submit"
         disabled={isSubmitting || overLimit}

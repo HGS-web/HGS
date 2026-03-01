@@ -1,6 +1,9 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
+import { ArrowRight } from "lucide-react"
 import { sessions, type Session } from "@/data/sessions"
 import {
   Dialog,
@@ -45,6 +48,8 @@ function SessionModal({ session, open, onClose }: { session: Session; open: bool
 
 export function SessionList() {
   const [selected, setSelected] = useState<Session | null>(null)
+  const pathname = usePathname()
+  const locale = pathname?.split("/")[1] === "el" ? "el" : "en"
 
   return (
     <div className="flex flex-col flex-1 min-h-0">
@@ -69,6 +74,14 @@ export function SessionList() {
           </li>
         ))}
       </ol>
+
+      <Link
+        href={`/${locale}/conference2026/sessions`}
+        className="mt-3 inline-flex items-center gap-1.5 text-xs text-black/45 hover:text-black transition-colors self-end"
+      >
+        Browse all session details
+        <ArrowRight className="h-3.5 w-3.5" />
+      </Link>
 
       {selected && (
         <SessionModal

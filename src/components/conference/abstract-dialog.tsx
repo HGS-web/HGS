@@ -74,7 +74,7 @@ function CoAuthorDialog({ onAdd }: { onAdd: (ca: CoAuthorData) => void }) {
         <DialogHeader>
           <DialogTitle>Add Co-author</DialogTitle>
         </DialogHeader>
-        <form onSubmit={handleSubmit(handleAdd)} className="space-y-3 mt-1">
+        <form onSubmit={(e) => { e.stopPropagation(); return handleSubmit(handleAdd)(e) }} className="space-y-3 mt-1">
           <div className="grid grid-cols-2 gap-2">
             <div className="space-y-1">
               <Label htmlFor="ca-fn" className="text-xs">First Name *</Label>

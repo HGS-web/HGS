@@ -526,6 +526,34 @@ export default async function Conference2026Page({ params }: PageProps) {
             </FadeInView>
           )}
 
+          {/* Conference Topics */}
+          <FadeInView delay={0.105}>
+            <div className="mt-8 rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
+              <h3 className="text-xl font-semibold text-black mb-4">Conference Topics</h3>
+              <p className="text-sm text-black/50 mb-4">Suggested topics include, but are not limited to:</p>
+              <div className="grid gap-2 sm:grid-cols-2">
+                {[
+                  "Geography: Theory, Methods, Education and Practice",
+                  "Physical Geography, Climate Change, Coastal Systems and Natural Hazards",
+                  "Marine, Island and Mediterranean Geographies",
+                  "Urban Geography, Housing and Trends of Socio-Spatial Inequalities",
+                  "Demographic Dynamics: Population, Migration and Mobility Flows",
+                  "Political and Economic Geographies",
+                  "Cultural Geography, Heritage and Landscapes",
+                  "Spatial Planning, Regional Development and Territorial Governance",
+                  "Transport, Mobility and Infrastructure",
+                  "Geospatial Technologies, Digital and Computational Geographies",
+                  "Geography and Education – Educating Geographers",
+                ].map((topic, i) => (
+                  <div key={i} className="flex items-start gap-2 rounded-lg border border-black/5 bg-black/[0.02] px-3 py-2">
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-black/5 text-[10px] font-semibold text-black/40">{i + 1}</span>
+                    <span className="text-sm text-black/65 leading-snug">{topic}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </FadeInView>
+
           {/* Key Dates */}
           <FadeInView delay={0.11}>
             <div className="mt-8 rounded-2xl border border-black/10 bg-white p-6 shadow-sm">

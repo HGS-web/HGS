@@ -75,10 +75,10 @@ function wrap(content: string) {
 }
 
 const regTypeLabel: Record<string, string> = {
-  regular:     "Regular (Early Bird €60 / Late €80)",
-  hgs_member:  "HGS Member (Early Bird €40 / Late €50)",
-  student:     "Student (Early Bird €20 / Late €30)",
-  hgs_student: "HGS Student Member (Early Bird €10 / Late €15)",
+  regular:     "Regular — €60",
+  hgs_member:  "HGS Member — €40",
+  student:     "Student — €20",
+  hgs_student: "HGS Student Member — €10",
 }
 
 

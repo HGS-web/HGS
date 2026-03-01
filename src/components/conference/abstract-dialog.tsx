@@ -93,9 +93,10 @@ export function AbstractDialog({ children }: { children: React.ReactNode }) {
 
     const sessionId = parseInt(data.session_id)
     const session   = sessions.find(s => s.id === sessionId)
+    const sessionLabel = session ? `${session.id}. ${session.title}` : String(sessionId)
 
-    const coAuthorsJson = data.co_authors.length > 0
-      ? JSON.stringify(data.co_authors)
+    const coAuthorsText = data.co_authors.length > 0
+      ? data.co_authors.map(ca => `${ca.first_name} ${ca.last_name} (${ca.email})`).join("; ")
       : ""
 
     const { error } = await supabase.from("abstracts").insert([{
@@ -103,10 +104,9 @@ export function AbstractDialog({ children }: { children: React.ReactNode }) {
       last_name:     reg.last_name,
       email:         normalized,
       affiliation:   reg.affiliation,
-      session_id:    sessionId,
-      session_title: session ? `${session.id}. ${session.title}` : null,
+      session:       sessionLabel,
       title:         data.title,
-      co_authors:    coAuthorsJson,
+      co_authors:    coAuthorsText,
       abstract_text: data.abstract_text?.trim() || null,
       file_path,
     }]).select("id").single()

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { X, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -32,7 +33,10 @@ interface ConferenceAnnouncementProps {
 export function ConferenceAnnouncement({ locale }: ConferenceAnnouncementProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [isDismissed, setIsDismissed] = useState(false);
+  const pathname = usePathname();
   const t = announcementText[locale];
+
+  const isConferencePage = pathname?.includes("/conference2026");
 
   useEffect(() => {
     // Show after a short delay for better UX
@@ -48,7 +52,7 @@ export function ConferenceAnnouncement({ locale }: ConferenceAnnouncementProps) 
     setIsDismissed(true);
   };
 
-  if (isDismissed) return null;
+  if (isDismissed || isConferencePage) return null;
 
   return (
     <AnimatePresence>

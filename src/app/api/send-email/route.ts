@@ -153,8 +153,10 @@ export async function POST(req: NextRequest) {
         ${row("Name", `${data.first_name} ${data.last_name}`, true)}
         ${row("Email", data.email)}
         ${row("Title", data.title, true)}
-        ${data.co_authors ? row("Co-authors", data.co_authors) : ""}
-        ${row("Session", data.session_title ? `#${data.session_id} – ${data.session_title}` : `Session ${data.session_id}`, !!data.co_authors)}
+        ${Array.isArray(data.co_authors) && data.co_authors.length > 0
+          ? row("Co-authors", data.co_authors.map((ca: { first_name: string; last_name: string; email: string }) => `${ca.first_name} ${ca.last_name} (${ca.email})`).join(", "))
+          : ""}
+        ${row("Session", data.session_title ? `#${data.session_id} – ${data.session_title}` : `Session ${data.session_id}`, Array.isArray(data.co_authors) && data.co_authors.length > 0)}
       </table>
       <p style="color:#374151;line-height:1.6;font-family:Arial,Helvetica,sans-serif;">
         Author notifications will be sent by <strong>1 July 2026</strong>.

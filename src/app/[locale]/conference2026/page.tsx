@@ -438,7 +438,7 @@ export default async function Conference2026Page({ params }: PageProps) {
                   <SessionList />
                 )}
               </div>
-              <div className="min-w-0 rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
+              <div className="min-w-0 rounded-2xl border border-black/10 bg-white p-6 shadow-sm lg:sticky lg:top-24 self-start">
                 <h3 className="text-xl font-semibold text-black">Abstracts &amp; Registration</h3>
                 <p className="mt-3 mb-5 text-sm text-black/60">
                   Complete your participation in three steps.

@@ -1,5 +1,6 @@
 # Άλλα επιστημονικά συνέδρια γεωγραφίας 
 
+- The 4th Congress of the Chech and Slovak Geographical Societies "Geography in the changing world", 7-10 September 2026 Košice, Slovakia  ([περισσότερα]([https://www.geonight.net/](https://geo-congress-2026.science.upjs.sk/#)))
 - Ευρωπαϊκή Βραδιά Γεωγραφίας – GeoNight ([περισσότερα](https://www.geonight.net/))
 - Συνέδριο EUROGEO 2025, Σκόπια, Βόρεια Μακεδονία ([περισσότερα](https://www.eurogeography.eu/conferences/))
 - Συνέδριο EUROGEO 2024 “COMPROMISED GEOGRAPHY: SPREADING A NEW WORLD”, Πόρτο, Πορτογαλία ([περισσότερα](https://www.eurogeography.eu/conferences/porto-2024/))

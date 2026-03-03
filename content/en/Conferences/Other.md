@@ -1,6 +1,5 @@
 # Other scientific conferences on geography  
 
-- The 4th Congress of the Chech and Slovak Geographical Societies "Geography in the changing world", 7-10 September 2026 Košice, Slovakia [(more)]https://www.geonight.net/](https://geo-congress-2026.science.upjs.sk)
 - The 4th Congress of the Chech and Slovak Geographical Societies "Geography in the changing world", 7-10 September 2026 Košice, Slovakia [(more)](https://geo-congress-2026.science.upjs.sk)
 - European Geography Night – GeoNight [(more)](https://www.geonight.net/)
 - EUROGEO Conference 2025, Skopje, North Macedonia [(more)](https://www.eurogeography.eu/conferences/)

@@ -7,12 +7,6 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const topicOptions = [
-  "Geography: Theory, Methods, Education and Practice",
-  "Physical Geography, Climate Change, Coastal Systems and Natural Hazards",
-  "Marine, Island and Mediterranean Geographies",
-  "Urban Geography, Housing and Trends of Socio-Spatial Inequalities",
-  "Demographic Dynamics: Population, Migration and Mobility Flows",
-  "Political and Economic Geographies",
   "Cultural Geography, Heritage and Landscapes",
   "Spatial Planning, Regional Development and Territorial Governance",
   "Transport, Mobility and Infrastructure",

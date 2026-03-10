@@ -123,7 +123,17 @@ General topic:  2. Physical Geography, Climate Change, Coastal Systems and Natur
 
 Abstract:
 
-Any topic related to the distribution of species or their individuals at the local regional or global scale, including their interactions and or ecosystem services.
+We invite researchers to submit their latest findings to the Biogeography & Spatial Ecology session. In an era of unprecedented global change, understanding the mechanisms that dictate the distribution, abundance, and interactions of organisms across space and time has never been more critical. This session serves as a multidisciplinary forum for exploring the fundamental processes—historical, evolutionary, and environmental—that shape the living world.
+
+We welcome contributions that push the boundaries of spatial theory and application.
+Potential topics include, but are not limited to:
+•	Phylogeography and Historical Biogeography: Deciphering the legacy of past climate shifts and geological events.
+•	Species Distribution Modeling (SDM): Innovative approaches to predicting range shifts under future climate scenarios.
+•	Landscape Ecology: Spatial patterns and how they influence ecological processes.
+•	Macroecology: Identifying general laws of biodiversity and metabolic scaling across broad spatial scales.
+•	Conservation Biogeography: Applying spatial frameworks to design protected areas and manage invasive species.
+
+Whether your work utilizes remote sensing, complex spatial statistics, or extensive field surveys, we encourage you to share your insights.
 
 
  

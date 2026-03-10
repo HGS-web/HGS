@@ -48,7 +48,7 @@ export const sessions: Session[] = [
     title: "Biogeography & Spatial Ecology",
     organizers: "Thomas Tscheulin (University of the Aegean)",
     topic: "2. Physical Geography, Climate Change, Coastal Systems and Natural Hazards",
-    abstract: "Any topic related to the distribution of species or their individuals at the local regional or global scale, including their interactions and or ecosystem services.",
+    abstract: "We invite researchers to submit their latest findings to the Biogeography & Spatial Ecology session. In an era of unprecedented global change, understanding the mechanisms that dictate the distribution, abundance, and interactions of organisms across space and time has never been more critical. This session serves as a multidisciplinary forum for exploring the fundamental processes\u2014historical, evolutionary, and environmental\u2014that shape the living world.\n\nWe welcome contributions that push the boundaries of spatial theory and application.\nPotential topics include, but are not limited to:\n\u2022 Phylogeography and Historical Biogeography: Deciphering the legacy of past climate shifts and geological events.\n\u2022 Species Distribution Modeling (SDM): Innovative approaches to predicting range shifts under future climate scenarios.\n\u2022 Landscape Ecology: Spatial patterns and how they influence ecological processes.\n\u2022 Macroecology: Identifying general laws of biodiversity and metabolic scaling across broad spatial scales.\n\u2022 Conservation Biogeography: Applying spatial frameworks to design protected areas and manage invasive species.\n\nWhether your work utilizes remote sensing, complex spatial statistics, or extensive field surveys, we encourage you to share your insights.",
   },
   {
     id: 7,

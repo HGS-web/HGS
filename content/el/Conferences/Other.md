@@ -1,5 +1,6 @@
 # Άλλα επιστημονικά συνέδρια γεωγραφίας 
 
+- The 2026 Conference of the Bulgarian Geographical Society, "Changing Climate, Changing Geographies: Shaping the New Geospatial Reality", 24–26 September 2026, Sofia, Bulgaria ([περισσότερα](https://bgsconference.com/))
 - The 4th Congress of the Chech and Slovak Geographical Societies "Geography in the changing world", 7-10 September 2026 Košice, Slovakia  ([περισσότερα](https://geo-congress-2026.science.upjs.sk))
 - Ευρωπαϊκή Βραδιά Γεωγραφίας – GeoNight ([περισσότερα](https://www.geonight.net/))
 - Συνέδριο EUROGEO 2025, Σκόπια, Βόρεια Μακεδονία ([περισσότερα](https://www.eurogeography.eu/conferences/))

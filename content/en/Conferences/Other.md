@@ -1,5 +1,6 @@
 # Other scientific conferences on geography  
 
+- The 2026 Conference of the Bulgarian Geographical Society, "Changing Climate, Changing Geographies: Shaping the New Geospatial Reality", 24–26 September 2026, Sofia, Bulgaria ([more](https://bgsconference.com/))
 - The 4th Congress of the Chech and Slovak Geographical Societies "Geography in the changing world", 7-10 September 2026 Košice, Slovakia [(more)](https://geo-congress-2026.science.upjs.sk)
 - European Geography Night – GeoNight [(more)](https://www.geonight.net/)
 - EUROGEO Conference 2025, Skopje, North Macedonia [(more)](https://www.eurogeography.eu/conferences/)

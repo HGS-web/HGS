@@ -585,7 +585,7 @@ By fostering dialogue between physical and human geography, applied sciences, an
  
 #33 Web Mapping and Web GIS tools & applications
 
-Organisers: Vassilios Krassanakis (Univeristy od West Attica), Andriani Skopeliti (National Technical University of Athens)
+Organisers: Vassilios Krassanakis (Univeristy of West Attica), Andriani Skopeliti (National Technical University of Athens)
 
 General topic:  10. Geospatial Technologies, Digital and Computational Geographies
 

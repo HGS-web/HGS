@@ -17,7 +17,6 @@ export function generateStaticParams() {
     ["society", "history"],
     ["society", "function"],
     ["society", "goals"],
-    ["society", "registration"],
     ["collaborations", "academic"],
     ["collaborations", "societies"],
     ["collaborations", "other"],

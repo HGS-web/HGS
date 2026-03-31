@@ -152,8 +152,8 @@ All form labels, placeholders, validation messages, and static text are defined 
 6. New storage bucket `membership-receipts` with upload policy
 
 ### Files to keep (no changes):
-- Markdown content files remain in place (not rendered anymore for this route, but preserved)
-- DOCX files in `/public/` remain available as fallback downloads
+- Markdown content files remain in place (not rendered anymore for this route, but preserved as reference)
+- DOCX files stay in `/public/` but are NOT linked from the new page
 
 ## Design Decisions
 

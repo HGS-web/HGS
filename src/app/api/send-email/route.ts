@@ -81,6 +81,10 @@ const regTypeLabel: Record<string, string> = {
   hgs_student: "HGS Student Member — €10",
 }
 
+const memberTypeLabel: Record<string, string> = {
+  research_staff: "Research Staff — €20/year",
+  student:        "Student — €10/year",
+}
 
 function row(label: string, value: string, shaded = false) {
   const bg = shaded ? "background:#f9fafb;" : ""
@@ -207,6 +211,32 @@ export async function POST(req: NextRequest) {
         ${row("Receipt type", data.receipt_type === "hgs_membership" ? "HGS Membership Payment" : "Conference Payment")}
         ${data.notes ? row("Notes", data.notes, true) : ""}
       </table>
+    `)
+  } else if (type === "membership") {
+    subject = "Membership Application Received – Hellenic Geographical Society"
+    html = wrap(`
+      <h2 style="margin:0 0 8px;font-size:16px;color:#111827;font-family:Arial,Helvetica,sans-serif;">Hi ${esc(data.first_name)},</h2>
+      <p style="color:#374151;line-height:1.6;font-family:Arial,Helvetica,sans-serif;">
+        Thank you for applying to become a member of the <strong>Hellenic Geographical Society</strong>.
+        Your application has been received and is being processed.
+      </p>
+      <table style="width:100%;border-collapse:collapse;margin:20px 0;table-layout:fixed;">
+        ${row("Name", `${data.first_name} ${data.last_name}`, true)}
+        ${row("Email", data.email)}
+        ${row("Membership type", memberTypeLabel[data.member_type] ?? data.member_type, true)}
+        ${row("Role", data.role)}
+      </table>
+      <p style="color:#374151;font-size:13px;line-height:1.6;font-family:Arial,Helvetica,sans-serif;">
+        Please complete your payment via bank transfer using the details below:
+      </p>
+      <table style="width:100%;border-collapse:collapse;margin:12px 0;table-layout:fixed;">
+        ${row("IBAN", "GR9801720440005044113342752", true)}
+        ${row("BIC / SWIFT", "PIRBGRAA")}
+        ${row("Reference", "Membership HGS + year", true)}
+      </table>
+      <p style="color:#374151;font-size:13px;line-height:1.6;font-family:Arial,Helvetica,sans-serif;">
+        Once we receive your membership form and proof of payment, we will contact you at the email address provided to confirm your membership.
+      </p>
     `)
   } else {
     return NextResponse.json({ error: "Unknown type" }, { status: 400 })

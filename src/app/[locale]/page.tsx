@@ -28,7 +28,7 @@ const homeText = {
     explore: "Explore",
     register: "Register",
     conference2026: "13th International Conference of the Hellenic Geographical Society",
-    conference2026Desc: "...",
+    conference2026Desc: "27–28 November 2026 · Athens, Greece — Co-organised with the Harokopio University of Athens under the theme \"Geography Matters\", the conference aims to highlight the richness and diversity of modern Geography, placing special emphasis on bridging different approaches and interconnecting scientific boundaries.",
     learnMoreConf: "Learn More",
   },
   el: {
@@ -50,7 +50,7 @@ const homeText = {
     explore: "Εξερευνήστε",
     register: "Εγγραφή",
     conference2026: "13ο Διεθνές Συνέδριο της Ελληνικής Γεωγραφικής Εταιρείας",
-    conference2026Desc: "...",
+    conference2026Desc: "27–28 Νοεμβρίου 2026 · Αθήνα, Ελλάδα — Σε συνδιοργάνωση με το Χαροκόπειο Πανεπιστήμιο Αθηνών, υπό τον τίτλο «Geography Matters», το συνέδριο στοχεύει στην ανάδειξη του πλούτου και της ποικιλομορφίας της σύγχρονης Γεωγραφίας, δίνοντας ιδιαίτερη έμφαση στη γεφύρωση επιστημονικών προσεγγίσεων και στη διασύνδεση γνωστικών πεδίων.",
     learnMoreConf: "Περισσότερα",
   },
 };

@@ -2,10 +2,13 @@ import { NextRequest, NextResponse } from "next/server"
 import { Resend } from "resend"
 
 const resend = new Resend(process.env.RESEND_API_KEY)
-const FROM = "HGS Conference 2026 <noreply@hellenic-geographical-society.com>"
-const SUPPORT_EMAIL = "ekarkani@geol.uoa.gr"
+const CONF_FROM = "HGS Conference 2026 <noreply@hellenic-geographical-society.com>"
+const HGS_FROM = "Hellenic Geographical Society <noreply@hellenic-geographical-society.com>"
+const CONF_SUPPORT_EMAIL = "ekarkani@geol.uoa.gr"
+const HGS_SUPPORT_EMAIL = "geographicalsocietyhellas@gmail.com"
 
-const SUPPORT_MAILTO = `mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent("HGS Conference 2026 – Change Request / Issue")}&body=${encodeURIComponent("Type of request: [ Registration Change / Abstract Change / Payment Issue / Other ]\n\nEmail used for registration:\n\nDescription of change or issue:\n\nAdditional comments:\n\n")}`
+const CONF_SUPPORT_MAILTO = `mailto:${CONF_SUPPORT_EMAIL}?subject=${encodeURIComponent("HGS Conference 2026 – Change Request / Issue")}&body=${encodeURIComponent("Type of request: [ Registration Change / Abstract Change / Payment Issue / Other ]\n\nEmail used for registration:\n\nDescription of change or issue:\n\nAdditional comments:\n\n")}`
+const HGS_SUPPORT_MAILTO = `mailto:${HGS_SUPPORT_EMAIL}?subject=${encodeURIComponent("HGS Membership – Question / Issue")}&body=${encodeURIComponent("Email used for registration:\n\nDescription:\n\n")}`
 
 function esc(str: string | undefined | null): string {
   if (!str) return ""
@@ -17,7 +20,7 @@ function esc(str: string | undefined | null): string {
     .replace(/'/g, "&#39;")
 }
 
-const BANNER = `
+const CONF_BANNER = `
   <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#1a1a1a;">
     <tr>
       <td style="padding:20px 24px;font-family:Arial,Helvetica,sans-serif;">
@@ -32,12 +35,12 @@ const BANNER = `
   </table>
 `
 
-const FOOTER = `
+const CONF_FOOTER = `
   <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:24px;">
     <tr>
       <td style="padding:14px 16px;background:#f9fafb;font-size:13px;font-family:Arial,Helvetica,sans-serif;color:#374151;line-height:1.6;">
         If you need to make changes to your registration, abstract, or payment,
-        please <a href="${SUPPORT_MAILTO}" style="color:#1a1a1a;font-weight:600;">contact us</a>.
+        please <a href="${CONF_SUPPORT_MAILTO}" style="color:#1a1a1a;font-weight:600;">contact us</a>.
       </td>
     </tr>
   </table>
@@ -50,7 +53,40 @@ const FOOTER = `
   </table>
 `
 
-function wrap(content: string) {
+const HGS_BANNER = `
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#1a1a1a;">
+    <tr>
+      <td style="padding:20px 24px;font-family:Arial,Helvetica,sans-serif;">
+        <h1 style="margin:0;color:#ffffff;font-size:18px;font-weight:600;font-family:Arial,Helvetica,sans-serif;">
+          Hellenic Geographical Society
+        </h1>
+        <p style="margin:4px 0 0;color:#aaaaaa;font-size:13px;font-family:Arial,Helvetica,sans-serif;">
+          Membership
+        </p>
+      </td>
+    </tr>
+  </table>
+`
+
+const HGS_FOOTER = `
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:24px;">
+    <tr>
+      <td style="padding:14px 16px;background:#f9fafb;font-size:13px;font-family:Arial,Helvetica,sans-serif;color:#374151;line-height:1.6;">
+        For any questions regarding your membership, please
+        <a href="${HGS_SUPPORT_MAILTO}" style="color:#1a1a1a;font-weight:600;">contact us</a>.
+      </td>
+    </tr>
+  </table>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:16px;">
+    <tr>
+      <td style="padding-top:16px;border-top:1px solid #e5e7eb;color:#9ca3af;font-size:12px;font-family:Arial,Helvetica,sans-serif;">
+        Hellenic Geographical Society &middot; hellenic-geographical-society.com
+      </td>
+    </tr>
+  </table>
+`
+
+function wrap(content: string, banner = CONF_BANNER, footer = CONF_FOOTER) {
   return `<!DOCTYPE html>
 <html lang="en">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
@@ -59,11 +95,11 @@ function wrap(content: string) {
     <tr>
       <td align="center" style="padding:24px 16px;">
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:560px;background:#ffffff;border:1px solid #e5e7eb;">
-          <tr><td>${BANNER}</td></tr>
+          <tr><td>${banner}</td></tr>
           <tr>
             <td style="padding:24px;font-family:Arial,Helvetica,sans-serif;">
               ${content}
-              ${FOOTER}
+              ${footer}
             </td>
           </tr>
         </table>
@@ -191,13 +227,13 @@ export async function POST(req: NextRequest) {
           </table>
           <p style="color:#374151;line-height:1.6;font-family:Arial,Helvetica,sans-serif;">
             If you believe this was a mistake, please contact the submitting author or
-            <a href="${SUPPORT_MAILTO}" style="color:#1a1a1a;font-weight:600;">reach out to us</a>.
+            <a href="${CONF_SUPPORT_MAILTO}" style="color:#1a1a1a;font-weight:600;">reach out to us</a>.
           </p>
           <p style="color:#374151;line-height:1.6;font-family:Arial,Helvetica,sans-serif;">
             Author notifications will be sent by <strong>1 July 2026</strong>.
           </p>
         `)
-        resend.emails.send({ from: FROM, to: ca.email, subject: coAuthorSubject, html: coHtml }).catch(() => {})
+        resend.emails.send({ from: CONF_FROM, to: ca.email, subject: coAuthorSubject, html: coHtml }).catch(() => {})
       }
     }
   } else if (type === "receipt") {
@@ -237,13 +273,15 @@ export async function POST(req: NextRequest) {
       <p style="color:#374151;font-size:13px;line-height:1.6;font-family:Arial,Helvetica,sans-serif;">
         Once we receive your membership form and proof of payment, we will contact you at the email address provided to confirm your membership.
       </p>
-    `)
+    `, HGS_BANNER, HGS_FOOTER)
   } else {
     return NextResponse.json({ error: "Unknown type" }, { status: 400 })
   }
 
+  const from = type === "membership" ? HGS_FROM : CONF_FROM
+
   try {
-    await resend.emails.send({ from: FROM, to: email, subject, html })
+    await resend.emails.send({ from, to: email, subject, html })
     return NextResponse.json({ ok: true })
   } catch (err) {
     console.error("Resend error:", err)

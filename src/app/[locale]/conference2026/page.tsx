@@ -243,6 +243,10 @@ const scientificCommittee = [
     url: "https://www.ekke.gr/en/centre/personnel/kandilis-georgios",
   },
   {
+    name: "Efthimios Karymbalis",
+    url: "https://geo.hua.gr/personnel/efthymios-karybalis/",
+  },
+  {
     name: "Dimitris Kavroudakis",
     url: "https://geography.aegean.gr/ppl/index.php?content=0&bio=dimitrisk",
   },

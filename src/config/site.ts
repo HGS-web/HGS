@@ -19,7 +19,7 @@ export const siteConfig = {
   },
   mapUrl: "https://maps.app.goo.gl/g7kBUna8MDYhGkAF7",
   social: {
-    facebook: "https://www.facebook.com/profile.php?id=61558192471144",
+    facebook: "https://www.facebook.com/HellenicGEOSOCIETY",
     linkedin: "https://www.linkedin.com/company/hellenic-geographical-society",
   },
   banking: {

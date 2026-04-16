@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Mail, CalendarDays, FileText, Users } from "lucide-react";
 import { getMarkdownContent } from "@/lib/markdown";
 import { FadeIn, FadeInView } from "@/components/ui/motion";
@@ -572,7 +573,15 @@ export default async function Conference2026Page({ params }: PageProps) {
                         <td className="py-3 text-black/40">€80</td>
                       </tr>
                       <tr>
-                        <td className="py-3 pr-4">HGS Members <span className="text-xs text-black/40">(in good standing)</span></td>
+                        <td className="py-3 pr-4">
+                          <Link
+                            href={`/${validLocale}/society/registration`}
+                            className="font-medium text-black underline underline-offset-4 decoration-black/20 hover:decoration-black transition-colors"
+                          >
+                            HGS Members
+                          </Link>{" "}
+                          <span className="text-xs text-black/40">(in good standing)</span>
+                        </td>
                         <td className="py-3 pr-4 font-medium">€40</td>
                         <td className="py-3 text-black/40">€50</td>
                       </tr>
@@ -582,7 +591,14 @@ export default async function Conference2026Page({ params }: PageProps) {
                         <td className="py-3 text-black/40">€30</td>
                       </tr>
                       <tr>
-                        <td className="py-3 pr-4">HGS Student Members</td>
+                        <td className="py-3 pr-4">
+                          <Link
+                            href={`/${validLocale}/society/registration`}
+                            className="font-medium text-black underline underline-offset-4 decoration-black/20 hover:decoration-black transition-colors"
+                          >
+                            HGS Student Members
+                          </Link>
+                        </td>
                         <td className="py-3 pr-4 font-medium">€10</td>
                         <td className="py-3 text-black/40">€15</td>
                       </tr>

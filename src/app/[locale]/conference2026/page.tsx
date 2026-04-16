@@ -579,8 +579,7 @@ export default async function Conference2026Page({ params }: PageProps) {
                             className="font-medium text-black underline underline-offset-4 decoration-black/20 hover:decoration-black transition-colors"
                           >
                             HGS Members
-                          </Link>{" "}
-                          <span className="text-xs text-black/40">(in good standing)</span>
+                          </Link>
                         </td>
                         <td className="py-3 pr-4 font-medium">€40</td>
                         <td className="py-3 text-black/40">€50</td>

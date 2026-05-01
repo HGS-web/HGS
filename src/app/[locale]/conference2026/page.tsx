@@ -339,6 +339,10 @@ const scientificCommittee = [
     url: "https://geography.aegean.gr/ppl/index_en.php?content=0&bio=geos",
   },
   {
+    name: "Eirini Skrimizea",
+    url: "https://geo.hua.gr/personnel/skrimizea-eirini/",
+  },
+  {
     name: "Nikolaos Soulakellis",
     url: "https://geography.aegean.gr/ppl/index_en.php?content=0&bio=nsoul",
   },
@@ -460,7 +464,15 @@ export default async function Conference2026Page({ params }: PageProps) {
                   </span>
                   <span className="inline-flex items-center gap-1.5 rounded-full border border-black/10 bg-black/[0.03] px-3 py-1 text-xs text-black/55">
                     <Users className="h-3 w-3 shrink-0" />
-                    Each participant may author or co-author up to two presentations
+                    <span>
+                      Up to two presentations as author or co-author — to submit a second as author, use a different email or send the full submission to{" "}
+                      <a
+                        href="mailto:ekarkani@geol.uoa.gr"
+                        className="underline decoration-black/20 hover:decoration-black/60"
+                      >
+                        ekarkani@geol.uoa.gr
+                      </a>
+                    </span>
                   </span>
                 </div>
 

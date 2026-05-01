@@ -186,7 +186,7 @@ export async function POST(req: NextRequest) {
       </table>
       <p style="color:#374151;font-size:13px;line-height:1.6;font-family:Arial,Helvetica,sans-serif;">
         After completing the transfer, upload your payment receipt on the conference page.
-        Abstract submission deadline: <strong>1 May 2026</strong>.
+        Abstract submission deadline: <strong>8 May 2026</strong>.
       </p>
     `)
   } else if (type === "abstract") {

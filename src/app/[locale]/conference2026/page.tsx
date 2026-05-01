@@ -452,7 +452,7 @@ export default async function Conference2026Page({ params }: PageProps) {
                 <div className="mt-3 flex flex-wrap gap-2">
                   <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700">
                     <CalendarDays className="h-3 w-3 shrink-0" />
-                    Deadline: 1 May 2026
+                    Deadline: 8 May 2026
                   </span>
                   <span className="inline-flex items-center gap-1.5 rounded-full border border-black/10 bg-black/[0.03] px-3 py-1 text-xs text-black/55">
                     <FileText className="h-3 w-3 shrink-0" />
@@ -524,9 +524,9 @@ export default async function Conference2026Page({ params }: PageProps) {
                     <div className="flex items-center justify-between mb-0.5">
                       <div className="flex items-center gap-2">
                         <span className="inline-block rounded-full bg-emerald-500 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white">Now</span>
-                        <p className="text-xs font-medium text-emerald-700">1 Mar – 1 May 2026</p>
+                        <p className="text-xs font-medium text-emerald-700">1 Mar – 8 May 2026</p>
                       </div>
-                      <AddToCalendar title="Abstract Submission Deadline – HGS Conference" start="20260501" />
+                      <AddToCalendar title="Abstract Submission Deadline – HGS Conference" start="20260508" />
                     </div>
                     <p className="text-sm font-semibold text-emerald-900">Abstract submission open</p>
                   </div>

@@ -1,12 +1,12 @@
 import Link from "next/link";
-import { Mail, CalendarDays, FileText, Users } from "lucide-react";
+import { Mail, CalendarDays } from "lucide-react";
 import { getMarkdownContent } from "@/lib/markdown";
 import { FadeIn, FadeInView } from "@/components/ui/motion";
 import type { Locale } from "@/config/site";
 import { ThematicSessionForm } from "@/components/conference/thematic-session-form";
 import { SessionList } from "@/components/conference/session-list";
 // import { RegistrationDialog } from "@/components/conference/registration-dialog"; // Step 1 – enabled from 1 Jul 2026
-import { AbstractForm } from "@/components/conference/abstract-dialog";
+// import { AbstractForm } from "@/components/conference/abstract-dialog"; // Submissions closed 8 May 2026
 // import { PaymentDialog } from "@/components/conference/payment-dialog"; // Step 3 – enabled from 1 Jul 2026
 import { AddToCalendar } from "@/components/conference/add-to-calendar";
 // import { ClipboardList, Receipt } from "lucide-react"; // Step 1 & Step 3 icons – enabled from 1 Jul 2026
@@ -454,25 +454,9 @@ export default async function Conference2026Page({ params }: PageProps) {
                 <h3 className="text-xl font-semibold text-black">Abstract Submission</h3>
 
                 <div className="mt-3 flex flex-wrap gap-2">
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700">
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-black/15 bg-black/[0.04] px-3 py-1 text-xs font-medium text-black/60">
                     <CalendarDays className="h-3 w-3 shrink-0" />
-                    Deadline: 8 May 2026
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-black/10 bg-black/[0.03] px-3 py-1 text-xs text-black/55">
-                    <FileText className="h-3 w-3 shrink-0" />
-                    Max 300 words
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-black/10 bg-black/[0.03] px-3 py-1 text-xs text-black/55">
-                    <Users className="h-3 w-3 shrink-0" />
-                    <span>
-                      Up to two presentations as author or co-author — to submit a second as author, use a different email or send the full submission to{" "}
-                      <a
-                        href="mailto:ekarkani@geol.uoa.gr"
-                        className="underline decoration-black/20 hover:decoration-black/60"
-                      >
-                        ekarkani@geol.uoa.gr
-                      </a>
-                    </span>
+                    Submissions closed — 8 May 2026
                   </span>
                 </div>
 
@@ -484,7 +468,11 @@ export default async function Conference2026Page({ params }: PageProps) {
                 <PaymentDialog>...</PaymentDialog>
                 ── end Step 3 ── */}
 
-                <AbstractForm />
+                <p className="mt-4 text-sm text-black/65 leading-relaxed">
+                  Abstract submission closed on 8 May 2026. Notifications to authors will be sent by{" "}
+                  <strong className="text-black/80">1 July 2026</strong>, when registration also opens
+                  (early-bird rate until 31 August 2026).
+                </p>
 
                 <div className="mt-4 rounded-xl border border-black/8 bg-black/[0.02] px-4 py-3 text-center">
                   <p className="text-xs text-black/55">
@@ -517,6 +505,7 @@ export default async function Conference2026Page({ params }: PageProps) {
                 {[
                   { date: "30 Jan 2026", label: "Call for session proposals" },
                   { date: "20 Feb 2026", label: "Deadline for session proposals" },
+                  { date: "1 Mar – 8 May 2026", label: "Abstract submission" },
                 ].map((item) => (
                   <div key={item.date} className="relative flex items-start gap-4 pb-4">
                     <div className="relative z-10 mt-1.5 h-[15px] w-[15px] shrink-0 rounded-full border-2 border-black/15 bg-black/5" />
@@ -535,18 +524,17 @@ export default async function Conference2026Page({ params }: PageProps) {
                   <div className="flex-1 -mt-1 rounded-xl bg-emerald-50 border border-emerald-200/60 px-4 py-3">
                     <div className="flex items-center justify-between mb-0.5">
                       <div className="flex items-center gap-2">
-                        <span className="inline-block rounded-full bg-emerald-500 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white">Now</span>
-                        <p className="text-xs font-medium text-emerald-700">1 Mar – 8 May 2026</p>
+                        <span className="inline-block rounded-full bg-emerald-500 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white">Next</span>
+                        <p className="text-xs font-medium text-emerald-700">1 Jul 2026</p>
                       </div>
-                      <AddToCalendar title="Abstract Submission Deadline – HGS Conference" start="20260508" />
+                      <AddToCalendar title="Notifications to authors – HGS Conference" start="20260701" />
                     </div>
-                    <p className="text-sm font-semibold text-emerald-900">Abstract submission open</p>
+                    <p className="text-sm font-semibold text-emerald-900">Notifications to authors</p>
                   </div>
                 </div>
 
                 {/* Upcoming milestones */}
                 {[
-                  { date: "1 Jul 2026", label: "Notifications to authors", calStart: "20260701" },
                   { date: "1 Jul – 31 Aug 2026", label: "Early bird registration", calStart: "20260701", calEnd: "20260901" },
                   { date: "30 Sep 2026", label: "Late bird registration deadline", calStart: "20260930" },
                   { date: "27 – 28 Nov 2026", label: "Conference", highlight: true, calStart: "20261127", calEnd: "20261129" },

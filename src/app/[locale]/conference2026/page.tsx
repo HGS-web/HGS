@@ -469,9 +469,8 @@ export default async function Conference2026Page({ params }: PageProps) {
                 ── end Step 3 ── */}
 
                 <p className="mt-4 text-sm text-black/65 leading-relaxed">
-                  Abstract submission closed on 8 May 2026. Notifications to authors will be sent by{" "}
-                  <strong className="text-black/80">1 July 2026</strong>, when registration also opens
-                  (early-bird rate until 31 August 2026).
+                  Notifications to authors will be sent by{" "}
+                  <strong className="text-black/80">1 July 2026</strong>.
                 </p>
 
                 <div className="mt-4 rounded-xl border border-black/8 bg-black/[0.02] px-4 py-3 text-center">

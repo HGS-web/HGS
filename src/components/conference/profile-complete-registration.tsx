@@ -86,19 +86,19 @@ export function ProfileCompleteRegistration({
         <div className="grid grid-cols-2 gap-3">
           <div className="space-y-1.5">
             <Label htmlFor="cr-first">First Name *</Label>
-            <Input id="cr-first" {...register("first_name")} aria-invalid={!!errors.first_name} />
+            <Input id="cr-first" autoComplete="given-name" {...register("first_name")} aria-invalid={!!errors.first_name} />
             {errors.first_name && <p className="text-xs text-red-500">{errors.first_name.message}</p>}
           </div>
           <div className="space-y-1.5">
             <Label htmlFor="cr-last">Last Name *</Label>
-            <Input id="cr-last" {...register("last_name")} aria-invalid={!!errors.last_name} />
+            <Input id="cr-last" autoComplete="family-name" {...register("last_name")} aria-invalid={!!errors.last_name} />
             {errors.last_name && <p className="text-xs text-red-500">{errors.last_name.message}</p>}
           </div>
         </div>
 
         <div className="space-y-1.5">
           <Label htmlFor="cr-aff">Affiliation *</Label>
-          <Input id="cr-aff" placeholder="University / Institution" {...register("affiliation")} aria-invalid={!!errors.affiliation} />
+          <Input id="cr-aff" placeholder="University / Institution" autoComplete="organization" {...register("affiliation")} aria-invalid={!!errors.affiliation} />
           {errors.affiliation && <p className="text-xs text-red-500">{errors.affiliation.message}</p>}
         </div>
 

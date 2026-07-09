@@ -31,8 +31,8 @@ password resets.
    (this is the toggle inside the Email provider panel — not
    "Secure email change", which can stay at its default).
 2. **Authentication → URL Configuration**:
-   - Site URL: `https://geographiki.gr`
-   - Redirect URLs: add `https://geographiki.gr/auth/confirm`
+   - Site URL: `https://hellenic-geographical-society.com`
+   - Redirect URLs: add `https://hellenic-geographical-society.com/auth/confirm`
      (and `http://localhost:3000/auth/confirm` for local testing).
 3. **Project Settings → Auth → SMTP** (custom SMTP is required — the built-in
    sender only delivers to project team members):

@@ -11,7 +11,7 @@ export const siteConfig = {
     en: "Promoting geographical science in Greece since 1901",
     el: "Προάγοντας τη γεωγραφική επιστήμη στην Ελλάδα από το 1901",
   },
-  url: "https://geographiki.gr",
+  url: "https://hellenic-geographical-society.com",
   email: "geographicalsocietyhellas@gmail.com",
   address: {
     en: "Voukourestiou 11, 106 71, Athens",

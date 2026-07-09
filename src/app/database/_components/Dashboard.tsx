@@ -19,23 +19,37 @@ import { DetailDialog } from "./DetailDialog";
 import {
   exportXlsxUrl,
   exportZipUrl,
+  fetchConference2026Data,
   fetchDashboardData,
   logout,
 } from "../_lib/api";
 import {
+  c26AbstractsColumns,
+  c26ClaimsColumns,
+  c26PeopleColumns,
+  c26ReceiptsColumns,
+  c26RegistrationsColumns,
   conferenceAbstractsColumns,
   conferenceReceiptsColumns,
   conferenceSessionsColumns,
   membershipReceiptsColumns,
   membershipRegistrationsColumns,
+  type Abstract2026Row,
+  type Claim2026Row,
+  type Person2026Row,
+  type Receipt2026Row,
 } from "../_lib/columns";
 import { formatDateTime, formatOrganizer, fullName, humanBool } from "../_lib/format";
+import { ReceiptStatusForm } from "./ReceiptStatusForm";
+import { ClaimDecisionForm } from "./ClaimDecisionForm";
 import type {
   Abstract,
+  Conference2026Data,
   DashboardData,
   ExportTableKey,
   MembershipApplication,
   PaymentReceipt,
+  RegistrationConference2026,
   SectionKey,
   TabKey,
   ThematicSessionSubmission,
@@ -46,11 +60,17 @@ type SelectedRow =
   | { kind: "membership-receipt"; row: PaymentReceipt }
   | { kind: "conference-session"; row: ThematicSessionSubmission }
   | { kind: "conference-abstract"; row: Abstract }
-  | { kind: "conference-receipt"; row: PaymentReceipt };
+  | { kind: "conference-receipt"; row: PaymentReceipt }
+  | { kind: "c26-registration"; row: RegistrationConference2026 }
+  | { kind: "c26-receipt"; row: Receipt2026Row }
+  | { kind: "c26-person"; row: Person2026Row }
+  | { kind: "c26-abstract"; row: Abstract2026Row }
+  | { kind: "c26-claim"; row: Claim2026Row };
 
 const SECTION_LABEL: Record<SectionKey, string> = {
   membership: "HGS Membership",
-  conference: "Conference 2026",
+  conference: "2026 Submissions",
+  conference2026: "2026 Registration",
 };
 
 const TABS_BY_SECTION: Record<SectionKey, { key: TabKey; label: string }[]> = {
@@ -63,6 +83,13 @@ const TABS_BY_SECTION: Record<SectionKey, { key: TabKey; label: string }[]> = {
     { key: "conference-abstracts", label: "Abstracts" },
     { key: "conference-receipts", label: "Receipts" },
   ],
+  conference2026: [
+    { key: "c26-registrations", label: "Registrations" },
+    { key: "c26-receipts", label: "Receipts" },
+    { key: "c26-claims", label: "Claims" },
+    { key: "c26-abstracts", label: "Abstracts" },
+    { key: "c26-people", label: "People" },
+  ],
 };
 
 const TAB_EXPORT_TABLE: Record<TabKey, ExportTableKey> = {
@@ -71,11 +98,17 @@ const TAB_EXPORT_TABLE: Record<TabKey, ExportTableKey> = {
   "conference-sessions": "thematic_session_submissions_2026",
   "conference-abstracts": "abstracts",
   "conference-receipts": "payment_receipts_conference",
+  "c26-registrations": "registrations_conference2026",
+  "c26-receipts": "payment_receipts_conference2026",
+  "c26-claims": "author_claims_conference2026",
+  "c26-abstracts": "abstracts_conference2026",
+  "c26-people": "people_conference2026",
 };
 
 export function Dashboard() {
   const router = useRouter();
   const [data, setData] = useState<DashboardData | null>(null);
+  const [data2026, setData2026] = useState<Conference2026Data | null>(null);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -102,6 +135,25 @@ export function Dashboard() {
     }
   }, [router]);
 
+  const load2026 = useCallback(async (isRefresh = false) => {
+    if (isRefresh) setRefreshing(true);
+    else setLoading(true);
+    setError(null);
+    try {
+      const d = await fetchConference2026Data();
+      setData2026(d);
+    } catch (e) {
+      const msg = e instanceof Error ? e.message : "Failed to load data";
+      setError(msg);
+      if (msg === "Unauthorized" || msg === "HTTP 401") {
+        router.replace("/database/login");
+      }
+    } finally {
+      setLoading(false);
+      setRefreshing(false);
+    }
+  }, [router]);
+
   useEffect(() => {
     void load();
   }, [load]);
@@ -110,6 +162,13 @@ export function Dashboard() {
     if (next === section) return;
     setSection(next);
     setTab(TABS_BY_SECTION[next][0].key);
+    // Registration-phase data is fetched lazily on first open.
+    if (next === "conference2026" && !data2026) void load2026();
+  }
+
+  function refresh() {
+    if (section === "conference2026") void load2026(true);
+    else void load(true);
   }
 
   async function handleLogout() {
@@ -120,12 +179,136 @@ export function Dashboard() {
 
   const tabsForSection = TABS_BY_SECTION[section];
 
-  const activeTable = useMemo(() => {
-    if (!data) return null;
+  // Registration-phase rows enriched with joins from sibling tables.
+  const c26 = useMemo(() => {
+    if (!data2026) return null;
+    const regById = new Map(data2026.registrations.map((r) => [r.id, r]));
+    const regByUser = new Map(data2026.registrations.map((r) => [r.user_id, r]));
+    const abstractById = new Map(data2026.abstracts.map((a) => [a.id, a]));
 
+    const authorsByAbstract = new Map<string, typeof data2026.authors>();
+    const abstractCountByPerson = new Map<string, number>();
+    for (const author of data2026.authors) {
+      const list = authorsByAbstract.get(author.abstract_id) ?? [];
+      list.push(author);
+      authorsByAbstract.set(author.abstract_id, list);
+      abstractCountByPerson.set(
+        author.person_id,
+        (abstractCountByPerson.get(author.person_id) ?? 0) + 1,
+      );
+    }
+
+    const receipts: Receipt2026Row[] = data2026.receipts.map((r) => ({
+      ...r,
+      email: regById.get(r.registration_id)?.email ?? "—",
+    }));
+    const claims: Claim2026Row[] = data2026.claims.map((c) => ({
+      ...c,
+      email: regByUser.get(c.user_id)?.email ?? "—",
+      abstract_title: abstractById.get(c.abstract_id)?.title ?? "—",
+    }));
+    const people: Person2026Row[] = data2026.people.map((p) => ({
+      ...p,
+      abstract_count: abstractCountByPerson.get(p.id) ?? 0,
+    }));
+    const abstracts: Abstract2026Row[] = data2026.abstracts.map((a) => {
+      const authors = [...(authorsByAbstract.get(a.id) ?? [])].sort(
+        (x, y) => x.author_order - y.author_order,
+      );
+      return {
+        ...a,
+        submitter_name:
+          authors.find((x) => x.is_submitter)?.name_as_listed ?? "—",
+        author_count: authors.length,
+        authors_display: authors
+          .map(
+            (x) =>
+              `${x.is_submitter ? "Author" : "Co-author"}: ${x.name_as_listed}${x.affiliation_as_listed ? ` (${x.affiliation_as_listed})` : ""}`,
+          )
+          .join("\n"),
+      };
+    });
+
+    return { registrations: data2026.registrations, receipts, claims, people, abstracts };
+  }, [data2026]);
+
+  const activeTable = useMemo(() => {
     const rowClick = <T,>(row: T, kind: SelectedRow["kind"]) => {
       setSelected({ kind, row } as SelectedRow);
     };
+
+    if (tab.startsWith("c26-")) {
+      if (!c26) return null;
+      switch (tab) {
+        case "c26-registrations":
+          return (
+            <DataTable<RegistrationConference2026>
+              columns={c26RegistrationsColumns}
+              rows={c26.registrations}
+              rowKey={(r) => r.id}
+              searchable={(r) =>
+                `${r.first_name} ${r.last_name} ${r.email} ${r.affiliation} ${r.country} ${r.registration_type}`
+              }
+              onRowClick={(r) => rowClick(r, "c26-registration")}
+              emptyMessage="No registrations yet."
+            />
+          );
+        case "c26-receipts":
+          return (
+            <DataTable<Receipt2026Row>
+              columns={c26ReceiptsColumns}
+              rows={c26.receipts}
+              rowKey={(r) => r.id}
+              searchable={(r) =>
+                `${r.email} ${r.receipt_kind} ${r.status} ${r.file_name ?? ""} ${r.user_notes ?? ""} ${r.admin_notes ?? ""}`
+              }
+              onRowClick={(r) => rowClick(r, "c26-receipt")}
+              emptyMessage="No receipts yet."
+            />
+          );
+        case "c26-claims":
+          return (
+            <DataTable<Claim2026Row>
+              columns={c26ClaimsColumns}
+              rows={c26.claims}
+              rowKey={(r) => r.id}
+              searchable={(r) =>
+                `${r.claimed_name} ${r.email} ${r.abstract_title} ${r.status}`
+              }
+              onRowClick={(r) => rowClick(r, "c26-claim")}
+              emptyMessage="No authorship claims."
+            />
+          );
+        case "c26-abstracts":
+          return (
+            <DataTable<Abstract2026Row>
+              columns={c26AbstractsColumns}
+              rows={c26.abstracts}
+              rowKey={(r) => r.id}
+              searchable={(r) =>
+                `${r.code} ${r.title} ${r.session_label} ${r.evaluation} ${r.submitter_name} ${r.authors_display}`
+              }
+              onRowClick={(r) => rowClick(r, "c26-abstract")}
+              emptyMessage="No abstracts imported yet."
+            />
+          );
+        case "c26-people":
+          return (
+            <DataTable<Person2026Row>
+              columns={c26PeopleColumns}
+              rows={c26.people}
+              rowKey={(r) => r.id}
+              searchable={(r) =>
+                `${r.full_name} ${r.email ?? ""} ${r.affiliation ?? ""} ${r.source}`
+              }
+              onRowClick={(r) => rowClick(r, "c26-person")}
+              emptyMessage="No people imported yet."
+            />
+          );
+      }
+    }
+
+    if (!data) return null;
 
     switch (tab) {
       case "membership-registrations": {
@@ -200,7 +383,7 @@ export function Dashboard() {
         );
       }
     }
-  }, [data, tab]);
+  }, [data, c26, tab]);
 
   return (
     <>
@@ -237,7 +420,7 @@ export function Dashboard() {
             <Button
               variant="outline"
               size="sm"
-              onClick={() => void load(true)}
+              onClick={refresh}
               disabled={refreshing}
               className="hidden sm:inline-flex"
             >
@@ -294,7 +477,7 @@ export function Dashboard() {
         ) : error ? (
           <div className="flex flex-col items-start gap-3 rounded-xl border border-red-200 bg-red-50 p-4">
             <div className="text-sm text-red-700">{error}</div>
-            <Button variant="outline" size="sm" onClick={() => void load(true)}>
+            <Button variant="outline" size="sm" onClick={refresh}>
               <RefreshCw className="h-3.5 w-3.5" /> Retry
             </Button>
           </div>
@@ -317,6 +500,25 @@ export function Dashboard() {
         open={selected !== null}
         onOpenChange={(open) => !open && setSelected(null)}
         {...(selected ? detailProps(selected) : emptyDetailProps())}
+        actions={
+          selected?.kind === "c26-receipt" ? (
+            <ReceiptStatusForm
+              receipt={selected.row}
+              onSaved={() => {
+                setSelected(null);
+                void load2026(true);
+              }}
+            />
+          ) : selected?.kind === "c26-claim" ? (
+            <ClaimDecisionForm
+              claim={selected.row}
+              onSaved={() => {
+                setSelected(null);
+                void load2026(true);
+              }}
+            />
+          ) : undefined
+        }
       />
     </>
   );
@@ -330,9 +532,114 @@ function detailProps(sel: SelectedRow): {
   title: string;
   subtitle?: string;
   fields: Array<{ label: string; value: unknown }>;
-  files?: Array<{ bucket: "membership-receipts" | "payment-receipts"; path: string; label?: string }>;
+  files?: Array<{
+    bucket: "membership-receipts" | "payment-receipts" | "payment-receipts-conference2026";
+    path: string;
+    label?: string;
+  }>;
 } {
   switch (sel.kind) {
+    case "c26-registration": {
+      const r = sel.row;
+      return {
+        title: fullName(r.first_name, r.last_name),
+        subtitle: r.email,
+        fields: [
+          { label: "Email", value: r.email },
+          { label: "Registration type", value: r.fee_label },
+          { label: "Fee", value: `€${Number(r.fee_amount_eur).toFixed(2)}` },
+          { label: "Affiliation", value: r.affiliation },
+          { label: "Country", value: r.country },
+          { label: "GDPR consent", value: humanBool(r.gdpr_consent) },
+          { label: "Mailing consent", value: humanBool(r.mailing_consent) },
+          { label: "Registered", value: formatDateTime(r.created_at) },
+        ],
+      };
+    }
+    case "c26-receipt": {
+      const r = sel.row;
+      return {
+        title: "Payment receipt (2026)",
+        subtitle: r.email,
+        fields: [
+          { label: "Email", value: r.email },
+          { label: "Kind", value: r.receipt_kind === "conference" ? "Conference" : "HGS Membership" },
+          { label: "Status", value: r.status },
+          { label: "User notes", value: r.user_notes },
+          { label: "Admin notes", value: r.admin_notes },
+          { label: "Status updated", value: r.status_updated_at ? formatDateTime(r.status_updated_at) : null },
+          { label: "Uploaded", value: formatDateTime(r.created_at) },
+        ],
+        files: [
+          {
+            bucket: "payment-receipts-conference2026",
+            path: r.file_path,
+            label: r.file_name ?? r.file_path.split("/").pop(),
+          },
+        ],
+      };
+    }
+    case "c26-person": {
+      const r = sel.row;
+      return {
+        title: r.full_name,
+        subtitle: r.email ?? "no e-mail on record",
+        fields: [
+          { label: "Email", value: r.email },
+          { label: "First name", value: r.first_name },
+          { label: "Last name", value: r.last_name },
+          { label: "Affiliation", value: r.affiliation },
+          { label: "Source", value: r.source === "import" ? "Imported from submissions" : "Created at signup" },
+          { label: "Has account", value: humanBool(Boolean(r.auth_user_id)) },
+          { label: "Abstracts", value: r.abstract_count },
+          { label: "Needs review", value: humanBool(r.needs_review) },
+          { label: "Review note", value: r.review_note },
+        ],
+      };
+    }
+    case "c26-abstract": {
+      const r = sel.row;
+      return {
+        title: r.title,
+        subtitle: `${r.code} · ${r.submitter_name}`,
+        fields: [
+          { label: "Code", value: r.code },
+          {
+            label: "Evaluation",
+            value:
+              r.evaluation === "reassigned"
+                ? "Accepted (reassigned)"
+                : r.evaluation === "accepted"
+                  ? "Accepted"
+                  : "Not evaluated",
+          },
+          { label: "Session (final)", value: r.session_label },
+          {
+            label: "Session (as submitted)",
+            value: r.session_original && r.session_original !== r.session_label ? r.session_original : null,
+          },
+          { label: "Authors", value: r.authors_display },
+          { label: "Abstract", value: r.abstract_text },
+        ],
+      };
+    }
+    case "c26-claim": {
+      const r = sel.row;
+      return {
+        title: `Claim by ${r.claimed_name}`,
+        subtitle: r.email,
+        fields: [
+          { label: "Claimant email", value: r.email },
+          { label: "Claimed name", value: r.claimed_name },
+          { label: "Abstract", value: r.abstract_title },
+          { label: "Message", value: r.message },
+          { label: "Status", value: r.status },
+          { label: "Admin note", value: r.admin_note },
+          { label: "Decided", value: r.decided_at ? formatDateTime(r.decided_at) : null },
+          { label: "Submitted", value: formatDateTime(r.created_at) },
+        ],
+      };
+    }
     case "membership-registration": {
       const r = sel.row;
       return {

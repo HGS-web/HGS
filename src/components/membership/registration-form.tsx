@@ -162,6 +162,7 @@ export function MembershipForm({ locale }: { locale: Locale }) {
     let receiptPath: string | null = null
     if (receiptFile) {
       const ext  = receiptFile.name.split(".").pop()
+      // eslint-disable-next-line react-hooks/purity -- event handler, not render
       const path = `${Date.now()}-${normalized.replace(/[@.]/g, "_")}.${ext}`
       const { error: uploadErr } = await supabase.storage.from("membership-receipts").upload(path, receiptFile)
       if (uploadErr) { setServerError("File upload failed. Please try again."); return }

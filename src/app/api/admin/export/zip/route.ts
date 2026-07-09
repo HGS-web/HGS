@@ -2,12 +2,13 @@ import { NextResponse, type NextRequest } from "next/server";
 import archiver from "archiver";
 import * as XLSX from "xlsx";
 import { getSupabaseAdmin } from "@/lib/supabase-admin";
+import { requireAdmin } from "@/lib/admin-guard";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 export const maxDuration = 60;
 
-type Section = "membership" | "conference";
+type Section = "membership" | "conference" | "conference2026";
 
 function serializeRow(row: Record<string, unknown>): Record<string, unknown> {
   const out: Record<string, unknown> = {};
@@ -31,8 +32,15 @@ function safeFileName(s: string): string {
 }
 
 export async function GET(request: NextRequest) {
+  const deniedResponse = await requireAdmin(request);
+  if (deniedResponse) return deniedResponse;
+
   const section = request.nextUrl.searchParams.get("section") as Section | null;
-  if (section !== "membership" && section !== "conference") {
+  if (
+    section !== "membership" &&
+    section !== "conference" &&
+    section !== "conference2026"
+  ) {
     return NextResponse.json({ error: "Invalid section" }, { status: 400 });
   }
 
@@ -120,6 +128,65 @@ export async function GET(request: NextRequest) {
                 );
               }
             }
+          } else if (section === "conference2026") {
+            const [registrations, receipts, people, abstracts, authors, claims] =
+              await Promise.all([
+                sb.from("registrations_conference2026").select("*").order("created_at", { ascending: false }),
+                sb.from("payment_receipts_conference2026").select("*").order("created_at", { ascending: false }),
+                sb.from("people_conference2026").select("*").order("created_at", { ascending: false }),
+                sb.from("abstracts_conference2026").select("*").order("code", { ascending: true }),
+                sb.from("abstract_authors_conference2026").select("*").order("author_order", { ascending: true }),
+                sb.from("author_claims_conference2026").select("*").order("created_at", { ascending: false }),
+              ]);
+            const firstError =
+              registrations.error ?? receipts.error ?? people.error ??
+              abstracts.error ?? authors.error ?? claims.error;
+            if (firstError) throw firstError;
+
+            archive.append(sheetBuffer(registrations.data ?? [], "Registrations"), { name: "2026-registrations.xlsx" });
+            archive.append(sheetBuffer(receipts.data ?? [], "Receipts"), { name: "2026-receipts.xlsx" });
+            archive.append(sheetBuffer(people.data ?? [], "People"), { name: "2026-people.xlsx" });
+            archive.append(sheetBuffer(abstracts.data ?? [], "Abstracts"), { name: "2026-abstracts.xlsx" });
+            archive.append(sheetBuffer(authors.data ?? [], "AbstractAuthors"), { name: "2026-abstract-authors.xlsx" });
+            archive.append(sheetBuffer(claims.data ?? [], "Claims"), { name: "2026-author-claims.xlsx" });
+
+            const emailByRegistration = new Map<string, string>(
+              (registrations.data ?? []).map((r) => [
+                String((r as { id?: string }).id),
+                String((r as { email?: string }).email ?? "unknown"),
+              ]),
+            );
+
+            for (const row of receipts.data ?? []) {
+              const receipt = row as {
+                id?: string;
+                file_path?: string;
+                registration_id?: string;
+                receipt_kind?: string;
+                status?: string;
+              };
+              const path = receipt.file_path;
+              if (!path) continue;
+              const email = emailByRegistration.get(String(receipt.registration_id)) ?? "unknown";
+              // Receipt id suffix keeps names unique (several declined
+              // receipts of the same kind can exist per registration).
+              const idSuffix = String(receipt.id ?? "").slice(0, 8);
+              try {
+                const { data, error } = await sb.storage
+                  .from("payment-receipts-conference2026")
+                  .download(path);
+                if (error || !data) throw error ?? new Error("empty download");
+                const buf = Buffer.from(await data.arrayBuffer());
+                const ext = path.split(".").pop() ?? "bin";
+                archive.append(buf, {
+                  name: `payment-receipts/${safeFileName(email)}-${receipt.receipt_kind}-${receipt.status}-${idSuffix}.${ext}`,
+                });
+              } catch (e) {
+                errors.push(
+                  `payment-receipts-conference2026/${path}: ${e instanceof Error ? e.message : String(e)}`,
+                );
+              }
+            }
           } else {
             const [sessions, abstracts, receipts] = await Promise.all([
               sb
@@ -176,7 +243,13 @@ export async function GET(request: NextRequest) {
           }
 
           const readme = [
-            `HGS ${section === "membership" ? "Membership" : "Conference 2026"} export`,
+            `HGS ${
+              section === "membership"
+                ? "Membership"
+                : section === "conference2026"
+                  ? "Conference 2026 (registration phase)"
+                  : "Conference 2026 (submission phase)"
+            } export`,
             `Generated: ${new Date().toISOString()}`,
             "",
             errors.length === 0

@@ -10,11 +10,11 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Download, ExternalLink } from "lucide-react";
-import { downloadFile } from "../_lib/api";
+import { downloadFile, type AdminBucket } from "../_lib/api";
 import { formatDateTime, humanBool } from "../_lib/format";
 
 interface FileRef {
-  bucket: "membership-receipts" | "payment-receipts";
+  bucket: AdminBucket;
   path: string;
   label?: string;
 }
@@ -26,6 +26,8 @@ interface Props {
   subtitle?: string;
   fields: Array<{ label: string; value: unknown }>;
   files?: FileRef[];
+  /** Optional admin actions (e.g. receipt evaluation) rendered above the fields. */
+  actions?: React.ReactNode;
 }
 
 function renderValue(value: unknown): React.ReactNode {
@@ -47,7 +49,7 @@ function renderValue(value: unknown): React.ReactNode {
   return String(value);
 }
 
-export function DetailDialog({ open, onOpenChange, title, subtitle, fields, files }: Props) {
+export function DetailDialog({ open, onOpenChange, title, subtitle, fields, files, actions }: Props) {
   const [downloading, setDownloading] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -70,6 +72,8 @@ export function DetailDialog({ open, onOpenChange, title, subtitle, fields, file
           <DialogTitle className="pr-8 text-left">{title}</DialogTitle>
           {subtitle && <DialogDescription className="text-left">{subtitle}</DialogDescription>}
         </DialogHeader>
+
+        {actions}
 
         {files && files.length > 0 && (
           <div className="my-3 space-y-2 rounded-xl border border-black/10 bg-neutral-50 p-3">

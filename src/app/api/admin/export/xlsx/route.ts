@@ -1,6 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 import * as XLSX from "xlsx";
 import { getSupabaseAdmin } from "@/lib/supabase-admin";
+import { requireAdmin } from "@/lib/admin-guard";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -12,7 +13,13 @@ type TableKey =
   | "abstracts"
   | "thematic_session_submissions_2026"
   | "payment_receipts_membership"
-  | "payment_receipts_conference";
+  | "payment_receipts_conference"
+  | "registrations_conference2026"
+  | "payment_receipts_conference2026"
+  | "people_conference2026"
+  | "abstracts_conference2026"
+  | "abstract_authors_conference2026"
+  | "author_claims_conference2026";
 
 const FILENAMES: Record<TableKey, string> = {
   membership_applications: "hgs-membership-registrations",
@@ -21,6 +28,12 @@ const FILENAMES: Record<TableKey, string> = {
   thematic_session_submissions_2026: "hgs-conference-thematic-sessions",
   payment_receipts_membership: "hgs-membership-receipts",
   payment_receipts_conference: "hgs-conference-receipts",
+  registrations_conference2026: "hgs-2026-registrations",
+  payment_receipts_conference2026: "hgs-2026-receipts",
+  people_conference2026: "hgs-2026-people",
+  abstracts_conference2026: "hgs-2026-abstracts",
+  abstract_authors_conference2026: "hgs-2026-abstract-authors",
+  author_claims_conference2026: "hgs-2026-author-claims",
 };
 
 function serializeRow(row: Record<string, unknown>): Record<string, unknown> {
@@ -62,6 +75,9 @@ async function fetchTable(key: TableKey): Promise<Record<string, unknown>[]> {
 }
 
 export async function GET(request: NextRequest) {
+  const deniedResponse = await requireAdmin(request);
+  if (deniedResponse) return deniedResponse;
+
   const table = request.nextUrl.searchParams.get("table") as TableKey | null;
   if (!table || !(table in FILENAMES)) {
     return NextResponse.json({ error: "Invalid table" }, { status: 400 });

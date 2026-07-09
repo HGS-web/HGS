@@ -1,0 +1,13 @@
+{
+  "_comment": "Copy to import-overrides.json (git-ignored — contains personal data) and fill in the real values. known_shared_emails: e-mail addresses confirmed to be used by two different people in the submissions. email_abstract_coauthors: hand-verified co-author lists for the abstracts that were submitted by e-mail (their Evaluated ID column holds the literal 'email' and they are absent from All_Submissions); keyed by Id_Sub code.",
+  "known_shared_emails": ["shared@example.org"],
+  "email_abstract_coauthors": {
+    "S_000": [
+      {
+        "name": "Co-author Full Name",
+        "email": "coauthor@example.org or null",
+        "affiliation": "Institution, City, Country"
+      }
+    ]
+  }
+}

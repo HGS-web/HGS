@@ -9,19 +9,19 @@ import type { Locale } from "@/config/site";
 
 const announcementText = {
   en: {
-    badge: "Coming Soon",
+    badge: "Registration Open",
     title: "13th International Conference",
-    subtitle: "of the Hellenic Geographical Society",
+    subtitle: "of the Hellenic Geographical Society — early bird until 31 Aug 2026",
     date: "2026",
-    cta: "Learn More",
+    cta: "Register now",
     dismiss: "Dismiss",
   },
   el: {
-    badge: "Έρχεται",
+    badge: "Εγγραφές Ανοιχτές",
     title: "13ο Διεθνές Συνέδριο",
-    subtitle: "της Ελληνικής Γεωγραφικής Εταιρείας",
+    subtitle: "της Ελληνικής Γεωγραφικής Εταιρείας — early bird έως 31 Αυγ 2026",
     date: "2026",
-    cta: "Περισσότερα",
+    cta: "Εγγραφή",
     dismiss: "Κλείσιμο",
   },
 };
@@ -104,7 +104,7 @@ export function ConferenceAnnouncement({ locale }: ConferenceAnnouncementProps) 
 
               {/* CTA */}
               <Link
-                href={`/${locale}/conference2026`}
+                href={`/${locale}/conference2026/register`}
                 onClick={handleDismiss}
                 className="inline-flex items-center gap-2 px-4 py-2 bg-black text-white text-sm font-medium rounded-full hover:bg-black/90 transition-all group"
               >

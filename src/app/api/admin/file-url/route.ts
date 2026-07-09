@@ -1,10 +1,15 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { getSupabaseAdmin } from "@/lib/supabase-admin";
+import { requireAdmin } from "@/lib/admin-guard";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-const ALLOWED_BUCKETS = new Set(["membership-receipts", "payment-receipts"]);
+const ALLOWED_BUCKETS = new Set([
+  "membership-receipts",
+  "payment-receipts",
+  "payment-receipts-conference2026",
+]);
 const SIGNED_URL_TTL_SECONDS = 300;
 
 function getClientIp(req: NextRequest): string {
@@ -16,6 +21,9 @@ function getClientIp(req: NextRequest): string {
 }
 
 export async function POST(request: NextRequest) {
+  const deniedResponse = await requireAdmin(request);
+  if (deniedResponse) return deniedResponse;
+
   let body: { bucket?: unknown; path?: unknown } = {};
   try {
     body = (await request.json()) as { bucket?: unknown; path?: unknown };

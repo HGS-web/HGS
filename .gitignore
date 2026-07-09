@@ -39,3 +39,18 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Conference 2026 source data & derived reports — personal data, never commit
+# (the repo is public; these stay local-only)
+/Exports_DB/
+/Tasks/
+/Evaluated_Abstracts.xlsx
+/Detailed_Abstract_Submissions.xlsx
+/scripts/process_tasks.py
+/scripts/build_decisions.py
+/scripts/conference2026/import-report.json
+/scripts/conference2026/import-overrides.json
+/scripts/conference2026/import-data*.sql
+
+# Playwright MCP test artifacts (screenshots, snapshots)
+/.playwright-mcp/

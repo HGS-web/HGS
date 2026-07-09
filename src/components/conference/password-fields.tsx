@@ -34,6 +34,8 @@ export function PasswordFields({
     confirmValue !== undefined &&
     confirmValue.length > 0 &&
     confirmValue !== passwordValue
+  const liveMatch =
+    lengthOk && confirmValue !== undefined && confirmValue === passwordValue
 
   return (
     <>
@@ -76,6 +78,9 @@ export function PasswordFields({
           <p className="text-xs text-red-500">
             {confirmError ?? "Passwords do not match."}
           </p>
+        )}
+        {liveMatch && !confirmError && (
+          <p className="text-xs text-green-700">✓ Passwords match.</p>
         )}
       </div>
     </>

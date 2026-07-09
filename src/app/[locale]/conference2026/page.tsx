@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mail, ArrowRight, UserRound } from "lucide-react";
+import { Mail, ArrowRight } from "lucide-react";
 import { getMarkdownContent } from "@/lib/markdown";
 import { FadeIn, FadeInView } from "@/components/ui/motion";
 import type { Locale } from "@/config/site";
@@ -423,22 +423,6 @@ export default async function Conference2026Page({ params }: PageProps) {
               <p className="mt-4 text-sm sm:text-base text-black/60">
                 {t.dateValue} &bull; {t.locationValue}
               </p>
-              <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-                <Link
-                  href={`/${validLocale}/conference2026/register`}
-                  className="inline-flex items-center gap-2 px-6 py-2.5 bg-black text-white text-sm font-medium rounded-full hover:bg-black/80 transition-colors"
-                >
-                  Register now
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-                <Link
-                  href={`/${validLocale}/conference2026/login`}
-                  className="inline-flex items-center gap-2 px-6 py-2.5 border border-black/15 text-black/70 text-sm font-medium rounded-full hover:bg-black/5 transition-colors"
-                >
-                  <UserRound className="h-4 w-4" />
-                  Sign in
-                </Link>
-              </div>
             </div>
           </FadeIn>
         </div>
@@ -450,7 +434,7 @@ export default async function Conference2026Page({ params }: PageProps) {
           <FadeInView delay={0.1}>
             <div className="grid gap-6 lg:grid-cols-2">
               {/* Registration spotlight */}
-              <div className="min-w-0 rounded-2xl border border-black/10 bg-white p-6 shadow-sm flex flex-col">
+              <div className="min-w-0 self-start rounded-2xl border border-black/10 bg-white p-6 shadow-sm flex flex-col">
                 <div className="flex items-center justify-between gap-2 flex-wrap">
                   <h3 className="text-xl font-semibold text-black">Registration</h3>
                   <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700">
@@ -482,24 +466,14 @@ export default async function Conference2026Page({ params }: PageProps) {
                     Sign in
                   </Link>
                 </div>
-                <p className="mt-3 text-xs text-black/45">
-                  Already registered?{" "}
-                  <Link
-                    href={`/${validLocale}/conference2026/profile`}
-                    className="underline hover:text-black transition-colors"
-                  >
-                    View your profile
-                  </Link>{" "}
-                  for your abstracts and payment status.
-                </p>
-
-                <p className="mt-auto pt-4 text-xs text-black/35 leading-relaxed">
+                <p className="mt-5 border-t border-black/[0.07] pt-4 text-xs text-black/35 leading-relaxed">
                   {NO_EMAIL_NOTE}
                 </p>
               </div>
 
-              {/* Registration Fees */}
-              <div className="min-w-0 rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
+              {/* Registration Fees + Bank Details */}
+              <div className="min-w-0 space-y-6">
+                <div className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
                 <h3 className="text-xl font-semibold text-black mb-4">Registration Fees</h3>
                 <div className="overflow-x-auto">
                   <table className="min-w-full text-left text-sm text-black/70">
@@ -547,6 +521,22 @@ export default async function Conference2026Page({ params }: PageProps) {
                       </tr>
                     </tbody>
                   </table>
+                </div>
+                </div>
+
+                {/* Bank Details */}
+                <div className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
+                  <h3 className="text-xl font-semibold text-black mb-4">Bank Details</h3>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-black/50">IBAN</span>
+                      <span className="font-mono text-black/80 text-xs">GR9801720440005044113342752</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-black/50">BIC / SWIFT</span>
+                      <span className="font-mono text-black/80 text-xs">PIRBGRAA</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -650,7 +640,7 @@ export default async function Conference2026Page({ params }: PageProps) {
                 </Link>
               </div>
 
-              {/* General Information & Bank Details */}
+              {/* General Information */}
               <div className="space-y-6">
                 <div className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
                   <h3 className="text-xl font-semibold text-black mb-4">General Information</h3>
@@ -671,20 +661,6 @@ export default async function Conference2026Page({ params }: PageProps) {
                           <p className="text-xs text-black/50">Archimidous 8, 17675, Kallithea, Athens</p>
                         </li>
                       </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
-                  <h3 className="text-xl font-semibold text-black mb-4">Bank Details</h3>
-                  <div className="space-y-2 text-sm">
-                    <div className="flex justify-between">
-                      <span className="text-black/50">IBAN</span>
-                      <span className="font-mono text-black/80 text-xs">GR9801720440005044113342752</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-black/50">BIC / SWIFT</span>
-                      <span className="font-mono text-black/80 text-xs">PIRBGRAA</span>
                     </div>
                   </div>
                 </div>

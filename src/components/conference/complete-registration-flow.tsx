@@ -172,7 +172,7 @@ export function CompleteRegistrationFlow({ me, locale }: { me: MePayload; locale
     <div className="rounded-2xl border border-black/10 bg-white p-6 sm:p-8 shadow-sm">
       <form onSubmit={handleSubmit(onSubmit, onInvalid)}>
         {/* --------------------------------------------- Verified address -- */}
-        <div className="flex items-center justify-between gap-3 pb-5 border-b border-black/10">
+        <div className="flex items-center justify-between gap-3">
           <div className="min-w-0">
             <SectionLabel>E-mail address</SectionLabel>
             <p className="text-sm font-medium text-black mt-1 truncate">{me.email}</p>
@@ -185,7 +185,7 @@ export function CompleteRegistrationFlow({ me, locale }: { me: MePayload; locale
 
         {/* -------------------------------------------------- Recognition -- */}
         {recognized && (
-          <div className="pt-5 space-y-4">
+          <div className="mt-6 pt-6 border-t border-black/[0.07] space-y-4">
             <div className="space-y-1">
               <p className="flex items-center gap-2 text-base font-semibold text-black">
                 <UserCheck className="h-4 w-4 text-black/40" />
@@ -220,16 +220,12 @@ export function CompleteRegistrationFlow({ me, locale }: { me: MePayload; locale
                   </li>
                 ))}
               </ul>
-              <p className="text-xs text-black/35 leading-relaxed">
-                These abstracts are linked to your registration automatically.
-                The full list, with details, is available in your profile.
-              </p>
             </div>
           </div>
         )}
 
         {/* ------------------------------------------------ Personal details -- */}
-        <div className="pt-6 space-y-4">
+        <div className="mt-6 pt-6 border-t border-black/[0.07] space-y-4">
           <SectionLabel>Personal details</SectionLabel>
 
           <div className="grid grid-cols-2 gap-3">
@@ -259,7 +255,7 @@ export function CompleteRegistrationFlow({ me, locale }: { me: MePayload; locale
         </div>
 
         {/* ----------------------------------------------------- Registration -- */}
-        <div className="pt-6 space-y-4">
+        <div className="mt-6 pt-6 border-t border-black/[0.07] space-y-4">
           <SectionLabel>Registration</SectionLabel>
 
           <div className="space-y-1.5">
@@ -308,7 +304,7 @@ export function CompleteRegistrationFlow({ me, locale }: { me: MePayload; locale
         </div>
 
         {/* -------------------------------------------------- Account password -- */}
-        <div className="pt-6 space-y-4">
+        <div className="mt-6 pt-6 border-t border-black/[0.07] space-y-4">
           <SectionLabel>Account password</SectionLabel>
           <p className="text-xs text-black/45 leading-relaxed -mt-2">
             You will sign in to your profile with your e-mail address and this
@@ -323,7 +319,7 @@ export function CompleteRegistrationFlow({ me, locale }: { me: MePayload; locale
         </div>
 
         {/* ------------------------------------------------------- Consents -- */}
-        <div className="pt-6 space-y-4">
+        <div className="mt-6 pt-6 border-t border-black/[0.07] space-y-4">
           <ConsentFields
             gdprProps={register("gdpr_consent")}
             mailingProps={register("mailing_consent")}

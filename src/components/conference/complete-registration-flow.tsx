@@ -94,6 +94,20 @@ export function CompleteRegistrationFlow({ me, locale }: { me: MePayload; locale
   const firstName = watch("first_name") ?? ""
   const lastName = watch("last_name") ?? ""
 
+  // Readiness check for the submit button — deliberately looser than the
+  // zod schema (which stays authoritative on submit): it only decides when
+  // the button stops being grayed out, without painting untouched fields red.
+  const values = watch()
+  const ready =
+    !!values.first_name?.trim() &&
+    !!values.last_name?.trim() &&
+    !!values.affiliation?.trim() &&
+    !!values.country?.trim() &&
+    !!values.registration_type &&
+    (values.password?.length ?? 0) >= 8 &&
+    values.password === values.password_confirm &&
+    values.gdpr_consent === true
+
   // The submit button stays enabled so missing fields can be discovered —
   // an invalid click scrolls to the first problem and says so at the button.
   const onInvalid = () => {
@@ -348,11 +362,17 @@ export function CompleteRegistrationFlow({ me, locale }: { me: MePayload; locale
 
           <button
             type="submit"
-            disabled={isSubmitting}
-            className="w-full py-2.5 bg-black text-white text-sm font-medium rounded-full hover:bg-black/80 disabled:opacity-50 transition-colors cursor-pointer"
+            disabled={isSubmitting || !ready}
+            className="w-full py-2.5 bg-black text-white text-sm font-medium rounded-full hover:bg-black/80 disabled:opacity-40 disabled:cursor-not-allowed transition-colors cursor-pointer"
           >
             {isSubmitting ? "Completing registration…" : "Complete registration"}
           </button>
+          {!ready && (
+            <p className="text-xs text-black/35 text-center">
+              The button activates once all required fields (*) are completed
+              and the consent is given.
+            </p>
+          )}
         </div>
       </form>
     </div>

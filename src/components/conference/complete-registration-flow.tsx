@@ -55,6 +55,12 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   )
 }
 
+/** "33. Web Mapping…" → "Session 33 — Web Mapping…" */
+function sessionText(label: string) {
+  const m = /^(\d+)\.\s*(.*)$/.exec(label)
+  return m ? `Session ${m[1]} — ${m[2]}` : label
+}
+
 /**
  * Final registration step, reached from the confirmation link with a live
  * session: the e-mail address is verified, so the imported person data is
@@ -181,21 +187,23 @@ export function CompleteRegistrationFlow({ me, locale }: { me: MePayload; locale
 
             <div className="space-y-2">
               <SectionLabel>
-                Accepted abstracts linked to this address ({me.abstracts.length})
+                Accepted abstracts ({me.abstracts.length})
               </SectionLabel>
-              <ul className="rounded-xl border border-black/10 divide-y divide-black/[0.06]">
+              <ul className="rounded-xl border border-black/10 divide-y divide-black/[0.06] overflow-hidden">
                 {me.abstracts.map((a) => (
-                  <li key={a.id} className="p-3.5">
-                    <div className="flex items-center gap-2 flex-wrap mb-1">
+                  <li key={a.id} className="px-4 py-3.5">
+                    <div className="flex items-center justify-between gap-3 mb-1.5">
                       <span className={`inline-block rounded-full px-2 py-0.5 text-[10px] font-semibold ${a.role === "author" ? "bg-black text-white" : "border border-black/20 text-black/50"}`}>
                         {a.role === "author" ? "Author" : "Co-author"}
                       </span>
-                      <span className="text-[11px] text-black/40">
-                        {a.evaluation === "reassigned" ? "Accepted — reassigned" : "Accepted"}
+                      <span className="shrink-0 text-[10px] font-semibold uppercase tracking-[0.08em] text-black/35">
+                        {a.evaluation === "reassigned" ? "Accepted · reassigned" : "Accepted"}
                       </span>
                     </div>
                     <p className="text-sm font-medium text-black leading-snug">{a.title}</p>
-                    <p className="text-xs text-black/40 mt-0.5">{a.session_label}</p>
+                    <p className="text-[11px] text-black/40 mt-1 leading-snug">
+                      {sessionText(a.session_label)}
+                    </p>
                   </li>
                 ))}
               </ul>

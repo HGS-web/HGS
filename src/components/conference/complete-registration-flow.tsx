@@ -97,16 +97,18 @@ export function CompleteRegistrationFlow({ me, locale }: { me: MePayload; locale
   // Readiness check for the submit button — deliberately looser than the
   // zod schema (which stays authoritative on submit): it only decides when
   // the button stops being grayed out, without painting untouched fields red.
+  // The unmet items are listed under the button so nobody is left guessing.
   const values = watch()
-  const ready =
-    !!values.first_name?.trim() &&
-    !!values.last_name?.trim() &&
-    !!values.affiliation?.trim() &&
-    !!values.country?.trim() &&
-    !!values.registration_type &&
-    (values.password?.length ?? 0) >= 8 &&
-    values.password === values.password_confirm &&
-    values.gdpr_consent === true
+  const missing: string[] = []
+  if (!values.first_name?.trim()) missing.push("first name")
+  if (!values.last_name?.trim()) missing.push("last name")
+  if (!values.affiliation?.trim()) missing.push("affiliation")
+  if (!values.country?.trim()) missing.push("country")
+  if (!values.registration_type) missing.push("registration type")
+  if ((values.password?.length ?? 0) < 8) missing.push("password (min. 8 characters)")
+  else if (values.password !== values.password_confirm) missing.push("matching password confirmation")
+  if (values.gdpr_consent !== true) missing.push("GDPR consent")
+  const ready = missing.length === 0
 
   // The submit button stays enabled so missing fields can be discovered —
   // an invalid click scrolls to the first problem and says so at the button.
@@ -368,9 +370,8 @@ export function CompleteRegistrationFlow({ me, locale }: { me: MePayload; locale
             {isSubmitting ? "Completing registration…" : "Complete registration"}
           </button>
           {!ready && (
-            <p className="text-xs text-black/35 text-center">
-              The button activates once all required fields (*) are completed
-              and the consent is given.
+            <p className="text-xs text-black/35 text-center leading-relaxed">
+              Still required: {missing.join(", ")}.
             </p>
           )}
         </div>

@@ -13,6 +13,8 @@ export function PasswordFields({
   confirmError,
   passwordLabel = "Password",
   confirmLabel = "Confirm password",
+  passwordValue,
+  confirmValue,
 }: {
   passwordProps: UseFormRegisterReturn
   confirmProps: UseFormRegisterReturn
@@ -20,8 +22,18 @@ export function PasswordFields({
   confirmError?: string
   passwordLabel?: string
   confirmLabel?: string
+  /** When provided, the length hint and the match check react live. */
+  passwordValue?: string
+  confirmValue?: string
 }) {
   const [show, setShow] = useState(false)
+
+  const lengthOk = passwordValue !== undefined && passwordValue.length >= 8
+  const liveMismatch =
+    passwordValue !== undefined &&
+    confirmValue !== undefined &&
+    confirmValue.length > 0 &&
+    confirmValue !== passwordValue
 
   return (
     <>
@@ -45,7 +57,9 @@ export function PasswordFields({
             {show ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
           </button>
         </div>
-        <p className="text-xs text-black/40">At least 8 characters.</p>
+        <p className={`text-xs ${lengthOk ? "text-green-700" : "text-black/40"}`}>
+          {lengthOk ? "✓ At least 8 characters." : "At least 8 characters."}
+        </p>
         {passwordError && <p className="text-xs text-red-500">{passwordError}</p>}
       </div>
 
@@ -58,7 +72,11 @@ export function PasswordFields({
           {...confirmProps}
           aria-invalid={!!confirmError}
         />
-        {confirmError && <p className="text-xs text-red-500">{confirmError}</p>}
+        {(confirmError || liveMismatch) && (
+          <p className="text-xs text-red-500">
+            {confirmError ?? "Passwords do not match."}
+          </p>
+        )}
       </div>
     </>
   )

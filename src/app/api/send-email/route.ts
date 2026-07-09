@@ -150,9 +150,9 @@ export async function POST(req: NextRequest) {
   }
 
   // Conference 2026 e-mail types (verify/registration/abstract/receipt) are
-  // retired: the registration platform deliberately sends no e-mails, and
-  // password recovery goes through Supabase Auth. Only the Society
-  // membership confirmation remains.
+  // retired: signup confirmations and password recovery go through Supabase
+  // Auth (SMTP), never through this route. Only the Society membership
+  // confirmation remains.
   if (type !== "membership") {
     return NextResponse.json({ error: "Unsupported type" }, { status: 410 })
   }

@@ -116,6 +116,13 @@ export const NO_EMAIL_NOTE =
   "matches the one used during the abstract submission, so that your " +
   "abstracts are linked to your account automatically.";
 
+/** Shown on the e-mail step, before the confirmation e-mail is sent. */
+export const CONFIRM_EMAIL_NOTE =
+  "A single confirmation e-mail will be sent to verify your address. " +
+  "You fill in your registration details right after — anything already " +
+  "known from your abstract submission is prefilled for you. No other " +
+  "notification e-mails are sent by the platform.";
+
 export const POLICY_NOTE =
   "In accordance with conference policy, accepted abstracts will be included " +
   "in the final conference programme only if at least one of their authors " +

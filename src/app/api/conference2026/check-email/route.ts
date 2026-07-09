@@ -2,11 +2,7 @@ import { NextResponse, type NextRequest } from "next/server";
 import { z } from "zod";
 import { getSupabaseAdmin } from "@/lib/supabase-admin";
 import { checkOrigin } from "@/lib/user-guard";
-import { isAcceptedEvaluation } from "@/config/conference2026";
-import type {
-  AbstractSummary,
-  CheckEmailResult,
-} from "@/lib/conference2026-types";
+import type { CheckEmailResult } from "@/lib/conference2026-types";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -14,8 +10,11 @@ export const dynamic = "force-dynamic";
 const schema = z.object({ email: z.string().email() });
 
 /**
- * Step 1 of the registration flow (pre-auth): classify an email as
- * has_account / known_person (imported author — recognition + prefill) / new.
+ * Step 1 of the registration flow (pre-auth): only answers whether a
+ * completed account already exists for this address. Recognition and
+ * prefill data are deliberately NOT returned here — personal data is
+ * only revealed after the e-mail address is verified (the complete page
+ * reads it from /me with an authenticated session).
  */
 export async function POST(request: NextRequest) {
   const badOrigin = checkOrigin(request);
@@ -31,7 +30,7 @@ export async function POST(request: NextRequest) {
   const supabase = getSupabaseAdmin();
   const { data: person, error } = await supabase
     .from("people_conference2026")
-    .select("id, full_name, first_name, last_name, affiliation, auth_user_id")
+    .select("id, auth_user_id")
     .eq("email", email)
     .maybeSingle();
 
@@ -39,51 +38,10 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Service unavailable" }, { status: 500 });
   }
 
-  if (!person) {
-    return NextResponse.json({ status: "new" } satisfies CheckEmailResult);
-  }
-  if (person.auth_user_id) {
-    return NextResponse.json({
-      status: "has_account",
-    } satisfies CheckEmailResult);
-  }
-
-  const { data: links } = await supabase
-    .from("abstract_authors_conference2026")
-    .select(
-      "role, abstracts_conference2026 ( id, code, title, session_label, evaluation )"
-    )
-    .eq("person_id", person.id);
-
-  const abstracts: AbstractSummary[] = (links ?? [])
-    .map((link) => {
-      const a = link.abstracts_conference2026 as unknown as {
-        id: string;
-        code: string;
-        title: string;
-        session_label: string;
-        evaluation: string;
-      } | null;
-      if (!a || !isAcceptedEvaluation(a.evaluation)) return null;
-      return {
-        id: a.id,
-        code: a.code,
-        title: a.title,
-        session_label: a.session_label,
-        evaluation: a.evaluation as AbstractSummary["evaluation"],
-        role: link.role as AbstractSummary["role"],
-      };
-    })
-    .filter((a): a is AbstractSummary => a !== null);
-
-  return NextResponse.json({
-    status: "known_person",
-    person: {
-      full_name: person.full_name,
-      first_name: person.first_name,
-      last_name: person.last_name,
-      affiliation: person.affiliation,
-    },
-    abstracts,
-  } satisfies CheckEmailResult);
+  // auth_user_id is linked when a registration is completed — an imported
+  // person or a verified-but-unfinished signup should simply get a new link.
+  const status: CheckEmailResult["status"] = person?.auth_user_id
+    ? "has_account"
+    : "ok";
+  return NextResponse.json({ status } satisfies CheckEmailResult);
 }

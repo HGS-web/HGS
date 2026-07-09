@@ -5,7 +5,7 @@ abstract linking, receipt evaluation). Everything in code is already wired;
 the steps below are the parts only you can do (Supabase dashboard, Vercel,
 local import).
 
-## 1. Supabase dashboard — database
+## 1. Supabase dashboard — database ✅ done 9 Jul 2026
 
 1. Open **SQL Editor → New query**, paste the whole of
    [`scripts/conference2026/schema.sql`](../scripts/conference2026/schema.sql), run it once.
@@ -20,8 +20,16 @@ local import).
 
 ## 2. Supabase dashboard — Auth
 
-1. **Authentication → Sign In / Up → Email**: turn **OFF "Confirm email"**
-   (signup must create a session immediately and send nothing).
+E-mail verification is **ON** and comes FIRST: the visitor enters only
+their e-mail address, receives one confirmation link (via the paid Resend
+account — no daily cap, 5,000/month), and lands on the complete-registration
+page with their imported details prefilled; the password is set there, last.
+The platform sends only two kinds of e-mail: confirmation links and
+password resets.
+
+1. **Authentication → Sign In / Up → Email**: leave **"Confirm email" ON**
+   (this is the toggle inside the Email provider panel — not
+   "Secure email change", which can stay at its default).
 2. **Authentication → URL Configuration**:
    - Site URL: `https://geographiki.gr`
    - Redirect URLs: add `https://geographiki.gr/auth/confirm`
@@ -32,7 +40,44 @@ local import).
      password = the existing `RESEND_API_KEY`,
      sender `noreply@hellenic-geographical-society.com`,
      sender name `HGS Conference 2026`.
-4. **Authentication → Emails → Reset password** template — formal wording:
+4. **Authentication → Rate Limits**: raise **"Rate limit for sending
+   emails"** from the default (~30/hour) to **100 per hour** — peak
+   registration days must not block signups.
+5. **Authentication → Emails → Confirm signup** template (sent on the
+   first confirmation request for an address):
+   - Subject: `HGS Conference 2026 — Confirm your e-mail address`
+   - Body (HTML):
+
+     ```html
+     <p>Dear participant,</p>
+     <p>A registration for the 13th HGS International Conference
+        (27–28 November 2026, Athens) was started with this e-mail address
+        ({{ .Email }}). To confirm your address and fill in your
+        registration details, please follow the link below.</p>
+     <p><a href="{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&type=email">Confirm e-mail address and continue</a></p>
+     <p>If you did not request this, you can safely ignore this message;
+        no registration will be made without confirmation.</p>
+     <p>Hellenic Geographical Society</p>
+     ```
+
+   **Authentication → Emails → Magic Link** template — same wording
+   (Supabase sends this variant when someone whose address was already
+   verified, but who did not finish, requests a new link):
+   - Subject: `HGS Conference 2026 — Continue your registration`
+   - Body (HTML):
+
+     ```html
+     <p>Dear participant,</p>
+     <p>You requested a link to continue your registration for the
+        13th HGS International Conference (27–28 November 2026, Athens)
+        with this e-mail address ({{ .Email }}). Please follow the link
+        below.</p>
+     <p><a href="{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&type=email">Continue your registration</a></p>
+     <p>If you did not request this, you can safely ignore this message.</p>
+     <p>Hellenic Geographical Society</p>
+     ```
+
+6. **Authentication → Emails → Reset password** template:
    - Subject: `HGS Conference 2026 — Password reset`
    - Body (HTML):
 
@@ -46,9 +91,6 @@ local import).
      <p>Hellenic Geographical Society</p>
      ```
 
-   The only e-mails the platform ever sends are these password resets — no
-   confirmations or notifications, matching the note published on the site.
-
 ## 3. Vercel
 
 No new environment variables are needed (the platform uses the existing
@@ -56,7 +98,7 @@ No new environment variables are needed (the platform uses the existing
 `SUPABASE_SERVICE_ROLE_KEY`; recovery e-mails go through Supabase's SMTP,
 so `RESEND_API_KEY` stays for the membership form only).
 
-## 4. Import the evaluated abstracts (local, one-off, BEFORE launch)
+## 4. Import the evaluated abstracts ✅ done 9 Jul 2026 (728 people / 422 abstracts / 856 links verified)
 
 > The source Excel files, `Exports_DB/`, `Tasks/`, the import report and
 > `import-overrides.json` contain personal data and are **git-ignored — the
@@ -112,14 +154,23 @@ so `RESEND_API_KEY` stays for the membership form only).
   curl "$SUPABASE_URL/rest/v1/people_conference2026?select=*" -H "apikey: $ANON_KEY"
   ```
 
-- **Recognized author**: register with an e-mail from the import → greeted by
-  name, abstracts listed with role badges → complete → profile shows
-  abstracts; click one → full detail (final session, authors, text;
+- **Recognized author**: enter an e-mail from the import → confirmation
+  e-mail arrives → click the link → greeted by name with abstracts and role
+  badges, details prefilled → complete country/type, set password → profile
+  shows abstracts; click one → full detail (final session, authors, text;
   reassigned ones say "Accepted (reassigned)").
-- **Unknown attendee**: register with a fresh e-mail → claim step finds
-  abstracts by name → claim shows "Pending review" → approve it in
-  `/database` → abstract appears in the profile.
-- **No e-mails**: signup and registration produce zero e-mails.
+- **Unknown attendee**: enter a fresh e-mail → confirm → empty details form
+  with the claim option → claims find abstracts by name → claim shows
+  "Pending review" → approve it in `/database` → abstract appears in the
+  profile.
+- **No data before verification**: typing someone's e-mail on the register
+  page must reveal nothing about them — names/abstracts appear only after
+  the link is clicked.
+- **Interrupted completion**: confirm the link but close before submitting →
+  enter the same e-mail on the register page again → a new link arrives
+  ("Continue your registration") → complete page again, prefill intact.
+- **Cross-device**: request the link on one browser, open it on another →
+  the second device shows the complete page; the first can be closed.
 - **Password reset**: Forgot password → e-mail arrives (via Resend SMTP) →
   link → set new password → old one fails.
 - **Receipt**: upload a PDF in the profile → `/database` → Receipts → open
@@ -143,6 +194,11 @@ conference page). No other logic depends on dates.
   (currently `['accepted', 'reassigned']`).
 - Password resets are self-serve; if someone loses access to their e-mail,
   handle it via the secretariat (the profile shows the address used).
-- Follow-up hardening (separate task): drop the legacy anon RLS policies on
-  `registrations`, `abstracts`, `payment_receipts` once the old dialog
-  components are permanently retired.
+- ✅ Done 9 Jul 2026: the legacy anon RLS policies on `registrations`,
+  `abstracts`, `payment_receipts`, `thematic_session_submissions_2026` and
+  the old storage buckets were dropped (migration
+  `drop_dead_submission_phase_anon_policies`). The membership-form policies
+  are untouched and that flow still works.
+- E-mail budget: Resend paid plan, 5,000/month, no daily cap. Expected use:
+  one confirmation per signup plus occasional resends and password resets —
+  well within budget even in peak weeks.

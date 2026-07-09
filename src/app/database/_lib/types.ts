@@ -121,12 +121,10 @@ export type TabKey =
   | "membership-receipts"
   | "conference-sessions"
   | "conference-abstracts"
-  | "conference-receipts"
   | "c26-registrations"
   | "c26-receipts"
   | "c26-people"
-  | "c26-abstracts"
-  | "c26-claims";
+  | "c26-abstracts";
 
 export type ExportTableKey =
   | "membership_applications"

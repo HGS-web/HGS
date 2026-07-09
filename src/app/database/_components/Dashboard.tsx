@@ -25,23 +25,19 @@ import {
 } from "../_lib/api";
 import {
   c26AbstractsColumns,
-  c26ClaimsColumns,
   c26PeopleColumns,
   c26ReceiptsColumns,
   c26RegistrationsColumns,
   conferenceAbstractsColumns,
-  conferenceReceiptsColumns,
   conferenceSessionsColumns,
   membershipReceiptsColumns,
   membershipRegistrationsColumns,
   type Abstract2026Row,
-  type Claim2026Row,
   type Person2026Row,
   type Receipt2026Row,
 } from "../_lib/columns";
 import { formatDateTime, formatOrganizer, fullName, humanBool } from "../_lib/format";
 import { ReceiptStatusForm } from "./ReceiptStatusForm";
-import { ClaimDecisionForm } from "./ClaimDecisionForm";
 import type {
   Abstract,
   Conference2026Data,
@@ -60,12 +56,10 @@ type SelectedRow =
   | { kind: "membership-receipt"; row: PaymentReceipt }
   | { kind: "conference-session"; row: ThematicSessionSubmission }
   | { kind: "conference-abstract"; row: Abstract }
-  | { kind: "conference-receipt"; row: PaymentReceipt }
   | { kind: "c26-registration"; row: RegistrationConference2026 }
   | { kind: "c26-receipt"; row: Receipt2026Row }
   | { kind: "c26-person"; row: Person2026Row }
-  | { kind: "c26-abstract"; row: Abstract2026Row }
-  | { kind: "c26-claim"; row: Claim2026Row };
+  | { kind: "c26-abstract"; row: Abstract2026Row };
 
 const SECTION_LABEL: Record<SectionKey, string> = {
   membership: "HGS Membership",
@@ -81,12 +75,10 @@ const TABS_BY_SECTION: Record<SectionKey, { key: TabKey; label: string }[]> = {
   conference: [
     { key: "conference-sessions", label: "Thematic Sessions" },
     { key: "conference-abstracts", label: "Abstracts" },
-    { key: "conference-receipts", label: "Receipts" },
   ],
   conference2026: [
     { key: "c26-registrations", label: "Registrations" },
     { key: "c26-receipts", label: "Receipts" },
-    { key: "c26-claims", label: "Claims" },
     { key: "c26-abstracts", label: "Abstracts" },
     { key: "c26-people", label: "People" },
   ],
@@ -97,10 +89,8 @@ const TAB_EXPORT_TABLE: Record<TabKey, ExportTableKey> = {
   "membership-receipts": "payment_receipts_membership",
   "conference-sessions": "thematic_session_submissions_2026",
   "conference-abstracts": "abstracts",
-  "conference-receipts": "payment_receipts_conference",
   "c26-registrations": "registrations_conference2026",
   "c26-receipts": "payment_receipts_conference2026",
-  "c26-claims": "author_claims_conference2026",
   "c26-abstracts": "abstracts_conference2026",
   "c26-people": "people_conference2026",
 };
@@ -183,8 +173,6 @@ export function Dashboard() {
   const c26 = useMemo(() => {
     if (!data2026) return null;
     const regById = new Map(data2026.registrations.map((r) => [r.id, r]));
-    const regByUser = new Map(data2026.registrations.map((r) => [r.user_id, r]));
-    const abstractById = new Map(data2026.abstracts.map((a) => [a.id, a]));
 
     const authorsByAbstract = new Map<string, typeof data2026.authors>();
     const abstractCountByPerson = new Map<string, number>();
@@ -201,11 +189,6 @@ export function Dashboard() {
     const receipts: Receipt2026Row[] = data2026.receipts.map((r) => ({
       ...r,
       email: regById.get(r.registration_id)?.email ?? "—",
-    }));
-    const claims: Claim2026Row[] = data2026.claims.map((c) => ({
-      ...c,
-      email: regByUser.get(c.user_id)?.email ?? "—",
-      abstract_title: abstractById.get(c.abstract_id)?.title ?? "—",
     }));
     const people: Person2026Row[] = data2026.people.map((p) => ({
       ...p,
@@ -229,7 +212,7 @@ export function Dashboard() {
       };
     });
 
-    return { registrations: data2026.registrations, receipts, claims, people, abstracts };
+    return { registrations: data2026.registrations, receipts, people, abstracts };
   }, [data2026]);
 
   const activeTable = useMemo(() => {
@@ -264,19 +247,6 @@ export function Dashboard() {
               }
               onRowClick={(r) => rowClick(r, "c26-receipt")}
               emptyMessage="No receipts yet."
-            />
-          );
-        case "c26-claims":
-          return (
-            <DataTable<Claim2026Row>
-              columns={c26ClaimsColumns}
-              rows={c26.claims}
-              rowKey={(r) => r.id}
-              searchable={(r) =>
-                `${r.claimed_name} ${r.email} ${r.abstract_title} ${r.status}`
-              }
-              onRowClick={(r) => rowClick(r, "c26-claim")}
-              emptyMessage="No authorship claims."
             />
           );
         case "c26-abstracts":
@@ -366,19 +336,6 @@ export function Dashboard() {
             }
             onRowClick={(r) => rowClick(r, "conference-abstract")}
             emptyMessage="No abstracts yet."
-          />
-        );
-      }
-      case "conference-receipts": {
-        const rows = data.conference.receipts;
-        return (
-          <DataTable<PaymentReceipt>
-            columns={conferenceReceiptsColumns}
-            rows={rows}
-            rowKey={(r) => `${r.email}-${r.file_path}-${r.created_at}`}
-            searchable={(r) => `${r.email} ${r.notes ?? ""} ${r.file_path}`}
-            onRowClick={(r) => rowClick(r, "conference-receipt")}
-            emptyMessage="No conference receipts yet."
           />
         );
       }
@@ -509,14 +466,6 @@ export function Dashboard() {
                 void load2026(true);
               }}
             />
-          ) : selected?.kind === "c26-claim" ? (
-            <ClaimDecisionForm
-              claim={selected.row}
-              onSaved={() => {
-                setSelected(null);
-                void load2026(true);
-              }}
-            />
           ) : undefined
         }
       />
@@ -623,23 +572,6 @@ function detailProps(sel: SelectedRow): {
         ],
       };
     }
-    case "c26-claim": {
-      const r = sel.row;
-      return {
-        title: `Claim by ${r.claimed_name}`,
-        subtitle: r.email,
-        fields: [
-          { label: "Claimant email", value: r.email },
-          { label: "Claimed name", value: r.claimed_name },
-          { label: "Abstract", value: r.abstract_title },
-          { label: "Message", value: r.message },
-          { label: "Status", value: r.status },
-          { label: "Admin note", value: r.admin_note },
-          { label: "Decided", value: r.decided_at ? formatDateTime(r.decided_at) : null },
-          { label: "Submitted", value: formatDateTime(r.created_at) },
-        ],
-      };
-    }
     case "membership-registration": {
       const r = sel.row;
       return {
@@ -661,8 +593,7 @@ function detailProps(sel: SelectedRow): {
           : undefined,
       };
     }
-    case "membership-receipt":
-    case "conference-receipt": {
+    case "membership-receipt": {
       const r = sel.row;
       return {
         title: "Payment receipt",

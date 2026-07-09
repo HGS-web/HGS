@@ -12,6 +12,9 @@
  * Usage (from the repo root, BEFORE registration launch):
  *   npx tsx scripts/conference2026/import.ts             # dry run + report
  *   npx tsx scripts/conference2026/import.ts --apply     # write to Supabase
+ *   npx tsx scripts/conference2026/import.ts --emit-sql  # write batched
+ *       upsert SQL to import-data-NN.sql (git-ignored) for the SQL editor /
+ *       MCP when no service-role key is available locally
  *
  * --apply requires NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY in
  * .env.local (git-ignored) or in the environment.
@@ -85,6 +88,7 @@ const KNOWN_SHARED_EMAILS = new Set(
 const EMAIL_ABSTRACT_COAUTHORS = OVERRIDES.email_abstract_coauthors;
 
 const APPLY = process.argv.includes("--apply");
+const EMIT_SQL = process.argv.includes("--emit-sql");
 
 // ---------------------------------------------------------------------------
 // Small helpers
@@ -691,6 +695,11 @@ async function main() {
     console.log(`  - ${r.email}: kept "${r.kept}", flagged ${r.flagged.map((f) => `"${f}"`).join(", ")}`);
   }
 
+  if (EMIT_SQL) {
+    emitSql([...people.values()], [...abstracts.values()], [...linkRecs.values()]);
+    return;
+  }
+
   if (!APPLY) {
     console.log("\nDry run — nothing written. Re-run with --apply to import.");
     return;
@@ -751,6 +760,117 @@ async function main() {
   }
 
   console.log("\nDone.");
+}
+
+// ---------------------------------------------------------------------------
+// SQL emission (--emit-sql): batched idempotent upserts, chunked into files
+// small enough for the SQL editor / MCP. Files are git-ignored (personal data).
+// ---------------------------------------------------------------------------
+
+function sqlLit(v: string | number | boolean | null): string {
+  if (v === null) return "NULL";
+  if (typeof v === "number") return String(v);
+  if (typeof v === "boolean") return v ? "true" : "false";
+  return `'${v.replace(/'/g, "''")}'`;
+}
+
+function upsertStatement(
+  table: string,
+  columns: string[],
+  rows: (string | number | boolean | null)[][]
+): string {
+  const values = rows
+    .map((row) => `  (${row.map(sqlLit).join(", ")})`)
+    .join(",\n");
+  const updates = columns
+    .filter((c) => c !== "id")
+    .map((c) => `${c} = excluded.${c}`)
+    .join(", ");
+  return `insert into public.${table} (${columns.join(", ")})\nvalues\n${values}\non conflict (id) do update set ${updates};`;
+}
+
+function emitSql(
+  people: PersonRec[],
+  abstracts: AbstractRec[],
+  links: {
+    id: string;
+    abstract_id: string;
+    person_id: string;
+    role: string;
+    is_submitter: boolean;
+    author_order: number;
+    name_as_listed: string;
+    affiliation_as_listed: string | null;
+  }[]
+) {
+  const statements: string[] = [];
+
+  // People first, then abstracts, then the links that reference both.
+  for (let i = 0; i < people.length; i += 200) {
+    statements.push(
+      upsertStatement(
+        "people_conference2026",
+        ["id", "email", "full_name", "first_name", "last_name", "affiliation", "affiliation_short", "source", "needs_review", "review_note"],
+        people.slice(i, i + 200).map((p) => [
+          p.id, p.email, p.full_name, p.first_name, p.last_name,
+          p.affiliation, p.affiliation_short, p.source, p.needs_review, p.review_note,
+        ])
+      )
+    );
+  }
+  for (let i = 0; i < abstracts.length; i += 40) {
+    statements.push(
+      upsertStatement(
+        "abstracts_conference2026",
+        ["id", "code", "title", "abstract_text", "session_label", "session_original", "session_number", "evaluation", "co_authors_raw"],
+        abstracts.slice(i, i + 40).map((a) => [
+          a.id, a.code, a.title, a.abstract_text, a.session_label,
+          a.session_original, a.session_number, a.evaluation, a.co_authors_raw,
+        ])
+      )
+    );
+  }
+  for (let i = 0; i < links.length; i += 200) {
+    statements.push(
+      upsertStatement(
+        "abstract_authors_conference2026",
+        ["id", "abstract_id", "person_id", "role", "is_submitter", "author_order", "name_as_listed", "affiliation_as_listed"],
+        links.slice(i, i + 200).map((l) => [
+          l.id, l.abstract_id, l.person_id, l.role, l.is_submitter,
+          l.author_order, l.name_as_listed, l.affiliation_as_listed,
+        ])
+      )
+    );
+  }
+
+  // Chunk statements into files of at most ~140 KB each.
+  const MAX_CHUNK_BYTES = 140 * 1024;
+  let chunk: string[] = [];
+  let chunkBytes = 0;
+  let fileIndex = 0;
+  const flush = () => {
+    if (!chunk.length) return;
+    fileIndex++;
+    const name = resolve(
+      __dirname,
+      `import-data-${String(fileIndex).padStart(2, "0")}.sql`
+    );
+    writeFileSync(name, chunk.join("\n\n") + "\n");
+    console.log(`  wrote ${name} (${Math.round(chunkBytes / 1024)} KB)`);
+    chunk = [];
+    chunkBytes = 0;
+  };
+  for (const statement of statements) {
+    const bytes = Buffer.byteLength(statement, "utf8");
+    if (chunkBytes > 0 && chunkBytes + bytes > MAX_CHUNK_BYTES) flush();
+    chunk.push(statement);
+    chunkBytes += bytes;
+  }
+  flush();
+  console.log(
+    `\nEmitted ${statements.length} upsert statements across ${fileIndex} file(s). ` +
+      "Run them in order (01, 02, …) — people → abstracts → author links."
+  );
 }
 
 /** Minimal .env.local loader (KEY=VALUE lines, no expansion). */

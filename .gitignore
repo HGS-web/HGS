@@ -50,3 +50,4 @@ next-env.d.ts
 /scripts/build_decisions.py
 /scripts/conference2026/import-report.json
 /scripts/conference2026/import-overrides.json
+/scripts/conference2026/import-data*.sql

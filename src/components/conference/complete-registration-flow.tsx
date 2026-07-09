@@ -372,8 +372,9 @@ export function CompleteRegistrationFlow({ me, locale }: { me: MePayload; locale
             {isSubmitting ? "Completing registration…" : "Complete registration"}
           </button>
           {!ready && (
-            <p className="text-xs text-black/35 text-center leading-relaxed">
-              Still required: {missing.join(", ")}.
+            <p className="text-xs text-black/35 text-center">
+              The button activates once all required fields (*) are completed
+              and the consent is given.
             </p>
           )}
         </div>

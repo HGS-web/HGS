@@ -110,13 +110,11 @@ export const SUPPORT_MAILTO = `mailto:${SECRETARIAT_EMAIL}?subject=${encodeURICo
 // ---------------------------------------------------------------------------
 
 export const NO_EMAIL_NOTE =
-  "Please note that the conference platform does not send confirmation or " +
-  "notification e-mails, in order to ensure its reliability during the " +
-  "high-volume registration period. The current status of your registration, " +
-  "abstracts and payment is available at any time in your profile. Please " +
-  "make sure your e-mail address is entered correctly, as it identifies your " +
-  "account. Password-reset e-mails are the only exception and are sent upon " +
-  "your request.";
+  "The current status of your registration, abstracts and payment is " +
+  "available at any time in your profile. If you have authored or " +
+  "co-authored an accepted abstract, please make sure your e-mail address " +
+  "matches the one used during the abstract submission, so that your " +
+  "abstracts are linked to your account automatically.";
 
 export const POLICY_NOTE =
   "In accordance with conference policy, accepted abstracts will be included " +

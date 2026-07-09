@@ -1,7 +1,13 @@
 import { NextRequest, NextResponse } from "next/server"
 import { Resend } from "resend"
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+// Instantiated lazily inside POST — the constructor throws without a key,
+// which would break builds in environments where RESEND_API_KEY is not set.
+let resendClient: Resend | null = null
+function getResend(): Resend {
+  if (!resendClient) resendClient = new Resend(process.env.RESEND_API_KEY)
+  return resendClient
+}
 const CONF_FROM = "HGS Conference 2026 <noreply@hellenic-geographical-society.com>"
 const HGS_FROM = "Hellenic Geographical Society <noreply@hellenic-geographical-society.com>"
 const CONF_SUPPORT_EMAIL = "ekarkani@geol.uoa.gr"
@@ -143,6 +149,14 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Missing fields" }, { status: 400 })
   }
 
+  // Conference 2026 e-mail types (verify/registration/abstract/receipt) are
+  // retired: the registration platform deliberately sends no e-mails, and
+  // password recovery goes through Supabase Auth. Only the Society
+  // membership confirmation remains.
+  if (type !== "membership") {
+    return NextResponse.json({ error: "Unsupported type" }, { status: 410 })
+  }
+
   let subject: string
   let html: string
 
@@ -233,7 +247,7 @@ export async function POST(req: NextRequest) {
             Author notifications will be sent by <strong>1 July 2026</strong>.
           </p>
         `)
-        resend.emails.send({ from: CONF_FROM, to: ca.email, subject: coAuthorSubject, html: coHtml }).catch(() => {})
+        getResend().emails.send({ from: CONF_FROM, to: ca.email, subject: coAuthorSubject, html: coHtml }).catch(() => {})
       }
     }
   } else if (type === "receipt") {
@@ -281,7 +295,7 @@ export async function POST(req: NextRequest) {
   const from = type === "membership" ? HGS_FROM : CONF_FROM
 
   try {
-    await resend.emails.send({ from, to: email, subject, html })
+    await getResend().emails.send({ from, to: email, subject, html })
     return NextResponse.json({ ok: true })
   } catch (err) {
     console.error("Resend error:", err)

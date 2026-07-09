@@ -32,7 +32,15 @@ export const navigation: Record<Locale, NavItem[]> = {
         { label: "Other Conferences", href: "/en/conferences/other" },
       ],
     },
-    { label: "HGS Conference 2026", href: "/en/conference2026" },
+    {
+      label: "HGS Conference 2026",
+      children: [
+        { label: "Overview", href: "/en/conference2026" },
+        { label: "Sessions", href: "/en/conference2026/sessions" },
+        { label: "Register", href: "/en/conference2026/register" },
+        { label: "My Profile", href: "/en/conference2026/profile" },
+      ],
+    },
     {
       label: "News",
       children: [
@@ -67,7 +75,15 @@ export const navigation: Record<Locale, NavItem[]> = {
         { label: "Άλλα Συνέδρια", href: "/el/conferences/other" },
       ],
     },
-    { label: "Συνέδριο ΕΓΕ 2026", href: "/el/conference2026" },
+    {
+      label: "Συνέδριο ΕΓΕ 2026",
+      children: [
+        { label: "Overview", href: "/el/conference2026" },
+        { label: "Sessions", href: "/el/conference2026/sessions" },
+        { label: "Register", href: "/el/conference2026/register" },
+        { label: "My Profile", href: "/el/conference2026/profile" },
+      ],
+    },
     {
       label: "Νέα",
       children: [

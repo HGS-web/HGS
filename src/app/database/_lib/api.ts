@@ -1,4 +1,11 @@
-import type { DashboardData, ExportTableKey, SectionKey } from "./types";
+import type {
+  AuthorClaimConference2026,
+  Conference2026Data,
+  DashboardData,
+  ExportTableKey,
+  PaymentReceiptConference2026,
+  SectionKey,
+} from "./types";
 
 async function json<T>(res: Response): Promise<T> {
   if (!res.ok) {
@@ -33,8 +40,46 @@ export async function fetchDashboardData(): Promise<DashboardData> {
   return json<DashboardData>(res);
 }
 
+export async function fetchConference2026Data(): Promise<Conference2026Data> {
+  const res = await fetch("/api/admin/data2026", { credentials: "include" });
+  return json<Conference2026Data>(res);
+}
+
+export async function updateReceipt2026(
+  id: string,
+  input: { status: "pending" | "accepted" | "declined"; admin_notes?: string },
+): Promise<PaymentReceiptConference2026> {
+  const res = await fetch(`/api/admin/receipts-2026/${id}`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    credentials: "include",
+    body: JSON.stringify(input),
+  });
+  const body = await json<{ ok: true; receipt: PaymentReceiptConference2026 }>(res);
+  return body.receipt;
+}
+
+export async function decideClaim2026(
+  id: string,
+  input: { action: "approve" | "reject"; admin_note?: string },
+): Promise<AuthorClaimConference2026> {
+  const res = await fetch(`/api/admin/claims-2026/${id}`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    credentials: "include",
+    body: JSON.stringify(input),
+  });
+  const body = await json<{ ok: true; claim: AuthorClaimConference2026 }>(res);
+  return body.claim;
+}
+
+export type AdminBucket =
+  | "membership-receipts"
+  | "payment-receipts"
+  | "payment-receipts-conference2026";
+
 export async function getSignedFileUrl(
-  bucket: "membership-receipts" | "payment-receipts",
+  bucket: AdminBucket,
   path: string,
 ): Promise<string> {
   const res = await fetch("/api/admin/file-url", {
@@ -56,7 +101,7 @@ export function exportZipUrl(section: SectionKey): string {
 }
 
 export async function downloadFile(
-  bucket: "membership-receipts" | "payment-receipts",
+  bucket: AdminBucket,
   path: string,
 ): Promise<void> {
   const url = await getSignedFileUrl(bucket, path);

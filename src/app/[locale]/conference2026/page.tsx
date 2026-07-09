@@ -1,15 +1,16 @@
 import Link from "next/link";
-import { Mail, CalendarDays } from "lucide-react";
+import { Mail, ArrowRight, UserRound } from "lucide-react";
 import { getMarkdownContent } from "@/lib/markdown";
 import { FadeIn, FadeInView } from "@/components/ui/motion";
 import type { Locale } from "@/config/site";
-import { ThematicSessionForm } from "@/components/conference/thematic-session-form";
-import { SessionList } from "@/components/conference/session-list";
-// import { RegistrationDialog } from "@/components/conference/registration-dialog"; // Step 1 – enabled from 1 Jul 2026
-// import { AbstractForm } from "@/components/conference/abstract-dialog"; // Submissions closed 8 May 2026
-// import { PaymentDialog } from "@/components/conference/payment-dialog"; // Step 3 – enabled from 1 Jul 2026
 import { AddToCalendar } from "@/components/conference/add-to-calendar";
-// import { ClipboardList, Receipt } from "lucide-react"; // Step 1 & Step 3 icons – enabled from 1 Jul 2026
+import { sessions } from "@/data/sessions";
+import {
+  EARLY_BIRD_END,
+  EARLY_BIRD_NOTICE,
+  NO_EMAIL_NOTE,
+  POLICY_NOTE,
+} from "@/config/conference2026";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -30,7 +31,7 @@ const conferenceText = {
     committeeLabel: "Organizing Committee",
     scientificLabel: "Scientific Committee",
     contactLabel: "Contact",
-    contactBlurb: "For any question relating the call for sessions, please contact at:",
+    contactBlurb: "For any question relating to the conference or your registration, please contact at:",
   },
   el: {
     title: "13th International Conference of the Hellenic Geographical Society",
@@ -42,7 +43,7 @@ const conferenceText = {
     committeeLabel: "Organizing Committee",
     scientificLabel: "Scientific Committee",
     contactLabel: "Contact",
-    contactBlurb: "For any question relating the call for sessions, please contact at:",
+    contactBlurb: "For any question relating to the conference or your registration, please contact at:",
   },
 };
 
@@ -395,8 +396,6 @@ const scientificCommittee = [
   },
 ];
 
-const SESSIONS_OPEN = false;
-
 export default async function Conference2026Page({ params }: PageProps) {
   const { locale } = await params;
   const validLocale = (locale === "el" ? "el" : "en") as Locale;
@@ -424,6 +423,22 @@ export default async function Conference2026Page({ params }: PageProps) {
               <p className="mt-4 text-sm sm:text-base text-black/60">
                 {t.dateValue} &bull; {t.locationValue}
               </p>
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+                <Link
+                  href={`/${validLocale}/conference2026/register`}
+                  className="inline-flex items-center gap-2 px-6 py-2.5 bg-black text-white text-sm font-medium rounded-full hover:bg-black/80 transition-colors"
+                >
+                  Register now
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link
+                  href={`/${validLocale}/conference2026/login`}
+                  className="inline-flex items-center gap-2 px-6 py-2.5 border border-black/15 text-black/70 text-sm font-medium rounded-full hover:bg-black/5 transition-colors"
+                >
+                  <UserRound className="h-4 w-4" />
+                  Sign in
+                </Link>
+              </div>
             </div>
           </FadeIn>
         </div>
@@ -434,131 +449,57 @@ export default async function Conference2026Page({ params }: PageProps) {
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <FadeInView delay={0.1}>
             <div className="grid gap-6 lg:grid-cols-2">
-              <div className="relative min-h-[28rem] lg:min-h-0">
-                <div className="lg:absolute lg:inset-0 min-w-0 rounded-2xl border border-black/10 bg-white p-6 shadow-sm flex flex-col">
-                <h3 className="text-xl font-semibold text-black">Sessions</h3>
-                {SESSIONS_OPEN ? (
-                  <>
-                    <p className="mt-3 text-sm text-black/60">
-                      Submit a session proposal for the 13th International Conference of the
-                      Hellenic Geographical Society (2026).
-                    </p>
-                    <ThematicSessionForm locale={validLocale} />
-                  </>
-                ) : (
-                  <SessionList />
-                )}
-              </div>
-              </div>
-              <div className="min-w-0 rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
-                <h3 className="text-xl font-semibold text-black">Abstract Submission</h3>
-
-                <div className="mt-3 flex flex-wrap gap-2">
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-black/15 bg-black/[0.04] px-3 py-1 text-xs font-medium text-black/60">
-                    <CalendarDays className="h-3 w-3 shrink-0" />
-                    Submissions closed — 8 May 2026
+              {/* Registration spotlight */}
+              <div className="min-w-0 rounded-2xl border border-black/10 bg-white p-6 shadow-sm flex flex-col">
+                <div className="flex items-center justify-between gap-2 flex-wrap">
+                  <h3 className="text-xl font-semibold text-black">Registration</h3>
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                    Open — early bird until {EARLY_BIRD_END}
                   </span>
                 </div>
 
-                {/* ── Step 1: Register ── enabled from 1 Jul 2026
-                <RegistrationDialog>...</RegistrationDialog>
-                ── end Step 1 ── */}
-
-                {/* ── Step 3: Upload Payment Receipt ── enabled from 1 Jul 2026
-                <PaymentDialog>...</PaymentDialog>
-                ── end Step 3 ── */}
-
                 <p className="mt-4 text-sm text-black/65 leading-relaxed">
-                  Notifications to authors will be sent by{" "}
-                  <strong className="text-black/80">1 July 2026</strong>.
+                  {EARLY_BIRD_NOTICE}
                 </p>
 
-                <div className="mt-4 rounded-xl border border-black/8 bg-black/[0.02] px-4 py-3 text-center">
-                  <p className="text-xs text-black/55">
-                    Registration opens <strong className="text-black/70">1 July 2026</strong> — early bird rates until <strong className="text-black/70">31 August 2026</strong>.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </FadeInView>
-
-          {/* Markdown content if exists */}
-          {content && (
-            <FadeInView delay={0.1}>
-              <div
-                className="mt-8 markdown-content"
-                dangerouslySetInnerHTML={{ __html: content.content }}
-              />
-            </FadeInView>
-          )}
-
-          {/* Key Dates */}
-          <FadeInView delay={0.11}>
-            <div className="mt-8 rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
-              <h3 className="text-xl font-semibold text-black mb-6">Key Dates</h3>
-              <div className="relative space-y-0">
-                {/* Timeline line */}
-                <div className="absolute left-[7px] top-2 bottom-2 w-px bg-black/10" />
-
-                {/* Past milestones */}
-                {[
-                  { date: "30 Jan 2026", label: "Call for session proposals" },
-                  { date: "20 Feb 2026", label: "Deadline for session proposals" },
-                  { date: "1 Mar – 8 May 2026", label: "Abstract submission" },
-                ].map((item) => (
-                  <div key={item.date} className="relative flex items-start gap-4 pb-4">
-                    <div className="relative z-10 mt-1.5 h-[15px] w-[15px] shrink-0 rounded-full border-2 border-black/15 bg-black/5" />
-                    <div>
-                      <p className="text-xs font-medium text-black/30">{item.date}</p>
-                      <p className="text-sm text-black/35 line-through decoration-black/15">{item.label}</p>
-                    </div>
-                  </div>
-                ))}
-
-                {/* Active phase */}
-                <div className="relative flex items-start gap-4 pb-4">
-                  <div className="relative z-10 mt-1.5 h-[15px] w-[15px] shrink-0 rounded-full border-2 border-emerald-500 bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.4)]">
-                    <span className="absolute inset-0 animate-ping rounded-full bg-emerald-400 opacity-30" />
-                  </div>
-                  <div className="flex-1 -mt-1 rounded-xl bg-emerald-50 border border-emerald-200/60 px-4 py-3">
-                    <div className="flex items-center justify-between mb-0.5">
-                      <div className="flex items-center gap-2">
-                        <span className="inline-block rounded-full bg-emerald-500 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white">Next</span>
-                        <p className="text-xs font-medium text-emerald-700">1 Jul 2026</p>
-                      </div>
-                      <AddToCalendar title="Notifications to authors – HGS Conference" start="20260701" />
-                    </div>
-                    <p className="text-sm font-semibold text-emerald-900">Notifications to authors</p>
-                  </div>
+                <div className="mt-4 rounded-xl border border-black/8 bg-black/[0.02] px-4 py-3">
+                  <p className="text-xs text-black/55 leading-relaxed">{POLICY_NOTE}</p>
                 </div>
 
-                {/* Upcoming milestones */}
-                {[
-                  { date: "1 Jul – 31 Aug 2026", label: "Early bird registration", calStart: "20260701", calEnd: "20260901" },
-                  { date: "30 Sep 2026", label: "Late bird registration deadline", calStart: "20260930" },
-                  { date: "27 – 28 Nov 2026", label: "Conference", highlight: true, calStart: "20261127", calEnd: "20261129" },
-                  { date: "29 Nov 2026", label: "Post-conference field trip (TBC)", calStart: "20261129" },
-                ].map((item) => (
-                  <div key={item.date} className="relative flex items-start gap-4 pb-4">
-                    <div className={`relative z-10 mt-1.5 h-[15px] w-[15px] shrink-0 rounded-full border-2 ${item.highlight ? "border-black/40 bg-black/10" : "border-black/15 bg-white"}`} />
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between gap-2">
-                        <p className="text-xs font-medium text-black/40">{item.date}</p>
-                        <AddToCalendar title={`${item.label} – HGS Conference`} start={item.calStart} end={item.calEnd} />
-                      </div>
-                      <p className={`text-sm ${item.highlight ? "font-semibold text-black/80" : "text-black/60"}`}>{item.label}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </FadeInView>
+                <div className="mt-5 flex flex-wrap gap-3">
+                  <Link
+                    href={`/${validLocale}/conference2026/register`}
+                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-black text-white text-sm font-medium rounded-full hover:bg-black/80 transition-colors"
+                  >
+                    Register now
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                  <Link
+                    href={`/${validLocale}/conference2026/login`}
+                    className="inline-flex items-center gap-2 px-5 py-2.5 border border-black/15 text-black/70 text-sm font-medium rounded-full hover:bg-black/5 transition-colors"
+                  >
+                    Sign in
+                  </Link>
+                </div>
+                <p className="mt-3 text-xs text-black/45">
+                  Already registered?{" "}
+                  <Link
+                    href={`/${validLocale}/conference2026/profile`}
+                    className="underline hover:text-black transition-colors"
+                  >
+                    View your profile
+                  </Link>{" "}
+                  for your abstracts and payment status.
+                </p>
 
-          {/* Registration Fees, General Info & Bank Details */}
-          <FadeInView delay={0.12}>
-            <div className="mt-8 grid gap-6 lg:grid-cols-2">
+                <p className="mt-auto pt-4 text-xs text-black/35 leading-relaxed">
+                  {NO_EMAIL_NOTE}
+                </p>
+              </div>
+
               {/* Registration Fees */}
-              <div className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
+              <div className="min-w-0 rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
                 <h3 className="text-xl font-semibold text-black mb-4">Registration Fees</h3>
                 <div className="overflow-x-auto">
                   <table className="min-w-full text-left text-sm text-black/70">
@@ -607,6 +548,106 @@ export default async function Conference2026Page({ params }: PageProps) {
                     </tbody>
                   </table>
                 </div>
+              </div>
+            </div>
+          </FadeInView>
+
+          {/* Markdown content if exists */}
+          {content && (
+            <FadeInView delay={0.1}>
+              <div
+                className="mt-8 markdown-content"
+                dangerouslySetInnerHTML={{ __html: content.content }}
+              />
+            </FadeInView>
+          )}
+
+          {/* Key Dates */}
+          <FadeInView delay={0.11}>
+            <div className="mt-8 rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
+              <h3 className="text-xl font-semibold text-black mb-6">Key Dates</h3>
+              <div className="relative space-y-0">
+                {/* Timeline line */}
+                <div className="absolute left-[7px] top-2 bottom-2 w-px bg-black/10" />
+
+                {/* Past milestones */}
+                {[
+                  { date: "30 Jan 2026", label: "Call for session proposals" },
+                  { date: "20 Feb 2026", label: "Deadline for session proposals" },
+                  { date: "1 Mar – 8 May 2026", label: "Abstract submission" },
+                  { date: "1 Jul 2026", label: "Notifications to authors" },
+                ].map((item) => (
+                  <div key={item.date} className="relative flex items-start gap-4 pb-4">
+                    <div className="relative z-10 mt-1.5 h-[15px] w-[15px] shrink-0 rounded-full border-2 border-black/15 bg-black/5" />
+                    <div>
+                      <p className="text-xs font-medium text-black/30">{item.date}</p>
+                      <p className="text-sm text-black/35 line-through decoration-black/15">{item.label}</p>
+                    </div>
+                  </div>
+                ))}
+
+                {/* Active phase */}
+                <div className="relative flex items-start gap-4 pb-4">
+                  <div className="relative z-10 mt-1.5 h-[15px] w-[15px] shrink-0 rounded-full border-2 border-emerald-500 bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.4)]">
+                    <span className="absolute inset-0 animate-ping rounded-full bg-emerald-400 opacity-30" />
+                  </div>
+                  <div className="flex-1 -mt-1 rounded-xl bg-emerald-50 border border-emerald-200/60 px-4 py-3">
+                    <div className="flex items-center justify-between mb-0.5">
+                      <div className="flex items-center gap-2">
+                        <span className="inline-block rounded-full bg-emerald-500 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white">Now</span>
+                        <p className="text-xs font-medium text-emerald-700">9 Jul – 31 Aug 2026</p>
+                      </div>
+                      <AddToCalendar title="Early bird registration – HGS Conference" start="20260709" end="20260901" />
+                    </div>
+                    <p className="text-sm font-semibold text-emerald-900">Early bird registration</p>
+                    <Link
+                      href={`/${validLocale}/conference2026/register`}
+                      className="mt-1 inline-flex items-center gap-1 text-xs font-medium text-emerald-700 underline underline-offset-2 hover:text-emerald-900 transition-colors"
+                    >
+                      Register now
+                      <ArrowRight className="h-3 w-3" />
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Upcoming milestones */}
+                {[
+                  { date: "30 Sep 2026", label: "Late bird registration deadline", calStart: "20260930" },
+                  { date: "27 – 28 Nov 2026", label: "Conference", highlight: true, calStart: "20261127", calEnd: "20261129" },
+                  { date: "29 Nov 2026", label: "Post-conference field trip (TBC)", calStart: "20261129" },
+                ].map((item) => (
+                  <div key={item.date} className="relative flex items-start gap-4 pb-4">
+                    <div className={`relative z-10 mt-1.5 h-[15px] w-[15px] shrink-0 rounded-full border-2 ${item.highlight ? "border-black/40 bg-black/10" : "border-black/15 bg-white"}`} />
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between gap-2">
+                        <p className="text-xs font-medium text-black/40">{item.date}</p>
+                        <AddToCalendar title={`${item.label} – HGS Conference`} start={item.calStart} end={item.calEnd} />
+                      </div>
+                      <p className={`text-sm ${item.highlight ? "font-semibold text-black/80" : "text-black/60"}`}>{item.label}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </FadeInView>
+
+          {/* Sessions, General Info & Bank Details */}
+          <FadeInView delay={0.12}>
+            <div className="mt-8 grid gap-6 lg:grid-cols-2">
+              {/* Sessions */}
+              <div className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
+                <h3 className="text-xl font-semibold text-black mb-3">Sessions</h3>
+                <p className="text-sm text-black/60 leading-relaxed">
+                  {sessions.length} thematic sessions structure the conference
+                  programme, covering the full breadth of geographical research.
+                </p>
+                <Link
+                  href={`/${validLocale}/conference2026/sessions`}
+                  className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-black underline underline-offset-4 decoration-black/20 hover:decoration-black transition-colors"
+                >
+                  Browse all sessions
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
               </div>
 
               {/* General Information & Bank Details */}

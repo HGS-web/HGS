@@ -240,7 +240,7 @@ export function ProfilePaymentCard({
   }
 
   return (
-    <div className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm space-y-4">
+    <div id="payment" className="scroll-mt-24 rounded-2xl border border-black/10 bg-white p-6 shadow-sm space-y-4">
       <h2 className="text-base font-semibold text-black">Payment</h2>
 
       <div className="rounded-xl bg-black/[0.02] border border-black/10 p-4 space-y-2 text-sm">

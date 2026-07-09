@@ -68,10 +68,10 @@ password resets.
                <p style="margin:0 0 16px;font-size:14px;color:#111827;line-height:1.6;">A registration for the conference was started with this e-mail address ({{ .Email }}). To confirm your address and fill in your registration details, please use the button below.</p>
                <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:24px auto;">
                  <tr><td align="center" style="background:#1a1a1a;">
-                   <a href="{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&type=email" style="display:inline-block;padding:11px 28px;color:#ffffff;font-size:14px;font-weight:600;text-decoration:none;font-family:Arial,Helvetica,sans-serif;">Confirm e-mail address and continue</a>
+                   <a href="{{ .RedirectTo }}?token_hash={{ .TokenHash }}&type=email" style="display:inline-block;padding:11px 28px;color:#ffffff;font-size:14px;font-weight:600;text-decoration:none;font-family:Arial,Helvetica,sans-serif;">Confirm e-mail address and continue</a>
                  </td></tr>
                </table>
-               <p style="margin:0 0 16px;font-size:12px;color:#6b7280;line-height:1.6;">If the button does not work, copy and paste this address into your browser:<br>{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&amp;type=email</p>
+               <p style="margin:0 0 16px;font-size:12px;color:#6b7280;line-height:1.6;">If the button does not work, copy and paste this address into your browser:<br>{{ .RedirectTo }}?token_hash={{ .TokenHash }}&amp;type=email</p>
                <p style="margin:0;font-size:13px;color:#374151;line-height:1.6;">If you did not request this, you can safely ignore this message; no registration will be made without confirmation.</p>
                <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:24px;">
                  <tr><td style="padding-top:16px;border-top:1px solid #e5e7eb;color:#9ca3af;font-size:12px;">Hellenic Geographical Society &middot; hellenic-geographical-society.com</td></tr>
@@ -105,7 +105,7 @@ password resets.
      <p style="margin:0 0 16px;font-size:14px;color:#111827;line-height:1.6;">A password reset was requested for your conference account ({{ .Email }}). To set a new password, please use the button below. The link is valid for a limited time and can be used once.</p>
      ```
      button href:
-     `{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&type=recovery&next=/en/conference2026/reset-password`,
+     `{{ .RedirectTo }}?token_hash={{ .TokenHash }}&type=recovery&next=/en/conference2026/reset-password`,
      button text: `Set a new password`; closing note: "If you did not
      request this, you can safely ignore this message."
 

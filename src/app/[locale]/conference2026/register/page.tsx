@@ -38,7 +38,9 @@ export default async function RegisterPage({ params }: PageProps) {
             </h1>
             <p className="mt-2 text-sm text-black/50">
               13th HGS International Conference · 27–28 November 2026 · Athens
-              <span className="ml-2 inline-block rounded-full bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 text-xs font-medium text-emerald-700">
+            </p>
+            <p className="mt-3">
+              <span className="inline-block rounded-full bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 text-xs font-medium text-emerald-700">
                 Early bird — until {EARLY_BIRD_END}
               </span>
             </p>

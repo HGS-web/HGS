@@ -30,8 +30,11 @@ export function ForgotPasswordForm({ locale }: { locale: Locale }) {
     const supabase = getSupabaseBrowser()
     if (!supabase) { setServerError("Service unavailable. Please try again later."); return }
 
+    // Plain /auth/confirm — the e-mail template appends its own query
+    // ({{ .RedirectTo }}?token_hash=…), and the route sends recovery
+    // links to the reset-password page by type.
     await supabase.auth.resetPasswordForEmail(data.email.trim().toLowerCase(), {
-      redirectTo: `${window.location.origin}/auth/confirm?next=/${locale}/conference2026/reset-password`,
+      redirectTo: `${window.location.origin}/auth/confirm`,
     })
     // Always the same neutral outcome — no account-existence leak.
     setSent(true)

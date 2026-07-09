@@ -10,13 +10,12 @@ import { getSupabaseBrowser } from "@/lib/supabase-browser"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { FORGOT_PASSWORD_GUIDANCE, SECRETARIAT_EMAIL } from "@/config/conference2026"
-import type { Locale } from "@/config/site"
 
 const schema = z.object({ email: z.string().email("Invalid email") })
 
 type FormData = z.infer<typeof schema>
 
-export function ForgotPasswordForm({ locale }: { locale: Locale }) {
+export function ForgotPasswordForm() {
   const searchParams = useSearchParams()
   const [sent, setSent] = useState(false)
   const [serverError, setServerError] = useState<string | null>(null)

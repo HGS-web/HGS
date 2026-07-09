@@ -145,17 +145,9 @@ export interface MePayload {
   claims: (AuthorClaimConference2026 & { abstract_title: string | null })[];
 }
 
-/** POST /api/conference2026/check-email response. */
-export type CheckEmailResult =
-  | { status: "has_account" }
-  | {
-      status: "known_person";
-      person: {
-        full_name: string;
-        first_name: string | null;
-        last_name: string | null;
-        affiliation: string | null;
-      };
-      abstracts: AbstractSummary[];
-    }
-  | { status: "new" };
+/**
+ * POST /api/conference2026/check-email response. Pre-auth, so deliberately
+ * status-only: "ok" means a confirmation link may be requested. Person
+ * recognition data is served post-verification via /me.
+ */
+export type CheckEmailResult = { status: "has_account" | "ok" };

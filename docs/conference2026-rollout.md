@@ -44,8 +44,9 @@ password resets.
    emails"** from the default (~30/hour) to **100 per hour** — peak
    registration days must not block signups.
 5. **Authentication → Emails** — three templates, styled to match the
-   membership e-mails (dark conference banner, white card, secretariat
-   footer — same design as `src/app/api/send-email/route.ts`).
+   membership e-mails (dark conference banner, white card — same design
+   as `src/app/api/send-email/route.ts`). Outlook-safe: no border-radius,
+   no secretariat contact box.
 
    **Confirm signup** (first confirmation request for an address) —
    subject `HGS Conference 2026 — Confirm your e-mail address`:
@@ -66,16 +67,13 @@ password resets.
                <p style="margin:0 0 16px;font-size:14px;color:#111827;line-height:1.6;">Dear participant,</p>
                <p style="margin:0 0 16px;font-size:14px;color:#111827;line-height:1.6;">A registration for the conference was started with this e-mail address ({{ .Email }}). To confirm your address and fill in your registration details, please use the button below.</p>
                <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:24px auto;">
-                 <tr><td align="center" style="background:#1a1a1a;border-radius:9999px;">
+                 <tr><td align="center" style="background:#1a1a1a;">
                    <a href="{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&type=email" style="display:inline-block;padding:11px 28px;color:#ffffff;font-size:14px;font-weight:600;text-decoration:none;font-family:Arial,Helvetica,sans-serif;">Confirm e-mail address and continue</a>
                  </td></tr>
                </table>
                <p style="margin:0 0 16px;font-size:12px;color:#6b7280;line-height:1.6;">If the button does not work, copy and paste this address into your browser:<br>{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&amp;type=email</p>
                <p style="margin:0;font-size:13px;color:#374151;line-height:1.6;">If you did not request this, you can safely ignore this message; no registration will be made without confirmation.</p>
                <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:24px;">
-                 <tr><td style="padding:14px 16px;background:#f9fafb;font-size:13px;color:#374151;line-height:1.6;">For any questions regarding your registration, please <a href="mailto:ekarkani@geol.uoa.gr" style="color:#1a1a1a;font-weight:600;">contact the conference secretariat</a>.</td></tr>
-               </table>
-               <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:16px;">
                  <tr><td style="padding-top:16px;border-top:1px solid #e5e7eb;color:#9ca3af;font-size:12px;">Hellenic Geographical Society &middot; hellenic-geographical-society.com</td></tr>
                </table>
              </td></tr>

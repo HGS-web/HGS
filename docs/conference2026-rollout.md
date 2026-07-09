@@ -67,8 +67,8 @@ password resets.
                <p style="margin:0 0 16px;font-size:14px;color:#111827;line-height:1.6;">Dear participant,</p>
                <p style="margin:0 0 16px;font-size:14px;color:#111827;line-height:1.6;">A registration for the conference was started with this e-mail address ({{ .Email }}). To confirm your address and fill in your registration details, please use the button below.</p>
                <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:24px auto;">
-                 <tr><td align="center" style="background:#1a1a1a;">
-                   <a href="{{ .RedirectTo }}?token_hash={{ .TokenHash }}&type=email" style="display:inline-block;padding:11px 28px;color:#ffffff;font-size:14px;font-weight:600;text-decoration:none;font-family:Arial,Helvetica,sans-serif;">Confirm e-mail address and continue</a>
+                 <tr><td align="center" style="background:#1a1a1a;padding:11px 28px;">
+                   <a href="{{ .RedirectTo }}?token_hash={{ .TokenHash }}&type=email" style="color:#ffffff;font-size:14px;font-weight:600;text-decoration:none;font-family:Arial,Helvetica,sans-serif;">Confirm e-mail address and continue</a>
                  </td></tr>
                </table>
                <p style="margin:0 0 16px;font-size:12px;color:#6b7280;line-height:1.6;">If the button does not work, copy and paste this address into your browser:<br>{{ .RedirectTo }}?token_hash={{ .TokenHash }}&amp;type=email</p>

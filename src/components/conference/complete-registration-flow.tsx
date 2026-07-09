@@ -12,6 +12,7 @@ import { Label } from "@/components/ui/label"
 import { Select } from "@/components/ui/select"
 import { PasswordFields } from "@/components/conference/password-fields"
 import { ConsentFields } from "@/components/conference/consent-fields"
+import { CountryField } from "@/components/conference/country-field"
 import { ClaimAbstracts, type ClaimCandidate } from "@/components/conference/claim-abstracts"
 import {
   CONFERENCE_FEES,
@@ -79,6 +80,7 @@ export function CompleteRegistrationFlow({ me, locale }: { me: MePayload; locale
     register,
     handleSubmit,
     watch,
+    setValue,
     formState: { errors, isSubmitting },
   } = useForm<FormData>({
     resolver: zodResolver(schema),
@@ -265,7 +267,13 @@ export function CompleteRegistrationFlow({ me, locale }: { me: MePayload; locale
 
           <div className="space-y-1.5">
             <Label htmlFor="cr-country">Country *</Label>
-            <Input id="cr-country" {...register("country")} aria-invalid={!!errors.country} />
+            <input type="hidden" {...register("country")} />
+            <CountryField
+              id="cr-country"
+              value={values.country ?? ""}
+              onChange={(v) => setValue("country", v, { shouldDirty: true })}
+              invalid={!!errors.country}
+            />
             {errors.country && <p className="text-xs text-red-500">{errors.country.message}</p>}
           </div>
         </div>

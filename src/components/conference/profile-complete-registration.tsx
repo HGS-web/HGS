@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select } from "@/components/ui/select"
 import { ConsentFields } from "@/components/conference/consent-fields"
+import { CountryField } from "@/components/conference/country-field"
 import {
   CONFERENCE_FEES,
   CURRENT_FEE_PERIOD,
@@ -45,7 +46,7 @@ export function ProfileCompleteRegistration({
 }) {
   const [serverError, setServerError] = useState<string | null>(null)
 
-  const { register, handleSubmit, formState: { errors, isSubmitting } } =
+  const { register, handleSubmit, watch, setValue, formState: { errors, isSubmitting } } =
     useForm<FormData>({
       resolver: zodResolver(schema),
       defaultValues: {
@@ -103,7 +104,13 @@ export function ProfileCompleteRegistration({
 
         <div className="space-y-1.5">
           <Label htmlFor="cr-country">Country *</Label>
-          <Input id="cr-country" {...register("country")} aria-invalid={!!errors.country} />
+          <input type="hidden" {...register("country")} />
+          <CountryField
+            id="cr-country"
+            value={watch("country") ?? ""}
+            onChange={(v) => setValue("country", v, { shouldDirty: true })}
+            invalid={!!errors.country}
+          />
           {errors.country && <p className="text-xs text-red-500">{errors.country.message}</p>}
         </div>
 

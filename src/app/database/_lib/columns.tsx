@@ -259,16 +259,6 @@ export const c26PeopleColumns: ColumnDef<Person2026Row>[] = [
     accessor: (r) => r.abstract_count,
     cell: (r) => <span className="tabular-nums">{r.abstract_count}</span>,
   },
-  {
-    key: "source",
-    header: "Source",
-    accessor: (r) => r.source,
-    cell: (r) => (
-      <span className="inline-flex rounded-full border border-black/10 bg-secondary px-2 py-0.5 text-xs">
-        {r.source === "import" ? "Imported" : "Signup"}
-      </span>
-    ),
-  },
 ];
 
 export const c26AbstractsColumns: ColumnDef<Abstract2026Row>[] = [

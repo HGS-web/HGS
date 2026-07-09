@@ -91,7 +91,7 @@ export function CountryField({
         role="combobox"
         aria-expanded={open}
         aria-autocomplete="list"
-        autoComplete="off"
+        autoComplete="country-name"
         placeholder="Start typing to search…"
         value={value}
         aria-invalid={invalid}

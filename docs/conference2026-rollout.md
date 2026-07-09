@@ -43,53 +43,73 @@ password resets.
 4. **Authentication → Rate Limits**: raise **"Rate limit for sending
    emails"** from the default (~30/hour) to **100 per hour** — peak
    registration days must not block signups.
-5. **Authentication → Emails → Confirm signup** template (sent on the
-   first confirmation request for an address):
-   - Subject: `HGS Conference 2026 — Confirm your e-mail address`
-   - Body (HTML):
+5. **Authentication → Emails** — three templates, styled to match the
+   membership e-mails (dark conference banner, white card, secretariat
+   footer — same design as `src/app/api/send-email/route.ts`).
+
+   **Confirm signup** (first confirmation request for an address) —
+   subject `HGS Conference 2026 — Confirm your e-mail address`:
 
      ```html
-     <p>Dear participant,</p>
-     <p>A registration for the 13th HGS International Conference
-        (27–28 November 2026, Athens) was started with this e-mail address
-        ({{ .Email }}). To confirm your address and fill in your
-        registration details, please follow the link below.</p>
-     <p><a href="{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&type=email">Confirm e-mail address and continue</a></p>
-     <p>If you did not request this, you can safely ignore this message;
-        no registration will be made without confirmation.</p>
-     <p>Hellenic Geographical Society</p>
+     <!DOCTYPE html>
+     <html lang="en">
+     <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
+     <body style="margin:0;padding:0;background:#f4f4f5;font-family:Arial,Helvetica,sans-serif;">
+       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f4f4f5;">
+         <tr><td align="center" style="padding:24px 16px;">
+           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:560px;background:#ffffff;border:1px solid #e5e7eb;">
+             <tr><td style="background:#1a1a1a;padding:20px 24px;">
+               <h1 style="margin:0;color:#ffffff;font-size:18px;font-weight:600;font-family:Arial,Helvetica,sans-serif;">13th International Conference of the Hellenic Geographical Society</h1>
+               <p style="margin:4px 0 0;color:#aaaaaa;font-size:13px;font-family:Arial,Helvetica,sans-serif;">27&#8211;28 November 2026 &middot; Athens, Greece</p>
+             </td></tr>
+             <tr><td style="padding:24px;font-family:Arial,Helvetica,sans-serif;">
+               <p style="margin:0 0 16px;font-size:14px;color:#111827;line-height:1.6;">Dear participant,</p>
+               <p style="margin:0 0 16px;font-size:14px;color:#111827;line-height:1.6;">A registration for the conference was started with this e-mail address ({{ .Email }}). To confirm your address and fill in your registration details, please use the button below.</p>
+               <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:24px auto;">
+                 <tr><td align="center" style="background:#1a1a1a;border-radius:9999px;">
+                   <a href="{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&type=email" style="display:inline-block;padding:11px 28px;color:#ffffff;font-size:14px;font-weight:600;text-decoration:none;font-family:Arial,Helvetica,sans-serif;">Confirm e-mail address and continue</a>
+                 </td></tr>
+               </table>
+               <p style="margin:0 0 16px;font-size:12px;color:#6b7280;line-height:1.6;">If the button does not work, copy and paste this address into your browser:<br>{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&amp;type=email</p>
+               <p style="margin:0;font-size:13px;color:#374151;line-height:1.6;">If you did not request this, you can safely ignore this message; no registration will be made without confirmation.</p>
+               <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:24px;">
+                 <tr><td style="padding:14px 16px;background:#f9fafb;font-size:13px;color:#374151;line-height:1.6;">For any questions regarding your registration, please <a href="mailto:ekarkani@geol.uoa.gr" style="color:#1a1a1a;font-weight:600;">contact the conference secretariat</a>.</td></tr>
+               </table>
+               <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:16px;">
+                 <tr><td style="padding-top:16px;border-top:1px solid #e5e7eb;color:#9ca3af;font-size:12px;">Hellenic Geographical Society &middot; hellenic-geographical-society.com</td></tr>
+               </table>
+             </td></tr>
+           </table>
+         </td></tr>
+       </table>
+     </body>
+     </html>
      ```
 
-   **Authentication → Emails → Magic Link** template — same wording
-   (Supabase sends this variant when someone whose address was already
-   verified, but who did not finish, requests a new link):
-   - Subject: `HGS Conference 2026 — Continue your registration`
-   - Body (HTML):
+   **Magic Link** (sent instead of the above when the address was already
+   verified once but the registration was not finished) — subject
+   `HGS Conference 2026 — Continue your registration`: same HTML as
+   Confirm signup with the two content paragraphs and button label
+   replaced by:
 
      ```html
-     <p>Dear participant,</p>
-     <p>You requested a link to continue your registration for the
-        13th HGS International Conference (27–28 November 2026, Athens)
-        with this e-mail address ({{ .Email }}). Please follow the link
-        below.</p>
-     <p><a href="{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&type=email">Continue your registration</a></p>
-     <p>If you did not request this, you can safely ignore this message.</p>
-     <p>Hellenic Geographical Society</p>
+     <p style="margin:0 0 16px;font-size:14px;color:#111827;line-height:1.6;">You requested a link to continue your registration for the conference with this e-mail address ({{ .Email }}). Please use the button below.</p>
+     ```
+     button text: `Continue your registration`; closing note:
+     ```html
+     <p style="margin:0;font-size:13px;color:#374151;line-height:1.6;">If you did not request this, you can safely ignore this message.</p>
      ```
 
-6. **Authentication → Emails → Reset password** template:
-   - Subject: `HGS Conference 2026 — Password reset`
-   - Body (HTML):
+   **Reset password** — subject `HGS Conference 2026 — Password reset`:
+   same HTML shell with the content replaced by:
 
      ```html
-     <p>Dear participant,</p>
-     <p>A password reset was requested for your HGS Conference 2026 account
-        ({{ .Email }}). To set a new password, please follow the link below.
-        The link is valid for a limited time and can be used once.</p>
-     <p><a href="{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&type=recovery&next=/en/conference2026/reset-password">Set a new password</a></p>
-     <p>If you did not request this, you can safely ignore this message.</p>
-     <p>Hellenic Geographical Society</p>
+     <p style="margin:0 0 16px;font-size:14px;color:#111827;line-height:1.6;">A password reset was requested for your conference account ({{ .Email }}). To set a new password, please use the button below. The link is valid for a limited time and can be used once.</p>
      ```
+     button href:
+     `{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&type=recovery&next=/en/conference2026/reset-password`,
+     button text: `Set a new password`; closing note: "If you did not
+     request this, you can safely ignore this message."
 
 ## 3. Vercel
 

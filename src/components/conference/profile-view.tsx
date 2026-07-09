@@ -1,7 +1,7 @@
 "use client"
 
-import { useCallback, useState } from "react"
-import { Check, CheckCircle2, X } from "lucide-react"
+import { useCallback, useMemo, useState } from "react"
+import { Check, CheckCircle2, CreditCard, FileText, Settings, X } from "lucide-react"
 import { ProfilePaymentCard } from "@/components/conference/profile-payment-card"
 import { ProfileAbstractsCard } from "@/components/conference/profile-abstracts-card"
 import { ProfileAccountCard } from "@/components/conference/profile-account-card"
@@ -10,6 +10,7 @@ import type { MePayload } from "@/lib/conference2026-types"
 import type { Locale } from "@/config/site"
 
 type Stage = "pay" | "review" | "confirmed"
+type Tab = "payment" | "abstracts" | "account"
 
 function StepCircle({
   state,
@@ -72,20 +73,39 @@ export function ProfileView({
       ? "confirmed"
       : "review"
 
+  // Default to the tab with a pending action; abstracts once payment is settled.
+  const [tab, setTab] = useState<Tab>(stage === "confirmed" ? "abstracts" : "payment")
+
+  const pendingClaims = me.claims.filter((c) => c.status === "pending").length
+
   const displayName = registration
     ? `${registration.first_name} ${registration.last_name}`
     : me.person?.full_name ?? me.email
 
-  const steps: { label: string; state: "done" | "current" | "upcoming" }[] = [
-    { label: "Registration", state: "done" },
+  const steps: { label: string; state: "done" | "current" | "upcoming" }[] = useMemo(
+    () => [
+      { label: "Registration", state: "done" },
+      { label: "Payment receipt", state: stage === "pay" ? "current" : "done" },
+      {
+        label: "Confirmation",
+        state: stage === "confirmed" ? "done" : stage === "review" ? "current" : "upcoming",
+      },
+    ],
+    [stage]
+  )
+
+  const goToPayment = () => setTab("payment")
+
+  const tabs: { id: Tab; label: string; icon: typeof CreditCard; badge?: number; dot?: boolean }[] = [
+    { id: "payment", label: "Payment", icon: CreditCard, dot: stage === "pay" },
     {
-      label: "Payment receipt",
-      state: stage === "pay" ? "current" : "done",
+      id: "abstracts",
+      label: "Abstracts",
+      icon: FileText,
+      badge: me.abstracts.length || undefined,
+      dot: pendingClaims > 0,
     },
-    {
-      label: "Confirmation",
-      state: stage === "confirmed" ? "done" : stage === "review" ? "current" : "upcoming",
-    },
+    { id: "account", label: "Account", icon: Settings },
   ]
 
   return (
@@ -107,7 +127,7 @@ export function ProfileView({
         </div>
       )}
 
-      {/* Identity + status */}
+      {/* Identity + progress */}
       <div className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
@@ -158,14 +178,16 @@ export function ProfileView({
               ))}
             </ol>
 
-            {/* One contextual next step — replaces the old banner pile */}
+            {/* One contextual next step */}
             {stage === "pay" && (
               <p className="text-sm text-black/70 leading-relaxed">
                 {hasDeclinedReceipt ? (
                   <>
                     <span className="font-semibold text-red-600">Your receipt was declined.</span>{" "}
-                    Please upload a new payment receipt in the{" "}
-                    <a href="#payment" className="underline font-medium">Payment section</a>.
+                    Please upload a new one in the{" "}
+                    <button type="button" onClick={goToPayment} className="underline font-medium hover:text-black cursor-pointer">
+                      Payment tab
+                    </button>.
                   </>
                 ) : (
                   <>
@@ -174,15 +196,14 @@ export function ProfileView({
                     <span className="font-semibold">
                       €{Number(registration.fee_amount_eur).toFixed(0)}
                     </span>{" "}
-                    and upload your payment receipt in the{" "}
-                    <a href="#payment" className="underline font-medium">Payment section</a>.
+                    and upload your receipt in the{" "}
+                    <button type="button" onClick={goToPayment} className="underline font-medium hover:text-black cursor-pointer">
+                      Payment tab
+                    </button>.
                   </>
                 )}
                 {isMemberRate && !hasMembershipReceipt && (
-                  <>
-                    {" "}As you registered at an HGS member rate, please also
-                    upload your membership receipt.
-                  </>
+                  <> A membership receipt is also required for your HGS member rate.</>
                 )}
               </p>
             )}
@@ -192,9 +213,11 @@ export function ProfileView({
                 committee — no further action is needed for now.
                 {isMemberRate && !hasMembershipReceipt && (
                   <>
-                    {" "}One thing remains: as you registered at an HGS member
-                    rate, please also upload your membership receipt in the{" "}
-                    <a href="#payment" className="underline font-medium">Payment section</a>.
+                    {" "}One item remains: please also upload your membership
+                    receipt in the{" "}
+                    <button type="button" onClick={goToPayment} className="underline font-medium hover:text-black cursor-pointer">
+                      Payment tab
+                    </button>.
                   </>
                 )}
               </p>
@@ -211,11 +234,46 @@ export function ProfileView({
 
       {!registration && <ProfileCompleteRegistration me={me} onChanged={refresh} />}
 
-      {registration && <ProfilePaymentCard me={me} onChanged={refresh} />}
+      {registration && (
+        <>
+          {/* Tab strip */}
+          <div className="flex items-center gap-1 rounded-full border border-black/10 bg-white p-1 shadow-sm">
+            {tabs.map((t) => {
+              const active = tab === t.id
+              const Icon = t.icon
+              return (
+                <button
+                  key={t.id}
+                  type="button"
+                  onClick={() => setTab(t.id)}
+                  className={`relative flex flex-1 items-center justify-center gap-2 rounded-full px-3 py-2 text-sm font-medium transition-colors cursor-pointer ${
+                    active ? "bg-black text-white" : "text-black/55 hover:text-black hover:bg-black/[0.03]"
+                  }`}
+                >
+                  <Icon className="h-4 w-4" />
+                  <span className="hidden sm:inline">{t.label}</span>
+                  {t.badge !== undefined && (
+                    <span className={`rounded-full px-1.5 text-[10px] font-semibold ${active ? "bg-white/20 text-white" : "bg-black/10 text-black/50"}`}>
+                      {t.badge}
+                    </span>
+                  )}
+                  {t.dot && !active && (
+                    <span className="absolute right-2 top-2 h-1.5 w-1.5 rounded-full bg-amber-500" aria-hidden />
+                  )}
+                </button>
+              )
+            })}
+          </div>
 
-      <ProfileAbstractsCard me={me} onChanged={refresh} />
+          {tab === "payment" && <ProfilePaymentCard me={me} onChanged={refresh} />}
+          {tab === "abstracts" && <ProfileAbstractsCard me={me} onChanged={refresh} />}
+          {tab === "account" && <ProfileAccountCard locale={locale} />}
+        </>
+      )}
 
-      <ProfileAccountCard locale={locale} />
+      {/* Before registration is completed, abstracts still show (claims live here too). */}
+      {!registration && <ProfileAbstractsCard me={me} onChanged={refresh} />}
+      {!registration && <ProfileAccountCard locale={locale} />}
     </div>
   )
 }

@@ -243,33 +243,48 @@ export function ProfilePaymentCard({
     <div id="payment" className="scroll-mt-24 rounded-2xl border border-black/10 bg-white p-6 shadow-sm space-y-4">
       <h2 className="text-base font-semibold text-black">Payment</h2>
 
-      <div className="rounded-xl bg-black/[0.02] border border-black/10 p-4 space-y-2 text-sm">
-        <div className="flex items-baseline justify-between">
-          <span className="text-black/50">{registration.fee_label}</span>
-          <span className="text-lg font-semibold text-black">
+      <div className="rounded-xl border border-black/10 overflow-hidden">
+        {/* Amount due */}
+        <div className="flex items-baseline justify-between gap-3 bg-black/[0.02] px-4 py-3.5 border-b border-black/10">
+          <span className="text-sm font-medium text-black/70">{registration.fee_label}</span>
+          <span className="text-2xl font-semibold text-black tracking-tight">
             €{Number(registration.fee_amount_eur).toFixed(0)}
           </span>
         </div>
-        <div className="border-t border-black/5 pt-2 space-y-1 text-xs text-black/50">
-          <p>
-            <span className="text-black/35">Bank:</span> Piraeus Bank ·{" "}
-            <span className="text-black/35">BIC:</span> {siteConfig.banking.bic}
+
+        {/* Bank transfer details */}
+        <div className="p-4 space-y-3">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-black/40">
+            Bank transfer details
           </p>
-          <p className="flex items-center gap-1.5 flex-wrap">
-            <span className="text-black/35">IBAN:</span>
-            <span className="font-mono">{siteConfig.banking.iban}</span>
-            <button
-              type="button"
-              onClick={copyIban}
-              className="inline-flex items-center gap-1 text-black/40 hover:text-black transition-colors cursor-pointer"
-            >
-              <Copy className="h-3 w-3" />
-              {copied ? "Copied" : "Copy"}
-            </button>
-          </p>
-          <p className="text-black/45 font-medium">
-            Please use your full name as the transfer reference.
-          </p>
+          <dl className="space-y-2.5 text-sm">
+            <div className="flex items-baseline justify-between gap-4">
+              <dt className="text-black/45">Bank</dt>
+              <dd className="font-medium text-black text-right">Piraeus Bank</dd>
+            </div>
+            <div className="flex items-baseline justify-between gap-4">
+              <dt className="text-black/45">BIC</dt>
+              <dd className="font-mono font-medium text-black text-right">{siteConfig.banking.bic}</dd>
+            </div>
+            <div className="flex items-start justify-between gap-4">
+              <dt className="text-black/45 pt-0.5">IBAN</dt>
+              <dd className="min-w-0 text-right">
+                <span className="font-mono font-medium text-black break-all">{siteConfig.banking.iban}</span>
+                <button
+                  type="button"
+                  onClick={copyIban}
+                  className="ml-2 inline-flex items-center gap-1 align-middle rounded-md border border-black/15 px-1.5 py-0.5 text-xs text-black/60 hover:bg-black/5 hover:text-black transition-colors cursor-pointer"
+                >
+                  <Copy className="h-3 w-3" />
+                  {copied ? "Copied" : "Copy"}
+                </button>
+              </dd>
+            </div>
+            <div className="flex items-baseline justify-between gap-4 border-t border-black/[0.07] pt-2.5">
+              <dt className="text-black/45">Reference</dt>
+              <dd className="font-medium text-black text-right">Your full name</dd>
+            </div>
+          </dl>
         </div>
       </div>
 

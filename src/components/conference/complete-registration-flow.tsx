@@ -331,6 +331,8 @@ export function CompleteRegistrationFlow({ me, locale }: { me: MePayload; locale
             confirmProps={register("password_confirm")}
             passwordError={errors.password?.message}
             confirmError={errors.password_confirm?.message}
+            passwordValue={values.password ?? ""}
+            confirmValue={values.password_confirm ?? ""}
           />
         </div>
 

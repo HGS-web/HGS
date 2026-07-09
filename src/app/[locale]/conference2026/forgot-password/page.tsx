@@ -44,7 +44,7 @@ export default async function ForgotPasswordPage({ params }: PageProps) {
         <div className="mx-auto max-w-md px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <Suspense fallback={null}>
-              <ForgotPasswordForm locale={validLocale} />
+              <ForgotPasswordForm />
             </Suspense>
           </FadeIn>
         </div>

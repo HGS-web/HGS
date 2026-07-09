@@ -209,7 +209,7 @@ export function CompleteRegistrationFlow({ me, locale }: { me: MePayload; locale
                       <span className={`inline-block rounded-full px-2 py-0.5 text-[10px] font-semibold ${a.role === "author" ? "bg-black text-white" : "border border-black/20 text-black/50"}`}>
                         {a.role === "author" ? "Author" : "Co-author"}
                       </span>
-                      <span className="shrink-0 text-[10px] font-semibold uppercase tracking-[0.08em] text-black/35">
+                      <span className="inline-block shrink-0 rounded-full border border-green-600/20 bg-green-50 px-2 py-0.5 text-[10px] font-semibold text-green-800">
                         {a.evaluation === "reassigned" ? "Accepted · reassigned" : "Accepted"}
                       </span>
                     </div>

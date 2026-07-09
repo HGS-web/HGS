@@ -17,7 +17,6 @@ import {
   CONFERENCE_FEES,
   CURRENT_FEE_PERIOD,
   FEE_MICROCOPY,
-  POLICY_NOTE,
   REGISTRATION_TYPES,
 } from "@/config/conference2026"
 import type { MePayload } from "@/lib/conference2026-types"
@@ -70,6 +69,7 @@ function sessionText(label: string) {
 export function CompleteRegistrationFlow({ me, locale }: { me: MePayload; locale: Locale }) {
   const router = useRouter()
   const [serverError, setServerError] = useState<string | null>(null)
+  const [validationSummary, setValidationSummary] = useState<string | null>(null)
   const [wantsClaim, setWantsClaim] = useState(false)
   const [claims, setClaims] = useState<ClaimCandidate[]>([])
 
@@ -94,8 +94,21 @@ export function CompleteRegistrationFlow({ me, locale }: { me: MePayload; locale
   const firstName = watch("first_name") ?? ""
   const lastName = watch("last_name") ?? ""
 
+  // The submit button stays enabled so missing fields can be discovered —
+  // an invalid click scrolls to the first problem and says so at the button.
+  const onInvalid = () => {
+    setServerError(null)
+    setValidationSummary("Please complete the required fields highlighted above.")
+    setTimeout(() => {
+      document
+        .querySelector('[aria-invalid="true"]')
+        ?.scrollIntoView({ behavior: "smooth", block: "center" })
+    }, 60)
+  }
+
   const onSubmit = async (data: FormData) => {
     setServerError(null)
+    setValidationSummary(null)
     const supabase = getSupabaseBrowser()
     if (!supabase) { setServerError("Service unavailable. Please try again later."); return }
 
@@ -157,7 +170,7 @@ export function CompleteRegistrationFlow({ me, locale }: { me: MePayload; locale
 
   return (
     <div className="rounded-2xl border border-black/10 bg-white p-6 sm:p-8 shadow-sm">
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit, onInvalid)}>
         {/* --------------------------------------------- Verified address -- */}
         <div className="flex items-center justify-between gap-3 pb-5 border-b border-black/10">
           <div className="min-w-0">
@@ -292,7 +305,6 @@ export function CompleteRegistrationFlow({ me, locale }: { me: MePayload; locale
             </div>
           )}
 
-          <p className="text-xs text-black/45 leading-relaxed">{POLICY_NOTE}</p>
         </div>
 
         {/* -------------------------------------------------- Account password -- */}
@@ -324,6 +336,12 @@ export function CompleteRegistrationFlow({ me, locale }: { me: MePayload; locale
               {claims.length} authorship claim{claims.length > 1 ? "s" : ""} will be
               submitted for review by the organising committee.
             </p>
+          )}
+
+          {validationSummary && (
+            <div className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
+              {validationSummary}
+            </div>
           )}
 
           {serverError && (

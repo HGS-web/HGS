@@ -51,6 +51,11 @@ next-env.d.ts
 /scripts/conference2026/import-report.json
 /scripts/conference2026/import-overrides.json
 /scripts/conference2026/import-data*.sql
+/Authors_Data_SNS.xlsx
+/New Sessions.docx
+/scripts/conference2026/reconcile-report.json
+/scripts/conference2026/reconcile-backup*.json
+/scripts/conference2026/reconcile-data*.sql
 
 # Playwright MCP test artifacts (screenshots, snapshots)
 /.playwright-mcp/

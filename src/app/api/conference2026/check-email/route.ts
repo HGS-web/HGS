@@ -2,6 +2,7 @@ import { NextResponse, type NextRequest } from "next/server";
 import { z } from "zod";
 import { getSupabaseAdmin } from "@/lib/supabase-admin";
 import { checkOrigin } from "@/lib/user-guard";
+import { findPersonByEmail } from "@/lib/conference2026-person";
 import type { CheckEmailResult } from "@/lib/conference2026-types";
 
 export const runtime = "nodejs";
@@ -28,11 +29,10 @@ export async function POST(request: NextRequest) {
   const email = parsed.data.email.trim().toLowerCase();
 
   const supabase = getSupabaseAdmin();
-  const { data: person, error } = await supabase
-    .from("people_conference2026")
-    .select("id, auth_user_id")
-    .eq("email", email)
-    .maybeSingle();
+  const { person, error } = await findPersonByEmail<{
+    id: string;
+    auth_user_id: string | null;
+  }>(supabase, email, "id, auth_user_id");
 
   if (error) {
     return NextResponse.json({ error: "Service unavailable" }, { status: 500 });

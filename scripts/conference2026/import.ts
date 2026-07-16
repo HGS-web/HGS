@@ -23,6 +23,10 @@
  * its natural key, and writes are upserts on the primary key. Re-running
  * after --apply produces zero changes. Do NOT re-run after registration has
  * opened — it would overwrite people fields with import-time values.
+ *
+ * Do NOT re-run after reconcile-authors.ts --apply either — it would upsert
+ * the person rows that the reconciliation merged and deleted back into
+ * existence, splitting author identities again.
  */
 
 import { createHash } from "node:crypto";

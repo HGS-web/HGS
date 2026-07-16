@@ -142,9 +142,8 @@ export function AbstractForm() {
 
     if (existing) { setIsDuplicate(true); setServerError("duplicate"); return }
 
-    const sessionId    = parseInt(data.session_id)
-    const session      = sessions.find(s => s.id === sessionId)
-    const sessionLabel = session ? `${session.id}. ${session.title}` : String(sessionId)
+    const session      = sessions.find(s => String(s.id) === data.session_id)
+    const sessionLabel = session ? `${session.id}. ${session.title}` : data.session_id
 
     const coAuthorsText = data.co_authors.length > 0
       ? data.co_authors.map(ca => `${ca.first_name} ${ca.last_name} (${ca.email}, ${ca.affiliation})`).join("; ")

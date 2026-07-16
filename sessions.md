@@ -37,6 +37,10 @@ Table of Contents
 #36 Geography and Education: Research, Practice and Reflection in Dialogue	38
 #37 Reproductive commons and political infrastructures: Care and collective Life making in the urban polycrisis	39
 #38 Urbicide and Reconstruction Models in the Global South: The Cases of Mogadishu, Aleppo, and Mosul	40
+#36a Critical Perspectives in Geography Education: Spatial Thinking, Citizenship, and Curriculum Innovation	41
+#36b Spatializing Urban Vulnerability in Times of Crisis: Energy Poverty, Housing Deprivation, Homelessness, and Displacement	42
+#38 From Risk to Resilience: Interdisciplinary Approaches in Geography	43
+#39 General culture	44
 
 
 
@@ -683,3 +687,47 @@ The three case studies highlight the strategic value and role of cities in conte
 The second case is that of Aleppo. With the beginning of the Syrian civil war, the city found itself at the target of the opposing sides and suffered a multi-year humanitarian crisis. Both its structural infrastructure and its social identity were a battlefield, resulting in the breakdown of its economic and urban structure. Since 2024, the city has been the stronghold of the new Syrian leadership, while ethnocultural neighborhoods are being militarized. The main reconstruction models are "Law 10", as well as the policy of "selective restoration of emblematic monuments".
 
 The third case, that of Mosul, lies mainly in the three years 2014-2017, when the city was occupied by the Islamic State (ISIS). In this case, there was great destruction of monuments and the rich cultural heritage of the city, as well as extensive population displacements. The dominant reconstruction model is carried out by UNESCO with international participation and is “Revive the Spirit of Mosul”.
+
+ 
+#36a Critical Perspectives in Geography Education: Spatial Thinking, Citizenship, and Curriculum Innovation
+
+Organisers: Aikaterini Klonari (University of the Aegean)
+
+General topic:  11. Geography and Education – Educating Geographers
+
+Abstract:
+
+Geography education is increasingly challenged to respond to rapidly changing social, environmental, and technological contexts. As contemporary societies confront issues such as climate change, sustainability, migration, inequality, and digital transformation, geography educators are called upon to develop innovative curricula and pedagogical approaches that foster critical spatial thinking and active citizenship. This session brings together contributions that examine emerging directions in geography education, highlighting the role of curriculum innovation in preparing learners to engage with complex local and global challenges. The papers explore diverse educational contexts and approaches, addressing themes such as geographical literacy, place-based learning, identity formation, environmental and climate education, civic engagement, and the use of innovative teaching methodologies. Particular attention is given to the design and implementation of new curricula that promote critical understanding of spatial relationships and encourage learners to connect geographical knowledge with contemporary societal issues. Collectively, the contributions demonstrate how geography education can move beyond the transmission of knowledge to support learners in becoming reflective, informed, and responsible citizens. By examining curriculum development, pedagogical innovation, and educational practice, the session contributes to ongoing debates about the future of geography education and its capacity to address the challenges and opportunities of the twenty-first century.
+
+ 
+#36b Spatializing Urban Vulnerability in Times of Crisis: Energy Poverty, Housing Deprivation, Homelessness, and Displacement
+
+Organisers: Efthimios Karymbalis (Harokopio University of Athens)
+
+General topic:  11. Geography and Education – Educating Geographers
+
+Abstract:
+
+This session explores the evolving role of geography in the digital era by integrating spatial thinking, geospatial technologies, education, and environmental applications. Contributions incorporating GIS, remote sensing, augmented reality, digital tools, and outdoor learning are welcome, with a focus on enhancing geographical education, fostering critical spatial literacy, and supporting environmental understanding. The session also invites applied geospatial research addressing contemporary environmental challenges through advanced spatial analysis and modeling. By bringing together educational and research perspectives, the session emphasizes the value of geographic knowledge and geospatial technologies in understanding complex socio-environmental processes and informing sustainable action.
+
+ 
+#38 From Risk to Resilience: Interdisciplinary Approaches in Geography
+
+Organisers: Antigoni Faka (Harokopio University of Athens), Angeliki Paidakaki (Harokopio University of Athens)
+
+General topic:  1. Geography: Theory, Methods, Education and Practice
+
+Abstract:
+
+Natural hazards and human-induced risks are increasingly shaping landscapes, societies, and spatial planning processes. This session brings together geographical research on the assessment, management, and mitigation of risks arising from both natural processes and anthropogenic activities. It highlights interdisciplinary approaches grounded in geographic inquiry, integrating spatial analysis, geospatial technologies (e.g., GIS and remote sensing), environmental monitoring, and policy perspectives to enhance risk assessment and support resilience and evidence-based decision-making. Contributions address themes such as hazard assessment, environmental change, vulnerability, disaster risk reduction, resilience, and sustainable spatial planning. By combining methodological innovation with applied case studies across diverse regions, the session aims to foster dialogue within the geographical community and advance spatially informed strategies for understanding and managing risk in varied environmental and socio-economic contexts.
+
+ 
+#39 General culture
+
+Organisers: TBA
+
+General topic:  1. Geography: Theory, Methods, Education and Practice
+
+Abstract:
+
+TBA

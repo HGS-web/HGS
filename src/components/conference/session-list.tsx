@@ -64,7 +64,7 @@ export function SessionList() {
               onClick={() => setSelected(session)}
               className="w-full text-left rounded-xl border border-black/8 bg-black/[0.02] hover:bg-black/[0.05] hover:border-black/15 transition-colors cursor-pointer px-4 py-3 flex items-start gap-3 group"
             >
-              <span className="shrink-0 text-xs font-semibold text-black/30 tabular-nums mt-0.5 w-5 text-right">
+              <span className="shrink-0 text-xs font-semibold text-black/30 tabular-nums mt-0.5 w-7 text-right">
                 {session.id}.
               </span>
               <span className="text-sm text-black/70 group-hover:text-black transition-colors leading-snug">

@@ -4,6 +4,7 @@
   "same_person_groups": [["A_000", "A_001"]],
   "do_not_merge": [["A_002", "A_003"]],
   "preferred_primary_emails": ["kept-address@university.example"],
+  "merge_person_emails": [["kept-address@university.example", "same-person-other@example.org"]],
   "email_abstract_coauthors": {
     "S_000": [
       {

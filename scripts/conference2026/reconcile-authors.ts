@@ -65,6 +65,10 @@ type Overrides = {
    *  (e.g. the university address) — never outranks an auth-linked or
    *  registered row, whose account e-mail must stay primary. */
   preferred_primary_emails?: string[];
+  /** Groups of addresses confirmed to belong to ONE person where the sheet
+   *  cannot connect them (e.g. the second address appears only on abstracts
+   *  absent from the sheet). Resolved purely against the DB. */
+  merge_person_emails?: string[][];
 };
 
 function loadOverrides(): Overrides {
@@ -90,6 +94,9 @@ const SAME_PERSON_GROUPS = OVERRIDES.same_person_groups ?? [];
 const DO_NOT_MERGE = OVERRIDES.do_not_merge ?? [];
 const PREFERRED_PRIMARY = new Set(
   (OVERRIDES.preferred_primary_emails ?? []).map((e) => e.toLowerCase())
+);
+const MERGE_PERSON_EMAILS = (OVERRIDES.merge_person_emails ?? []).map((g) =>
+  g.map((e) => e.toLowerCase())
 );
 
 // ---------------------------------------------------------------------------
@@ -483,6 +490,29 @@ function buildPlan(clusters: Cluster[], db: DbState): Plan {
     }
   }
 
+  // DB-level merge groups: fold the extra addresses into the cluster that
+  // already carries one of them, or make a synthetic cluster if none does.
+  for (const group of MERGE_PERSON_EMAILS) {
+    for (const e of group) {
+      if (KNOWN_SHARED_EMAILS.has(e)) {
+        fail(`merge_person_emails contains the shared address ${e}`);
+      }
+    }
+    const host = clusters.find((c) => c.emails.some((e) => group.includes(e)));
+    if (host) {
+      for (const e of group) if (!host.emails.includes(e)) host.emails.push(e);
+    } else {
+      clusters.push({
+        key: `DB:${group[0]}`,
+        authIds: [],
+        names: [],
+        emails: [...group],
+        submitterEmails: new Set(),
+        codes: new Set(),
+      });
+    }
+  }
+
   const clusterPlans: ClusterPlan[] = [];
   const conflicts: Plan["conflicts"] = [];
   const unmatched: Plan["unmatched"] = [];
@@ -511,22 +541,31 @@ function buildPlan(clusters: Cluster[], db: DbState): Plan {
       if (person) candidates.set(person.id, person);
     }
 
-    // Name+abstract corroborated fallback for clusters whose e-mails are all
-    // unknown to the DB: attach the NULL-e-mail person with the exact same
-    // normalized name who is already linked to one of the cluster's abstracts
-    // (the hand-extracted co-authors of the e-mail-submitted abstracts).
-    if (candidates.size === 0) {
+    // Attach NULL-e-mail person rows (hand-extracted co-authors) that are
+    // unambiguously this cluster's person: exact normalized-name match,
+    // corroborated either by a shared abstract (Kalfa-style — also covers
+    // clusters with no e-mail match at all) or by an e-mail-matched candidate
+    // carrying the identical name (Temenos-style, where the sheet lacks the
+    // co-author row entirely).
+    {
       const clusterAbstractIds = new Set(
         db.abstracts.filter((a) => cluster.codes.has(a.code)).map((a) => a.id)
       );
       const nameSet = new Set(cluster.names.map((n) => normName(n)));
-      const matches = db.people.filter(
-        (p) =>
-          !p.email &&
-          nameSet.has(normName(p.full_name)) &&
-          db.links.some((l) => l.person_id === p.id && clusterAbstractIds.has(l.abstract_id))
+      const candidateNames = new Set(
+        [...candidates.values()].map((p) => normName(p.full_name))
       );
-      if (matches.length === 1) candidates.set(matches[0].id, matches[0]);
+      for (const p of db.people) {
+        if (p.email || candidates.has(p.id)) continue;
+        const pname = normName(p.full_name);
+        if (!nameSet.has(pname) && !candidateNames.has(pname)) continue;
+        const sharesAbstract = db.links.some(
+          (l) => l.person_id === p.id && clusterAbstractIds.has(l.abstract_id)
+        );
+        if (sharesAbstract || candidateNames.has(pname)) {
+          candidates.set(p.id, p);
+        }
+      }
     }
 
     if (candidates.size === 0) {
@@ -572,6 +611,7 @@ function buildPlan(clusters: Cluster[], db: DbState): Plan {
         regByPerson.has(p.id) ? 0 : 1,
         claimPersonIds.has(p.id) ? 0 : 1,
         p.email && PREFERRED_PRIMARY.has(extractEmail(p.email).email ?? "") ? 0 : 1,
+        p.email ? 0 : 1, // an e-mail-bearing row beats a NULL-e-mail one
         p.email && cluster.submitterEmails.has(extractEmail(p.email).email ?? "") ? 0 : 1,
         p.created_at,
         p.id,
@@ -946,7 +986,7 @@ async function execute(plan: Plan, supabase: SupabaseLike): Promise<void> {
       for (const op of deletes) await applyOp(op, supabase);
     }
     console.log(
-      `  ✓ ${cp.cluster.key} (${cp.cluster.names[0]}): ${cp.ops.length} ops, ` +
+      `  ✓ ${cp.cluster.key} (${cp.cluster.names[0] ?? cp.canonical.full_name}): ${cp.ops.length} ops, ` +
         `${cp.merged.length} row(s) merged into ${cp.canonical.id}`
     );
   }
@@ -1182,7 +1222,7 @@ async function main() {
       .map((cp) => ({
         cluster: cp.cluster.key,
         auth_ids: cp.cluster.authIds,
-        name: cp.cluster.names[0],
+        name: cp.cluster.names[0] ?? cp.canonical.full_name,
         name_variants: cp.cluster.names.slice(1),
         emails: cp.cluster.emails,
         canonical: { id: cp.canonical.id, email: cp.canonical.email },

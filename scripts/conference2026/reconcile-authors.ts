@@ -629,17 +629,38 @@ function buildPlan(clusters: Cluster[], db: DbState): Plan {
     }
 
     // d. Alias rows: every cluster e-mail resolves to the canonical.
-    // A NULL-e-mail canonical (hand-extracted co-author) gets its primary
-    // address from the sheet first.
+    // Primary = the canonical's current e-mail, unless a hand-picked
+    // preferred_primary_emails address among the cluster's says otherwise
+    // (never overridden on auth-linked rows — that address is the account
+    // login). A NULL-e-mail canonical gets its primary from the sheet.
     let canonicalPrimary = extractEmail(canonical.email).email;
-    if (!canonicalPrimary && clusterEmails.length > 0) {
-      const preferred =
-        clusterEmails.find((e) => cluster.submitterEmails.has(e)) ?? clusterEmails[0];
-      if (!takenEmails.has(preferred)) {
-        ops.push({ kind: "fix_person_email", person_id: canonical.id, from: null, to: preferred });
-        canonicalPrimary = preferred;
-      }
+    const postDeleteOps: Op[] = [];
+    const setPrimary = (to: string) => {
+      const ownedByMerged = merged.some((m) => extractEmail(m.email).email === to);
+      const ownedOutside =
+        takenEmails.has(to) && canonicalPrimary !== to && !ownedByMerged;
+      if (ownedOutside) return; // someone else's address — leave as-is
+      const op: Op = {
+        kind: "fix_person_email",
+        person_id: canonical.id,
+        from: canonical.email,
+        to,
+      };
+      // An address still held by a merged row can only move onto the
+      // canonical after that row is deleted (people.email is unique).
+      (ownedByMerged ? postDeleteOps : ops).push(op);
+      canonicalPrimary = to;
+    };
+    const preferred = clusterEmails.find((e) => PREFERRED_PRIMARY.has(e));
+    if (preferred && !canonical.auth_user_id && preferred !== canonicalPrimary) {
+      setPrimary(preferred);
+    } else if (!canonicalPrimary && clusterEmails.length > 0) {
+      setPrimary(
+        clusterEmails.find((e) => cluster.submitterEmails.has(e)) ?? clusterEmails[0]
+      );
     }
+
+    const aliasOps: Op[] = [];
     for (const email of clusterEmails) {
       const desiredPrimary = email === canonicalPrimary;
       const existing = aliasByEmail.get(email);
@@ -649,10 +670,10 @@ function buildPlan(clusters: Cluster[], db: DbState): Plan {
         if (existing.is_primary !== desiredPrimary) set.is_primary = desiredPrimary;
         if (existing.email !== email) set.email = email; // repairs malformed strings
         if (Object.keys(set).length > 0) {
-          ops.push({ kind: "update_alias", alias_id: existing.id, set });
+          aliasOps.push({ kind: "update_alias", alias_id: existing.id, set });
         }
       } else {
-        ops.push({
+        aliasOps.push({
           kind: "insert_alias",
           row: {
             id: uuidFromSeed(`person-email:${email}`),
@@ -664,12 +685,23 @@ function buildPlan(clusters: Cluster[], db: DbState): Plan {
         });
       }
     }
+    // Unset a previous primary before setting the new one — the partial
+    // unique index allows at most one primary per person at any moment.
+    const primaryRank = (o: Op): number => {
+      if (o.kind === "update_alias" && o.set.is_primary === false) return 0;
+      if (o.kind === "update_alias" && o.set.is_primary === true) return 2;
+      if (o.kind === "insert_alias" && o.row.is_primary) return 2;
+      return 1;
+    };
+    aliasOps.sort((a, b) => primaryRank(a) - primaryRank(b));
+    ops.push(...aliasOps);
 
     // e. Delete the merged person rows (their alias rows were re-pointed in d;
     //    execute() re-checks that nothing references them before deleting).
     for (const p of merged) {
       ops.push({ kind: "delete_person", person_id: p.id });
     }
+    ops.push(...postDeleteOps);
 
     if (merged.length > 0 || ops.length > 0) {
       clusterPlans.push({ cluster, canonical, merged, ops });
@@ -1161,6 +1193,19 @@ async function main() {
       .filter((cp) => cp.merged.length === 0)
       .map((cp) => ({ cluster: cp.cluster.key, name: cp.cluster.names[0], ops: cp.ops })),
     email_fixes: plan.emailFixOps,
+    primary_flips: plan.clusterPlans.flatMap((cp) =>
+      cp.ops
+        .filter(
+          (o): o is Extract<Op, { kind: "fix_person_email" }> =>
+            o.kind === "fix_person_email"
+        )
+        .map((o) => ({
+          cluster: cp.cluster.key,
+          name: cp.cluster.names[0],
+          from: o.from,
+          to: o.to,
+        }))
+    ),
     conflicts: plan.conflicts,
     unmatched_clusters: plan.unmatched,
     shared_email_guard_hits: plan.sharedEmailGuardHits,

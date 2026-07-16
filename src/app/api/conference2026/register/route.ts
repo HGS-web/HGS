@@ -2,6 +2,7 @@ import { NextResponse, type NextRequest } from "next/server";
 import { z } from "zod";
 import { getSupabaseAdmin } from "@/lib/supabase-admin";
 import { requireUser, checkOrigin } from "@/lib/user-guard";
+import { findPersonByEmail } from "@/lib/conference2026-person";
 import { currentFee, isAcceptedEvaluation } from "@/config/conference2026";
 
 export const runtime = "nodejs";
@@ -64,12 +65,13 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  // Find or create the person row for this email, and link the auth user.
-  const { data: person, error: personErr } = await supabase
-    .from("people_conference2026")
-    .select("id, auth_user_id")
-    .eq("email", email)
-    .maybeSingle();
+  // Find or create the person row for this email (any known alias counts),
+  // and link the auth user.
+  const { person, error: personErr } = await findPersonByEmail<{
+    id: string;
+    auth_user_id: string | null;
+    email: string | null;
+  }>(supabase, email, "id, auth_user_id, email");
   if (personErr) {
     return NextResponse.json({ error: "Service unavailable" }, { status: 500 });
   }
@@ -93,6 +95,17 @@ export async function POST(request: NextRequest) {
         );
       }
     }
+    // Heal a missing alias row (person rows created before person_emails
+    // existed); insert-if-absent, never clobbers backfill/reconcile rows.
+    await supabase.from("person_emails_conference2026").upsert(
+      {
+        person_id: person.id,
+        email,
+        is_primary: email === person.email,
+        source: "signup",
+      },
+      { onConflict: "email", ignoreDuplicates: true }
+    );
   } else {
     const { data: created, error } = await supabase
       .from("people_conference2026")
@@ -114,6 +127,18 @@ export async function POST(request: NextRequest) {
       );
     }
     personId = created.id;
+    // Best-effort: lookups fall back to people.email if this ever fails.
+    const { error: aliasErr } = await supabase
+      .from("person_emails_conference2026")
+      .insert({
+        person_id: created.id,
+        email,
+        is_primary: true,
+        source: "signup",
+      });
+    if (aliasErr) {
+      console.error("[register] person_emails insert failed:", aliasErr);
+    }
   }
 
   // Fee snapshot is computed server-side — the client only sends the type.

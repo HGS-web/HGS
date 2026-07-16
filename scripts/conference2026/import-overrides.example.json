@@ -1,6 +1,9 @@
 {
-  "_comment": "Copy to import-overrides.json (git-ignored — contains personal data) and fill in the real values. known_shared_emails: e-mail addresses confirmed to be used by two different people in the submissions. email_abstract_coauthors: hand-verified co-author lists for the abstracts that were submitted by e-mail (their Evaluated ID column holds the literal 'email' and they are absent from All_Submissions); keyed by Id_Sub code.",
+  "_comment": "Copy to import-overrides.json (git-ignored — contains personal data) and fill in the real values. known_shared_emails: e-mail addresses confirmed to be used by two different people in the submissions. email_abstract_coauthors: hand-verified co-author lists for the abstracts that were submitted by e-mail (their Evaluated ID column holds the literal 'email' and they are absent from All_Submissions); keyed by Id_Sub code. same_person_groups: groups of Auth_IDs from Authors_Data_SNS.xlsx confirmed BY A HUMAN to be the same physical person (reconcile-authors.ts unions them into one cluster — use for pairs its suspected_duplicates report surfaces). do_not_merge: Auth_ID pairs confirmed to be DIFFERENT people (suppresses the fuzzy suggestion and forbids the union).",
   "known_shared_emails": ["shared@example.org"],
+  "same_person_groups": [["A_000", "A_001"]],
+  "do_not_merge": [["A_002", "A_003"]],
+  "preferred_primary_emails": ["kept-address@university.example"],
   "email_abstract_coauthors": {
     "S_000": [
       {

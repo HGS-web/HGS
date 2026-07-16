@@ -23,6 +23,16 @@ export interface PersonConference2026 {
   created_at: string;
 }
 
+/** Row in person_emails_conference2026 — every address a person is known by. */
+export interface PersonEmailConference2026 {
+  id: string;
+  person_id: string;
+  email: string;
+  is_primary: boolean;
+  source: "backfill" | "signup" | "reconcile";
+  created_at: string;
+}
+
 export interface AbstractConference2026 {
   id: string;
   code: string;

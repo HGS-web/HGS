@@ -16,8 +16,10 @@
 
 -- ---------------------------------------------------------------------------
 -- People: every person that appears on a 2026 abstract (imported) or that
--- signs up during registration. Email is the canonical identity key; it is
+-- signs up during registration. Email is the primary/display address; it is
 -- NULL only for unresolved duplicate-email cases flagged by the import.
+-- ALL addresses a person is known by (incl. aliases from multi-email authors)
+-- live in person_emails_conference2026 — lookups resolve through that table.
 -- ---------------------------------------------------------------------------
 create table public.people_conference2026 (
   id                 uuid primary key default gen_random_uuid(),
@@ -36,6 +38,33 @@ create table public.people_conference2026 (
   constraint people_conference2026_email_lower
     check (email is null or email = lower(email))
 );
+
+-- ---------------------------------------------------------------------------
+-- Person e-mails: every address a person is known by (added 2026-07 by the
+-- person_emails_conference2026 migration). people.email stays the primary/
+-- display address; this table is what the e-mail -> person lookup resolves
+-- against, so authors who used several addresses match with any of them.
+-- Rows come from the one-time backfill ('backfill'), registration signups
+-- ('signup'), and scripts/conference2026/reconcile-authors.ts ('reconcile').
+-- The migration backfilled one primary row per existing people.email.
+-- ---------------------------------------------------------------------------
+create table public.person_emails_conference2026 (
+  id          uuid primary key default gen_random_uuid(),
+  person_id   uuid not null
+              references public.people_conference2026 (id) on delete cascade,
+  email       text not null unique,
+  is_primary  boolean not null default false,
+  source      text not null default 'reconcile'
+              check (source in ('backfill', 'signup', 'reconcile')),
+  created_at  timestamptz not null default now(),
+  constraint person_emails_conference2026_email_lower
+    check (email = lower(email))
+);
+create index person_emails_conference2026_person_idx
+  on public.person_emails_conference2026 (person_id);
+create unique index person_emails_conference2026_primary_uniq
+  on public.person_emails_conference2026 (person_id)
+  where is_primary;
 
 -- ---------------------------------------------------------------------------
 -- Abstracts: the 422 evaluated abstracts. id = the original platform UUID
@@ -165,6 +194,7 @@ create index author_claims_conference2026_status_idx
 -- close the default PostgREST grants.
 -- ===========================================================================
 alter table public.people_conference2026            enable row level security;
+alter table public.person_emails_conference2026     enable row level security;
 alter table public.abstracts_conference2026         enable row level security;
 alter table public.abstract_authors_conference2026  enable row level security;
 alter table public.registrations_conference2026     enable row level security;
@@ -173,6 +203,7 @@ alter table public.author_claims_conference2026     enable row level security;
 
 revoke all on
   public.people_conference2026,
+  public.person_emails_conference2026,
   public.abstracts_conference2026,
   public.abstract_authors_conference2026,
   public.registrations_conference2026,

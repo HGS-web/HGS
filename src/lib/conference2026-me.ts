@@ -1,6 +1,7 @@
 import "server-only";
 import type { User } from "@supabase/supabase-js";
 import { getSupabaseAdmin } from "@/lib/supabase-admin";
+import { findPersonByEmail } from "@/lib/conference2026-person";
 import { isAcceptedEvaluation } from "@/config/conference2026";
 import type {
   AbstractSummary,
@@ -37,12 +38,12 @@ export async function resolvePersonForUser(
   if (linked) return linked as PersonRow;
 
   const email = user.email!.trim().toLowerCase();
-  const { data: byEmail } = await supabase
-    .from("people_conference2026")
-    .select(PERSON_COLUMNS)
-    .eq("email", email)
-    .maybeSingle();
-  return (byEmail as PersonRow | null) ?? null;
+  const { person } = await findPersonByEmail<PersonRow>(
+    supabase,
+    email,
+    PERSON_COLUMNS
+  );
+  return person;
 }
 
 /**

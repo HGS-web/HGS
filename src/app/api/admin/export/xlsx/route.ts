@@ -17,6 +17,7 @@ type TableKey =
   | "registrations_conference2026"
   | "payment_receipts_conference2026"
   | "people_conference2026"
+  | "person_emails_conference2026"
   | "abstracts_conference2026"
   | "abstract_authors_conference2026"
   | "author_claims_conference2026";
@@ -31,6 +32,7 @@ const FILENAMES: Record<TableKey, string> = {
   registrations_conference2026: "hgs-2026-registrations",
   payment_receipts_conference2026: "hgs-2026-receipts",
   people_conference2026: "hgs-2026-people",
+  person_emails_conference2026: "hgs-2026-person-emails",
   abstracts_conference2026: "hgs-2026-abstracts",
   abstract_authors_conference2026: "hgs-2026-abstract-authors",
   author_claims_conference2026: "hgs-2026-author-claims",

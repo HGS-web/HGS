@@ -340,6 +340,10 @@ const scientificCommittee = [
     url: "https://geography.aegean.gr/ppl/index_en.php?content=0&bio=geos",
   },
   {
+    name: "Sophia Skordili",
+    url: "https://geo.hua.gr/en/personnel/sophia-skordili/",
+  },
+  {
     name: "Eirini Skrimizea",
     url: "https://geo.hua.gr/personnel/skrimizea-eirini/",
   },

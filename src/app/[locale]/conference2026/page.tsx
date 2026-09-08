@@ -6,7 +6,7 @@ import type { Locale } from "@/config/site";
 import { AddToCalendar } from "@/components/conference/add-to-calendar";
 import { sessions } from "@/data/sessions";
 import {
-  EARLY_BIRD_END,
+  LATE_REGISTRATION_END,
   EARLY_BIRD_NOTICE,
   NO_EMAIL_NOTE,
   POLICY_NOTE,
@@ -443,7 +443,7 @@ export default async function Conference2026Page({ params }: PageProps) {
                   <h3 className="text-xl font-semibold text-black">Registration</h3>
                   <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700">
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                    Open — early bird until {EARLY_BIRD_END}
+                    Regular — until {LATE_REGISTRATION_END}
                   </span>
                 </div>
 
@@ -484,15 +484,15 @@ export default async function Conference2026Page({ params }: PageProps) {
                     <thead className="text-xs uppercase tracking-wide text-black/50">
                       <tr>
                         <th className="py-2 pr-4">Category</th>
-                        <th className="py-2 pr-4">Early Bird<span className="normal-case block text-[10px] text-black/35">until 31 Aug</span></th>
-                        <th className="py-2">Late Bird<span className="normal-case block text-[10px] text-black/35">until 30 Sep</span></th>
+                        <th className="py-2 pr-4 text-black/35">Early Bird<span className="normal-case block text-[10px]">Closed — 31 Aug</span></th>
+                        <th className="py-2 text-emerald-700">Regular<span className="normal-case block text-[10px]">until 30 Sep</span></th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-black/10">
                       <tr>
                         <td className="py-3 pr-4">Regular</td>
-                        <td className="py-3 pr-4 font-medium">€60</td>
-                        <td className="py-3 text-black/40">€80</td>
+                        <td className="py-3 pr-4 text-black/35 line-through">€60</td>
+                        <td className="py-3 font-medium text-emerald-700">€80</td>
                       </tr>
                       <tr>
                         <td className="py-3 pr-4">
@@ -503,13 +503,13 @@ export default async function Conference2026Page({ params }: PageProps) {
                             HGS Members
                           </Link>
                         </td>
-                        <td className="py-3 pr-4 font-medium">€40</td>
-                        <td className="py-3 text-black/40">€50</td>
+                        <td className="py-3 pr-4 text-black/35 line-through">€40</td>
+                        <td className="py-3 font-medium text-emerald-700">€50</td>
                       </tr>
                       <tr>
                         <td className="py-3 pr-4">Students</td>
-                        <td className="py-3 pr-4 font-medium">€20</td>
-                        <td className="py-3 text-black/40">€30</td>
+                        <td className="py-3 pr-4 text-black/35 line-through">€20</td>
+                        <td className="py-3 font-medium text-emerald-700">€30</td>
                       </tr>
                       <tr>
                         <td className="py-3 pr-4">
@@ -520,8 +520,8 @@ export default async function Conference2026Page({ params }: PageProps) {
                             HGS Student Members
                           </Link>
                         </td>
-                        <td className="py-3 pr-4 font-medium">€10</td>
-                        <td className="py-3 text-black/40">€15</td>
+                        <td className="py-3 pr-4 text-black/35 line-through">€10</td>
+                        <td className="py-3 font-medium text-emerald-700">€15</td>
                       </tr>
                     </tbody>
                   </table>
@@ -570,6 +570,7 @@ export default async function Conference2026Page({ params }: PageProps) {
                   { date: "20 Feb 2026", label: "Deadline for session proposals" },
                   { date: "1 Mar – 8 May 2026", label: "Abstract submission" },
                   { date: "1 Jul 2026", label: "Notifications to authors" },
+                  { date: "9 Jul – 31 Aug 2026", label: "Early Bird registration (closed)" },
                 ].map((item) => (
                   <div key={item.date} className="relative flex items-start gap-4 pb-4">
                     <div className="relative z-10 mt-1.5 h-[15px] w-[15px] shrink-0 rounded-full border-2 border-black/15 bg-black/5" />
@@ -589,11 +590,11 @@ export default async function Conference2026Page({ params }: PageProps) {
                     <div className="flex items-center justify-between mb-0.5">
                       <div className="flex items-center gap-2">
                         <span className="inline-block rounded-full bg-emerald-500 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white">Now</span>
-                        <p className="text-xs font-medium text-emerald-700">9 Jul – 31 Aug 2026</p>
+                        <p className="text-xs font-medium text-emerald-700">1 – 30 Sep 2026</p>
                       </div>
-                      <AddToCalendar title="Early bird registration – HGS Conference" start="20260709" end="20260901" />
+                      <AddToCalendar title="Regular registration – HGS Conference" start="20260901" end="20261001" />
                     </div>
-                    <p className="text-sm font-semibold text-emerald-900">Early bird registration</p>
+                    <p className="text-sm font-semibold text-emerald-900">Regular registration</p>
                     <Link
                       href={`/${validLocale}/conference2026/register`}
                       className="mt-1 inline-flex items-center gap-1 text-xs font-medium text-emerald-700 underline underline-offset-2 hover:text-emerald-900 transition-colors"
@@ -606,7 +607,7 @@ export default async function Conference2026Page({ params }: PageProps) {
 
                 {/* Upcoming milestones */}
                 {[
-                  { date: "30 Sep 2026", label: "Late bird registration deadline", calStart: "20260930" },
+                  { date: "30 Sep 2026", label: "Regular registration deadline", calStart: "20260930" },
                   { date: "27 – 28 Nov 2026", label: "Conference", highlight: true, calStart: "20261127", calEnd: "20261129" },
                   { date: "29 Nov 2026", label: "Post-conference field trip (TBC)", calStart: "20261129" },
                 ].map((item) => (

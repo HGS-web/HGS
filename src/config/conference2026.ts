@@ -33,11 +33,11 @@ export type RegistrationType =
 export type FeePeriod = "early_bird" | "late";
 
 /** Flipped manually by the site owners when the early-bird period ends. */
-export const CURRENT_FEE_PERIOD: FeePeriod = "early_bird";
+export const CURRENT_FEE_PERIOD: FeePeriod = "late";
 
 export const FEE_PERIOD_LABEL: Record<FeePeriod, string> = {
   early_bird: "Early bird",
-  late: "Late",
+  late: "Regular",
 };
 
 export const CONFERENCE_FEES: Record<
@@ -129,13 +129,14 @@ export const POLICY_NOTE =
   "has completed registration.";
 
 export const EARLY_BIRD_NOTICE =
-  `Registration is open. Early-bird fees apply from ${REGISTRATION_OPENED} ` +
-  `until ${EARLY_BIRD_END}; registration at late fees remains possible until ` +
+  `Early Bird registration closed on ${EARLY_BIRD_END}. ` +
+  `Registration is open at Regular fees until ` +
   `${LATE_REGISTRATION_END}.`;
 
 export const FEE_MICROCOPY =
-  `Early-bird fees apply until ${EARLY_BIRD_END}. After this date, late fees ` +
-  "apply (Regular €80, HGS Member €50, Student €30, HGS Student Member €15).";
+  `Early Bird registration closed on ${EARLY_BIRD_END}. Regular fees apply ` +
+  `until ${LATE_REGISTRATION_END} ` +
+  "(Regular €80, HGS Member €50, Student €30, HGS Student Member €15).";
 
 export const FORGOT_PASSWORD_GUIDANCE =
   "Enter the e-mail address you registered with. If an account exists, you " +

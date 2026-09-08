@@ -2,7 +2,7 @@ import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 import { FadeIn } from "@/components/ui/motion"
 import { RegistrationFlow } from "@/components/conference/registration-flow"
-import { EARLY_BIRD_END } from "@/config/conference2026"
+import { LATE_REGISTRATION_END } from "@/config/conference2026"
 import type { Locale } from "@/config/site"
 
 interface PageProps {
@@ -41,7 +41,7 @@ export default async function RegisterPage({ params }: PageProps) {
             </p>
             <p className="mt-3">
               <span className="inline-block rounded-full bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 text-xs font-medium text-emerald-700">
-                Early bird — until {EARLY_BIRD_END}
+                Regular — until {LATE_REGISTRATION_END}
               </span>
             </p>
           </FadeIn>

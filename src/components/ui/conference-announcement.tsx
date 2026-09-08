@@ -11,7 +11,7 @@ const announcementText = {
   en: {
     badge: "Registration Open",
     title: "13th International Conference",
-    subtitle: "of the Hellenic Geographical Society — early bird until 31 Aug 2026",
+    subtitle: "of the Hellenic Geographical Society — Regular registration until 30 Sep 2026",
     date: "2026",
     cta: "Register now",
     dismiss: "Dismiss",
@@ -19,7 +19,7 @@ const announcementText = {
   el: {
     badge: "Εγγραφές Ανοιχτές",
     title: "13ο Διεθνές Συνέδριο",
-    subtitle: "της Ελληνικής Γεωγραφικής Εταιρείας — early bird έως 31 Αυγ 2026",
+    subtitle: "της Ελληνικής Γεωγραφικής Εταιρείας — εγγραφές Regular έως 30 Σεπ 2026",
     date: "2026",
     cta: "Εγγραφή",
     dismiss: "Κλείσιμο",

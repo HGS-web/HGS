@@ -5,12 +5,13 @@ import type {
   AuthorClaimConference2026,
   MembershipApplication,
   PaymentReceipt,
-  PaymentReceiptConference2026,
   PersonConference2026,
   RegistrationConference2026,
   ThematicSessionSubmission,
 } from "./types";
 import { formatDateTime, formatOrganizer, fullName, truncate } from "./format";
+import type { Receipt2026Row } from "./presentations";
+export type { Receipt2026Row } from "./presentations";
 
 export interface ColumnDef<T> {
   key: string;
@@ -143,7 +144,6 @@ export const conferenceReceiptsColumns: ColumnDef<PaymentReceipt>[] = membership
 // ---------------------------------------------------------------------------
 
 /** Rows enriched client-side with data joined from sibling tables. */
-export type Receipt2026Row = PaymentReceiptConference2026 & { email: string };
 export type Claim2026Row = AuthorClaimConference2026 & {
   email: string;
   abstract_title: string;
@@ -204,7 +204,27 @@ export const c26RegistrationsColumns: ColumnDef<RegistrationConference2026>[] = 
 ];
 
 export const c26ReceiptsColumns: ColumnDef<Receipt2026Row>[] = [
-  { key: "email", header: "Email", accessor: (r) => r.email, mono: true },
+  {
+    key: "registrant",
+    header: "Registrant",
+    accessor: (r) => r.registrant_name,
+    cell: (r) => (
+      <span className="block min-w-0 break-words">
+        <span className="block font-medium">{r.registrant_name}</span>
+        <span className="text-xs text-black/60">{r.email}</span>
+      </span>
+    ),
+  },
+  {
+    key: "abstracts",
+    header: "Abstracts",
+    accessor: (r) => r.abstracts.map((a) => a.code).join(", "),
+    cell: (r) => r.abstracts.length > 0 ? (
+      <span className="font-mono text-xs" title={r.abstracts.map((a) => `${a.code}: ${a.title}`).join("\n")}>
+        {r.abstracts.map((a) => a.code).join(", ")}
+      </span>
+    ) : <span className="text-xs text-black/60">None linked</span>,
+  },
   {
     key: "kind",
     header: "Kind",

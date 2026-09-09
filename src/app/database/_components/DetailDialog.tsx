@@ -28,6 +28,8 @@ interface Props {
   files?: FileRef[];
   /** Optional admin actions (e.g. receipt evaluation) rendered above the fields. */
   actions?: React.ReactNode;
+  /** Related information shown between attachments and record fields. */
+  children?: React.ReactNode;
 }
 
 function renderValue(value: unknown): React.ReactNode {
@@ -49,7 +51,7 @@ function renderValue(value: unknown): React.ReactNode {
   return String(value);
 }
 
-export function DetailDialog({ open, onOpenChange, title, subtitle, fields, files, actions }: Props) {
+export function DetailDialog({ open, onOpenChange, title, subtitle, fields, files, actions, children }: Props) {
   const [downloading, setDownloading] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -107,6 +109,8 @@ export function DetailDialog({ open, onOpenChange, title, subtitle, fields, file
             {error && <div className="text-xs text-red-600">{error}</div>}
           </div>
         )}
+
+        {children}
 
         <dl className="divide-y divide-black/5">
           {fields.map((field) => (

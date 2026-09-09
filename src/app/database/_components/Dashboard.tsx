@@ -40,6 +40,7 @@ import {
 import { formatDateTime, formatOrganizer, fullName, humanBool } from "../_lib/format";
 import { ReceiptStatusForm } from "./ReceiptStatusForm";
 import { ReceiptAbstracts } from "./ReceiptAbstracts";
+import { LinkAbstractForm } from "./LinkAbstractForm";
 import { PaidPresentationsDialog } from "./PaidPresentationsDialog";
 import { buildPresentationData } from "../_lib/presentations";
 import type {
@@ -505,7 +506,15 @@ export function Dashboard() {
         }
       >
         {selected?.kind === "c26-receipt" && (
-          <ReceiptAbstracts receipt={selected.row} />
+          <>
+            <ReceiptAbstracts receipt={selected.row} />
+            {data2026 && selected.row.person_id && (
+              <LinkAbstractForm receipt={selected.row} data={data2026} onLinked={() => {
+                setSelected(null);
+                void load2026(true);
+              }} />
+            )}
+          </>
         )}
       </DetailDialog>
     </>

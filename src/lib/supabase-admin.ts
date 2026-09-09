@@ -23,6 +23,7 @@ export async function fetchAllRows<T = Record<string, unknown>>(
       .from(table)
       .select("*")
       .order(orderBy.column, { ascending: orderBy.ascending })
+      .order("id", { ascending: true })
       .range(from, from + pageSize - 1);
     if (error) throw error;
     rows.push(...((data ?? []) as T[]));

@@ -1,8 +1,10 @@
 import { NextResponse, type NextRequest } from "next/server";
 import archiver from "archiver";
 import * as XLSX from "xlsx";
-import { getSupabaseAdmin } from "@/lib/supabase-admin";
+import { fetchAllRows, getSupabaseAdmin } from "@/lib/supabase-admin";
 import { requireAdmin } from "@/lib/admin-guard";
+import { loadConference2026Data } from "@/lib/conference2026-admin-data";
+import { conference2026ReceiptsWorkbook } from "@/lib/conference2026-receipts-export";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -129,37 +131,27 @@ export async function GET(request: NextRequest) {
               }
             }
           } else if (section === "conference2026") {
-            const [registrations, receipts, people, personEmails, abstracts, authors, claims] =
-              await Promise.all([
-                sb.from("registrations_conference2026").select("*").order("created_at", { ascending: false }),
-                sb.from("payment_receipts_conference2026").select("*").order("created_at", { ascending: false }),
-                sb.from("people_conference2026").select("*").order("created_at", { ascending: false }),
-                sb.from("person_emails_conference2026").select("*").order("email", { ascending: true }),
-                sb.from("abstracts_conference2026").select("*").order("code", { ascending: true }),
-                sb.from("abstract_authors_conference2026").select("*").order("author_order", { ascending: true }),
-                sb.from("author_claims_conference2026").select("*").order("created_at", { ascending: false }),
-              ]);
-            const firstError =
-              registrations.error ?? receipts.error ?? people.error ?? personEmails.error ??
-              abstracts.error ?? authors.error ?? claims.error;
-            if (firstError) throw firstError;
-
-            archive.append(sheetBuffer(registrations.data ?? [], "Registrations"), { name: "2026-registrations.xlsx" });
-            archive.append(sheetBuffer(receipts.data ?? [], "Receipts"), { name: "2026-receipts.xlsx" });
-            archive.append(sheetBuffer(people.data ?? [], "People"), { name: "2026-people.xlsx" });
-            archive.append(sheetBuffer(personEmails.data ?? [], "PersonEmails"), { name: "2026-person-emails.xlsx" });
-            archive.append(sheetBuffer(abstracts.data ?? [], "Abstracts"), { name: "2026-abstracts.xlsx" });
-            archive.append(sheetBuffer(authors.data ?? [], "AbstractAuthors"), { name: "2026-abstract-authors.xlsx" });
-            archive.append(sheetBuffer(claims.data ?? [], "Claims"), { name: "2026-author-claims.xlsx" });
+            const [conferenceData, personEmails] = await Promise.all([
+              loadConference2026Data(),
+              fetchAllRows("person_emails_conference2026", { column: "email", ascending: true }),
+            ]);
+            const { registrations, receipts, people, abstracts, authors, claims } = conferenceData;
+            archive.append(sheetBuffer(registrations.map((r) => ({ ...r })), "Registrations"), { name: "2026-registrations.xlsx" });
+            archive.append(XLSX.write(conference2026ReceiptsWorkbook(conferenceData), { type: "buffer", bookType: "xlsx" }) as Buffer, { name: "2026-receipts.xlsx" });
+            archive.append(sheetBuffer(people.map((r) => ({ ...r })), "People"), { name: "2026-people.xlsx" });
+            archive.append(sheetBuffer(personEmails, "PersonEmails"), { name: "2026-person-emails.xlsx" });
+            archive.append(sheetBuffer(abstracts.map((r) => ({ ...r })), "Abstracts"), { name: "2026-abstracts.xlsx" });
+            archive.append(sheetBuffer(authors.map((r) => ({ ...r })), "AbstractAuthors"), { name: "2026-abstract-authors.xlsx" });
+            archive.append(sheetBuffer(claims.map((r) => ({ ...r })), "Claims"), { name: "2026-author-claims.xlsx" });
 
             const emailByRegistration = new Map<string, string>(
-              (registrations.data ?? []).map((r) => [
+              registrations.map((r) => [
                 String((r as { id?: string }).id),
                 String((r as { email?: string }).email ?? "unknown"),
               ]),
             );
 
-            for (const row of receipts.data ?? []) {
+            for (const row of receipts) {
               const receipt = row as {
                 id?: string;
                 file_path?: string;

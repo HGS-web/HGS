@@ -38,6 +38,9 @@ import {
 } from "../_lib/columns";
 import { formatDateTime, formatOrganizer, fullName, humanBool } from "../_lib/format";
 import { ReceiptStatusForm } from "./ReceiptStatusForm";
+import { ReceiptAbstracts } from "./ReceiptAbstracts";
+import { PaidPresentationsDialog } from "./PaidPresentationsDialog";
+import { buildPresentationData } from "../_lib/presentations";
 import type {
   Abstract,
   Conference2026Data,
@@ -172,7 +175,7 @@ export function Dashboard() {
   // Registration-phase rows enriched with joins from sibling tables.
   const c26 = useMemo(() => {
     if (!data2026) return null;
-    const regById = new Map(data2026.registrations.map((r) => [r.id, r]));
+    const { receipts, paidPresentations } = buildPresentationData(data2026);
 
     const authorsByAbstract = new Map<string, typeof data2026.authors>();
     const abstractCountByPerson = new Map<string, number>();
@@ -186,10 +189,6 @@ export function Dashboard() {
       );
     }
 
-    const receipts: Receipt2026Row[] = data2026.receipts.map((r) => ({
-      ...r,
-      email: regById.get(r.registration_id)?.email ?? "—",
-    }));
     const people: Person2026Row[] = data2026.people.map((p) => ({
       ...p,
       abstract_count: abstractCountByPerson.get(p.id) ?? 0,
@@ -212,7 +211,7 @@ export function Dashboard() {
       };
     });
 
-    return { registrations: data2026.registrations, receipts, people, abstracts };
+    return { registrations: data2026.registrations, receipts, people, abstracts, paidPresentations };
   }, [data2026]);
 
   const activeTable = useMemo(() => {
@@ -238,16 +237,24 @@ export function Dashboard() {
           );
         case "c26-receipts":
           return (
-            <DataTable<Receipt2026Row>
-              columns={c26ReceiptsColumns}
-              rows={c26.receipts}
-              rowKey={(r) => r.id}
-              searchable={(r) =>
-                `${r.email} ${r.receipt_kind} ${r.status} ${r.file_name ?? ""} ${r.user_notes ?? ""} ${r.admin_notes ?? ""}`
-              }
-              onRowClick={(r) => rowClick(r, "c26-receipt")}
-              emptyMessage="No receipts yet."
-            />
+            <div className="space-y-5">
+              <div className="flex flex-col items-start gap-2">
+                <PaidPresentationsDialog presentations={c26.paidPresentations} />
+                <p className="text-xs leading-relaxed text-black/60">
+                  Open a receipt to review the registrant’s linked abstracts, or view and export the combined presentations list.
+                </p>
+              </div>
+              <DataTable<Receipt2026Row>
+                columns={c26ReceiptsColumns}
+                rows={c26.receipts}
+                rowKey={(r) => r.id}
+                searchable={(r) =>
+                  `${r.registrant_name} ${r.email} ${r.receipt_kind} ${r.status} ${r.file_name ?? ""} ${r.user_notes ?? ""} ${r.admin_notes ?? ""} ${r.abstracts.map((a) => `${a.code} ${a.title} ${a.session_label}`).join(" ")}`
+                }
+                onRowClick={(r) => rowClick(r, "c26-receipt")}
+                emptyMessage="No receipts yet."
+              />
+            </div>
           );
         case "c26-abstracts":
           return (
@@ -460,6 +467,7 @@ export function Dashboard() {
         actions={
           selected?.kind === "c26-receipt" ? (
             <ReceiptStatusForm
+              key={selected.row.id}
               receipt={selected.row}
               onSaved={() => {
                 setSelected(null);
@@ -468,7 +476,11 @@ export function Dashboard() {
             />
           ) : undefined
         }
-      />
+      >
+        {selected?.kind === "c26-receipt" && (
+          <ReceiptAbstracts receipt={selected.row} />
+        )}
+      </DetailDialog>
     </>
   );
 }
@@ -509,7 +521,7 @@ function detailProps(sel: SelectedRow): {
       const r = sel.row;
       return {
         title: "Payment receipt (2026)",
-        subtitle: r.email,
+        subtitle: `${r.registrant_name} · ${r.email}`,
         fields: [
           { label: "Email", value: r.email },
           { label: "Kind", value: r.receipt_kind === "conference" ? "Conference" : "HGS Membership" },

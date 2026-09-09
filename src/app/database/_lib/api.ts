@@ -73,6 +73,20 @@ export async function decideClaim2026(
   return body.claim;
 }
 
+export async function linkAuthor2026(input: {
+  registration_id: string;
+  author_id: string;
+  previous_person_id: string;
+}): Promise<void> {
+  const res = await fetch("/api/admin/author-links-2026", {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    credentials: "include",
+    body: JSON.stringify(input),
+  });
+  await json<{ ok: true }>(res);
+}
+
 export type AdminBucket =
   | "membership-receipts"
   | "payment-receipts"

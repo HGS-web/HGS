@@ -2,6 +2,8 @@ import { NextResponse, type NextRequest } from "next/server";
 import * as XLSX from "xlsx";
 import { getSupabaseAdmin } from "@/lib/supabase-admin";
 import { requireAdmin } from "@/lib/admin-guard";
+import { loadConference2026Data } from "@/lib/conference2026-admin-data";
+import { conference2026ReceiptsWorkbook } from "@/lib/conference2026-receipts-export";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -85,17 +87,20 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: "Invalid table" }, { status: 400 });
   }
 
-  let rows: Record<string, unknown>[];
+  let wb: XLSX.WorkBook;
   try {
-    rows = await fetchTable(table);
+    if (table === "payment_receipts_conference2026") {
+      wb = conference2026ReceiptsWorkbook(await loadConference2026Data());
+    } else {
+      const rows = await fetchTable(table);
+      wb = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(rows.map(serializeRow)), "Sheet1");
+    }
   } catch (err) {
     console.error("[admin][export-xlsx] fetch error:", err);
     return NextResponse.json({ error: "Failed to fetch data" }, { status: 500 });
   }
 
-  const wb = XLSX.utils.book_new();
-  const ws = XLSX.utils.json_to_sheet(rows.map(serializeRow));
-  XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
   const buffer = XLSX.write(wb, { type: "buffer", bookType: "xlsx" }) as Buffer;
 
   const today = new Date().toISOString().slice(0, 10);

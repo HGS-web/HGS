@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { fetchAllRows } from "@/lib/supabase-admin";
+import { loadConference2026Data } from "@/lib/conference2026-admin-data";
 import { requireAdmin } from "@/lib/admin-guard";
 
 export const runtime = "nodejs";
@@ -15,24 +15,7 @@ export async function GET(request: NextRequest) {
   if (deniedResponse) return deniedResponse;
 
   try {
-    const [registrations, receipts, people, abstracts, authors, claims] =
-      await Promise.all([
-        fetchAllRows("registrations_conference2026"),
-        fetchAllRows("payment_receipts_conference2026"),
-        fetchAllRows("people_conference2026"),
-        fetchAllRows("abstracts_conference2026", { column: "code", ascending: true }),
-        fetchAllRows("abstract_authors_conference2026", { column: "author_order", ascending: true }),
-        fetchAllRows("author_claims_conference2026"),
-      ]);
-
-    return NextResponse.json({
-      registrations,
-      receipts,
-      people,
-      abstracts,
-      authors,
-      claims,
-    });
+    return NextResponse.json(await loadConference2026Data());
   } catch (err) {
     console.error("[admin][data2026] supabase errors:", err);
     return NextResponse.json({ error: "Failed to fetch data" }, { status: 500 });

@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useRefreshOnReturn } from "@/hooks/use-refresh-on-return";
 import { DataTable } from "./DataTable";
 import { DetailDialog } from "./DetailDialog";
 import {
@@ -108,42 +109,53 @@ export function Dashboard() {
   const [section, setSection] = useState<SectionKey>("membership");
   const [tab, setTab] = useState<TabKey>("membership-registrations");
   const [selected, setSelected] = useState<SelectedRow | null>(null);
+  const latestRequest = useRef(0);
 
   const load = useCallback(async (isRefresh = false) => {
+    const request = ++latestRequest.current;
     if (isRefresh) setRefreshing(true);
     else setLoading(true);
     setError(null);
     try {
       const d = await fetchDashboardData();
+      if (request !== latestRequest.current) return;
       setData(d);
     } catch (e) {
+      if (request !== latestRequest.current) return;
       const msg = e instanceof Error ? e.message : "Failed to load data";
       setError(msg);
       if (msg === "Unauthorized" || msg === "HTTP 401") {
         router.replace("/database/login");
       }
     } finally {
-      setLoading(false);
-      setRefreshing(false);
+      if (request === latestRequest.current) {
+        setLoading(false);
+        setRefreshing(false);
+      }
     }
   }, [router]);
 
   const load2026 = useCallback(async (isRefresh = false) => {
+    const request = ++latestRequest.current;
     if (isRefresh) setRefreshing(true);
     else setLoading(true);
     setError(null);
     try {
       const d = await fetchConference2026Data();
+      if (request !== latestRequest.current) return;
       setData2026(d);
     } catch (e) {
+      if (request !== latestRequest.current) return;
       const msg = e instanceof Error ? e.message : "Failed to load data";
       setError(msg);
       if (msg === "Unauthorized" || msg === "HTTP 401") {
         router.replace("/database/login");
       }
     } finally {
-      setLoading(false);
-      setRefreshing(false);
+      if (request === latestRequest.current) {
+        setLoading(false);
+        setRefreshing(false);
+      }
     }
   }, [router]);
 
@@ -155,14 +167,21 @@ export function Dashboard() {
     if (next === section) return;
     setSection(next);
     setTab(TABS_BY_SECTION[next][0].key);
-    // Registration-phase data is fetched lazily on first open.
-    if (next === "conference2026" && !data2026) void load2026();
+    if (next === "conference2026") void load2026();
+    else void load();
   }
 
-  function refresh() {
+  const refresh = useCallback(() => {
     if (section === "conference2026") void load2026(true);
     else void load(true);
-  }
+  }, [section, load, load2026]);
+
+  const refreshOnReturn = useCallback(() => {
+    // Keep the receipt currently being edited stable until its dialog closes.
+    if (!selected) refresh();
+  }, [selected, refresh]);
+
+  useRefreshOnReturn(refreshOnReturn);
 
   async function handleLogout() {
     await logout();
@@ -409,7 +428,10 @@ export function Dashboard() {
                 type="button"
                 role="tab"
                 aria-selected={tab === t.key}
-                onClick={() => setTab(t.key)}
+                onClick={() => {
+                  setTab(t.key);
+                  refresh();
+                }}
                 className={cn(
                   "rounded-md border px-3 py-1.5 text-xs font-medium transition-colors sm:text-sm",
                   tab === t.key
@@ -462,7 +484,12 @@ export function Dashboard() {
 
       <DetailDialog
         open={selected !== null}
-        onOpenChange={(open) => !open && setSelected(null)}
+        onOpenChange={(open) => {
+          if (!open) {
+            setSelected(null);
+            refresh();
+          }
+        }}
         {...(selected ? detailProps(selected) : emptyDetailProps())}
         actions={
           selected?.kind === "c26-receipt" ? (

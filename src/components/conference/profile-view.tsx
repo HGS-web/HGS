@@ -1,6 +1,7 @@
 "use client"
 
 import { useCallback, useMemo, useState } from "react"
+import { useRouter } from "next/navigation"
 import { Check, CheckCircle2, CreditCard, FileText, Settings, X } from "lucide-react"
 import { ProfilePaymentCard } from "@/components/conference/profile-payment-card"
 import { ProfileAbstractsCard } from "@/components/conference/profile-abstracts-card"
@@ -46,13 +47,12 @@ export function ProfileView({
   locale: Locale
   welcome: boolean
 }) {
-  const [me, setMe] = useState<MePayload>(initial)
+  const router = useRouter()
+  // router.refresh supplies a new payload while preserving form/tab state.
+  const me = initial
   const [showWelcome, setShowWelcome] = useState(welcome)
 
-  const refresh = useCallback(async () => {
-    const res = await fetch("/api/conference2026/me")
-    if (res.ok) setMe((await res.json()) as MePayload)
-  }, [])
+  const refresh = useCallback(() => router.refresh(), [router])
 
   const registration = me.registration
   const conferenceReceipt =

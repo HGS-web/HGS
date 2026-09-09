@@ -115,7 +115,7 @@ function ReceiptSlot({
     const win = window.open("about:blank", "_blank")
     if (win) win.opener = null
     try {
-      const res = await fetch(`/api/conference2026/receipts/${receipt.id}/file`)
+      const res = await fetch(`/api/conference2026/receipts/${receipt.id}/file`, { cache: "no-store" })
       if (!res.ok) throw new Error()
       const { url } = (await res.json()) as { url: string }
       if (win) win.location.href = url

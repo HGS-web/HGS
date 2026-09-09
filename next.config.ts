@@ -8,6 +8,20 @@ if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_A
 }
 
 const nextConfig: NextConfig = {
+  // Page visits must not reuse prefetched page data after an admin update.
+  experimental: {
+    staleTimes: { dynamic: 0, static: 0 },
+  },
+  async headers() {
+    return [{
+        source: "/((?!_next/static/|_next/image).*)",
+      headers: [
+        { key: "Cache-Control", value: "private, no-store, max-age=0, must-revalidate" },
+        { key: "CDN-Cache-Control", value: "no-store" },
+        { key: "Vercel-CDN-Cache-Control", value: "no-store" },
+      ],
+    }];
+  },
   // WARNING: Only NEXT_PUBLIC_* vars belong in this block. Values listed here
   // are inlined into the client bundle at build time. NEVER add
   // SUPABASE_SERVICE_ROLE_KEY, HGS_ADMIN_PASSWORD, or HGS_ADMIN_SESSION_SECRET

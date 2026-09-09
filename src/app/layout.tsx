@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import { PageFreshness } from "@/components/page-freshness";
 import "./globals.css";
+
+// Render every page against current data instead of the full-route cache.
+export const dynamic = "force-dynamic";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -30,6 +34,7 @@ export default function RootLayout({
         className={`${inter.variable} ${jetbrainsMono.variable} antialiased bg-white text-black min-h-screen font-sans`}
       >
         {children}
+        <PageFreshness />
         <Analytics />
         <SpeedInsights />
       </body>

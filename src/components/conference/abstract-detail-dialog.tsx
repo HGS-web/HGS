@@ -38,7 +38,7 @@ export function AbstractDetailDialog({
   useEffect(() => {
     if (!open || !abstractId) return
     let cancelled = false
-    fetch(`/api/conference2026/abstracts/${abstractId}`)
+    fetch(`/api/conference2026/abstracts/${abstractId}`, { cache: "no-store" })
       .then(async (res) => {
         if (!res.ok) throw new Error()
         const data = (await res.json()) as AbstractDetail

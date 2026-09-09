@@ -36,12 +36,12 @@ export async function logout(): Promise<void> {
 }
 
 export async function fetchDashboardData(): Promise<DashboardData> {
-  const res = await fetch("/api/admin/data", { credentials: "include" });
+  const res = await fetch("/api/admin/data", { credentials: "include", cache: "no-store" });
   return json<DashboardData>(res);
 }
 
 export async function fetchConference2026Data(): Promise<Conference2026Data> {
-  const res = await fetch("/api/admin/data2026", { credentials: "include" });
+  const res = await fetch("/api/admin/data2026", { credentials: "include", cache: "no-store" });
   return json<Conference2026Data>(res);
 }
 

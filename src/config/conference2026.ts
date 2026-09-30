@@ -91,7 +91,7 @@ export const RECEIPT_MAX_BYTES = 10 * 1024 * 1024;
 
 export const REGISTRATION_OPENED = "9 July 2026";
 export const EARLY_BIRD_END = "31 August 2026";
-export const LATE_REGISTRATION_END = "30 September 2026";
+export const LATE_REGISTRATION_END = "10 October 2026";
 
 // ---------------------------------------------------------------------------
 // Contact

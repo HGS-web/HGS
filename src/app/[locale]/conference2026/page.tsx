@@ -485,7 +485,7 @@ export default async function Conference2026Page({ params }: PageProps) {
                       <tr>
                         <th className="py-2 pr-4">Category</th>
                         <th className="py-2 pr-4 text-black/35">Early Bird<span className="normal-case block text-[10px]">Closed — 31 Aug</span></th>
-                        <th className="py-2 text-emerald-700">Regular<span className="normal-case block text-[10px]">until 30 Sep</span></th>
+                        <th className="py-2 text-emerald-700">Regular<span className="normal-case block text-[10px]">until 10 Oct</span></th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-black/10">
@@ -571,8 +571,9 @@ export default async function Conference2026Page({ params }: PageProps) {
                   { date: "1 Mar – 8 May 2026", label: "Abstract submission" },
                   { date: "1 Jul 2026", label: "Notifications to authors" },
                   { date: "9 Jul – 31 Aug 2026", label: "Early Bird registration (closed)" },
+                  { date: "30 Sep 2026", label: "Regular registration deadline (extended)" },
                 ].map((item) => (
-                  <div key={item.date} className="relative flex items-start gap-4 pb-4">
+                  <div key={`${item.date}-${item.label}`} className="relative flex items-start gap-4 pb-4">
                     <div className="relative z-10 mt-1.5 h-[15px] w-[15px] shrink-0 rounded-full border-2 border-black/15 bg-black/5" />
                     <div>
                       <p className="text-xs font-medium text-black/30">{item.date}</p>
@@ -590,11 +591,11 @@ export default async function Conference2026Page({ params }: PageProps) {
                     <div className="flex items-center justify-between mb-0.5">
                       <div className="flex items-center gap-2">
                         <span className="inline-block rounded-full bg-emerald-500 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white">Now</span>
-                        <p className="text-xs font-medium text-emerald-700">1 – 30 Sep 2026</p>
+                        <p className="text-xs font-medium text-emerald-700">1 Sep – 10 Oct 2026</p>
                       </div>
-                      <AddToCalendar title="Regular registration – HGS Conference" start="20260901" end="20261001" />
+                      <AddToCalendar title="Regular registration – HGS Conference" start="20260901" end="20261011" />
                     </div>
-                    <p className="text-sm font-semibold text-emerald-900">Regular registration</p>
+                    <p className="text-sm font-semibold text-emerald-900">Regular registration (extended)</p>
                     <Link
                       href={`/${validLocale}/conference2026/register`}
                       className="mt-1 inline-flex items-center gap-1 text-xs font-medium text-emerald-700 underline underline-offset-2 hover:text-emerald-900 transition-colors"
@@ -607,11 +608,11 @@ export default async function Conference2026Page({ params }: PageProps) {
 
                 {/* Upcoming milestones */}
                 {[
-                  { date: "30 Sep 2026", label: "Regular registration deadline", calStart: "20260930" },
+                  { date: "10 Oct 2026", label: "Extended regular registration deadline", calStart: "20261010" },
                   { date: "27 – 28 Nov 2026", label: "Conference", highlight: true, calStart: "20261127", calEnd: "20261129" },
                   { date: "29 Nov 2026", label: "Post-conference field trip (TBC)", calStart: "20261129" },
                 ].map((item) => (
-                  <div key={item.date} className="relative flex items-start gap-4 pb-4">
+                  <div key={`${item.date}-${item.label}`} className="relative flex items-start gap-4 pb-4">
                     <div className={`relative z-10 mt-1.5 h-[15px] w-[15px] shrink-0 rounded-full border-2 ${item.highlight ? "border-black/40 bg-black/10" : "border-black/15 bg-white"}`} />
                     <div className="flex-1">
                       <div className="flex items-center justify-between gap-2">

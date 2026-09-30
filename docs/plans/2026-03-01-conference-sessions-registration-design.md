@@ -21,7 +21,7 @@ Replace both placeholder panels on the conference2026 page with fully functional
 | 1 May 2026 | Deadline for abstract submission |
 | 1 July 2026 | Notifications to authors |
 | 1 July – 31 August 2026 | Early bird registration |
-| 30 September 2026 | Late bird registration deadline |
+| 10 October 2026 | Late bird registration deadline (extended) |
 | 27–28 November 2026 | Conference |
 | 29 November 2026 | Post-conference field trip (TBC) |
 
@@ -29,7 +29,7 @@ Replace both placeholder panels on the conference2026 page with fully functional
 
 ## Registration Fees
 
-| Category | Early Bird (until 31 Aug) | Late Bird (until 30 Sep) |
+| Category | Early Bird (until 31 Aug) | Late Bird (until 10 Oct) |
 |----------|--------------------------|--------------------------|
 | Regular | €60 | €80 |
 | HGS Members (in good standing) | €40 | €50 |

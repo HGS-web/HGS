@@ -94,15 +94,6 @@ export function LoginForm({ locale }: { locale: Locale }) {
             Forgot your password?
           </Link>
         </p>
-        <p className="text-black/50">
-          No account yet?{" "}
-          <Link
-            href={`/${locale}/conference2026/register`}
-            className="underline hover:text-black transition-colors"
-          >
-            Register for the conference
-          </Link>
-        </p>
       </div>
 
       <p className="mt-4 text-xs text-black/35 leading-relaxed">{NO_EMAIL_NOTE}</p>

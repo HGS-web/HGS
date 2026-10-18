@@ -441,9 +441,9 @@ export default async function Conference2026Page({ params }: PageProps) {
               <div className="min-w-0 self-start rounded-2xl border border-black/10 bg-white p-6 shadow-sm flex flex-col">
                 <div className="flex items-center justify-between gap-2 flex-wrap">
                   <h3 className="text-xl font-semibold text-black">Registration</h3>
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                    Regular — until {LATE_REGISTRATION_END}
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-black/15 bg-black/[0.04] px-3 py-1 text-xs font-medium text-black/60">
+                    <span className="h-1.5 w-1.5 rounded-full bg-black/40" />
+                    Closed — {LATE_REGISTRATION_END}
                   </span>
                 </div>
 
@@ -457,17 +457,11 @@ export default async function Conference2026Page({ params }: PageProps) {
 
                 <div className="mt-5 flex flex-wrap gap-3">
                   <Link
-                    href={`/${validLocale}/conference2026/register`}
+                    href={`/${validLocale}/conference2026/login`}
                     className="inline-flex items-center gap-2 px-5 py-2.5 bg-black text-white text-sm font-medium rounded-full hover:bg-black/80 transition-colors"
                   >
-                    Register now
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                  <Link
-                    href={`/${validLocale}/conference2026/login`}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 border border-black/15 text-black/70 text-sm font-medium rounded-full hover:bg-black/5 transition-colors"
-                  >
                     Sign in
+                    <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
                 <p className="mt-5 border-t border-black/[0.07] pt-4 text-xs text-black/35 leading-relaxed">
@@ -485,14 +479,14 @@ export default async function Conference2026Page({ params }: PageProps) {
                       <tr>
                         <th className="py-2 pr-4">Category</th>
                         <th className="py-2 pr-4 text-black/35">Early Bird<span className="normal-case block text-[10px]">Closed — 31 Aug</span></th>
-                        <th className="py-2 text-emerald-700">Regular<span className="normal-case block text-[10px]">until 10 Oct</span></th>
+                        <th className="py-2 text-black/35">Regular<span className="normal-case block text-[10px]">Closed — 10 Oct</span></th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-black/10">
                       <tr>
                         <td className="py-3 pr-4">Regular</td>
                         <td className="py-3 pr-4 text-black/35 line-through">€60</td>
-                        <td className="py-3 font-medium text-emerald-700">€80</td>
+                        <td className="py-3 text-black/35 line-through">€80</td>
                       </tr>
                       <tr>
                         <td className="py-3 pr-4">
@@ -504,12 +498,12 @@ export default async function Conference2026Page({ params }: PageProps) {
                           </Link>
                         </td>
                         <td className="py-3 pr-4 text-black/35 line-through">€40</td>
-                        <td className="py-3 font-medium text-emerald-700">€50</td>
+                        <td className="py-3 text-black/35 line-through">€50</td>
                       </tr>
                       <tr>
                         <td className="py-3 pr-4">Students</td>
                         <td className="py-3 pr-4 text-black/35 line-through">€20</td>
-                        <td className="py-3 font-medium text-emerald-700">€30</td>
+                        <td className="py-3 text-black/35 line-through">€30</td>
                       </tr>
                       <tr>
                         <td className="py-3 pr-4">
@@ -521,7 +515,7 @@ export default async function Conference2026Page({ params }: PageProps) {
                           </Link>
                         </td>
                         <td className="py-3 pr-4 text-black/35 line-through">€10</td>
-                        <td className="py-3 font-medium text-emerald-700">€15</td>
+                        <td className="py-3 text-black/35 line-through">€15</td>
                       </tr>
                     </tbody>
                   </table>
@@ -572,6 +566,7 @@ export default async function Conference2026Page({ params }: PageProps) {
                   { date: "1 Jul 2026", label: "Notifications to authors" },
                   { date: "9 Jul – 31 Aug 2026", label: "Early Bird registration (closed)" },
                   { date: "30 Sep 2026", label: "Regular registration deadline (extended)" },
+                  { date: "1 Sep – 10 Oct 2026", label: "Regular registration (closed)" },
                 ].map((item) => (
                   <div key={`${item.date}-${item.label}`} className="relative flex items-start gap-4 pb-4">
                     <div className="relative z-10 mt-1.5 h-[15px] w-[15px] shrink-0 rounded-full border-2 border-black/15 bg-black/5" />
@@ -590,36 +585,27 @@ export default async function Conference2026Page({ params }: PageProps) {
                   <div className="flex-1 -mt-1 rounded-xl bg-emerald-50 border border-emerald-200/60 px-4 py-3">
                     <div className="flex items-center justify-between mb-0.5">
                       <div className="flex items-center gap-2">
-                        <span className="inline-block rounded-full bg-emerald-500 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white">Now</span>
-                        <p className="text-xs font-medium text-emerald-700">1 Sep – 10 Oct 2026</p>
+                        <span className="inline-block rounded-full bg-emerald-500 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white">Next</span>
+                        <p className="text-xs font-medium text-emerald-700">27 – 28 Nov 2026</p>
                       </div>
-                      <AddToCalendar title="Regular registration – HGS Conference" start="20260901" end="20261011" />
+                      <AddToCalendar title="Conference – HGS Conference" start="20261127" end="20261129" />
                     </div>
-                    <p className="text-sm font-semibold text-emerald-900">Regular registration (extended)</p>
-                    <Link
-                      href={`/${validLocale}/conference2026/register`}
-                      className="mt-1 inline-flex items-center gap-1 text-xs font-medium text-emerald-700 underline underline-offset-2 hover:text-emerald-900 transition-colors"
-                    >
-                      Register now
-                      <ArrowRight className="h-3 w-3" />
-                    </Link>
+                    <p className="text-sm font-semibold text-emerald-900">Conference</p>
                   </div>
                 </div>
 
                 {/* Upcoming milestones */}
                 {[
-                  { date: "10 Oct 2026", label: "Extended regular registration deadline", calStart: "20261010" },
-                  { date: "27 – 28 Nov 2026", label: "Conference", highlight: true, calStart: "20261127", calEnd: "20261129" },
                   { date: "29 Nov 2026", label: "Post-conference field trip (TBC)", calStart: "20261129" },
                 ].map((item) => (
                   <div key={`${item.date}-${item.label}`} className="relative flex items-start gap-4 pb-4">
-                    <div className={`relative z-10 mt-1.5 h-[15px] w-[15px] shrink-0 rounded-full border-2 ${item.highlight ? "border-black/40 bg-black/10" : "border-black/15 bg-white"}`} />
+                    <div className="relative z-10 mt-1.5 h-[15px] w-[15px] shrink-0 rounded-full border-2 border-black/15 bg-white" />
                     <div className="flex-1">
                       <div className="flex items-center justify-between gap-2">
                         <p className="text-xs font-medium text-black/40">{item.date}</p>
-                        <AddToCalendar title={`${item.label} – HGS Conference`} start={item.calStart} end={item.calEnd} />
+                        <AddToCalendar title={`${item.label} – HGS Conference`} start={item.calStart} />
                       </div>
-                      <p className={`text-sm ${item.highlight ? "font-semibold text-black/80" : "text-black/60"}`}>{item.label}</p>
+                      <p className="text-sm text-black/60">{item.label}</p>
                     </div>
                   </div>
                 ))}

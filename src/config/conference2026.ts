@@ -129,14 +129,13 @@ export const POLICY_NOTE =
   "has completed registration.";
 
 export const EARLY_BIRD_NOTICE =
-  `Early Bird registration closed on ${EARLY_BIRD_END}. ` +
-  `Registration is open at Regular fees until ` +
-  `${LATE_REGISTRATION_END}.`;
+  `Registration closed on ${LATE_REGISTRATION_END}. ` +
+  "Registered participants can sign in to access their profile, " +
+  "view their accepted abstracts, and manage their payment receipt.";
 
 export const FEE_MICROCOPY =
-  `Early Bird registration closed on ${EARLY_BIRD_END}. Regular fees apply ` +
-  `until ${LATE_REGISTRATION_END} ` +
-  "(Regular €80, HGS Member €50, Student €30, HGS Student Member €15).";
+  `Regular fees (closed ${LATE_REGISTRATION_END}): ` +
+  "Regular €80, HGS Member €50, Student €30, HGS Student Member €15.";
 
 export const FORGOT_PASSWORD_GUIDANCE =
   "Enter the e-mail address you registered with. If an account exists, you " +

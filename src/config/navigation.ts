@@ -37,7 +37,6 @@ export const navigation: Record<Locale, NavItem[]> = {
       children: [
         { label: "Overview", href: "/en/conference2026" },
         { label: "Sessions", href: "/en/conference2026/sessions" },
-        { label: "Register", href: "/en/conference2026/register" },
         { label: "My Profile", href: "/en/conference2026/profile" },
       ],
     },
@@ -80,7 +79,6 @@ export const navigation: Record<Locale, NavItem[]> = {
       children: [
         { label: "Overview", href: "/el/conference2026" },
         { label: "Sessions", href: "/el/conference2026/sessions" },
-        { label: "Register", href: "/el/conference2026/register" },
         { label: "My Profile", href: "/el/conference2026/profile" },
       ],
     },

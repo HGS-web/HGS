@@ -36,6 +36,7 @@ export const navigation: Record<Locale, NavItem[]> = {
       label: "HGS Conference 2026",
       children: [
         { label: "Overview", href: "/en/conference2026" },
+        { label: "Programme", href: "/en/conference2026/program" },
         { label: "Sessions", href: "/en/conference2026/sessions" },
         { label: "My Profile", href: "/en/conference2026/profile" },
       ],
@@ -78,6 +79,7 @@ export const navigation: Record<Locale, NavItem[]> = {
       label: "Συνέδριο ΕΓΕ 2026",
       children: [
         { label: "Overview", href: "/el/conference2026" },
+        { label: "Programme", href: "/el/conference2026/program" },
         { label: "Sessions", href: "/el/conference2026/sessions" },
         { label: "My Profile", href: "/el/conference2026/profile" },
       ],

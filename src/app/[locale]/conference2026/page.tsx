@@ -4,7 +4,11 @@ import { getMarkdownContent } from "@/lib/markdown";
 import { FadeIn, FadeInView } from "@/components/ui/motion";
 import type { Locale } from "@/config/site";
 import { AddToCalendar } from "@/components/conference/add-to-calendar";
-import { sessions } from "@/data/sessions";
+import {
+  PRESENTATION_ORDER_NOTE,
+  getPresentations,
+  programSessions,
+} from "@/data/program";
 import {
   LATE_REGISTRATION_END,
   EARLY_BIRD_NOTICE,
@@ -407,6 +411,10 @@ export default async function Conference2026Page({ params }: PageProps) {
 
   // Try to get markdown content for this page
   const content = await getMarkdownContent(validLocale, "conference2026");
+  const presentationCount = programSessions.reduce(
+    (n, s) => n + getPresentations(String(s.id)).length,
+    0
+  );
 
   return (
     <>
@@ -469,72 +477,41 @@ export default async function Conference2026Page({ params }: PageProps) {
                 </p>
               </div>
 
-              {/* Registration Fees + Bank Details */}
-              <div className="min-w-0 space-y-6">
-                <div className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
-                <h3 className="text-xl font-semibold text-black mb-4">Registration Fees</h3>
-                <div className="overflow-x-auto">
-                  <table className="min-w-full text-left text-sm text-black/70">
-                    <thead className="text-xs uppercase tracking-wide text-black/50">
-                      <tr>
-                        <th className="py-2 pr-4">Category</th>
-                        <th className="py-2 pr-4 text-black/35">Early Bird<span className="normal-case block text-[10px]">Closed — 31 Aug</span></th>
-                        <th className="py-2 text-black/35">Regular<span className="normal-case block text-[10px]">Closed — 10 Oct</span></th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-black/10">
-                      <tr>
-                        <td className="py-3 pr-4">Regular</td>
-                        <td className="py-3 pr-4 text-black/35 line-through">€60</td>
-                        <td className="py-3 text-black/35 line-through">€80</td>
-                      </tr>
-                      <tr>
-                        <td className="py-3 pr-4">
-                          <Link
-                            href={`/${validLocale}/society/registration`}
-                            className="font-medium text-black underline underline-offset-4 decoration-black/20 hover:decoration-black transition-colors"
-                          >
-                            HGS Members
-                          </Link>
-                        </td>
-                        <td className="py-3 pr-4 text-black/35 line-through">€40</td>
-                        <td className="py-3 text-black/35 line-through">€50</td>
-                      </tr>
-                      <tr>
-                        <td className="py-3 pr-4">Students</td>
-                        <td className="py-3 pr-4 text-black/35 line-through">€20</td>
-                        <td className="py-3 text-black/35 line-through">€30</td>
-                      </tr>
-                      <tr>
-                        <td className="py-3 pr-4">
-                          <Link
-                            href={`/${validLocale}/society/registration`}
-                            className="font-medium text-black underline underline-offset-4 decoration-black/20 hover:decoration-black transition-colors"
-                          >
-                            HGS Student Members
-                          </Link>
-                        </td>
-                        <td className="py-3 pr-4 text-black/35 line-through">€10</td>
-                        <td className="py-3 text-black/35 line-through">€15</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
+              {/* Programme & Sessions */}
+              <div className="min-w-0 self-start rounded-2xl border border-black/10 bg-white p-6 shadow-sm flex flex-col">
+                <div className="flex items-center justify-between gap-2 flex-wrap">
+                  <h3 className="text-xl font-semibold text-black">Programme &amp; Sessions</h3>
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                    Programme available
+                  </span>
                 </div>
 
-                {/* Bank Details */}
-                <div className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
-                  <h3 className="text-xl font-semibold text-black mb-4">Bank Details</h3>
-                  <div className="space-y-2 text-sm">
-                    <div className="flex justify-between">
-                      <span className="text-black/50">IBAN</span>
-                      <span className="font-mono text-black/80 text-xs">GR9801720440005044113342752</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-black/50">BIC / SWIFT</span>
-                      <span className="font-mono text-black/80 text-xs">PIRBGRAA</span>
-                    </div>
-                  </div>
+                <p className="mt-4 text-sm text-black/65 leading-relaxed">
+                  {programSessions.length} thematic sessions and {presentationCount} presentations
+                  over two days at Harokopio University of Athens and the National Centre for
+                  Social Research, covering the full breadth of geographical research.
+                </p>
+
+                <div className="mt-4 rounded-xl border border-black/8 bg-black/[0.02] px-4 py-3">
+                  <p className="text-xs text-black/55 leading-relaxed">{PRESENTATION_ORDER_NOTE}</p>
+                </div>
+
+                <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3">
+                  <Link
+                    href={`/${validLocale}/conference2026/program`}
+                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-black text-white text-sm font-medium rounded-full hover:bg-black/80 transition-colors"
+                  >
+                    View programme
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                  <Link
+                    href={`/${validLocale}/conference2026/sessions`}
+                    className="inline-flex items-center gap-1.5 text-sm font-medium text-black underline underline-offset-4 decoration-black/20 hover:decoration-black transition-colors"
+                  >
+                    Browse all sessions
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
                 </div>
               </div>
             </div>
@@ -613,23 +590,76 @@ export default async function Conference2026Page({ params }: PageProps) {
             </div>
           </FadeInView>
 
-          {/* Sessions, General Info & Bank Details */}
+          {/* Registration Fees, Bank Details & General Info */}
           <FadeInView delay={0.12}>
             <div className="mt-8 grid gap-6 lg:grid-cols-2">
-              {/* Sessions */}
-              <div className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
-                <h3 className="text-xl font-semibold text-black mb-3">Sessions</h3>
-                <p className="text-sm text-black/60 leading-relaxed">
-                  {sessions.length} thematic sessions structure the conference
-                  programme, covering the full breadth of geographical research.
-                </p>
-                <Link
-                  href={`/${validLocale}/conference2026/sessions`}
-                  className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-black underline underline-offset-4 decoration-black/20 hover:decoration-black transition-colors"
-                >
-                  Browse all sessions
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </Link>
+              {/* Registration Fees + Bank Details */}
+              <div className="min-w-0 space-y-6">
+                <div className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
+                <h3 className="text-xl font-semibold text-black mb-4">Registration Fees</h3>
+                <div className="overflow-x-auto">
+                  <table className="min-w-full text-left text-sm text-black/70">
+                    <thead className="text-xs uppercase tracking-wide text-black/50">
+                      <tr>
+                        <th className="py-2 pr-4">Category</th>
+                        <th className="py-2 pr-4 text-black/35">Early Bird<span className="normal-case block text-[10px]">Closed — 31 Aug</span></th>
+                        <th className="py-2 text-black/35">Regular<span className="normal-case block text-[10px]">Closed — 10 Oct</span></th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-black/10">
+                      <tr>
+                        <td className="py-3 pr-4">Regular</td>
+                        <td className="py-3 pr-4 text-black/35 line-through">€60</td>
+                        <td className="py-3 text-black/35 line-through">€80</td>
+                      </tr>
+                      <tr>
+                        <td className="py-3 pr-4">
+                          <Link
+                            href={`/${validLocale}/society/registration`}
+                            className="font-medium text-black underline underline-offset-4 decoration-black/20 hover:decoration-black transition-colors"
+                          >
+                            HGS Members
+                          </Link>
+                        </td>
+                        <td className="py-3 pr-4 text-black/35 line-through">€40</td>
+                        <td className="py-3 text-black/35 line-through">€50</td>
+                      </tr>
+                      <tr>
+                        <td className="py-3 pr-4">Students</td>
+                        <td className="py-3 pr-4 text-black/35 line-through">€20</td>
+                        <td className="py-3 text-black/35 line-through">€30</td>
+                      </tr>
+                      <tr>
+                        <td className="py-3 pr-4">
+                          <Link
+                            href={`/${validLocale}/society/registration`}
+                            className="font-medium text-black underline underline-offset-4 decoration-black/20 hover:decoration-black transition-colors"
+                          >
+                            HGS Student Members
+                          </Link>
+                        </td>
+                        <td className="py-3 pr-4 text-black/35 line-through">€10</td>
+                        <td className="py-3 text-black/35 line-through">€15</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                </div>
+
+                {/* Bank Details */}
+                <div className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
+                  <h3 className="text-xl font-semibold text-black mb-4">Bank Details</h3>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-black/50">IBAN</span>
+                      <span className="font-mono text-black/80 text-xs">GR9801720440005044113342752</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-black/50">BIC / SWIFT</span>
+                      <span className="font-mono text-black/80 text-xs">PIRBGRAA</span>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               {/* General Information */}

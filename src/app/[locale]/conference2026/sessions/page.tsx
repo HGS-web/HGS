@@ -1,7 +1,8 @@
 import Link from "next/link"
-import { ArrowLeft } from "lucide-react"
+import { ArrowLeft, ArrowRight } from "lucide-react"
 import { FadeIn } from "@/components/ui/motion"
 import { sessions } from "@/data/sessions"
+import { getPresentations, getSessionSchedule } from "@/data/program"
 import type { Locale } from "@/config/site"
 
 interface PageProps {
@@ -80,6 +81,16 @@ export default async function SessionsPage({ params }: PageProps) {
                         </div>
                       </div>
                     </div>
+
+                    {getSessionSchedule(String(session.id)).length > 0 && (
+                      <Link
+                        href={`/${validLocale}/conference2026/program/${session.id}`}
+                        className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-black underline underline-offset-4 decoration-black/20 hover:decoration-black transition-colors"
+                      >
+                        Schedule &amp; {getPresentations(String(session.id)).length} presentations
+                        <ArrowRight className="h-3.5 w-3.5" />
+                      </Link>
+                    )}
                   </div>
                 </div>
               </div>

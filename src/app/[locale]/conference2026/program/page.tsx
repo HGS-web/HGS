@@ -128,20 +128,20 @@ function DaySchedule({ day, locale }: { day: ProgramDay; locale: Locale }) {
                   {slot.sessions.map((id, i) => {
                     const session = id ? getSession(id) : undefined
                     return (
-                      <td key={`${slot.time}-${i}`} className="h-px align-top">
+                      <td key={`${slot.time}-${i}`} className="align-top">
                         {id && session ? (
                           <Link
                             href={sessionHref(id)}
                             title={`Session ${id}: ${session.title}`}
-                            className="flex h-full flex-col rounded-lg border border-black/10 bg-black/[0.02] p-2 hover:border-black/25 hover:bg-black/[0.05] transition-colors"
+                            className="block min-h-[5.5rem] rounded-lg border border-black/10 bg-black/[0.02] p-2 hover:border-black/25 hover:bg-black/[0.05] transition-colors"
                           >
-                            <span className="text-xs font-semibold text-black tabular-nums">{id}</span>
+                            <span className="block text-xs font-semibold text-black tabular-nums">{id}</span>
                             <span className="mt-0.5 text-[11px] leading-snug text-black/60 line-clamp-3">
                               {session.title}
                             </span>
                           </Link>
                         ) : (
-                          <div className="h-full min-h-14 rounded-lg border border-dashed border-black/[0.06]" />
+                          <div className="min-h-[5.5rem] rounded-lg border border-dashed border-black/[0.06]" />
                         )}
                       </td>
                     )

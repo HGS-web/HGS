@@ -203,11 +203,17 @@ export default async function ProgramPage({ params }: PageProps) {
   const { locale } = await params
   const validLocale = (locale === "el" ? "el" : "en") as Locale
 
-  const finderSessions: Record<string, FinderSession> = {}
+  const finderSessions: FinderSession[] = []
   const finderEntries: FinderEntry[] = []
   for (const session of programSessions) {
     const id = String(session.id)
-    finderSessions[id] = { when: sessionWhen(id) }
+    finderSessions.push({
+      id,
+      title: session.title,
+      organizers: session.organizers,
+      topic: session.topic,
+      when: sessionWhen(id),
+    })
     for (const p of getPresentations(id)) {
       finderEntries.push({
         sessionId: id,
@@ -271,7 +277,7 @@ export default async function ProgramPage({ params }: PageProps) {
 
           <FadeInView delay={0.08}>
             <div className="rounded-2xl border border-black/10 bg-white p-4 sm:p-6 shadow-sm">
-              <h2 className="text-base font-semibold text-black mb-3">Find a presentation</h2>
+              <h2 className="text-base font-semibold text-black mb-3">Search the programme</h2>
               <PresentationFinder locale={validLocale} sessions={finderSessions} entries={finderEntries} />
             </div>
           </FadeInView>

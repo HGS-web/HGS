@@ -291,7 +291,7 @@ export const sessions: Session[] = [
   {
     id: 39,
     title: "General culture",
-    organizers: "TBA",
+    organizers: "Caterina Basso, Marina Volpe",
     topic: "1. Geography: Theory, Methods, Education and Practice",
     abstract: "TBA",
   },

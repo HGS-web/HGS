@@ -95,12 +95,6 @@ const organizingCommittee = [
     url: "https://eurogeojournal.eu/index.php/egj/about/editorialTeam",
   },
   {
-    designation: "Field Trip Coordinator",
-    name: "Prof. N. Evelpidou",
-    affiliation: "National & Kapodistrian University of Athens",
-    url: "http://scholar.uoa.gr/evelpidou/home",
-  },
-  {
     designation: "Webmaster",
     name: "A. Liaskos",
     affiliation: "National & Kapodistrian University of Athens",
@@ -116,6 +110,12 @@ const organizingCommittee = [
     name: "Dr. E. Durie",
     affiliation: "Harokopio University of Athens",
     url: "https://www.geo.hua.gr/en/staff-member/durie-eveline/",
+  },
+  {
+    designation: "Committee Member",
+    name: "Prof. N. Evelpidou",
+    affiliation: "National & Kapodistrian University of Athens",
+    url: "http://scholar.uoa.gr/evelpidou/home",
   },
   {
     designation: "Committee Member",
@@ -570,22 +570,6 @@ export default async function Conference2026Page({ params }: PageProps) {
                     <p className="text-sm font-semibold text-emerald-900">Conference</p>
                   </div>
                 </div>
-
-                {/* Upcoming milestones */}
-                {[
-                  { date: "29 Nov 2026", label: "Post-conference field trip (TBC)", calStart: "20261129" },
-                ].map((item) => (
-                  <div key={`${item.date}-${item.label}`} className="relative flex items-start gap-4 pb-4">
-                    <div className="relative z-10 mt-1.5 h-[15px] w-[15px] shrink-0 rounded-full border-2 border-black/15 bg-white" />
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between gap-2">
-                        <p className="text-xs font-medium text-black/40">{item.date}</p>
-                        <AddToCalendar title={`${item.label} – HGS Conference`} start={item.calStart} />
-                      </div>
-                      <p className="text-sm text-black/60">{item.label}</p>
-                    </div>
-                  </div>
-                ))}
               </div>
             </div>
           </FadeInView>

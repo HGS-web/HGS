@@ -44,10 +44,6 @@
     {
      "name": "Ute Schneider",
      "affiliation": "TU Wien"
-    },
-    {
-     "name": "Charis Christodoulou",
-     "affiliation": "Aristoteles University Thessaloniki"
     }
    ],
    "abstract": "Arterial roads are key urban spaces hosting essential infrastructures and shaping development patterns, yet they are often analysed linearly through a traffic-centric lens. Research typically emphasizes technical cross-sections, neglecting spatial, functional, social, and ecological interconnections with the surrounding urban fabric. Amid mobility transitions, climate adaptation, and calls for equitable spaces, arterial roads require reconceptualization as integrated urban spaces.\nThis study introduces \"Territories of Urban Mobility Corridors,\" reframing arterial roads as dynamic assemblages embedded in the city across morphological, systemic, and relational dimensions and scales. It extends beyond linear streetscapes to highlight spatial relations, ecological systems, and social interdependencies between street segments and adjacent fabric, avoiding traffic-oriented terms like \"street\" or \"road.\"\nThessaloniki exemplifies car dependency with minimal unsealed areas, exacerbating air pollution, urban heat islands, flooding, and inhospitable spaces . Arterial roads connect dense fabric but disrupt pedestrian networks, blue-green links, and neighbourhoods . Focusing on selected arterials, this research identifies attributes to derive Territories of Urban Mobility Corridors, revealing potentials and challenges for both strategic and spatial urban planning.\nAs part of PhD research at TU Wien's Institute of Urban Design and Landscape Architecture , the mixed-methods approach integrates Situational Analysis and critical cartography. Methods include document analysis, urban-design assessments, promenadology, spatial observations, mappings, and expert interviews. Findings synthesize via joint spatial displays for academic, professional, and community dialogue.\nExpected outcomes delineate territories like ecological networks, heritage-tourism landscapes, residential zones, and productive areas, aiming to uncover thematic-spatial interactions, situational dynamics, and relational ties between streetscapes and fabric. Results inform a typology advancing mobility corridors as relational, multi-scalar urban spaces. By rendering territorial complexity legible, the study fosters regenerative urbanism through context-sensitive knowledge, supporting reimagined corridors in the Symbiocene."
@@ -1849,6 +1845,10 @@
     {
      "name": "Dimitris Papachristos",
      "affiliation": "University of Aegean / Geography"
+    },
+    {
+     "name": "Mara Zacharaki",
+     "affiliation": "University of Aegean / Geography"
     }
    ],
    "abstract": "The concept of re-existence originates from the struggles of seringueiros (rubber tappers) of the Amazon in Brazil (“Aliança dos Povos da Floresta”) and was formulated by the geographer Porto-Gonçalves (1998). The Zapatista uprising that began in Chiapas, Mexico, in 1994 (organizacion from 1984), the struggles of the Indigenous Congress, the recent Zapatista journey to Europe, and the arts and sciences encounters in Zapatista communities have highlighted this relationship in a remarkable way.\nThe concept of “geo-histories against the grain” is introduced in geography through the speaks of Christy Petropoulou and Alberto Betancourt, which are inspired by the works of Walter Benjamin about historie against the grain and Silvia Rivera Cusicanqui.\nThe concept of the culture of resistance derives from the work of Stathis Damianakos. The concept of cracks in the system derives from the work of John Holloway. The concept of re-existence in territories with a deep history of rebellious tradition, is understood as the power of a fresh start, of rebirth, of attributing new meanings or renewing the meanings of existence, of life with its own horizons of meaning rather than Agamben’s bare life (Hurtado & Porto-Gonçalves) like cracks in the system (Holloway). And they do this by utilising grassroots cultural actions, street arts, and other “bottom-up” cultural expressions.\nIn this paper, we will mapping oral geo-histories recorded within the framework of ReexistAtlas in certain cultural geographies related to re-emergence, since for many years they had been rendered invisible, in neighbourhoods and communities with strong characteristics of self-organisation, and anti-patriarchal, anti-colonial, and anti-capitalist approaches, in Greece, Mexico, and Chile. Atlas began with active militant research in Mexico and Chile and was enriched with material from the group’s participation in the assembly for the Zapatistas’ trip to Greece."
@@ -1876,10 +1876,6 @@
     {
      "name": "Maria Xanthopoulou",
      "affiliation": "Harokopio University of Athens / Geography"
-    },
-    {
-     "name": "Mara Zacharaki",
-     "affiliation": "University of Aegean / Geography"
     },
     {
      "name": "Yannis Sotiriou",
@@ -1933,7 +1929,11 @@
    "authors": [
     {
      "name": "Alkistis Thomidou",
-     "affiliation": "HafenCity University Hamburg"
+     "affiliation": "Forty five degrees; HafenCity University Hamburg"
+    },
+    {
+     "name": "Berta Gutierrez Casaos",
+     "affiliation": "Forty five degrees"
     }
    ],
    "abstract": "This paper draws on the ongoing research project Radical Rituals to explore emerging paradigms of spatial practice grounded in collective agency, care, and justice in contexts marked by infrastructural neglect and environmental stress. Against the backdrop of intersecting ecological, social, and political crises, the paper revisits the concept of “radical design” not as an aesthetic or expert-led intervention, but as a relational, performative, and regenerative process embedded in everyday life. Particular attention is given to mundane and infra-ordinary rituals—often overlooked practices of maintenance, repair, and care—as critical tools through which communities reclaim space, sustain engagement, and contest dispossession.\n\nBased on empirical research with initiatives across Europe and within urban–rural entanglements, the paper examines how local actors engage in shared rituals of commoning, stewardship, and cooperation in response to housing insecurity, uneven access to infrastructure, and exclusion from planning and governance. These practices operate simultaneously as forms of spatial care and political agency: they sustain collective action over time while fostering belonging, resilience, and new forms of social organization. Although rooted in specific localities, such rituals resonate across geographies, suggesting how place-based struggles can connect and scale without losing their situated character.\n\nThe paper is informed by an ongoing performative journey along the 45ºN parallel, which functions both as method and metaphor. This axis connects disparate contexts through a shared inquiry into how communities mobilize ritualized practices to claim space and shape alternative urban futures. Rather than producing a static archive, the research adopts the lens of the anarchive—an open, evolving system of knowledge that foregrounds localized expertise, affective labor, and environmental attunement.\n\nUltimately, the paper argues that collective agency and struggles for the commons are transformative forces in spatial planning, revealing how spatial justice and the right to the city emerge through interdependent practices of care, cooperation, and everyday resistance."
@@ -1951,7 +1951,7 @@
   },
   {
    "code": "S_081",
-   "title": "Gendered Invisibility and Rhizomatic Counter-Memories of Femicide Across Abya Yala and the Mediterranean",
+   "title": "Gendered Invisibility and Rhizomatic Counter-Memories of Feminicide Across Abya Yala and the Mediterranean",
    "authors": [
     {
      "name": "Mara Zacharaki",
@@ -3507,7 +3507,7 @@
    "authors": [
     {
      "name": "Kostas Mouratidis",
-     "affiliation": "University of Copenhagen"
+     "affiliation": "Aristotle University of Thessaloniki"
     }
    ],
    "abstract": "The 15-minute city can offer a meaningful framework for measuring and analyzing accessibility to basic urban functions, if proper theoretical and methodological choices are made. This paper develops a comprehensive methodology and presents the steps for measuring, visualizing, and analyzing x-minute accessibility by proximity (walking accessibility) and accessibility by public transport supply (accessibility potential created by nearby public transport services) using geographic information systems (GIS). Five sequential steps are presented: project definition, data preparation, measuring accessibility, visualizing accessibility and insufficient accessibility, and analyzing accessibility using spatial statistical analysis and modeling. The proposed approach is applied to Copenhagen. Results indicate that, even in a city where sustainable mobility is prominent, there are spatial clusters of lack of accessibility and insufficient accessibility, lying mainly in suburban locations. Proximity-based accessibility and accessibility by public transport supply are found to highly overlap across space. Moreover, density was found to largely predict both 15-minute walking accessibility to local destinations and accessibility to other areas via public transport. This approach can be used as a guide by those aiming to understand the patterns and drivers of accessibility across space, reveal socio-spatial inequalities, and identify locations for potential interventions that improve walking accessibility and reduce car dependence."

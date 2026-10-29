@@ -125,11 +125,22 @@ function DaySchedule({ day, locale }: { day: ProgramDay; locale: Locale }) {
                   <th scope="row" className="sticky left-0 z-10 bg-white pr-2 pt-2 align-top text-xs font-medium text-black/60 whitespace-nowrap">
                     {slot.time}
                   </th>
-                  {slot.sessions.map((id, i) => {
+                  {slot.sessions.map((cell, i) => {
+                    const id = typeof cell === "string" ? cell : null
+                    const event = cell && typeof cell === "object" ? cell : null
                     const session = id ? getSession(id) : undefined
                     return (
                       <td key={`${slot.time}-${i}`} className="align-top">
-                        {id && session ? (
+                        {event ? (
+                          <div className="block min-h-[5.5rem] rounded-lg border border-black/10 bg-black/[0.02] p-2">
+                            <span className="block text-xs font-semibold text-black">{event.label}</span>
+                            {event.note && (
+                              <span className="mt-0.5 text-[11px] leading-snug text-black/60 line-clamp-3">
+                                {event.note}
+                              </span>
+                            )}
+                          </div>
+                        ) : id && session ? (
                           <Link
                             href={sessionHref(id)}
                             title={`Session ${id}: ${session.title}`}
@@ -161,7 +172,25 @@ function DaySchedule({ day, locale }: { day: ProgramDay; locale: Locale }) {
               <>
                 <p className="mb-2 text-xs font-semibold text-black/60">{slot.time}</p>
                 <ul className="space-y-1.5">
-                  {slot.sessions.map((id, i) => {
+                  {slot.sessions.map((cell, i) => {
+                    if (cell && typeof cell === "object") {
+                      return (
+                        <li
+                          key={`${slot.time}-${i}`}
+                          className="flex items-start gap-3 rounded-xl border border-black/[0.08] bg-black/[0.02] px-3 py-2.5"
+                        >
+                          <span className="mt-0.5 w-8 shrink-0" />
+                          <span className="min-w-0">
+                            <span className="block text-sm font-semibold leading-snug text-black/75">{cell.label}</span>
+                            <span className="mt-0.5 block text-[11px] text-black/40">
+                              {cell.note ? `${cell.note} · ` : ""}
+                              {roomLabel(day.rooms[i])}
+                            </span>
+                          </span>
+                        </li>
+                      )
+                    }
+                    const id = cell
                     const session = id ? getSession(id) : undefined
                     if (!id || !session) return null
                     return (

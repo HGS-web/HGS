@@ -12,8 +12,17 @@ export interface ProgramRoom {
   name: string
 }
 
+/** A room booking that is not a conference session, e.g. a sponsor presentation. */
+export interface ProgramEvent {
+  label: string
+  note?: string
+}
+
+/** A session id, another event, or null for an empty room. */
+export type ProgramCell = string | ProgramEvent | null
+
 export type ProgramSlot =
-  | { kind: "sessions"; time: string; sessions: (string | null)[] }
+  | { kind: "sessions"; time: string; sessions: ProgramCell[] }
   | { kind: "break"; time: string; label: string }
   | { kind: "plenary"; time: string; label: string }
 
@@ -68,15 +77,15 @@ export const programDays: ProgramDay[] = [
       { venue: "HUA", name: "Room 6" },
     ],
     slots: [
-      { kind: "sessions", time: "09:30–11:00", sessions: ["39", "3", "4", "7", "9", "23", "27", "36", "32", "5"] },
+      { kind: "sessions", time: "09:30–11:00", sessions: ["39", "3", "4", "7", "9", "23", "27", "35", "32", "5"] },
       { kind: "break", time: "11:00–11:30", label: "Coffee break" },
-      { kind: "sessions", time: "11:30–13:00", sessions: ["38", "19", "4", "7", "9", "23", "27", "36", "32", "5"] },
+      { kind: "sessions", time: "11:30–13:00", sessions: ["38", "19", "4", "7", "9", "23", "27", "35", "32", "5"] },
       { kind: "break", time: "13:00–14:00", label: "Lunch break at HUA" },
       { kind: "plenary", time: "14:00–16:00", label: "Plenary session" },
       { kind: "break", time: "16:00–16:30", label: "Coffee break" },
-      { kind: "sessions", time: "16:30–18:00", sessions: ["6", "21", "22", "7", "16", "23", "30", "36", "32", "1"] },
+      { kind: "sessions", time: "16:30–18:00", sessions: ["6", "21", "22", "7", "16", "23", "17", "35", "32", "1"] },
       { kind: "break", time: "18:00–18:30", label: "Break" },
-      { kind: "sessions", time: "18:30–20:00", sessions: ["6", "21", "22", "7", "16", "34", "30", "36b", "32", "1"] },
+      { kind: "sessions", time: "18:30–20:00", sessions: ["6", "21", "22", "7", "16", "34", "17", "36a", "32", "1"] },
     ],
   },
   {
@@ -95,15 +104,19 @@ export const programDays: ProgramDay[] = [
       { venue: "HUA", name: "Room 7" },
     ],
     slots: [
-      { kind: "sessions", time: "09:30–11:00", sessions: ["20", "8", "13", "12", "11", "28", "18", "35"] },
+      { kind: "sessions", time: "09:30–11:00", sessions: ["20", "8", "13", "12", "11", "28", "18", "36"] },
       { kind: "break", time: "11:00–11:30", label: "Coffee break" },
-      { kind: "sessions", time: "11:30–13:00", sessions: ["37", "8", "13", "12", "11", "28", "18", "35"] },
+      { kind: "sessions", time: "11:30–13:00", sessions: ["37", "8", "13", "12", "11", "28", "18", "36"] },
       { kind: "break", time: "13:00–14:00", label: "Lunch break" },
-      { kind: "sessions", time: "14:00–16:00", sessions: ["37", "10", "2", "12", "31", "28", "18", "35"] },
+      { kind: "sessions", time: "14:00–16:00", sessions: ["37", "10", "2", "12", "31", "28", "18", "36b"] },
       { kind: "break", time: "16:00–16:30", label: "Coffee break" },
-      { kind: "sessions", time: "16:30–18:00", sessions: ["37", "10", "2", "15", "33", "29", "17", "36a"] },
+      { kind: "sessions", time: "16:30–18:00", sessions: ["37", "10", "2", "15", "33", "29", "30", "36"] },
       { kind: "break", time: "18:00–18:30", label: "Coffee break" },
-      { kind: "sessions", time: "18:30–20:00", sessions: ["37", "25", "2", "24", "33", "14", "17", null] },
+      {
+        kind: "sessions",
+        time: "18:30–20:00",
+        sessions: ["37", "25", "2", "24", "33", "14", "30", { label: "GEOSYSTEM", note: "Sponsor presentation" }],
+      },
     ],
   },
 ]

@@ -3,10 +3,12 @@ import { notFound } from "next/navigation"
 import { ArrowLeft, ArrowRight, CalendarDays, ChevronDown, Info } from "lucide-react"
 import { FadeIn } from "@/components/ui/motion"
 import {
-  PRESENTATION_ORDER_NOTE,
+  PROVISIONAL_ORDER_NOTE,
   getPresentations,
   getSession,
   getSessionSchedule,
+  getSessionSlots,
+  hasConfirmedOrder,
   programSessions,
   venues,
   type Presentation,
@@ -81,6 +83,22 @@ export default async function SessionProgramPage({ params }: PageProps) {
   if (!session || schedule.length === 0) notFound()
 
   const presentations = getPresentations(id)
+  const ordered = hasConfirmedOrder(id)
+  const slots = getSessionSlots(id)
+  const groups = ordered
+    ? [
+        ...slots.map((s, i) => ({
+          key: `slot-${i + 1}`,
+          label: `Slot ${i + 1} · ${s.day.shortDate} · ${s.time}`,
+          items: presentations.filter((p) => p.slot === i + 1),
+        })),
+        {
+          key: "unscheduled",
+          label: "Time slot to be confirmed",
+          items: presentations.filter((p) => p.slot === undefined || p.slot > slots.length),
+        },
+      ].filter((g) => g.items.length > 0)
+    : [{ key: "all", label: null, items: presentations }]
   const position = programSessions.findIndex((s) => String(s.id) === id)
   const prev = programSessions[position - 1]
   const next = programSessions[position + 1]
@@ -141,10 +159,19 @@ export default async function SessionProgramPage({ params }: PageProps) {
             </div>
           </details>
 
-          <div className="flex items-start gap-3 rounded-2xl border border-amber-200/70 bg-amber-50 px-5 py-4">
-            <Info className="mt-0.5 h-4 w-4 shrink-0 text-amber-700" />
-            <p className="text-sm text-amber-900/90 leading-relaxed">{PRESENTATION_ORDER_NOTE}</p>
-          </div>
+          {ordered ? (
+            <div className="flex items-start gap-3 rounded-2xl border border-black/10 bg-black/[0.02] px-5 py-4">
+              <Info className="mt-0.5 h-4 w-4 shrink-0 text-black/40" />
+              <p className="text-sm text-black/65 leading-relaxed">
+                Presentations are listed in the order set by the session organisers.
+              </p>
+            </div>
+          ) : (
+            <div className="flex items-start gap-3 rounded-2xl border border-amber-200/70 bg-amber-50 px-5 py-4">
+              <Info className="mt-0.5 h-4 w-4 shrink-0 text-amber-700" />
+              <p className="text-sm text-amber-900/90 leading-relaxed">{PROVISIONAL_ORDER_NOTE}</p>
+            </div>
+          )}
 
           <h2 className="pt-4 text-lg font-semibold text-black">
             Presentations
@@ -153,25 +180,37 @@ export default async function SessionProgramPage({ params }: PageProps) {
             </span>
           </h2>
 
-          <ul className="space-y-3">
-            {presentations.map((p) => (
-              <li
-                key={p.code}
-                id={p.code}
-                className="scroll-mt-28 rounded-2xl border border-black/10 bg-white p-5 sm:p-6 shadow-sm target:border-black/40 target:ring-2 target:ring-black/10"
-              >
-                <h3 className="text-base font-semibold text-black leading-snug">{p.title}</h3>
-                <AuthorList presentation={p} />
-                <details className="group mt-3">
-                  <summary className="inline-flex cursor-pointer list-none items-center gap-1 text-xs font-medium text-black/50 hover:text-black transition-colors [&::-webkit-details-marker]:hidden">
-                    Abstract
-                    <ChevronDown className="h-3.5 w-3.5 transition-transform group-open:rotate-180" />
-                  </summary>
-                  <div className="mt-2 text-sm text-black/65 leading-relaxed whitespace-pre-wrap">{p.abstract}</div>
-                </details>
-              </li>
-            ))}
-          </ul>
+          {groups.map((group) => (
+            <div key={group.key} className="space-y-3">
+              {group.label && (
+                <h3 className="pt-3 text-xs font-semibold uppercase tracking-wider text-black/45">{group.label}</h3>
+              )}
+              <ol className="space-y-3">
+                {group.items.map((p, i) => (
+                  <li
+                    key={p.code}
+                    id={p.code}
+                    className="scroll-mt-28 rounded-2xl border border-black/10 bg-white p-5 sm:p-6 shadow-sm target:border-black/40 target:ring-2 target:ring-black/10"
+                  >
+                    <h3 className="text-base font-semibold text-black leading-snug">
+                      {ordered && group.key !== "unscheduled" && (
+                        <span className="mr-2 text-sm font-medium text-black/35 tabular-nums">{i + 1}.</span>
+                      )}
+                      {p.title}
+                    </h3>
+                    <AuthorList presentation={p} />
+                    <details className="group mt-3">
+                      <summary className="inline-flex cursor-pointer list-none items-center gap-1 text-xs font-medium text-black/50 hover:text-black transition-colors [&::-webkit-details-marker]:hidden">
+                        Abstract
+                        <ChevronDown className="h-3.5 w-3.5 transition-transform group-open:rotate-180" />
+                      </summary>
+                      <div className="mt-2 text-sm text-black/65 leading-relaxed whitespace-pre-wrap">{p.abstract}</div>
+                    </details>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          ))}
 
           <nav className="flex items-stretch justify-between gap-3 pt-6">
             {prev ? (

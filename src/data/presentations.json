@@ -381,6 +381,7 @@
  "3": [
   {
    "code": "S_359",
+   "slot": 1,
    "title": "Sick of Waiting: Historical Disease and the Demographic Transition Dynamics",
    "authors": [
     {
@@ -392,6 +393,7 @@
   },
   {
    "code": "S_045",
+   "slot": 1,
    "title": "Implementation of Health Policy and Contemporary Inequality",
    "authors": [
     {
@@ -411,6 +413,7 @@
   },
   {
    "code": "S_044",
+   "slot": 1,
    "title": "Pandemic crisis from epicenter to periphery: territorial inequalities and mortality during covid-19 in northern Portugal.",
    "authors": [
     {
@@ -715,49 +718,8 @@
  ],
  "6": [
   {
-   "code": "S_269",
-   "title": "Reconfiguring Mediterranean invasion landscapes: Future habitat expansion and dispersal dynamics of Myocastor Coypus in Greece",
-   "authors": [
-    {
-     "name": "Alexandros D. Kouris",
-     "affiliation": "Department of Sustainable Agriculture, University of Patras, Patras, Greece"
-    },
-    {
-     "name": "Apostolos Christopoulos",
-     "affiliation": "Department of Zoology and Marine Biology, Faculty of Biology, National and Kapodistrian University of Athens, Athens, Greece"
-    },
-    {
-     "name": "Christos Kotselis",
-     "affiliation": "Independent Researcher, Athens, Greece"
-    },
-    {
-     "name": "Yiannis G. Zevgolis",
-     "affiliation": "Biodiversity Conservation Laboratory, Department of Environment, University of the Aegean, Mytilene, Greece"
-    }
-   ],
-   "abstract": "Climate-driven environmental change is increasingly altering the spatial dynamics of biological\ninvasions, particularly for species tightly associated with freshwater systems and human-modified\nlandscapes. The semi-aquatic rodent Myocastor coypus has expanded rapidly across parts of\nsouthern Europe, where its burrowing activity, herbivory, and occupation of riparian habitats\ngenerate substantial ecological and economic impacts. In Greece, however, the potential for large-\nscale range expansion under future climatic conditions remains insufficiently explored despite\ngrowing evidence of establishment in lowland wetlands and drainage networks. A spatial modelling\nframework based on Maximum Entropy algorithms was employed to reconstruct the environmental\nniche of M. coypus using a nationwide occurrence dataset combined with climatic, hydrological,\nedaphic, and land-cover predictors. Variable selection focused on hydroclimatic stability, thermal\ntolerance, moisture availability, and landscape connectivity in order to capture the processes\ngoverning dispersal across heterogeneous Mediterranean environments. Model performance\nindicated strong predictive capacity, revealing that hydrological proximity and persistent surface\nmoisture overwhelmingly structure habitat suitability, while warmer thermal regimes substantially\nreduce climatic barriers to establishment. Spatial projections under multiple future climate\ntrajectories revealed a marked reorganization of invasion-prone landscapes during the twenty-first\ncentury. Environmentally suitable areas are projected to expand far beyond the species’ currently\ndocumented distribution, particularly along riparian corridors, irrigated agricultural plains, artificial\nwater networks, and ecologically sensitive wetland systems. Several projected expansion zones\nintersect with protected habitats and biodiversity-rich aquatic ecosystems, indicating an increasing\nlikelihood of ecological conflict between invasive spread and conservation priorities. The emerging\nspatial configuration additionally suggests the formation of interconnected dispersal pathways\ncapable of accelerating secondary colonization between previously isolated hydrographic basins. The\nprojected redistribution of suitable habitat indicates that ongoing hydroclimatic change may\ntransform Greece into an increasingly favorable landscape for the persistence and spread of this\ninvasive mammal, reinforcing the urgency for spatially targeted surveillance and anticipatory\nmanagement strategies."
-  },
-  {
-   "code": "S_404",
-   "title": "Spatial Hotspots and mortality corridors of herpetofauna: A multi-decadal geospatial analysis of wildlife–vehicle collisions in a Mediterranean river basin, Greece",
-   "authors": [
-    {
-     "name": "Alexandros D. Kouris",
-     "affiliation": "Department of Sustainable Agriculture, University of Patras, Patras, Greece"
-    },
-    {
-     "name": "Apostolos Christopoulos",
-     "affiliation": "Department of Zoology and Marine Biology, Faculty of Biology, National and Kapodistrian University of Athens, Athens, Greece"
-    },
-    {
-     "name": "Yiannis G. Zevgolis",
-     "affiliation": "Biodiversity Conservation Laboratory, Department of Environment, University of the Aegean, Mytilene, Greece"
-    }
-   ],
-   "abstract": "Linear transportation infrastructure increasingly reshapes ecological processes by generating spatially heterogeneous mortality risks across landscapes. Despite growing recognition of wildlife–vehicle collisions as a major conservation concern, spatially explicit assessments of road mortality in Mediterranean herpetofauna remain limited, particularly at large temporal and landscape scales. This study investigates the spatial configuration, clustering dynamics, and seasonal concentration of amphibian and reptile road mortality within the catchment basin of Spercheios River, a protected Mediterranean ecosystem of high conservation importance included in the Natura 2000 network. Using a long-term dataset (1997–2021), we analyzed 544 wildlife–vehicle collision records involving 23 herpetofaunal species to identify spatial mortality concentrations and landscape-scale collision patterns. Spatial analytical frameworks incorporating Kernel Density Estimation and hotspot analysis were employed to detect non-random aggregations of mortality events and delineate persistent collision corridors. Species-specific road mortality intensity was additionally quantified through a relative mortality index to evaluate differential vulnerability among taxa. Analyses revealed pronounced spatial autocorrelation in road mortality distribution, with distinct mortality hotspots concentrated along ecotonal zones linking wetlands, agricultural mosaics, and riparian habitats. Several statistically significant collision clusters persisted across years, indicating the existence of stable mortality corridors associated with recurrent movement pathways of herpetofauna. Seasonal analysis demonstrated a marked intensification of hotspot formation during spring, suggesting strong associations between road mortality patterns and seasonal behavioral ecology. Mortality intensity was disproportionately higher for large-bodied snake species, particularly the Eastern Montpellier snake, Grass snake, Caspian whipsnake, and the European glass lizard. Our findings demonstrate that herpetofauna road mortality within Mediterranean riverine systems is spatially structured rather than randomly distributed, emphasizing the importance of spatial statistical approaches for identifying high-risk road segments and prioritizing mitigation measures. Integrating hotspot detection and density-based spatial analyses provides a robust framework for conservation-oriented road planning and for reducing biodiversity losses in ecologically sensitive Mediterranean landscapes."
-  },
-  {
    "code": "S_224",
+   "slot": 1,
    "title": "Movement of Bactrocera oleae Across Olive Grove–Forest Interfaces in a Mediterranean Landscape",
    "authors": [
     {
@@ -769,6 +731,7 @@
   },
   {
    "code": "S_403",
+   "slot": 1,
    "title": "Agricultural landscapes shape habitat suitability patterns of the European rabbit in a Mediterranean island ecosystem",
    "authors": [
     {
@@ -791,28 +754,10 @@
    "abstract": "Mediterranean islands are increasingly experiencing ecological restructuring driven by the expansion\nof introduced mammalian herbivores, whose establishment within fragmented insular landscapes\nmay generate profound consequences for vegetation dynamics, agricultural systems, and ecosystem\nfunctioning. The European rabbit, Oryctolagus cuniculus, has exhibited substantial spatial expansion\non Lemnos Island, Greece, where its growing distribution across heterogeneous agroecosystems and\nsemi-natural habitats has raised increasing ecological and management concerns. Here, we applied a\nspecies distribution modelling framework based on Maximum Entropy algorithms to investigate\nhabitat suitability patterns of O. cuniculus using an extensive occurrence dataset derived from\nsystematic field surveys. Environmental predictors included land-use composition, agricultural cover,\nvegetation structure, topographic variables, climatic conditions, and anthropogenic landscape\nfeatures in order to identify the ecological factors associated with rabbit occurrence. Model outputs\ndemonstrated strong predictive performance and revealed substantial spatial heterogeneity in\nhabitat suitability across the island. Habitat suitability was strongly associated with agricultural\nlandscapes, cultivated areas, agro-pastoral systems, and lowland environments providing abundant\ntrophic resources and accessible foraging opportunities. Areas characterized by crop availability and\nheterogeneous resource-rich mosaics exhibited particularly high predicted suitability, indicating the\nimportance of anthropogenic food subsidies in facilitating rabbit persistence and expansion. Spatial\nprojections identified extensive environmentally suitable areas across large portions of the island,\nsuggesting that current land-use configurations may facilitate continued expansion of rabbit\npopulations within Mediterranean insular ecosystems. The predicted distributional patterns indicate\nthat anthropogenic resource availability rather than climatic limitation may constitute the primary\ndriver shaping rabbit habitat suitability at the spatial scale examined. These findings highlight the\ncritical role of agricultural landscape structure in promoting the establishment and persistence of\nintroduced herbivorous mammals and provide a spatially explicit framework for future monitoring\nand management strategies in insular Mediterranean environments."
   },
   {
-   "code": "S_402",
-   "title": "Thermal landscapes of hidden architecture: Geospatial detection of thermal heterogeneity associated with European rabbit warrens",
+   "code": "S_404",
+   "slot": 1,
+   "title": "Spatial Hotspots and mortality corridors of herpetofauna: A multi-decadal geospatial analysis of wildlife–vehicle collisions in a Mediterranean river basin, Greece",
    "authors": [
-    {
-     "name": "Christina Valeta",
-     "affiliation": "Biodiversity Conservation Laboratory, Department of Environment, University of the Aegean, Mytilene, Greece"
-    },
-    {
-     "name": "Yiannis G. Zevgolis",
-     "affiliation": "Biodiversity Conservation Laboratory, Department of Environment, University of the Aegean, GR- 81132 Mytilene, Greece"
-    }
-   ],
-   "abstract": "Subterranean burrow systems created by fossorial mammals represent concealed forms of biological\narchitecture capable of influencing environmental conditions beyond the underground spaces they\noccupy. Despite their ecological importance, the extent to which these hidden structures generate\norganized thermal patterns at the land surface remains poorly understood. In the European rabbit,\nwarrens form spatially complex subterranean networks whose ecological expression is typically\ninferred from the distribution of visible entrances alone, potentially overlooking thermal patterns\nassociated with the underlying burrow system. To address this gap, we combined infrared\nthermography with geospatial analyses to investigate whether rabbit warrens generate structured\nthermal mosaics detectable at fine spatial scales. Thermal imagery was collected from multiple\nindependent warrens and converted into high-resolution thermal surfaces. Spatial analyses were\nsubsequently applied to quantify thermal clustering, local heterogeneity, and the spatial\nconfiguration of temperature anomalies surrounding burrow entrances and across entire warrens. In\nparallel, entrance density and spatial arrangement were used as indicators of subterranean\nstructural complexity in order to examine whether variation in surface thermal organization reflects\ndifferences in hidden burrow architecture. Our analyses revealed that rabbit warrens generate\ndistinct and spatially structured thermal mosaics rather than isolated thermal anomalies. Burrow\nentrances consistently corresponded to localized thermal hotspots relative to the surrounding\nsubstrate; however, these anomalies were embedded within broader heterogeneous thermal fields\ncharacterized by clear spatial clustering and non-random thermal organization. Furthermore,\nwarrens exhibiting greater entrance density and more complex entrance configuration displayed\nincreasingly pronounced thermal heterogeneity and stronger spatial structuring of surface\ntemperatures. These findings suggest that surface thermal patterning captures important aspects of\nthe organization of subterranean burrow systems. Overall, our study demonstrates that infrared\nthermography integrated with geospatial analysis provides a powerful non-invasive framework for\ndetecting the thermal imprint of subterranean ecosystem engineering and advances the spatial\nunderstanding of animal-generated microclimatic heterogeneity."
-  },
-  {
-   "code": "S_270",
-   "title": "Landscape complexity rather than climate predicts habitat suitability for the Persian Squirrel",
-   "authors": [
-    {
-     "name": "Yiannis G. Zevgolis",
-     "affiliation": "Biodiversity Conservation Laboratory, Department of Environment, University of the Aegean, Mytilene, Greece"
-    },
     {
      "name": "Alexandros D. Kouris",
      "affiliation": "Department of Sustainable Agriculture, University of Patras, Patras, Greece"
@@ -820,12 +765,17 @@
     {
      "name": "Apostolos Christopoulos",
      "affiliation": "Department of Zoology and Marine Biology, Faculty of Biology, National and Kapodistrian University of Athens, Athens, Greece"
+    },
+    {
+     "name": "Yiannis G. Zevgolis",
+     "affiliation": "Biodiversity Conservation Laboratory, Department of Environment, University of the Aegean, Mytilene, Greece"
     }
    ],
-   "abstract": "Understanding the mechanisms governing species distributions is fundamental for predicting biodiversity responses to environmental change, particularly within insular ecosystems where spatial constraints and landscape heterogeneity strongly influence ecological processes. We investigated the habitat suitability patterns of the Persian squirrel (Sciurus anomalus), a regionally Vulnerable arboreal mammal, on Lesvos Island, Greece, using a species distribution modeling (SDM) framework based on the MaxEnt algorithm. To evaluate the relative influence of landscape and climatic drivers, we developed two competing SDMs: an environmental model including landscape composition and anthropogenic variables, and a second model integrating environmental predictors with bioclimatic variables associated with temperature and precipitation regimes. Both models produced high predictive performance, identifying clear spatial gradients in habitat suitability across the island. Suitable habitats were strongly concentrated in areas characterized by heterogeneous vegetation structure and persistent semi-natural landscape mosaics, whereas intensively modified or spatially homogeneous areas exhibited substantially lower predicted suitability. Jackknife analyses revealed that landscape-related variables contributed disproportionately to model gain and predictive stability, while the addition of climatic predictors resulted in only marginal improvements in explanatory power. Response curves further indicated that habitat suitability declined sharply beyond specific thresholds of landscape simplification and increasing isolation from structurally complex habitats. The spatial predictions also revealed a fragmented distribution of highly suitable habitat patches, suggesting potential restrictions in landscape connectivity for insular populations of S. anomalus. In contrast, climatic gradients showed weak spatial correspondence with predicted suitability patterns, indicating limited macroclimatic control at the scale examined. Our findings demonstrate that landscape complexity and habitat configuration are stronger determinants of Persian squirrel distribution than broad-scale climatic conditions within Mediterranean island ecosystems, highlighting the importance of integrating fine-resolution landscape predictors into SDMs for insular mammals and underscores the conservation value of maintaining heterogeneous and structurally connected landscapes for the long-term persistence of vulnerable arboreal species."
+   "abstract": "Linear transportation infrastructure increasingly reshapes ecological processes by generating spatially heterogeneous mortality risks across landscapes. Despite growing recognition of wildlife–vehicle collisions as a major conservation concern, spatially explicit assessments of road mortality in Mediterranean herpetofauna remain limited, particularly at large temporal and landscape scales. This study investigates the spatial configuration, clustering dynamics, and seasonal concentration of amphibian and reptile road mortality within the catchment basin of Spercheios River, a protected Mediterranean ecosystem of high conservation importance included in the Natura 2000 network. Using a long-term dataset (1997–2021), we analyzed 544 wildlife–vehicle collision records involving 23 herpetofaunal species to identify spatial mortality concentrations and landscape-scale collision patterns. Spatial analytical frameworks incorporating Kernel Density Estimation and hotspot analysis were employed to detect non-random aggregations of mortality events and delineate persistent collision corridors. Species-specific road mortality intensity was additionally quantified through a relative mortality index to evaluate differential vulnerability among taxa. Analyses revealed pronounced spatial autocorrelation in road mortality distribution, with distinct mortality hotspots concentrated along ecotonal zones linking wetlands, agricultural mosaics, and riparian habitats. Several statistically significant collision clusters persisted across years, indicating the existence of stable mortality corridors associated with recurrent movement pathways of herpetofauna. Seasonal analysis demonstrated a marked intensification of hotspot formation during spring, suggesting strong associations between road mortality patterns and seasonal behavioral ecology. Mortality intensity was disproportionately higher for large-bodied snake species, particularly the Eastern Montpellier snake, Grass snake, Caspian whipsnake, and the European glass lizard. Our findings demonstrate that herpetofauna road mortality within Mediterranean riverine systems is spatially structured rather than randomly distributed, emphasizing the importance of spatial statistical approaches for identifying high-risk road segments and prioritizing mitigation measures. Integrating hotspot detection and density-based spatial analyses provides a robust framework for conservation-oriented road planning and for reducing biodiversity losses in ecologically sensitive Mediterranean landscapes."
   },
   {
    "code": "S_406",
+   "slot": 1,
    "title": "Spatial ecology of mammalian road mortality: hotspot persistence, spatial outliers, and collision risk patterns on a Mediterranean Island",
    "authors": [
     {
@@ -890,6 +840,66 @@
     }
    ],
    "abstract": "Wildlife–vehicle collisions (WVCs) constitute a spatially structured form of anthropogenic mortality that can disproportionately affect insular mammal populations, particularly within Mediterranean landscapes characterized by ecological heterogeneity and fragmented habitat mosaics. Despite increasing concern regarding road-driven biodiversity loss, the spatial organization and temporal persistence of mammalian road mortality in island ecosystems remain poorly understood. This study examines the spatial ecology of WVCs on Lesvos through a long-term survey conducted across the island's 488.7 km primary road network between 2018 and 2024. Surveys focused on five terrestrial mammalian species: Red Fox, Beech Marten, Northern White-breasted Hedgehog, Least Weasel, and Persian Squirrel. To investigate the spatial structure of mortality events, we employed an integrated spatial-statistical framework combining Kernel Density Estimation (KDE), Getis–Ord Gi* hotspot analysis, and Anselin Local Moran’s I statistics. These approaches enabled the detection of persistent mortality hotspots, statistically significant spatial clusters, and localized outlier events across the transportation network. The analyses revealed strong spatial dependence in WVC occurrence, with recurrent hotspot concentrations primarily distributed in the central and southeastern sectors of the island. Several hotspot zones persisted through multiple survey years, suggesting the existence of chronic collision-risk corridors shaped by road configuration and surrounding landscape structure. Species-specific spatial patterns reflected ecological and behavioral differentiation among taxa. Mortality records of Persian Squirrel were strongly clustered near traditional olive grove systems, whereas Red Fox and Beech Marten exhibited broader and more spatially diffuse mortality distributions. By integrating multi-year monitoring with advanced spatial statistics, this study provides a geographically explicit framework for identifying collision-risk landscapes and informing spatially targeted mitigation planning in Mediterranean insular ecosystems."
+  },
+  {
+   "code": "S_402",
+   "slot": 2,
+   "title": "Thermal landscapes of hidden architecture: Geospatial detection of thermal heterogeneity associated with European rabbit warrens",
+   "authors": [
+    {
+     "name": "Christina Valeta",
+     "affiliation": "Biodiversity Conservation Laboratory, Department of Environment, University of the Aegean, Mytilene, Greece"
+    },
+    {
+     "name": "Yiannis G. Zevgolis",
+     "affiliation": "Biodiversity Conservation Laboratory, Department of Environment, University of the Aegean, GR- 81132 Mytilene, Greece"
+    }
+   ],
+   "abstract": "Subterranean burrow systems created by fossorial mammals represent concealed forms of biological\narchitecture capable of influencing environmental conditions beyond the underground spaces they\noccupy. Despite their ecological importance, the extent to which these hidden structures generate\norganized thermal patterns at the land surface remains poorly understood. In the European rabbit,\nwarrens form spatially complex subterranean networks whose ecological expression is typically\ninferred from the distribution of visible entrances alone, potentially overlooking thermal patterns\nassociated with the underlying burrow system. To address this gap, we combined infrared\nthermography with geospatial analyses to investigate whether rabbit warrens generate structured\nthermal mosaics detectable at fine spatial scales. Thermal imagery was collected from multiple\nindependent warrens and converted into high-resolution thermal surfaces. Spatial analyses were\nsubsequently applied to quantify thermal clustering, local heterogeneity, and the spatial\nconfiguration of temperature anomalies surrounding burrow entrances and across entire warrens. In\nparallel, entrance density and spatial arrangement were used as indicators of subterranean\nstructural complexity in order to examine whether variation in surface thermal organization reflects\ndifferences in hidden burrow architecture. Our analyses revealed that rabbit warrens generate\ndistinct and spatially structured thermal mosaics rather than isolated thermal anomalies. Burrow\nentrances consistently corresponded to localized thermal hotspots relative to the surrounding\nsubstrate; however, these anomalies were embedded within broader heterogeneous thermal fields\ncharacterized by clear spatial clustering and non-random thermal organization. Furthermore,\nwarrens exhibiting greater entrance density and more complex entrance configuration displayed\nincreasingly pronounced thermal heterogeneity and stronger spatial structuring of surface\ntemperatures. These findings suggest that surface thermal patterning captures important aspects of\nthe organization of subterranean burrow systems. Overall, our study demonstrates that infrared\nthermography integrated with geospatial analysis provides a powerful non-invasive framework for\ndetecting the thermal imprint of subterranean ecosystem engineering and advances the spatial\nunderstanding of animal-generated microclimatic heterogeneity."
+  },
+  {
+   "code": "S_269",
+   "slot": 2,
+   "title": "Reconfiguring Mediterranean invasion landscapes: Future habitat expansion and dispersal dynamics of Myocastor Coypus in Greece",
+   "authors": [
+    {
+     "name": "Alexandros D. Kouris",
+     "affiliation": "Department of Sustainable Agriculture, University of Patras, Patras, Greece"
+    },
+    {
+     "name": "Apostolos Christopoulos",
+     "affiliation": "Department of Zoology and Marine Biology, Faculty of Biology, National and Kapodistrian University of Athens, Athens, Greece"
+    },
+    {
+     "name": "Christos Kotselis",
+     "affiliation": "Independent Researcher, Athens, Greece"
+    },
+    {
+     "name": "Yiannis G. Zevgolis",
+     "affiliation": "Biodiversity Conservation Laboratory, Department of Environment, University of the Aegean, Mytilene, Greece"
+    }
+   ],
+   "abstract": "Climate-driven environmental change is increasingly altering the spatial dynamics of biological\ninvasions, particularly for species tightly associated with freshwater systems and human-modified\nlandscapes. The semi-aquatic rodent Myocastor coypus has expanded rapidly across parts of\nsouthern Europe, where its burrowing activity, herbivory, and occupation of riparian habitats\ngenerate substantial ecological and economic impacts. In Greece, however, the potential for large-\nscale range expansion under future climatic conditions remains insufficiently explored despite\ngrowing evidence of establishment in lowland wetlands and drainage networks. A spatial modelling\nframework based on Maximum Entropy algorithms was employed to reconstruct the environmental\nniche of M. coypus using a nationwide occurrence dataset combined with climatic, hydrological,\nedaphic, and land-cover predictors. Variable selection focused on hydroclimatic stability, thermal\ntolerance, moisture availability, and landscape connectivity in order to capture the processes\ngoverning dispersal across heterogeneous Mediterranean environments. Model performance\nindicated strong predictive capacity, revealing that hydrological proximity and persistent surface\nmoisture overwhelmingly structure habitat suitability, while warmer thermal regimes substantially\nreduce climatic barriers to establishment. Spatial projections under multiple future climate\ntrajectories revealed a marked reorganization of invasion-prone landscapes during the twenty-first\ncentury. Environmentally suitable areas are projected to expand far beyond the species’ currently\ndocumented distribution, particularly along riparian corridors, irrigated agricultural plains, artificial\nwater networks, and ecologically sensitive wetland systems. Several projected expansion zones\nintersect with protected habitats and biodiversity-rich aquatic ecosystems, indicating an increasing\nlikelihood of ecological conflict between invasive spread and conservation priorities. The emerging\nspatial configuration additionally suggests the formation of interconnected dispersal pathways\ncapable of accelerating secondary colonization between previously isolated hydrographic basins. The\nprojected redistribution of suitable habitat indicates that ongoing hydroclimatic change may\ntransform Greece into an increasingly favorable landscape for the persistence and spread of this\ninvasive mammal, reinforcing the urgency for spatially targeted surveillance and anticipatory\nmanagement strategies."
+  },
+  {
+   "code": "S_270",
+   "slot": 2,
+   "title": "Landscape complexity rather than climate predicts habitat suitability for the Persian Squirrel",
+   "authors": [
+    {
+     "name": "Yiannis G. Zevgolis",
+     "affiliation": "Biodiversity Conservation Laboratory, Department of Environment, University of the Aegean, Mytilene, Greece"
+    },
+    {
+     "name": "Alexandros D. Kouris",
+     "affiliation": "Department of Sustainable Agriculture, University of Patras, Patras, Greece"
+    },
+    {
+     "name": "Apostolos Christopoulos",
+     "affiliation": "Department of Zoology and Marine Biology, Faculty of Biology, National and Kapodistrian University of Athens, Athens, Greece"
+    }
+   ],
+   "abstract": "Understanding the mechanisms governing species distributions is fundamental for predicting biodiversity responses to environmental change, particularly within insular ecosystems where spatial constraints and landscape heterogeneity strongly influence ecological processes. We investigated the habitat suitability patterns of the Persian squirrel (Sciurus anomalus), a regionally Vulnerable arboreal mammal, on Lesvos Island, Greece, using a species distribution modeling (SDM) framework based on the MaxEnt algorithm. To evaluate the relative influence of landscape and climatic drivers, we developed two competing SDMs: an environmental model including landscape composition and anthropogenic variables, and a second model integrating environmental predictors with bioclimatic variables associated with temperature and precipitation regimes. Both models produced high predictive performance, identifying clear spatial gradients in habitat suitability across the island. Suitable habitats were strongly concentrated in areas characterized by heterogeneous vegetation structure and persistent semi-natural landscape mosaics, whereas intensively modified or spatially homogeneous areas exhibited substantially lower predicted suitability. Jackknife analyses revealed that landscape-related variables contributed disproportionately to model gain and predictive stability, while the addition of climatic predictors resulted in only marginal improvements in explanatory power. Response curves further indicated that habitat suitability declined sharply beyond specific thresholds of landscape simplification and increasing isolation from structurally complex habitats. The spatial predictions also revealed a fragmented distribution of highly suitable habitat patches, suggesting potential restrictions in landscape connectivity for insular populations of S. anomalus. In contrast, climatic gradients showed weak spatial correspondence with predicted suitability patterns, indicating limited macroclimatic control at the scale examined. Our findings demonstrate that landscape complexity and habitat configuration are stronger determinants of Persian squirrel distribution than broad-scale climatic conditions within Mediterranean island ecosystems, highlighting the importance of integrating fine-resolution landscape predictors into SDMs for insular mammals and underscores the conservation value of maintaining heterogeneous and structurally connected landscapes for the long-term persistence of vulnerable arboreal species."
   }
  ],
  "7": [
@@ -2531,18 +2541,56 @@
  ],
  "18": [
   {
-   "code": "S_200",
-   "title": "Spatial Analysis of Socio-Economic Inequalities in the Municipality of Athens Using Geographic Information Systems (GIS)",
+   "code": "S_179",
+   "slot": 1,
+   "title": "Spatio-Temporal analysis of Rural–Urban Migration and Urban Expansion of secondary cities in Sub-Saharan Africa: The Case of Jimma city, Ethiopia",
    "authors": [
     {
-     "name": "Argyro Athanasiou",
-     "affiliation": "National Technical University of Athens (NTUA)"
+     "name": "Gemechu Debesa Wedajo",
+     "affiliation": "Jimma University, Ethiopia and KU LEUVEN, Belgium"
+    },
+    {
+     "name": "Anton Van Rompaey",
+     "affiliation": "KU LEUVEN, Belgium"
+    },
+    {
+     "name": "Kefelegn Getahun",
+     "affiliation": "Jimma University, Ethiopia"
     }
    ],
-   "abstract": "This study investigates socio-economic spatial segregation within the Municipality of Athens, exploring how the urban landscape reflects and reproduces socio-economic inequalities. Athens is characterized by a unique model of \"vertical segregation,\" while the Greek capital is currently facing new spatial challenges. The prolonged economic crisis, rapid gentrification, touristification, and shifting migration flows are actively disrupting traditional urban balances and horizontally reshaping the city's social geography.\nThe primary objective of this research is to quantitatively and spatially document these emerging disparities across the seven (7) Municipal Districts of Athens. To achieve this, a Spatial Decision Support System approach is adopted, utilizing Geographic Information Systems (GIS) as the core analytical tool. The methodology involves the collection, processing, and integration of open census data and economic indicators for the years 2011 and 2021.\nThe perspective of this study is to produce a series of thematic maps that visualize the distribution of key demographic, social, and economic variables. Rather than focusing solely on isolated indicators, the spatial analysis aims to identify geographical patterns, trends, and distinct clusters of social and economic segregation over the last decade. Ultimately, the research seeks to synthesize a comprehensive representation of intra-urban disparities, demonstrating the efficacy of GIS in analyzing sociospatial segregation. The findings aspire to provide a vital, evidence-based tool for local authorities to design and implement targeted social and urban planning policies in an increasingly polarized metropolitan environment."
+   "abstract": "Abstract\nSub-Saharan Africa is undergoing a rapid transition from predominantly rural to urban societies, with urban populations projected to exceed 50% by 2050. While existing research has largely focused on capital cities, the dynamics of secondary cities remain underexplored despite their growing demographic and economic significance. This study examines the spatio-temporal expansion and socio-economic dynamics of emerging urban neighborhoods in a secondary city, using Jimma, Ethiopia (population 239,022), as a case study.\nThe research adopted a mixed-methods approach. First, multi-temporal satellite imagery (SPOT and Sentinel-2) from 2000 to 2022 is analyzed to map urban growth patterns and land-use transformations. The results show significant spatial expansion, with four former rural settlements (Kofe, Bore, Ifa-Bula, and Hora-Gibe) progressively integrated into the urban fabric. Built-up areas more than doubled, increasing from 1,037 to 2,246 hectares, accompanied by declines in agricultural land (−9.56%), forest cover (−1.29%), and wetlands (−1.24%).\n\nIn the second phase, a household survey of 384 rural-urban migrants examines migration drivers and typologies. The findings reveal that migration to Jimma is shaped by a combination of push factors, including limited infrastructure, low wages, declining agricultural productivity, and conflict at place of origin, and pull factors, like improved urban services, better livelihood opportunities, and access to markets for small businesses, highlighting the increasing role of secondary cities as alternative urban destinations.\n\nThese findings underscore the accelerating transformation of secondary cities and their growing importance in regional urban systems. The study highlights the need for proactive urban planning and infrastructure development to accommodate rapid population influxes and mitigate unplanned spatial expansion.\n\nKeywords: Spatial analysis, Secondary cities, Rural-Urban Migration, Neighborhood-detection, Jimma city"
+  },
+  {
+   "code": "S_068",
+   "slot": 1,
+   "title": "“After different migratory routes and difficulties, Greece as a space and country of temporary or permanent residence for non-European migrants who entered the European Union via Greece ; a quantitative and interview-based survey (2022-2026)”",
+   "authors": [
+    {
+     "name": "Jean-Luc Richard",
+     "affiliation": "University of Rennes / Γαλλική Σχολή Αθηνών / Ecole française d'Athènes - French School at Athens"
+    }
+   ],
+   "abstract": "This paper presents the results of a field and statistical survey conducted primarily in Greece between 2022 and 2026, funded by the French School at Athens and the French Convergences Migrations Institute. The research aims to analyze how initial intentions, perceptions (opinions about Greece and Greeks), the consequences of obstacles (past persecutions, closed borders, discrimination, opinions of Greek people), and opportunities, potentially linked to life events (meetings, relationships, the birth of a child), contribute to determining whether or not Greece becomes the destination for future or permanent settlement. To this end, interviews and analyses of individual trajectories -at least 200- and statistical trends, and observations of political actors will be conducted. Greece represents a crucial stage for migrants (BATHAÏE, 2009). The survey involves interviewing non-European migrants in various regions of Greece (Aegean islands including areas of refugees camps, the Athens’ region, Thessaly, Macedonia, Thrace, and the Cyclades). This article will focus on the satisfactions and difficulties of migrants in different regions of Greece, which may help to explain their past, present and future geographical mobilities. mobilities. They are linked with past, present and expected living conditions and quality of life, so with poverty and socio-spatial inequalities ad discriminations (ARVANITIDIS et al., 2021). We will present methodological insights which led us to use specific statistical models (MCA) with references to others researches mainly published in English, French or Greek by various colleagues (PAPAILIAS / Παπαηλίας Θεόδωρος, 2022 ;\nSCHAPENDONK et al, “Re-routing migration geographies: Migrants, trajectories and mobility regimes”, Geoforum, Volume 116, November 2020 ; ARVANITIDIS Paschalis, , PAPAGIANNITSIS George, ZOI DESLI thina, VERGOU Penelope & GOURGOULINI Sofia, « Attitudes Towards Refugees & Immigrants in Greece: a nationallocal comparative analysis », European Journal of Geography, Vol. 12, Issue 3, 2021, pp. 039 - 055"
+  },
+  {
+   "code": "S_202",
+   "slot": 1,
+   "title": "Using spatial autocorrelation as a tool for the identification of migration patterns and socio-economic stratification",
+   "authors": [
+    {
+     "name": "Loránt Pregi",
+     "affiliation": "Pavol Jozef Šafárik University in Košice, Faculty of Science, Institute of Geography"
+    },
+    {
+     "name": "Ladislav Novotný",
+     "affiliation": "Pavol Jozef Šafárik University in Košice, Faculty of Science, Institute of Geography"
+    }
+   ],
+   "abstract": "More than three decades after the collapse of socialism, post-socialist countries continue to exhibit specific spatial patterns of internal migration and socio-economic stratification. However, detailed analyses of the spatial aspects of both processes remain limited. This study uses Slovakia as a case study to demonstrate how spatial autocorrelation methods can be applied to evaluate internal migration by age and educational attainment, as well as socio-economic stratification, across multiple spatial scales. The aim of this study is to identify and interpret spatial patterns of migration processes and socio-economic stratification using a combination of global and local spatial autocorrelation techniques. Global Moran’s I is employed to assess the overall spatial structure of selected indicators, while local indicators (Anselin Local Moran’s I and Getis-Ord Gi*) serve to detect spatial clusters and outliers at local, and sub-local levels. Emerging Hot Spot Analysis (Space-Time Pattern Mining) is further used to capture the temporal dynamics of these processes and to identify stable, emerging, and declining spatial concentrations. The results highlight significant spatial differentiation in intra- and inter-regional migration, including patterns of decentralization and metropolization, as well as clear differences in migration selectivity by age and educational attainment. At the same time, the applied methods reveal clear spatial clustering of socio-economic characteristics, enabling the identification of areas with specific stratification profiles. The study presents a methodological framework for the application of spatial autocorrelation techniques in the assessment of migration processes and socio-economic stratification, offering detailed insights into their spatial organisation and evolution.\nAcknowledgement:\nFunded by the project VEGA 1/0768/24 “Multiscale assessment of spatial variability of social-economic population stratification”."
   },
   {
    "code": "S_089",
+   "slot": 1,
    "title": "Spatial distribution of foreigners in Greek Municipalities and its demographic implications, 1991-2021",
    "authors": [
     {
@@ -2561,67 +2609,8 @@
    "abstract": "This research examines the spatial distribution of the foreign population across Greek municipalities over four consecutive censuses (1991, 2001, 2011 and 2021), using municipality-level data on the total and foreign populations, by gender and five-year age group. The aim is to look into the demographic implications of immigration and foreign presence in Greek municipalities over the past four decades, a period marked by persistently low fertility, population ageing, elevated mortality and, consequently, population decline since 2010. The analysis proceeds in two steps. First, it measures and maps the spatial concentration and demographic structure of the foreign population, with a focus on spatiotemporal gender and age differences. Second, it assesses the demographic profiles of the municipalities, according to their foreign population shares in relation to population ageing and fertility. To this end, we employ descriptive statistics and indicators, namely location quotients and spatial autocorrelation, in order to identify clusters and outliers in foreign settlement. The findings are expected to reveal a shift in the long-term trend of foreign settlement from the peripheral municipalities of mainland Greece towards Attica and the Greek islands, persistent spatial concentration in selected urban and peri-urban areas, as well as more diverse age structures in municipalities with higher foreign presence. This work aspires to contribute to spatial demography and population and migration research in Greece, by offering a framework for relating migration patterns to broader demographic change."
   },
   {
-   "code": "S_196",
-   "title": "Commuting Distance and Sectoral Structure of Employment: Evidence from Slovakia",
-   "authors": [
-    {
-     "name": "Štefan Gábor",
-     "affiliation": "Institute of Geography, Faculty of Science, Pavol Jozef Šafárik University in Košice, Slovakia"
-    },
-    {
-     "name": "Loránt Pregi",
-     "affiliation": "Institute of Geography, Faculty of Science, Pavol Jozef Šafárik University in Košice, Slovakia"
-    }
-   ],
-   "abstract": "This study addresses daily commuting as a dynamic component of spatial socio-economic stratification in Slovakia. It aims to analyse how commuting distances relate to the sectoral structure of employment and how these relationships vary across spatial scales. In contrast to approaches that rely primarily on static indicators of inequality, the paper emphasises the role of spatial mobility in connecting locations with differentiated employment opportunities. The analysis draws on municipality-level data on commuting flows and examines how commuting distances relate to the sectoral composition of employment defined by SK NACE classifications. A multilevel perspective is applied, comparing patterns at the regional level (functional urban regions) and local level (municipalities). This enables the identification of variations in commuting behaviour across spatial scales and economic sectors. Distance-based measures of commuting are combined with sectoral classifications to explore sector-specific mobility profiles. The analysis examines whether commuting distances differ across economic activities and how these differences relate to the spatial distribution of jobs and labour supply. The study highlights the analytical potential of incorporating mobility into the study of socio-economic differentiation. By focusing on commuting patterns, it aims to provide additional insight into the spatial organisation of labour markets and the processes shaping socio-economic stratification in Slovakia.\nAcknowledgement:\nThis research was supported by the Scientific Grant Agency VEGA under project No. 1/0768/24: Multiscale assessment of spatial variability of social-economic population stratification."
-  },
-  {
-   "code": "S_377",
-   "title": "Spatial approach to mobility in the countryside of Greece: new trends?",
-   "authors": [
-    {
-     "name": "Stamatina Kaklamani",
-     "affiliation": "Department of Sociology, University of Crete"
-    },
-    {
-     "name": "Konstantinos Zafeiris",
-     "affiliation": "Department of Humanities, Democritus University of Thrace"
-    }
-   ],
-   "abstract": "In Europe, the study of geographical mobility, approached from different perspectives, has been the subject of scientific research in the fields of geography, spatial demography and spatial econometrics in recent decades.\nIn Greece, intense mobility is recorded, which changes the intensity and characteristics of the local populations, with differentiations of urban and rural space, reshapes the physiognomy of the areas and leads to uneven developments and typologies.\nIn the context of this work focusing on rural space, it is proposed to investigate the levels of phenomenal migration at a low spatial level (municipal units) during the recent inter-census period (2011-2021). The study aims to investigate the intensity of the phenomenon and the possible existence of different and distinct groups of territorial units."
-  },
-  {
-   "code": "S_342",
-   "title": "The Political Geography of Modernity: Social Engineering Through Electricity in Liverpool and the Mapping of Spatial Inequality (1879–1926)",
-   "authors": [
-    {
-     "name": "Ismail Kocatas",
-     "affiliation": "University of Liverpool"
-    }
-   ],
-   "abstract": "This paper examines the dramatic urban, social, and demographic movements that Liverpool underwent between 1879 and 1926 from a political geography perspective, using the method of \"urban history mapping.\" It discusses the constitutive role that the city's relationship with electricity played in this spatial and political context. The study analyzes how infrastructure processes, beginning with the 1879 Liverpool Corporation Electric Lighting Act, the UK's first electricity legislation, and centralized by the 1926 Electricity (Supply) Act, were applied selectively and hierarchically in different parts of the city, and how transportation (electric tram) lines affected the city's spatial development. This half-century period represents not only technological advancement but also a political and economic redistribution of urban space through \"Private Acts of Parliament.\"\n\nMethodologically, the study questions the relationship between local council ownership, class, and demographics by mapping the spatial projections of local laws. The wide boulevards and electric tram lines developed by urban engineer J. Brodie increased urban mobility while simultaneously creating a new \"hierarchy of accessibility\" based on service access capacity. In this context, the electrification and transportation networks in commercially oriented port areas and affluent suburbs will be compared with \"slum clearance\" operations in low-income neighborhoods. The analysis discusses, through the lens of political geography, for whom access to infrastructure services has become a \"right\" and for whom it has become a \"mechanism of control.\" Spatial analysis of regulations such as the 1890 Housing of the Working Classes Act and the 1905 Aliens Act investigates how infrastructure, as a tool of social engineering, has pushed poor and immigrant populations to the periphery of the city or isolated them in certain areas. Ultimately, this paper reveals, through maps, how infrastructure and legislative activities have institutionalized urban inequality in Liverpool."
-  },
-  {
-   "code": "S_058",
-   "title": "Mapping Energy Poverty as Socio-Spatial Vulnerability: The Role of Demographic, Housing, and Territorial Inequalities",
-   "authors": [
-    {
-     "name": "Nikolaos Kokosis",
-     "affiliation": "University of Thessaly"
-    },
-    {
-     "name": "Dimitrios Kallioras",
-     "affiliation": "University of Thessaly"
-    },
-    {
-     "name": "Chrysi Laspidou",
-     "affiliation": "University of Thessaly"
-    }
-   ],
-   "abstract": "This paper approaches energy poverty as a multidimensional form of socio-spatial vulnerability. Its purpose is twofold: first, to identify the key mechanisms that intensify households’ inability to secure adequate and affordable energy services; and second, to examine how these inequalities vary across space. The analysis is built on an investigation of the international literature focusing on the drivers of energy poverty, such as low income, increasing energy costs, poor residential energy efficiency, and the social vulnerability of specific demographic categories.\nThe study focuses on households with elderly individuals, children, single-parent families, unemployed persons, tenants, and individuals from migrant backgrounds, as these demographics are more susceptible to energy deprivation. It also examines how building standards affect people's fundamental needs. It indicates that older buildings which are not well-insulated require more heating and cooling, that increases the cost of living and negatively impacts the quality of life. Additionally, this work investigates how urban, suburban, and rural areas, as well as small towns, are particularly vulnerable based on energy infrastructure accessibility, housing costs, climate, and population distribution.\nIn general, energy poverty is not perceived as a distinct economic problem but as an indication of broader socioeconomic and spatial disparities. Its connection with demographic change, housing conditions, and unequal living environments makes it a critical field for understanding contemporary socio-spatial transformations. Identifying its determinants is essential for the design of targeted policies related to social protection, energy upgrading, and spatial justice. Focusing on these aspects can promote the development of more equitable solutions tailored to the specific needs of varied locations and social groups. This can help reduce energy deprivation and strengthen social cohesion during the current energy, economic, and climate crises."
-  },
-  {
    "code": "S_368",
+   "slot": 1,
    "title": "A Comparative Analysis of Marital Dissolution and Attitudes Toward Divorce in Greece, Italy, Spain, and France",
    "authors": [
     {
@@ -2644,22 +2633,8 @@
    "abstract": "Abstract:\nSince the 1970s, family-related behaviours in Southern Europe have undergone significant changes. More specifically, a gradual increase in the frequency of marital dissolution has been observed, accompanied by substantial changes in social attitudes and perceptions regarding marriage and divorce. The present study comparatively examines marital dissolution and attitudes toward divorce in Greece, Italy, Spain, and France, highlighting both similarities and differences among these countries.\nThe research is based on two main axes of analysis. First, a demographic analysis of the intensity and timing of divorce is conducted from the 1950s to the present, using both period and cohort divorce indicators (marriage cohort analysis). Second, attitudes toward divorce are examined using data from the European Values Study 2017. Descriptive statistics, chi-square tests of independence, logistic regression, and machine learning algorithms (XGBoost, Random Forest, LightGBM, and CatBoost) are employed.\nThe findings indicate that France and Spain display higher divorce intensity and greater acceptance of divorce compared to Greece and Italy, where changes have occurred more slowly and are closely associated with institutional and legislative developments. Age, sex, religiosity, marital status, and perceptions regarding the institution of marriage appear to play an important role in shaping attitudes toward divorce. Machine learning models further identify age and religiosity as the most important predictors.\n\nKeywords:\nmarital dissolution, attitudes toward divorce, Southern Europe, religiosity, demographic analysis and machine learning models"
   },
   {
-   "code": "S_362",
-   "title": "Mapping Socio-spatial Inequalities in Thessaloniki: Emerging Divisions in a Mediterranean Metropolis",
-   "authors": [
-    {
-     "name": "Apostolos Lagarias",
-     "affiliation": "Department of Planning and Regional Development, University of Thessaly"
-    },
-    {
-     "name": "Aristotelis Vartholomaios",
-     "affiliation": "Department of Planning and Regional Development, University of Thessaly"
-    }
-   ],
-   "abstract": "Socio-spatial inequalities in Mediterranean cities have long been understood as producing relatively “soft” patterns of segregation, embedded within dense, compact, and socially mixed urban fabrics. However, emerging evidence suggests that these patterns may, in some cases, be evolving into sharper internal divisions. This paper revisits this question by examining whether contemporary dynamics are reshaping the traditionally cohesive structure of Southern European metropolitan areas, through an original case study in the city of Thessaloniki.\nEstablished literature on Greek cities like Athens, highlights a coexistence of social mixing and micro-scale segregation—including neighborhood-level differentiation and vertical stratification within residential buildings. The research develops a methodological framework combining multivariate statistical analysis with location quotient mapping.\nFindings reveal a persistent and longitudinally stable pattern of differentiation between the southeastern and northwestern suburban zones of Thessaloniki, suggesting a gradual consolidation of polarized spatial structures built upon historical procedures and a strong layer of spontaneous urbanization. At the same time, the metropolitan core continues to function as a zone of relative social amalgamation, accommodating diverse populations across income, age, and ethnic lines. Yet this integrative capacity is increasingly under pressure. Processes such as gentrification and the rapid expansion of short-term rental platforms are transforming central neighborhoods, potentially undermining their traditional role as social \"connectors\" within the urban system.\nFrom a planning perspective, these dynamics unfold alongside a weakening of metropolitan-scale governance and a shift toward localized, project-based interventions, often coupled with large-scale infrastructure developments implemented with limited social consensus and public participation. This transition risks reinforcing existing spatial inequalities, particularly along emerging east–west axes of division. Mediterranean cities may be entering a new phase in which historically diffuse socio-spatial patterns give way to more pronounced and structurally embedded forms of urban fragmentation."
-  },
-  {
    "code": "S_238",
+   "slot": 2,
    "title": "The relationship between geography and migration in the early decades of scientific activity of the Italian Geographical Society",
    "authors": [
     {
@@ -2671,6 +2646,7 @@
   },
   {
    "code": "S_155",
+   "slot": 2,
    "title": "Mapping Rural Depopulation in Greece (1928–2021): Multi-Scalar Socio-Spatial Patterns from the Peloponnese",
    "authors": [
     {
@@ -2681,33 +2657,24 @@
    "abstract": "Rural depopulation in Greece has unfolded unevenly across space and time, producing differentiated settlement trajectories shaped by accessibility, historical contingencies, and shifting administrative frameworks. Capturing these dynamics requires spatially explicit, temporally consistent data capable of supporting multi-scalar comparison across changing administrative geographies. This project draws on a GIS-ready, georeferenced population dataset derived from digitised Greek census records (1928–2021), with a focus on the Peloponnese. By integrating settlement-level population data within a unified spatial framework and linking them to successive administrative geographies, the dataset supports consistent longitudinal analysis despite boundary changes. The analysis highlights distinct socio-spatial patterns of demographic change, including: (i) asynchronous population peaks across settlements, (ii) spatially uneven rates of decline associated with remoteness, connectivity, and differential access to economic opportunities, and (iii) divergent post-decline trajectories, ranging from persistent contraction to partial stabilisation. These patterns reflect broader processes such as post-war urbanisation, mid-twentieth-century emigration, and the reorganisation of administrative structures, but also reveal significant local variation that resists uniform interpretation. Through thematic mapping and multi-scalar visualisation, the presentation demonstrates how long-term demographic transformations can be traced across shifting spatial frameworks, enabling the identification of both regional regularities and localised deviations. While the underlying georeferenced dataset provides the empirical foundation for this analysis, this presentation focuses on its analytical application to mapping socio-spatial transformation and population dynamics over time, as part of a broader project involving the digitization of multi-year census data and the development of a geospatial analytical framework. Ongoing work extends the dataset to the national scale."
   },
   {
-   "code": "S_202",
-   "title": "Using spatial autocorrelation as a tool for the identification of migration patterns and socio-economic stratification",
+   "code": "S_377",
+   "slot": 2,
+   "title": "Spatial approach to mobility in the countryside of Greece: new trends?",
    "authors": [
     {
-     "name": "Loránt Pregi",
-     "affiliation": "Pavol Jozef Šafárik University in Košice, Faculty of Science, Institute of Geography"
+     "name": "Stamatina Kaklamani",
+     "affiliation": "Department of Sociology, University of Crete"
     },
     {
-     "name": "Ladislav Novotný",
-     "affiliation": "Pavol Jozef Šafárik University in Košice, Faculty of Science, Institute of Geography"
+     "name": "Konstantinos Zafeiris",
+     "affiliation": "Department of Humanities, Democritus University of Thrace"
     }
    ],
-   "abstract": "More than three decades after the collapse of socialism, post-socialist countries continue to exhibit specific spatial patterns of internal migration and socio-economic stratification. However, detailed analyses of the spatial aspects of both processes remain limited. This study uses Slovakia as a case study to demonstrate how spatial autocorrelation methods can be applied to evaluate internal migration by age and educational attainment, as well as socio-economic stratification, across multiple spatial scales. The aim of this study is to identify and interpret spatial patterns of migration processes and socio-economic stratification using a combination of global and local spatial autocorrelation techniques. Global Moran’s I is employed to assess the overall spatial structure of selected indicators, while local indicators (Anselin Local Moran’s I and Getis-Ord Gi*) serve to detect spatial clusters and outliers at local, and sub-local levels. Emerging Hot Spot Analysis (Space-Time Pattern Mining) is further used to capture the temporal dynamics of these processes and to identify stable, emerging, and declining spatial concentrations. The results highlight significant spatial differentiation in intra- and inter-regional migration, including patterns of decentralization and metropolization, as well as clear differences in migration selectivity by age and educational attainment. At the same time, the applied methods reveal clear spatial clustering of socio-economic characteristics, enabling the identification of areas with specific stratification profiles. The study presents a methodological framework for the application of spatial autocorrelation techniques in the assessment of migration processes and socio-economic stratification, offering detailed insights into their spatial organisation and evolution.\nAcknowledgement:\nFunded by the project VEGA 1/0768/24 “Multiscale assessment of spatial variability of social-economic population stratification”."
-  },
-  {
-   "code": "S_068",
-   "title": "“After different migratory routes and difficulties, Greece as a space and country of temporary or permanent residence for non-European migrants who entered the European Union via Greece ; a quantitative and interview-based survey (2022-2026)”",
-   "authors": [
-    {
-     "name": "Jean-Luc Richard",
-     "affiliation": "University of Rennes / Γαλλική Σχολή Αθηνών / Ecole française d'Athènes - French School at Athens"
-    }
-   ],
-   "abstract": "This paper presents the results of a field and statistical survey conducted primarily in Greece between 2022 and 2026, funded by the French School at Athens and the French Convergences Migrations Institute. The research aims to analyze how initial intentions, perceptions (opinions about Greece and Greeks), the consequences of obstacles (past persecutions, closed borders, discrimination, opinions of Greek people), and opportunities, potentially linked to life events (meetings, relationships, the birth of a child), contribute to determining whether or not Greece becomes the destination for future or permanent settlement. To this end, interviews and analyses of individual trajectories -at least 200- and statistical trends, and observations of political actors will be conducted. Greece represents a crucial stage for migrants (BATHAÏE, 2009). The survey involves interviewing non-European migrants in various regions of Greece (Aegean islands including areas of refugees camps, the Athens’ region, Thessaly, Macedonia, Thrace, and the Cyclades). This article will focus on the satisfactions and difficulties of migrants in different regions of Greece, which may help to explain their past, present and future geographical mobilities. mobilities. They are linked with past, present and expected living conditions and quality of life, so with poverty and socio-spatial inequalities ad discriminations (ARVANITIDIS et al., 2021). We will present methodological insights which led us to use specific statistical models (MCA) with references to others researches mainly published in English, French or Greek by various colleagues (PAPAILIAS / Παπαηλίας Θεόδωρος, 2022 ;\nSCHAPENDONK et al, “Re-routing migration geographies: Migrants, trajectories and mobility regimes”, Geoforum, Volume 116, November 2020 ; ARVANITIDIS Paschalis, , PAPAGIANNITSIS George, ZOI DESLI thina, VERGOU Penelope & GOURGOULINI Sofia, « Attitudes Towards Refugees & Immigrants in Greece: a nationallocal comparative analysis », European Journal of Geography, Vol. 12, Issue 3, 2021, pp. 039 - 055"
+   "abstract": "In Europe, the study of geographical mobility, approached from different perspectives, has been the subject of scientific research in the fields of geography, spatial demography and spatial econometrics in recent decades.\nIn Greece, intense mobility is recorded, which changes the intensity and characteristics of the local populations, with differentiations of urban and rural space, reshapes the physiognomy of the areas and leads to uneven developments and typologies.\nIn the context of this work focusing on rural space, it is proposed to investigate the levels of phenomenal migration at a low spatial level (municipal units) during the recent inter-census period (2011-2021). The study aims to investigate the intensity of the phenomenon and the possible existence of different and distinct groups of territorial units."
   },
   {
    "code": "S_060",
+   "slot": 2,
    "title": "Rethinking Labour Market Areas: Comparison of the Traditional Commuting Threshold Method with a 3SFCA–Modified Huff Approach",
    "authors": [
     {
@@ -2722,23 +2689,80 @@
    "abstract": "Labour Market Areas (LMAs) are increasingly used in regional and transport planning because they can capture the geography and function of labour markets more effectively than administrative boundaries. Traditionally, LMAs are delineated through commuting flows, using fixed thresholds to identify functional integration between municipalities, settlements, etc. Nevertheless, such approaches may overlook variations in spatial interaction potential, competition effects and the heterogenous attractiveness of employment centres. In this context, the present study examines alternative ways of identifying LMAs in the island region of Crete, Greece, by comparing the conventional commuting threshold method with a methodology based on a 3-step floating catchment area (3SFCA) framework combined with a modified Huff model and cluster analysis.\nUsing data from the 2021 Population Census at the municipal unit (LAU-2) level, the first approach defines LMAs according to the traditional rule that areas are functionally linked when at least 15% of employed residents commute to a neighbouring zone for work. The second approach estimates probabilistic labour market interactions by incorporating both travel impedance, i.e., generalised travel cost, and the relative attractiveness of destinations through the modified Huff model formulation embedded in the 3SFCA method. The resulting interaction patterns are then grouped through clustering techniques to identify spatially coherent labour market areas.\nThe comparison underscores important differences in the geography, size and internal structure of the resulting LMAs. While the traditional method identifies clear functional linkages based on observed commuting intensity, the alternative approach reveals more nuanced patterns of labour market integration by accounting for competition among destinations and spatial accessibility to employment. The outcomes can contribute to the discussion about the methodology of delineating LMAs. It can further offer useful insights for regional planning and transport policy in insular and peripheral contexts, where labour market interactions are strongly shaped by uneven accessibility and settlement structure."
   },
   {
-   "code": "S_179",
-   "title": "Spatio-Temporal analysis of Rural–Urban Migration and Urban Expansion of secondary cities in Sub-Saharan Africa: The Case of Jimma city, Ethiopia",
+   "code": "S_196",
+   "slot": 2,
+   "title": "Commuting Distance and Sectoral Structure of Employment: Evidence from Slovakia",
    "authors": [
     {
-     "name": "Gemechu Debesa Wedajo",
-     "affiliation": "Jimma University, Ethiopia and KU LEUVEN, Belgium"
+     "name": "Štefan Gábor",
+     "affiliation": "Institute of Geography, Faculty of Science, Pavol Jozef Šafárik University in Košice, Slovakia"
     },
     {
-     "name": "Anton Van Rompaey",
-     "affiliation": "KU LEUVEN, Belgium"
-    },
-    {
-     "name": "Kefelegn Getahun",
-     "affiliation": "Jimma University, Ethiopia"
+     "name": "Loránt Pregi",
+     "affiliation": "Institute of Geography, Faculty of Science, Pavol Jozef Šafárik University in Košice, Slovakia"
     }
    ],
-   "abstract": "Abstract\nSub-Saharan Africa is undergoing a rapid transition from predominantly rural to urban societies, with urban populations projected to exceed 50% by 2050. While existing research has largely focused on capital cities, the dynamics of secondary cities remain underexplored despite their growing demographic and economic significance. This study examines the spatio-temporal expansion and socio-economic dynamics of emerging urban neighborhoods in a secondary city, using Jimma, Ethiopia (population 239,022), as a case study.\nThe research adopted a mixed-methods approach. First, multi-temporal satellite imagery (SPOT and Sentinel-2) from 2000 to 2022 is analyzed to map urban growth patterns and land-use transformations. The results show significant spatial expansion, with four former rural settlements (Kofe, Bore, Ifa-Bula, and Hora-Gibe) progressively integrated into the urban fabric. Built-up areas more than doubled, increasing from 1,037 to 2,246 hectares, accompanied by declines in agricultural land (−9.56%), forest cover (−1.29%), and wetlands (−1.24%).\n\nIn the second phase, a household survey of 384 rural-urban migrants examines migration drivers and typologies. The findings reveal that migration to Jimma is shaped by a combination of push factors, including limited infrastructure, low wages, declining agricultural productivity, and conflict at place of origin, and pull factors, like improved urban services, better livelihood opportunities, and access to markets for small businesses, highlighting the increasing role of secondary cities as alternative urban destinations.\n\nThese findings underscore the accelerating transformation of secondary cities and their growing importance in regional urban systems. The study highlights the need for proactive urban planning and infrastructure development to accommodate rapid population influxes and mitigate unplanned spatial expansion.\n\nKeywords: Spatial analysis, Secondary cities, Rural-Urban Migration, Neighborhood-detection, Jimma city"
+   "abstract": "This study addresses daily commuting as a dynamic component of spatial socio-economic stratification in Slovakia. It aims to analyse how commuting distances relate to the sectoral structure of employment and how these relationships vary across spatial scales. In contrast to approaches that rely primarily on static indicators of inequality, the paper emphasises the role of spatial mobility in connecting locations with differentiated employment opportunities. The analysis draws on municipality-level data on commuting flows and examines how commuting distances relate to the sectoral composition of employment defined by SK NACE classifications. A multilevel perspective is applied, comparing patterns at the regional level (functional urban regions) and local level (municipalities). This enables the identification of variations in commuting behaviour across spatial scales and economic sectors. Distance-based measures of commuting are combined with sectoral classifications to explore sector-specific mobility profiles. The analysis examines whether commuting distances differ across economic activities and how these differences relate to the spatial distribution of jobs and labour supply. The study highlights the analytical potential of incorporating mobility into the study of socio-economic differentiation. By focusing on commuting patterns, it aims to provide additional insight into the spatial organisation of labour markets and the processes shaping socio-economic stratification in Slovakia.\nAcknowledgement:\nThis research was supported by the Scientific Grant Agency VEGA under project No. 1/0768/24: Multiscale assessment of spatial variability of social-economic population stratification."
+  },
+  {
+   "code": "S_058",
+   "slot": 3,
+   "title": "Mapping Energy Poverty as Socio-Spatial Vulnerability: The Role of Demographic, Housing, and Territorial Inequalities",
+   "authors": [
+    {
+     "name": "Nikolaos Kokosis",
+     "affiliation": "University of Thessaly"
+    },
+    {
+     "name": "Dimitrios Kallioras",
+     "affiliation": "University of Thessaly"
+    },
+    {
+     "name": "Chrysi Laspidou",
+     "affiliation": "University of Thessaly"
+    }
+   ],
+   "abstract": "This paper approaches energy poverty as a multidimensional form of socio-spatial vulnerability. Its purpose is twofold: first, to identify the key mechanisms that intensify households’ inability to secure adequate and affordable energy services; and second, to examine how these inequalities vary across space. The analysis is built on an investigation of the international literature focusing on the drivers of energy poverty, such as low income, increasing energy costs, poor residential energy efficiency, and the social vulnerability of specific demographic categories.\nThe study focuses on households with elderly individuals, children, single-parent families, unemployed persons, tenants, and individuals from migrant backgrounds, as these demographics are more susceptible to energy deprivation. It also examines how building standards affect people's fundamental needs. It indicates that older buildings which are not well-insulated require more heating and cooling, that increases the cost of living and negatively impacts the quality of life. Additionally, this work investigates how urban, suburban, and rural areas, as well as small towns, are particularly vulnerable based on energy infrastructure accessibility, housing costs, climate, and population distribution.\nIn general, energy poverty is not perceived as a distinct economic problem but as an indication of broader socioeconomic and spatial disparities. Its connection with demographic change, housing conditions, and unequal living environments makes it a critical field for understanding contemporary socio-spatial transformations. Identifying its determinants is essential for the design of targeted policies related to social protection, energy upgrading, and spatial justice. Focusing on these aspects can promote the development of more equitable solutions tailored to the specific needs of varied locations and social groups. This can help reduce energy deprivation and strengthen social cohesion during the current energy, economic, and climate crises."
+  },
+  {
+   "code": "S_342",
+   "slot": 3,
+   "title": "The Political Geography of Modernity: Social Engineering Through Electricity in Liverpool and the Mapping of Spatial Inequality (1879–1926)",
+   "authors": [
+    {
+     "name": "Ismail Kocatas",
+     "affiliation": "University of Liverpool"
+    }
+   ],
+   "abstract": "This paper examines the dramatic urban, social, and demographic movements that Liverpool underwent between 1879 and 1926 from a political geography perspective, using the method of \"urban history mapping.\" It discusses the constitutive role that the city's relationship with electricity played in this spatial and political context. The study analyzes how infrastructure processes, beginning with the 1879 Liverpool Corporation Electric Lighting Act, the UK's first electricity legislation, and centralized by the 1926 Electricity (Supply) Act, were applied selectively and hierarchically in different parts of the city, and how transportation (electric tram) lines affected the city's spatial development. This half-century period represents not only technological advancement but also a political and economic redistribution of urban space through \"Private Acts of Parliament.\"\n\nMethodologically, the study questions the relationship between local council ownership, class, and demographics by mapping the spatial projections of local laws. The wide boulevards and electric tram lines developed by urban engineer J. Brodie increased urban mobility while simultaneously creating a new \"hierarchy of accessibility\" based on service access capacity. In this context, the electrification and transportation networks in commercially oriented port areas and affluent suburbs will be compared with \"slum clearance\" operations in low-income neighborhoods. The analysis discusses, through the lens of political geography, for whom access to infrastructure services has become a \"right\" and for whom it has become a \"mechanism of control.\" Spatial analysis of regulations such as the 1890 Housing of the Working Classes Act and the 1905 Aliens Act investigates how infrastructure, as a tool of social engineering, has pushed poor and immigrant populations to the periphery of the city or isolated them in certain areas. Ultimately, this paper reveals, through maps, how infrastructure and legislative activities have institutionalized urban inequality in Liverpool."
+  },
+  {
+   "code": "S_200",
+   "slot": 3,
+   "title": "Spatial Analysis of Socio-Economic Inequalities in the Municipality of Athens Using Geographic Information Systems (GIS)",
+   "authors": [
+    {
+     "name": "Argyro Athanasiou",
+     "affiliation": "National Technical University of Athens (NTUA)"
+    }
+   ],
+   "abstract": "This study investigates socio-economic spatial segregation within the Municipality of Athens, exploring how the urban landscape reflects and reproduces socio-economic inequalities. Athens is characterized by a unique model of \"vertical segregation,\" while the Greek capital is currently facing new spatial challenges. The prolonged economic crisis, rapid gentrification, touristification, and shifting migration flows are actively disrupting traditional urban balances and horizontally reshaping the city's social geography.\nThe primary objective of this research is to quantitatively and spatially document these emerging disparities across the seven (7) Municipal Districts of Athens. To achieve this, a Spatial Decision Support System approach is adopted, utilizing Geographic Information Systems (GIS) as the core analytical tool. The methodology involves the collection, processing, and integration of open census data and economic indicators for the years 2011 and 2021.\nThe perspective of this study is to produce a series of thematic maps that visualize the distribution of key demographic, social, and economic variables. Rather than focusing solely on isolated indicators, the spatial analysis aims to identify geographical patterns, trends, and distinct clusters of social and economic segregation over the last decade. Ultimately, the research seeks to synthesize a comprehensive representation of intra-urban disparities, demonstrating the efficacy of GIS in analyzing sociospatial segregation. The findings aspire to provide a vital, evidence-based tool for local authorities to design and implement targeted social and urban planning policies in an increasingly polarized metropolitan environment."
+  },
+  {
+   "code": "S_362",
+   "slot": 3,
+   "title": "Mapping Socio-spatial Inequalities in Thessaloniki: Emerging Divisions in a Mediterranean Metropolis",
+   "authors": [
+    {
+     "name": "Apostolos Lagarias",
+     "affiliation": "Department of Planning and Regional Development, University of Thessaly"
+    },
+    {
+     "name": "Aristotelis Vartholomaios",
+     "affiliation": "Department of Planning and Regional Development, University of Thessaly"
+    }
+   ],
+   "abstract": "Socio-spatial inequalities in Mediterranean cities have long been understood as producing relatively “soft” patterns of segregation, embedded within dense, compact, and socially mixed urban fabrics. However, emerging evidence suggests that these patterns may, in some cases, be evolving into sharper internal divisions. This paper revisits this question by examining whether contemporary dynamics are reshaping the traditionally cohesive structure of Southern European metropolitan areas, through an original case study in the city of Thessaloniki.\nEstablished literature on Greek cities like Athens, highlights a coexistence of social mixing and micro-scale segregation—including neighborhood-level differentiation and vertical stratification within residential buildings. The research develops a methodological framework combining multivariate statistical analysis with location quotient mapping.\nFindings reveal a persistent and longitudinally stable pattern of differentiation between the southeastern and northwestern suburban zones of Thessaloniki, suggesting a gradual consolidation of polarized spatial structures built upon historical procedures and a strong layer of spontaneous urbanization. At the same time, the metropolitan core continues to function as a zone of relative social amalgamation, accommodating diverse populations across income, age, and ethnic lines. Yet this integrative capacity is increasingly under pressure. Processes such as gentrification and the rapid expansion of short-term rental platforms are transforming central neighborhoods, potentially undermining their traditional role as social \"connectors\" within the urban system.\nFrom a planning perspective, these dynamics unfold alongside a weakening of metropolitan-scale governance and a shift toward localized, project-based interventions, often coupled with large-scale infrastructure developments implemented with limited social consensus and public participation. This transition risks reinforcing existing spatial inequalities, particularly along emerging east–west axes of division. Mediterranean cities may be entering a new phase in which historically diffuse socio-spatial patterns give way to more pronounced and structurally embedded forms of urban fragmentation."
   }
  ],
  "19": [
@@ -3393,6 +3417,7 @@
  "27": [
   {
    "code": "S_061",
+   "slot": 1,
    "title": "Left-Behind Places in an Age of Polycrisis: Political Discontent and Spatial Inequality",
    "authors": [
     {
@@ -3407,7 +3432,32 @@
    "abstract": "The relationship between polycrisis and spatial inequality remains insufficiently explored, particularly with regard to its political implications. This paper addresses this gap by examining how intersecting crises reshape territorial disadvantage and contribute to the reproduction of ‘left-behindness’, with particular reference to the European Union. It argues that contemporary crises should not be understood as isolated shocks, but as interacting processes whose cumulative effects are spatially mediated and unevenly absorbed across territories. These dynamics carry significant political implications, as the compounded exposure to crises deepens territorially rooted grievances and contributes to the erosion of institutional trust. In this context, regions, cities, and neighborhoods characterized by structural disadvantage are especially vulnerable to these overlapping pressures.\nBuilding on the literature on left-behind places and the geography of discontent, the paper develops an analytical framework centered on a “double dialectic” of disadvantage formation. The first dialectic concerns the interaction among local dimensions of left-behindness, including economic fragility, demographic decline, weak infrastructure, and weakened local governance capacity, conditions that undermine institutional accountability and deepen perceptions of political abandonment. The second concerns the intersection of external crises operating across broader scales, such as economic, geopolitical, environmental, and migration-related shocks. The paper argues that political discontent is often rooted in the interaction between these two processes, as repeated crises intensify territorially concentrated grievances, perceptions of abandonment, and distrust in institutions.\nThe argument is illustrated by the case of the North Aegean Region in Greece, a peripheral, structurally vulnerable territory where multiple crises have accumulated over time. By linking polycrisis to spatial inequality and political discontent, the paper contributes to current debates on left-behind places and offers a framework for rethinking territorial cohesion and place-sensitive policy in an era of heightened uncertainty."
   },
   {
+   "code": "S_075",
+   "slot": 1,
+   "title": "The Italian Geography of Discontent: Beyond the North-South Divide?",
+   "authors": [
+    {
+     "name": "Yannis Radin",
+     "affiliation": "University of Thessaly"
+    }
+   ],
+   "abstract": "Across Europe, economically stagnating regions have become increasingly associated with political discontent and the rise of far-right parties. This trend is particularly evident in Italy, a country with a historically fraught political history and characterised by pronounced spatial inequalities, most notably the persistent North–South divide. The September 2022 general election, which brought Giorgia Meloni and her far-right coalition to power, signaled a critical moment in the mainstreaming of these political forces.\n\nWhile regional disparities in Italy are well documented and manifested in differences in income, productivity, infrastructure, and access to services; recent research moves beyond this binary framework to focus on “dissatisfied regions”. This presentation argues that discontent is not confined to economically disadvantaged areas but is also present in more affluent regions, driven by disillusionment with the political system. Rather than being fuelled by hardship per se, such discontent reflects a sense of relative loss: the perception that neighbouring countries or regions are prospering while one’s own fortunes stagnate or decline. This dynamic suggests that political behaviours are steadily shaped by a sense of loss of voice, posing a significant challenge for policymakers seeking to address declining institutional trust and restore a sense of political inclusion."
+  },
+  {
+   "code": "S_320",
+   "slot": 1,
+   "title": "Unequal distribution of natural resources as a cause of international conflict",
+   "authors": [
+    {
+     "name": "Georgia-Akrivi (Gina) Panagopoulou",
+     "affiliation": "University of Piraeus"
+    }
+   ],
+   "abstract": "It is a fact that natural resources have always been among the conflict-triggers not only within a state but also between or among states. In several cases, international political discontent is the result of political dissatisfaction and unrest within the state. From water and crops to diamonds and rare earths unequal distribution of natural resources due to the geographic characteristics of a region can trigger conflict and/or even multiply and intensify existing ones. Using the lens of securitization, this paper examines two cases studies: a) how the unequal distribution of economically viable rare earth deposits has led to state-level political discontent – especially among great powers such as the US and China– which is further being exacerbated by the ‘race’ in the green technology sector, where rare earths are indispensable parts and b) how the unequal distribution of water has led to conflict over the Nile Basin among Egypt, Sudan and Ethiopia. Finally, the paper summarises the main findings and suggests fields of further research."
+  },
+  {
    "code": "S_233",
+   "slot": 2,
    "title": "How does geographical space shape voting behavior in Greece? A spatial analysis approach",
    "authors": [
     {
@@ -3423,6 +3473,7 @@
   },
   {
    "code": "S_062",
+   "slot": 2,
    "title": "Regional Discontent and the Reconfiguration of the Greek Far-Right after Golden Dawn",
    "authors": [
     {
@@ -3437,18 +3488,8 @@
    "abstract": "This study examines the post-crisis reconfiguration of the Greek far-right through a regional lens, focusing on the rise of populist radical right parties following the collapse of Golden Dawn. While existing accounts of far-right support in Greece have been dominated by demand-side explanations, this paper develops a more integrated framework that brings together demand-side conditions, supply-side dynamics, and historical electoral legacies. More specifically, it argues that the resurgence of far-right support after 2019 cannot be understood solely in terms of socio-economic grievances but must also be linked to the fragmentation of the populist radical right party space and to territorially embedded legacies of earlier far-right voting.\nEmpirically, the paper analyses spatial variation in the increase in populist radical-right electoral support across Greek regions between the 2019 and 2023 national elections. The analysis combines electoral geography with econometric modeling at the regional level, using indicators of socio-economic conditions, historical support for Golden Dawn, and the effective number of populist radical right parties as a proxy for supply-side structure. The findings suggest that the recent surge in populist radical-right support in Greece was not spatially uniform. Rather, it was shaped by the interaction of regional socio-economic disadvantage, inherited far-right legacies, and a more fragmented PRR supply structure that widened the range of available political options.\nThe paper contributes to the growing literature on the geography of discontent by showing that the transformation of the Greek far right is deeply territorialized. More broadly, it argues that uneven regional development and place-specific political legacies are central to understanding how political discontent is translated into new forms of radical right mobilization. In doing so, it highlights how geographically uneven political outcomes can erode trust in mainstream institutions and reshape democratic competition."
   },
   {
-   "code": "S_320",
-   "title": "Unequal distribution of natural resources as a cause of international conflict",
-   "authors": [
-    {
-     "name": "Georgia-Akrivi (Gina) Panagopoulou",
-     "affiliation": "University of Piraeus"
-    }
-   ],
-   "abstract": "It is a fact that natural resources have always been among the conflict-triggers not only within a state but also between or among states. In several cases, international political discontent is the result of political dissatisfaction and unrest within the state. From water and crops to diamonds and rare earths unequal distribution of natural resources due to the geographic characteristics of a region can trigger conflict and/or even multiply and intensify existing ones. Using the lens of securitization, this paper examines two cases studies: a) how the unequal distribution of economically viable rare earth deposits has led to state-level political discontent – especially among great powers such as the US and China– which is further being exacerbated by the ‘race’ in the green technology sector, where rare earths are indispensable parts and b) how the unequal distribution of water has led to conflict over the Nile Basin among Egypt, Sudan and Ethiopia. Finally, the paper summarises the main findings and suggests fields of further research."
-  },
-  {
    "code": "S_168",
+   "slot": 2,
    "title": "Aid Fragmentation, Health Governance, and the Geography of Discontent: The Protracted Refugee Reception Crisis in the North Aegean Islands (2013–2020)",
    "authors": [
     {
@@ -3476,17 +3517,6 @@
     }
    ],
    "abstract": "This study investigates the geographical dynamics of migration and refugee flows into Europe and their subsequent impact on the continent’s geopolitical architecture. By mapping specific transit routes and entry points, the research evaluates the demographic shifts and socio-spatial implications inherent in contemporary displacement patterns. The analysis further scrutinizes European Union integration policies and the efficacy of international migration management agreements. Utilizing a robust methodological framework, this paper employs advanced data visualization tools, including cartographic mapping and statistical charting, to interpret complex flow patterns. The findings provide critical insights into how migratory movements are actively redefining European geopolitical compositions and cross-border relations."
-  },
-  {
-   "code": "S_075",
-   "title": "The Italian Geography of Discontent: Beyond the North-South Divide?",
-   "authors": [
-    {
-     "name": "Yannis Radin",
-     "affiliation": "University of Thessaly"
-    }
-   ],
-   "abstract": "Across Europe, economically stagnating regions have become increasingly associated with political discontent and the rise of far-right parties. This trend is particularly evident in Italy, a country with a historically fraught political history and characterised by pronounced spatial inequalities, most notably the persistent North–South divide. The September 2022 general election, which brought Giorgia Meloni and her far-right coalition to power, signaled a critical moment in the mainstreaming of these political forces.\n\nWhile regional disparities in Italy are well documented and manifested in differences in income, productivity, infrastructure, and access to services; recent research moves beyond this binary framework to focus on “dissatisfied regions”. This presentation argues that discontent is not confined to economically disadvantaged areas but is also present in more affluent regions, driven by disillusionment with the political system. Rather than being fuelled by hardship per se, such discontent reflects a sense of relative loss: the perception that neighbouring countries or regions are prospering while one’s own fortunes stagnate or decline. This dynamic suggests that political behaviours are steadily shaped by a sense of loss of voice, posing a significant challenge for policymakers seeking to address declining institutional trust and restore a sense of political inclusion."
   }
  ],
  "28": [

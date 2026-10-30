@@ -1,7 +1,8 @@
 // Conference 2026 programme (from Program.xlsx, sheet "Program").
 // Session ids match src/data/sessions.ts; presentations per session live in
-// presentations.json (registered abstracts, listed alphabetically by first
-// author until the organisers send the final order).
+// presentations.json (registered abstracts). Sessions whose organisers sent
+// the final order list presentations in that order with a `slot`; the rest
+// stay alphabetical by first author until their order arrives.
 import presentationsData from "./presentations.json"
 import { sessions, type Session } from "./sessions"
 
@@ -42,6 +43,8 @@ export interface PresentationAuthor {
 
 export interface Presentation {
   code: string
+  /** 1-based index into the session's time slots, once the order is confirmed. */
+  slot?: number
   title: string
   authors: PresentationAuthor[]
   abstract: string
@@ -104,17 +107,17 @@ export const programDays: ProgramDay[] = [
       { venue: "HUA", name: "Room 7" },
     ],
     slots: [
-      { kind: "sessions", time: "09:30–11:00", sessions: ["20", "8", "13", "12", "11", "28", "18", "36"] },
+      { kind: "sessions", time: "09:30–11:00", sessions: ["20", "8", "13", "12", "11", "28", "18", "29"] },
       { kind: "break", time: "11:00–11:30", label: "Coffee break" },
       { kind: "sessions", time: "11:30–13:00", sessions: ["37", "8", "13", "12", "11", "28", "18", "36"] },
       { kind: "break", time: "13:00–14:00", label: "Lunch break" },
-      { kind: "sessions", time: "14:00–16:00", sessions: ["37", "10", "2", "12", "31", "28", "18", "36b"] },
-      { kind: "break", time: "16:00–16:30", label: "Coffee break" },
-      { kind: "sessions", time: "16:30–18:00", sessions: ["37", "10", "2", "15", "33", "29", "30", "36"] },
-      { kind: "break", time: "18:00–18:30", label: "Coffee break" },
+      { kind: "sessions", time: "14:00–15:30", sessions: ["37", "10", "2", "12", "31", "28", "18", "36"] },
+      { kind: "break", time: "15:30–16:00", label: "Coffee break" },
+      { kind: "sessions", time: "16:00–17:30", sessions: ["37", "10", "2", "15", "33", "14", "30", "36b"] },
+      { kind: "break", time: "17:30–18:00", label: "Coffee break" },
       {
         kind: "sessions",
-        time: "18:30–20:00",
+        time: "18:00–19:30",
         sessions: ["37", "25", "2", "24", "33", "14", "30", { label: "GEOSYSTEM", note: "Sponsor presentation" }],
       },
     ],
@@ -122,12 +125,21 @@ export const programDays: ProgramDay[] = [
 ]
 
 export const PRESENTATION_ORDER_NOTE =
-  "Presentations are currently listed in alphabetical order (by first author) within each session. The final order of presentations has not yet been confirmed and will be announced soon."
+  "Where the session organisers have confirmed it, presentations are listed in their final order by time slot. The remaining sessions are listed in alphabetical order (by first author) until their final order is announced."
+
+/** Shown on a session page whose order is not yet confirmed. */
+export const PROVISIONAL_ORDER_NOTE =
+  "Presentations are currently listed in alphabetical order (by first author). The final order of presentations has not yet been confirmed and will be announced soon."
 
 const presentations = presentationsData as Record<string, Presentation[]>
 
 export function getPresentations(sessionId: string): Presentation[] {
   return presentations[sessionId] ?? []
+}
+
+/** True once the organisers' order (with time slots) is in presentations.json. */
+export function hasConfirmedOrder(sessionId: string): boolean {
+  return getPresentations(sessionId).some((p) => p.slot !== undefined)
 }
 
 export interface SessionScheduleEntry {
@@ -152,6 +164,11 @@ export function getSessionSchedule(sessionId: string): SessionScheduleEntry[] {
     }
   }
   return entries
+}
+
+/** A session's time slots in programme order, labelled with their day. */
+export function getSessionSlots(sessionId: string): { day: ProgramDay; room: ProgramRoom; time: string }[] {
+  return getSessionSchedule(sessionId).flatMap((e) => e.times.map((time) => ({ day: e.day, room: e.room, time })))
 }
 
 /** Sessions that appear in the programme, in sessions.ts order. */

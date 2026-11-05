@@ -86,9 +86,9 @@ export const programDays: ProgramDay[] = [
       { kind: "break", time: "13:00–14:00", label: "Lunch break at HUA" },
       { kind: "plenary", time: "14:00–16:00", label: "Plenary session" },
       { kind: "break", time: "16:00–16:30", label: "Coffee break" },
-      { kind: "sessions", time: "16:30–18:00", sessions: ["6", "21", "22", "7", "16", "23", "17", "35", "32", "1"] },
+      { kind: "sessions", time: "16:30–18:00", sessions: ["6", "16", "22", "7", "21", "23", "17", "35", "32", "1"] },
       { kind: "break", time: "18:00–18:30", label: "Break" },
-      { kind: "sessions", time: "18:30–20:00", sessions: ["6", "21", "22", "7", "16", "34", "17", "36a", "32", "1"] },
+      { kind: "sessions", time: "18:30–20:00", sessions: ["6", "16", "22", "7", "21", "34", "17", "36a", "32", "1"] },
     ],
   },
   {
@@ -121,6 +121,32 @@ export const programDays: ProgramDay[] = [
         sessions: ["37", "25", "2", "24", "33", "14", "30", { label: "GEOSYSTEM", note: "Sponsor presentation" }],
       },
     ],
+  },
+]
+
+export const plenaryWelcome = [
+  {
+    heading: "Representatives of the Host Institutions",
+    items: ["Harokopio University of Athens (HUA)", "National Centre for Social Research (EKKE)"],
+  },
+  { heading: "Representatives of the Hellenic Geographical Society (HGS)", items: [] },
+]
+
+export const keynoteSpeakers = [
+  {
+    name: "Robert Musil",
+    role: "PD MMag. Dr., Director, Institute for Urban and Regional Research, Austrian Academy of Sciences (ÖAW)",
+    title: "A Second Quantitative Revolution? The Potentials and Risks of AI in Human Geography",
+  },
+  {
+    name: "Costis Hadjimichalis",
+    role: "Professor Emeritus, Department of Geography, Harokopio University of Athens (HUA)",
+    title: "How Can We Reclaim Critical Thinking in Geography?",
+  },
+  {
+    name: "Maria Papadopoulou",
+    role: "Professor, School of Rural, Surveying and Geoinformatics Engineering, National Technical University of Athens (NTUA)",
+    title: "From Geographical to Management Challenges",
   },
 ]
 

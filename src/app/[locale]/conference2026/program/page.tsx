@@ -11,6 +11,8 @@ import {
   getPresentations,
   getSession,
   getSessionSchedule,
+  keynoteSpeakers,
+  plenaryWelcome,
   programDays,
   programSessions,
   roomLabel,
@@ -114,8 +116,13 @@ function DaySchedule({ day, locale }: { day: ProgramDay; locale: Locale }) {
                     <th scope="row" className="sticky left-0 z-10 bg-white pr-2 text-xs font-medium text-black/60 whitespace-nowrap">
                       {slot.time}
                     </th>
-                    <td colSpan={day.rooms.length} className="rounded-lg bg-black px-3 py-3 text-center text-sm font-semibold text-white">
-                      {slot.label}
+                    <td colSpan={day.rooms.length} className="p-0">
+                      <a
+                        href="#plenary"
+                        className="block rounded-lg bg-black px-3 py-3 text-center text-sm font-semibold text-white hover:bg-black/80 transition-colors"
+                      >
+                        {slot.label}
+                      </a>
                     </td>
                   </tr>
                 )
@@ -210,14 +217,12 @@ function DaySchedule({ day, locale }: { day: ProgramDay; locale: Locale }) {
                   })}
                 </ul>
               </>
+            ) : slot.kind === "plenary" ? (
+              <a href="#plenary" className="block rounded-xl bg-black px-4 py-3 text-sm font-semibold text-white">
+                <span className="tabular-nums">{slot.time}</span> · {slot.label}
+              </a>
             ) : (
-              <div
-                className={
-                  slot.kind === "plenary"
-                    ? "rounded-xl bg-black px-4 py-3 text-sm font-semibold text-white"
-                    : "rounded-lg bg-black/[0.03] px-3 py-1.5 text-xs text-black/45"
-                }
-              >
+              <div className="rounded-lg bg-black/[0.03] px-3 py-1.5 text-xs text-black/45">
                 <span className="tabular-nums">{slot.time}</span> · {slot.label}
               </div>
             )}
@@ -316,6 +321,42 @@ export default async function ProgramPage({ params }: PageProps) {
               <DaySchedule day={day} locale={validLocale} />
             </FadeInView>
           ))}
+
+          <FadeInView delay={0.1}>
+            <div id="plenary" className="scroll-mt-28 rounded-2xl border border-black/10 bg-white p-4 sm:p-6 shadow-sm">
+              <div className="flex flex-wrap items-baseline justify-between gap-2 mb-5">
+                <h2 className="text-xl font-semibold text-black">Plenary Session</h2>
+                <p className="text-xs text-black/45">Friday, 27 November 2026 · 14:00–16:00</p>
+              </div>
+
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-black/45">Welcome addresses</h3>
+              <ul className="mt-2 space-y-2">
+                {plenaryWelcome.map((group) => (
+                  <li key={group.heading} className="text-sm text-black/75">
+                    {group.heading}
+                    {group.items.length > 0 && (
+                      <ul className="mt-0.5 text-xs text-black/50 leading-relaxed">
+                        {group.items.map((item) => (
+                          <li key={item}>{item}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+                ))}
+              </ul>
+
+              <h3 className="mt-6 text-xs font-semibold uppercase tracking-wider text-black/45">Keynote speakers</h3>
+              <ol className="mt-3 grid gap-3 md:grid-cols-3">
+                {keynoteSpeakers.map((speaker) => (
+                  <li key={speaker.name} className="rounded-xl border border-black/[0.08] bg-black/[0.02] p-4">
+                    <p className="text-sm font-semibold leading-snug text-black">{speaker.title}</p>
+                    <p className="mt-2 text-sm text-black/75">{speaker.name}</p>
+                    <p className="mt-0.5 text-xs leading-relaxed text-black/50">{speaker.role}</p>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </FadeInView>
 
           <FadeInView delay={0.1}>
             <div className="grid gap-4 sm:grid-cols-2">

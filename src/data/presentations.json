@@ -4083,22 +4083,6 @@
    "abstract": "Mediterranean rural landscapes are shaped by long-term interactions between water management,\nagrarian practices, and local knowledge, generating hybrid environments where ecological\nfunctions, land-use patterns, and heritage values are tightly interwoven. This paper proposes a\nspatial decision-support framework that combines Historical GIS with Public Participation GIS\n(PPGIS) to construct a Heritage Potential Index capable of identifying areas of high heritage value\nand landscape fragility, with a specific focus on case studies in Italy and Greece.. Geo-historical\nlayers (multitemporal land-use/land-cover change, historical hydrography, archaeological records,\ntraditional rural features) are integrated with participatory and volunteered geographic information\n(community-mapped landmarks, perceived values and conflicts, PPGIS data, OSM-based\ncontributions) within a GIS-based Multi-Criteria Decision Analysis (MCDA) workflow. Criteria and\nindicators are structured into ecological, historical, and socio-cultural dimensions; they are\nweighted through an expert–stakeholder procedure and aggregated via a weighted linear\ncombination to derive a continuous Heritage Potential Index. The framework is designed for\napplication across Mediterranean contexts, enabling the identification of “core” zones where\nhistorical continuity, ecological connectivity, and community meanings converge, as well as\ncontested areas where land-use pressures and perceived values diverge. By explicitly integrating\ngeo-historical reconstruction and participatory spatial knowledge, the paper contributes to\ndemocratic landscape monitoring and offers a transparent, replicable tool to support heritage-\noriented planning in Mediterranean landscapes."
   },
   {
-   "code": "S_138",
-   "slot": 1,
-   "title": "THE GREAT WILDFIRES OF 2007 ΙΝ PELOPONNESE AND THE REGENERATION OF FORESTS",
-   "authors": [
-    {
-     "name": "Eleni Papaoikonomou",
-     "affiliation": "University of West Attica"
-    },
-    {
-     "name": "Sotiris Karalis",
-     "affiliation": "University of West Attica"
-    }
-   ],
-   "abstract": "The fires of the summer of 2007 in Greece have been recorded as the most destructive in Europe in recent decades. The total area burned exceeded 250,000 hectares, of which 30,132 were located within the Natura protected areas 2000 network. Furthermore, for the first time, the damage report included not only burned forests and agricultural land, but also entire villages, civil infrastructure and the loss of 57 lives.\nThis research thoroughly investigates and examines the short, middle, and long term impact of these catastrophic wildfires. It estimates the severity of the impact and the time needed for regeneration of the forests, regeneration implying that the forests returned to their previous extends and syntheses before the fires. The study is conducted using remote sensing data and methods, i.e., satellite images and products from NASA's MODIS satellites, namely the products MOD09A1 and MCD64A1.\nSeven different polygons (burned areas) were singled out as Regions of Interest (ROIs) and their evolution was monitored for the entire period of satellite data (2002-present) with the construction of the time series of the NDVI (Normalized Difference Vegetation Index) and NBR (Normalized Burn Ratio) ratios. The post-fire yearly evolution of these ratios was compared with the averaged pre-fire values leading to some first conclusions. It is noted that the NBR index is normally used as the difference pre-fire to post-fire (dNBR) but the particular point in time that is considered pre-fire can be varied to conform with the scope of the study. Additionally, the concurrent examination of the two indices can provide useful input for the timely growth of the forest vegetation.\nGiven the uncertainties inherent in remote sensing methods the results were compared with other similar studies, especially those that included field examinations, and the comparisons were favorable."
-  },
-  {
    "code": "S_022",
    "slot": 1,
    "title": "Mapping the dynamics of urban green-blue spaces and ecosystem health indicators in Varanasi, India",

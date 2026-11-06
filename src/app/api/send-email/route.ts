@@ -10,7 +10,7 @@ function getResend(): Resend {
 }
 const CONF_FROM = "HGS Conference 2026 <noreply@hellenic-geographical-society.com>"
 const HGS_FROM = "Hellenic Geographical Society <noreply@hellenic-geographical-society.com>"
-const CONF_SUPPORT_EMAIL = "ekarkani@geol.uoa.gr"
+const CONF_SUPPORT_EMAIL = "geographicalsocietyhellas@gmail.com"
 const HGS_SUPPORT_EMAIL = "geographicalsocietyhellas@gmail.com"
 
 const CONF_SUPPORT_MAILTO = `mailto:${CONF_SUPPORT_EMAIL}?subject=${encodeURIComponent("HGS Conference 2026 – Change Request / Issue")}&body=${encodeURIComponent("Type of request: [ Registration Change / Abstract Change / Payment Issue / Other ]\n\nEmail used for registration:\n\nDescription of change or issue:\n\nAdditional comments:\n\n")}`

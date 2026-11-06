@@ -41,7 +41,7 @@ function wordCount(t: string) {
   return t.trim() === "" ? 0 : t.trim().split(/\s+/).length
 }
 
-const SUPPORT_HREF = `mailto:ekarkani@geol.uoa.gr?subject=${encodeURIComponent("HGS Conference 2026 – Change Request")}&body=${encodeURIComponent("Email used for registration:\n\nDescription of change or issue:\n\n")}`
+const SUPPORT_HREF = `mailto:geographicalsocietyhellas@gmail.com?subject=${encodeURIComponent("HGS Conference 2026 – Change Request")}&body=${encodeURIComponent("Email used for registration:\n\nDescription of change or issue:\n\n")}`
 
 // ─── Co-Author Dialog ──────────────────────────────────────────────────────
 

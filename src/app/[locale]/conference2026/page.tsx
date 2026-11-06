@@ -756,15 +756,15 @@ export default async function Conference2026Page({ params }: PageProps) {
 
           {/* Contact */}
           <FadeInView delay={0.2}>
-            <div className="mt-8 p-8 rounded-2xl border border-black/10 bg-white shadow-sm text-center">
+            <div className="mt-8 p-5 sm:p-8 rounded-2xl border border-black/10 bg-white shadow-sm text-center">
               <h3 className="text-xl font-semibold text-black mb-4">{t.contactLabel}</h3>
               <p className="text-black/60 mb-6">{t.contactBlurb}</p>
               <a
-                href="mailto:ekarkani@geol.uoa.gr"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white font-medium rounded-full hover:bg-black/90 transition-all"
+                href="mailto:geographicalsocietyhellas@gmail.com"
+                className="inline-flex max-w-full items-center gap-2 px-4 sm:px-6 py-3 bg-black text-white text-[13px] sm:text-base font-medium rounded-full hover:bg-black/90 transition-all"
               >
-                <Mail className="h-4 w-4" />
-                ekarkani@geol.uoa.gr
+                <Mail className="h-4 w-4 shrink-0" />
+                <span className="min-w-0">geographicalsocietyhellas<wbr />@gmail.com</span>
               </a>
             </div>
           </FadeInView>

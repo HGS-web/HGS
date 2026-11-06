@@ -97,7 +97,7 @@ export const LATE_REGISTRATION_END = "10 October 2026";
 // Contact
 // ---------------------------------------------------------------------------
 
-export const SECRETARIAT_EMAIL = "ekarkani@geol.uoa.gr";
+export const SECRETARIAT_EMAIL = "geographicalsocietyhellas@gmail.com";
 
 export const SUPPORT_MAILTO = `mailto:${SECRETARIAT_EMAIL}?subject=${encodeURIComponent(
   "HGS Conference 2026 – Registration Support"

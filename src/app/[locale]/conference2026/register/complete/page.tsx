@@ -5,7 +5,6 @@ import { FadeIn } from "@/components/ui/motion"
 import { getAuthUser } from "@/lib/supabase-server"
 import { buildMePayload } from "@/lib/conference2026-me"
 import { CompleteRegistrationFlow } from "@/components/conference/complete-registration-flow"
-import { LATE_REGISTRATION_END } from "@/config/conference2026"
 import type { Locale } from "@/config/site"
 
 interface PageProps {
@@ -60,7 +59,7 @@ export default async function CompleteRegistrationPage({ params }: PageProps) {
             </p>
             <p className="mt-3">
               <span className="inline-block rounded-full bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 text-xs font-medium text-emerald-700">
-                Regular — until {LATE_REGISTRATION_END}
+                Open for attendees
               </span>
             </p>
           </FadeIn>

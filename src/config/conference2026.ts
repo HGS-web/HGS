@@ -128,13 +128,25 @@ export const POLICY_NOTE =
   "in the final conference programme only if at least one of their authors " +
   "has completed registration.";
 
-export const EARLY_BIRD_NOTICE =
-  `Registration closed on ${LATE_REGISTRATION_END}. ` +
-  "Registered participants can sign in to access their profile, " +
-  "view their accepted abstracts, and manage their payment receipt.";
+/** Organisers' wording (S. Spyrellis, 6 Nov 2026) — keep verbatim. */
+export const ATTENDEE_REGISTRATION_TITLE =
+  "Registration Open for Conference Attendees";
 
+export const ATTENDEE_REGISTRATION_TEXT = [
+  "Registration remains open for those wishing to attend the 13th " +
+    "International Conference of the Hellenic Geographical Society without " +
+    "presenting a paper. Although the registration deadline for presenters " +
+    "has passed, participants who wish to attend the conference are still " +
+    "welcome to register.",
+  "To facilitate the smooth organisation of the conference, all " +
+    "registrations must be completed online and in advance.",
+  "We look forward to welcoming you to the conference!",
+];
+
+/** Attendees (no paper) pay the same Regular-period fees as everyone else —
+ *  confirmed by the organisers, Nov 2026. */
 export const FEE_MICROCOPY =
-  `Regular fees (closed ${LATE_REGISTRATION_END}): ` +
+  "Regular fees apply: " +
   "Regular €80, HGS Member €50, Student €30, HGS Student Member €15.";
 
 export const FORGOT_PASSWORD_GUIDANCE =

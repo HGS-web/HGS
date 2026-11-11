@@ -548,15 +548,12 @@
  ],
  "5": [
   {
-   "code": "S_420",
-   "title": "Shoreline evolution of Naxos Airport Lagoon",
+   "code": "S_421",
+   "slot": 1,
+   "title": "A Mediterranean-Wide Spatial Analysis of Tidal Notches: Calibrating Holocene Relative Sea-Level Changes and Tectonic Drivers.",
    "authors": [
     {
-     "name": "Eleni Achmakidou",
-     "affiliation": "National and Kapodistrian University of Athens"
-    },
-    {
-     "name": "Evangelos Spyrou",
+     "name": "Konstantina Lymperopoulou",
      "affiliation": "National and Kapodistrian University of Athens"
     },
     {
@@ -564,7 +561,7 @@
      "affiliation": "National and Kapodistrian University of Athens"
     },
     {
-     "name": "Giannis Saitis",
+     "name": "Alexandros Liaskos",
      "affiliation": "National and Kapodistrian University of Athens"
     },
     {
@@ -572,33 +569,11 @@
      "affiliation": "National and Kapodistrian University of Athens"
     }
    ],
-   "abstract": "Coastal lagoons and dunes are highly valuable but vulnerable systems, impacted by sea-level rise, storms and intense human pressures, including tourism and infrastructure development. Robust multi-temporal shoreline mapping is essential for understanding coastal evolution and supporting effective protection and management strategies. This study investigates shoreline evolution at the Naxos Airport Lagoon, located along the western coast of Naxos, within the Cyclades, one of the Mediterranean regions most vulnerable to climate change impacts. The analysis combines historical aerial imagery (1960–1989) with recent high-precision RTK-GNSS shoreline surveys conducted between 2022 and 2024. Historical shorelines are digitized from georeferenced aerial photographs following established photointerpretation approaches. Contemporary shoreline positions are measured using RTK-GNSS techniques. All shoreline datasets are integrated in a GIS environment and analyzed with the Digital Shoreline Analysis System (DSAS), using standard metrics such as End Point Rate (EPR), Net Shoreline Movement (NSM), and Linear/Weighted Linear Regression Rates to quantify erosion and accretion trends over both long (multi-decadal) and short (2022–2024) periods. The combined analysis clarifies how natural processes and human interventions have reshaped the lagoon’s fringe over ~60 years. The results support identification of critical stretches requiring protection or restoration of dunes and wetlands and offer a quantitative baseline for future monitoring, coastal hazard assessment and integrated management of the Naxos Airport Lagoon system."
-  },
-  {
-   "code": "S_198",
-   "title": "Integrating Seascape–Landscape Configuration Metrics into Coastal Protection modelling on Greek Islandscapes",
-   "authors": [
-    {
-     "name": "Konstantina Apostolopoulou",
-     "affiliation": "Harokopio University of Athens"
-    },
-    {
-     "name": "Efthimios Karymbalis",
-     "affiliation": "Harokopio University of Athens"
-    },
-    {
-     "name": "Maria Salomidi",
-     "affiliation": "Hellenic Centre for Marine Research"
-    },
-    {
-     "name": "Evangelia G. Drakou",
-     "affiliation": "Harokopio University of Athens"
-    }
-   ],
-   "abstract": "Greek islands are coastal boundary environments where terrestrial, coastal, and marine processes interact under increasing pressure from sea-level rise, erosion, extreme events, tourism development, and other forms of global environmental change. While these island “edge-scapes” are highly exposed, they host habitats such as dunes, wetlands and seagrass meadows that act as a natural defense against coastal flooding and erosion through wave attenuation, storm surge reduction and sediment stabilization. However, coastal protection assessments often represent habitats mainly through their presence or extent, without considering whether their spatial configuration enhances or limits their protective function. Here we present a workflow that embeds habitat connectivity and fragmentation metrics into an established coastal protection model to better capture where coastal habitats provide effective protection. Habitat distribution data are combined with biophysical and socio‑economic variables describing (i) protection capacity (e.g., geomorphology, slope, sediment accretion, seabed and emerged habitats), (ii) exposure (e.g., wave climate, storm surge, sea‑level change, winds and currents), and (iii) societal demand (e.g., population density, infrastructure and cultural assets). Configuration is quantified using spatial pattern metrics derived from FRAGSTATS to capture patch density, shape, aggregation, and fragmentation of the habitats. Configuration effects are most apparent for seagrass habitats dominated by Posidonia oceanica and Cymodocea nodosa; island coastlines characterized by dense, aggregated, and well‑connected seagrass seascapes are associated with higher modelled capacity, whereas fragmented or sparse patterns correspond to reduced capacity even where habitat presence is recorded. Terrestrial coastal habitats further modulate capacity locally, particularly where dunes and wetlands occur adjacent to high‑exposure shorelines. The approach supports island‑focused marine spatial planning and nature‑based solutions by accounting for both habitat extent and seascape–landscape structure.\nKeywords: islands; coastal protection; Posidonia oceanica; connectivity; fragmentation"
+   "abstract": "Tidal notches are among the most reliable geomorphological indicators of past sea levels, providing high-resolution data on the interaction between eustatic changes and regional tectonics. This study presents a comprehensive spatial analysis of a newly developed database comprising over 650 tidal notch sites across the Mediterranean basin, including Greece, Italy, Malta, Croatia, France, Spain and Turkey.\nThe research employs a multi-proxy approach, integrating morphological parameters such as notch height, vertex depth, and profile geometry with lithological data and bioerosion rates. A key component of this study is the application of a rigorous chronological framework, utilizing calibrated carbon-14 dating and biological markers to establish a precise timeline for Holocene relative sea-level (RSL) changes.\nPreliminary results indicate that tidal notches are a widespread geomorphological feature found throughout the Mediterranean basin. The presence of tidal notches throughout the basin, regardless of local tectonic movements, underscores their value as a fundamental tool for understanding the evolution of Mediterranean coasts. Despite the abundance of these landforms, a lot of them remain undated due to the destructive effects of bioerosion on biological markers. The findings offer a refined model for Mediterranean coastal evolution, distinguishing between climate-driven sea-level rise and geodynamic land movements. This work provides essential baseline data for assessing the future vulnerability of coasts in the context of accelerating global sea-level rise."
   },
   {
    "code": "S_343",
+   "slot": 1,
    "title": "Treeline Dynamics: How Much Do We Know? Addressing Local Specificities and Global Trends",
    "authors": [
     {
@@ -626,6 +601,7 @@
   },
   {
    "code": "S_419",
+   "slot": 1,
    "title": "Coastal Lagoons of Greece: An inventory and implications for future challenges",
    "authors": [
     {
@@ -648,7 +624,36 @@
    "abstract": "Coastal lagoons are unique ecosystems that provide a wide range of environmental services. However, they are prone to sea-level rise (SLR), due to both human activities and climate change. The Greek coastline is characterized by several coastal lagoons. In this work, we digitized all coastal lagoons along the Greek coastline (a total of 152 lagoons), using satellite images. We calculated their dimensions and physiographical characteristics, such as such as lagoon length, width, area, perimeter and sandspit morphology. We further conducted a multi-temporal analysis using Sentinel-2 imagery (2015–2025) to assess water surface extent and water quality trends for the five largest lagoons. In order to highlight their vulnerability to sea level rise, we considered two Shared Socioeconomic Pathways (SSP1-2.6 and SSP5-8.5) scenarios for future sea-level rise in the Mediterranean context. Where there were available projections also considering Vertical Land Motion (VLM), we used those instead. All lagoons, their computed parameters and projections have been integrated into a freely accessible WebGIS application. Our results show that 8 to 25% of the Greek lagoons will be fully inundated, depending on the scenario considered, while a substantially larger number are expected to experience partial breaching. Regarding the five largest lagoons, remote sensing analysis revealed predominantly stable conditions. However, Tsoukali lagoon exhibited a significant expansion trend; likely linked to sediment starvation caused by dam construction. In terms of water quality, all lagoons remain eutrophic, with Vistonis as the most ecologically stressed with recorded anoxia events. Collectively, these findings underscore the critical susceptibility of Greek coastal lagoons to both climatic and anthropogenic stressors."
   },
   {
+   "code": "S_420",
+   "slot": 1,
+   "title": "Shoreline evolution of Naxos Airport Lagoon",
+   "authors": [
+    {
+     "name": "Eleni Achmakidou",
+     "affiliation": "National and Kapodistrian University of Athens"
+    },
+    {
+     "name": "Evangelos Spyrou",
+     "affiliation": "National and Kapodistrian University of Athens"
+    },
+    {
+     "name": "Anna Karkani",
+     "affiliation": "National and Kapodistrian University of Athens"
+    },
+    {
+     "name": "Giannis Saitis",
+     "affiliation": "National and Kapodistrian University of Athens"
+    },
+    {
+     "name": "Niki Evelpidou",
+     "affiliation": "National and Kapodistrian University of Athens"
+    }
+   ],
+   "abstract": "Coastal lagoons and dunes are highly valuable but vulnerable systems, impacted by sea-level rise, storms and intense human pressures, including tourism and infrastructure development. Robust multi-temporal shoreline mapping is essential for understanding coastal evolution and supporting effective protection and management strategies. This study investigates shoreline evolution at the Naxos Airport Lagoon, located along the western coast of Naxos, within the Cyclades, one of the Mediterranean regions most vulnerable to climate change impacts. The analysis combines historical aerial imagery (1960–1989) with recent high-precision RTK-GNSS shoreline surveys conducted between 2022 and 2024. Historical shorelines are digitized from georeferenced aerial photographs following established photointerpretation approaches. Contemporary shoreline positions are measured using RTK-GNSS techniques. All shoreline datasets are integrated in a GIS environment and analyzed with the Digital Shoreline Analysis System (DSAS), using standard metrics such as End Point Rate (EPR), Net Shoreline Movement (NSM), and Linear/Weighted Linear Regression Rates to quantify erosion and accretion trends over both long (multi-decadal) and short (2022–2024) periods. The combined analysis clarifies how natural processes and human interventions have reshaped the lagoon’s fringe over ~60 years. The results support identification of critical stretches requiring protection or restoration of dunes and wetlands and offer a quantitative baseline for future monitoring, coastal hazard assessment and integrated management of the Naxos Airport Lagoon system."
+  },
+  {
    "code": "S_268",
+   "slot": 2,
    "title": "Landscape metrics in relation to ecosystem services and biodiversity across European coastal zone",
    "authors": [
     {
@@ -667,30 +672,32 @@
    "abstract": "Coastal landscapes represent highly dynamic socio-ecological systems where terrestrial and marine processes interact, generating complex spatial patterns that strongly influence biodiversity and ecosystem service (ES) provision. Despite their ecological importance, coastal zones are among the most heavily impacted environments globally, experiencing increasing pressure from land-use change, habitat degradation, and cumulative anthropogenic stressors. Understanding how landscape structure shapes ecological processes and multifunctionality is therefore critical for effective ecosystem management. This study examines the relationship between landscape structure, biodiversity, and ecosystem service provision across European coastal zones. Biodiversity–Ecosystem Services (BES) bundles were identified using an unsupervised clustering approach (k-means) applied to harmonized European datasets, incorporating indicators of species and habitat richness alongside provisioning, regulating, and cultural services. Four distinct BES bundles were derived, representing characteristic combinations of biodiversity and ecosystem service supply. To explore how landscape structure influences the spatial distribution of these bundles, a suite of landscape metrics describing composition and configuration was calculated at multiple scales. The relationship between landscape metrics and BES bundle membership was modelled using Geographical Random Forest (GRF), a spatially explicit machine learning approach that accounts for spatial heterogeneity by calibrating local models. Results reveal clear spatial patterns in BES bundle distribution, ranging from low-functioning landscapes to multifunctional systems characterized by high biodiversity and service provision. Landscape metrics related to fragmentation, connectivity, and heterogeneity emerge as key influencing factors, although their importance varies spatially. This highlights the non-stationary nature of landscape–function relationships in coastal environments. The findings demonstrate the potential of landscape metrics as proxies for biodiversity and ecosystem service patterns, while emphasizing the importance of spatially explicit approaches. The proposed framework supports large-scale ecological assessment and provides insights for ecosystem-based management, conservation planning, and restoration across European coastal zones."
   },
   {
-   "code": "S_421",
-   "title": "A Mediterranean-Wide Spatial Analysis of Tidal Notches: Calibrating Holocene Relative Sea-Level Changes and Tectonic Drivers.",
+   "code": "S_198",
+   "slot": 2,
+   "title": "Integrating Seascape–Landscape Configuration Metrics into Coastal Protection modelling on Greek Islandscapes",
    "authors": [
     {
-     "name": "Konstantina Lymperopoulou",
-     "affiliation": "National and Kapodistrian University of Athens"
+     "name": "Konstantina Apostolopoulou",
+     "affiliation": "Harokopio University of Athens"
     },
     {
-     "name": "Anna Karkani",
-     "affiliation": "National and Kapodistrian University of Athens"
+     "name": "Efthimios Karymbalis",
+     "affiliation": "Harokopio University of Athens"
     },
     {
-     "name": "Alexandros Liaskos",
-     "affiliation": "National and Kapodistrian University of Athens"
+     "name": "Maria Salomidi",
+     "affiliation": "Hellenic Centre for Marine Research"
     },
     {
-     "name": "Niki Evelpidou",
-     "affiliation": "National and Kapodistrian University of Athens"
+     "name": "Evangelia G. Drakou",
+     "affiliation": "Harokopio University of Athens"
     }
    ],
-   "abstract": "Tidal notches are among the most reliable geomorphological indicators of past sea levels, providing high-resolution data on the interaction between eustatic changes and regional tectonics. This study presents a comprehensive spatial analysis of a newly developed database comprising over 650 tidal notch sites across the Mediterranean basin, including Greece, Italy, Malta, Croatia, France, Spain and Turkey.\nThe research employs a multi-proxy approach, integrating morphological parameters such as notch height, vertex depth, and profile geometry with lithological data and bioerosion rates. A key component of this study is the application of a rigorous chronological framework, utilizing calibrated carbon-14 dating and biological markers to establish a precise timeline for Holocene relative sea-level (RSL) changes.\nPreliminary results indicate that tidal notches are a widespread geomorphological feature found throughout the Mediterranean basin. The presence of tidal notches throughout the basin, regardless of local tectonic movements, underscores their value as a fundamental tool for understanding the evolution of Mediterranean coasts. Despite the abundance of these landforms, a lot of them remain undated due to the destructive effects of bioerosion on biological markers. The findings offer a refined model for Mediterranean coastal evolution, distinguishing between climate-driven sea-level rise and geodynamic land movements. This work provides essential baseline data for assessing the future vulnerability of coasts in the context of accelerating global sea-level rise."
+   "abstract": "Greek islands are coastal boundary environments where terrestrial, coastal, and marine processes interact under increasing pressure from sea-level rise, erosion, extreme events, tourism development, and other forms of global environmental change. While these island “edge-scapes” are highly exposed, they host habitats such as dunes, wetlands and seagrass meadows that act as a natural defense against coastal flooding and erosion through wave attenuation, storm surge reduction and sediment stabilization. However, coastal protection assessments often represent habitats mainly through their presence or extent, without considering whether their spatial configuration enhances or limits their protective function. Here we present a workflow that embeds habitat connectivity and fragmentation metrics into an established coastal protection model to better capture where coastal habitats provide effective protection. Habitat distribution data are combined with biophysical and socio‑economic variables describing (i) protection capacity (e.g., geomorphology, slope, sediment accretion, seabed and emerged habitats), (ii) exposure (e.g., wave climate, storm surge, sea‑level change, winds and currents), and (iii) societal demand (e.g., population density, infrastructure and cultural assets). Configuration is quantified using spatial pattern metrics derived from FRAGSTATS to capture patch density, shape, aggregation, and fragmentation of the habitats. Configuration effects are most apparent for seagrass habitats dominated by Posidonia oceanica and Cymodocea nodosa; island coastlines characterized by dense, aggregated, and well‑connected seagrass seascapes are associated with higher modelled capacity, whereas fragmented or sparse patterns correspond to reduced capacity even where habitat presence is recorded. Terrestrial coastal habitats further modulate capacity locally, particularly where dunes and wetlands occur adjacent to high‑exposure shorelines. The approach supports island‑focused marine spatial planning and nature‑based solutions by accounting for both habitat extent and seascape–landscape structure.\nKeywords: islands; coastal protection; Posidonia oceanica; connectivity; fragmentation"
   },
   {
    "code": "S_122",
+   "slot": 2,
    "title": "Heat at the edge, rethinking urban vulnerability in the coastal city of Kalamata",
    "authors": [
     {
@@ -706,6 +713,7 @@
   },
   {
    "code": "S_261",
+   "slot": 2,
    "title": "Akamas Peninsula in Transition: A Mediterranean Boundary Landscape at risk. The experience through TOPIO project",
    "authors": [
     {
@@ -725,6 +733,7 @@
   },
   {
    "code": "S_289",
+   "slot": 2,
    "title": "Urban Boundaries in Transition. The Case of Argo Park in Alexandroupolis, Greece",
    "authors": [
     {
@@ -3089,18 +3098,32 @@
  ],
  "22": [
   {
-   "code": "S_012",
-   "title": "Cities of Encounter: Everyday Geopolitics of Peace in Nicosia and Xanthi",
+   "code": "S_250",
+   "slot": 1,
+   "title": "The phenomenon of urbicide and models of post-conflict reconstruction and restructuring in zones of limited sovereignty and surveillance: The cases of Mogadishu, Aleppo, and Mosul",
    "authors": [
     {
-     "name": "Ethan Chandler",
-     "affiliation": "National and Kapodistrian University of Athens"
+     "name": "Grigorios Patrikakos",
+     "affiliation": "Institute of International Relations/Panteion University"
     }
    ],
-   "abstract": "Geopolitical tensions between Greece and Turkey are often framed through elite-level diplomacy, territorial claims and statist narratives. Yet such macro-scale discourses are continuously negotiated, contested and subverted in the everyday spaces of cities situated on Europe’s geopolitical periphery. This paper examines how Nicosia (Cyprus) and Xanthi, (Western Thrace) function as borderland sites where hegemonic geopolitical imaginaries intersect with quotidian practices of coexistence, revealing a “double helix” that binds macro-level narratives to micro-level lived experience.\n\nNicosia exemplifies a “checkpoint city,” where the legacy of partition, the UN-controlled Buffer Zone and Orientalising discourses of the divided island shape socio-spatial life. By contrast, Xanthi represents an unpartitioned periphery where Muslim communities exempted from the Treaty of Lausanne population exchanges negotiate coexistence within the Greek nation-state. Both cities share histories of imperial governance and subsequent Westphalian nation-state imposition, yet their divergent geopolitical configurations – partition versus coexistence – produce distinct urban geographies of peace-making.\n\nDrawing on critical and feminist geopolitical frameworks as the theoretical foundation of an ethnographic PhD project, this paper conceptualises peace as plural, personal and place-specific – performed through everyday encounters in markets, schools, civic spaces and public institutions. It illustrates how marginal cities are constructed as liminal spaces subverting Westphalian statist territorial logics, whilst simultaneously offering sites of possibility in which local actors can reinterpret dominant geopolitical narratives through embodied everyday practices.\n\nBy foregrounding Southeast European cities as sites of geopolitical theorisation, this paper contributes to Critical Geopolitics, Geographies of Peace and Borderland Studies. It demonstrates that geopolitics is not produced at the political core, but negotiated continuously at the margins. By tracing the intersection between discursive geopolitical power and lived geopolitical experiences in cities of Greek-Turkish interaction, this comparative framing demonstrates how the geopolitical configuration of cities actively shapes the production, negotiation and spatialisation of everyday peace."
+   "abstract": "The announcement will highlight the field of urban geopolitics, with emphasis on the phenomenon of urbicide, in liquid modernity/urban pastiche. Synthesizing critical infrastructures, institutional restructuring, international relations, spatial planning, and the reconstruction of megacities, as fields of regional and international conflict poles in the Global South.\nThe first case will be Mogadishu. This is a city that has been affected by hostilities since 1991, initially in the context of a civil war and then as a field of power for Islamist networks. The city faces structural human-security problems within the institutional framework of a failed state, resulting in successive crises. Since 2023, its reconstruction has been attempted through the projects “Post-Conflict Reconstruction and Development Project” and the “New Mogadishu Project”.\nThe second case is that of Aleppo. With the beginning of the Syrian civil war, the city found itself at the target of the opposing sides and suffered a multi-year humanitarian crisis. Both its structural infrastructure and its social identity were battlegrounds, leading to the breakdown of its economic and urban structures. Since 2024, the city has been the stronghold of the new Syrian leadership, while ethnocultural neighborhoods are being militarized. The main reconstruction models are \"Law 10\" and the policy of \"selective restoration of emblematic monuments\".\nThe third case, that of Mosul, lies mainly in the three years 2014-2017, when the city was occupied by the Islamic State (ISIS). In this case, there was extensive destruction of monuments and the city's rich cultural heritage, as well as widespread population displacement. The dominant reconstruction model, carried out by UNESCO with international participation, is “Revive the Spirit of Mosul”.\nThe three case studies reveal the strategic value of cities in contemporary geopolitical rivalries in zones of limited sovereignty and surveillance, and a cognitive mapping of securitization as a geography of polycrisis."
+  },
+  {
+   "code": "S_185",
+   "slot": 1,
+   "title": "Belgrade: The 1999 NATO bombing as urbicide and the politics of collective memory",
+   "authors": [
+    {
+     "name": "Dimitra Vlassaki",
+     "affiliation": "National Technical University of Athens"
+    }
+   ],
+   "abstract": "The city of Belgrade, as the capital of Serbia and former capital of the Socialist Federal Republic of Yugoslavia, has historically occupied a strategic position at the intersection of social, cultural and geopolitical transformations in Southeast Europe. In March 1999, during the Kosovo War and the broader process of Yugoslavia’s dissolution, Belgrade became one of the main targets of NATO’s aerial bombing campaign, known as Operation Allied Force. This study explores whether, and to what extent, the bombing of Belgrade can be interpreted through the concept of urbicide, understood as the deliberately or systematic destruction on the urban environment and the social relations embedded within it. More specifically, it is investigated how this military intervention impacted not only the city’s infrastructure, but also its social life, symbolic identity, and memory narratives. The destruction caused by the bombing is approached not merely as physical damage to buildings and infrastructure, but as an attack on the conditions that allow urban life to function: networks, communication systems, public services, everyday routines, and the sense of security among residents. In this context, Belgrade is examined as more than a passive backdrop to international conflict. It becomes a field where geopolitical power and lived urban experience intersect. Furthermore, the research argues whether the 1999 bombing can be deciphered as a form of violence directed against the city itself. At the same time, the aftermath of the bombing opens up questions of collective memory, concerning how the traces of the intervention are represented, or silenced. The city is therefore highlighted both as a target of geopolitical conflict and a space where its consequences are remembered, negotiated, and reproduced. The case of Belgrade offers an important example for understanding how war, destruction, and politics of memory can shape a city’s contemporary urban landscape and identity."
   },
   {
    "code": "S_192",
+   "slot": 1,
    "title": "Inhabiting the Gaza Strip in the 21st century",
    "authors": [
     {
@@ -3111,7 +3134,20 @@
    "abstract": "This research examines the issue of inhabiting in Gaza Strip during the 21st century. The investigation focuses on materiality as a central aspect of the experience of inhabiting, in relation to the socio-political conditions of settler colonialism imposed by the Israeli state in the region. In Gaza, urbanization and urbanity are constituted—amid multiple experiences of violent displacement and spatial confinement—as fields of control, precarity, and collective punishment.\nThe siege of the Gaza Strip and the socio-spatial conditions it created, implicating severe restrictions on basic goods, infrastructure, and public services, had clear effects on the transformation of housing typologies and on the emergence of informality as a necessity through which the Palestinian community develops its own spaces of living. The analysis of this condition includes concepts such as Yiftachel’s “gray spaces,” situated between legality and illegality, as well as the notion of “urban citizenship”, as a means of claiming the right to the city against regimes of spatial inequality and urban apartheid.\nIsraeli aggression, as it has evolved throughout the 21st century against the Gaza Strip, in conjunction with transformations of contemporary warfare, led to the reuse of the term “urbicide”, understood as the extensive and deliberate destruction of the built environment aiming to the present or future annihilation and/or erasure. Subsequently, by constructing the concept of home as a universal human experience, the investigation turns to the term “domicide”, understood as the intentional destruction of home by humans, causing suffering to its victims for specific purposes—in this case, forced displacement or even genocide.\nThe destruction taking place in the Gaza Strip must be understood as a process of systematic erasure of a nation from its land, embedded in the fundamental logic of elimination, with intervention in territory and territoriality constituting a central objective of settler colonialism."
   },
   {
+   "code": "S_214",
+   "slot": 1,
+   "title": "Mapping Israeli Real Estate Investments in Exarcheia neighborhood",
+   "authors": [
+    {
+     "name": "Thaleia Trakaki",
+     "affiliation": "NTUA"
+    }
+   ],
+   "abstract": "In the spring of 2026, a large billboard by the Israeli real estate company “Palmo” at Athens International Airport sparked considerable controversy. Addressed to Israelis, the billboard read: “We don’t return home without a home in Greece”. The campaign’s aggressive marketing—particularly striking in a period during which Israel acts as a key organizer of the war while simultaneously continuing to perpetrate genocide. From large-scale tourism investments in central Athens and beyond, to hybrid real estate schemes involving serviced apartments for short-term or mid-term rentals, Israeli capital has established an expanding presence in the city center.\nIn the contested neighborhood of Exarcheia—both a testing ground for urban securitization policies and a hotspot of touristification—Israeli investments are particularly intense. Based on primary research conducted at the National Cadastre as part of my doctoral project, which examines changes in property ownership in the area between 2018 and 2023, a clear trend emerges: the purchase and conversion of entire buildings. These properties are effectively withdrawn from the available housing stock, thereby significantly exacerbating the housing crisis. Corporate actors account for a substantial share of these transactions, with Israeli-linked investments standing out. More specifically, over half of the properties acquired by companies during the period under study were purchased by firms that are either directly or indirectly connected to Israeli capital.\nBuilding on these findings, this presentation seeks to map Israeli investments in the Exarcheia neighborhood. What specific forms do these investments take, and through which channels are they implemented? Under what conditions do they contribute to the touristification of the neighborhood and to the material and symbolic displacement of its residents? Why do Israeli investments display such intensity, and how is this intensity shaped by the broader geopolitical context, the strategic alliances of the Greek state, and ultimately the war itself?"
+  },
+  {
    "code": "S_009",
+   "slot": 2,
    "title": "Pushbacks in Greece as enemy under-criminalization",
    "authors": [
     {
@@ -3123,6 +3159,7 @@
   },
   {
    "code": "S_063",
+   "slot": 2,
    "title": "Critical Cartographies of Border Violence: Migrant Shipwrecks and Biopolitics in the Aegean Sea",
    "authors": [
     {
@@ -3134,6 +3171,7 @@
   },
   {
    "code": "S_272",
+   "slot": 2,
    "title": "Geopolitics of Reception: Refugee Camp Siting and Local Reactions in Lesvos",
    "authors": [
     {
@@ -3149,6 +3187,7 @@
   },
   {
    "code": "S_072",
+   "slot": 2,
    "title": "Issues of Geography, Biopolitics & Power in the Turkish Settlement of Northern Cyprus",
    "authors": [
     {
@@ -3159,7 +3198,20 @@
    "abstract": "Nicosia, the last divided capital in Europe, constitutes a dense geopolitical landscape where sovereignty, population management, and everyday life intersect. Established through the division of the island in 1974, the city operates simultaneously as a site of territorial fragmentation and as a key node in the spatial consolidation of the Turkish settler project in Northern Cyprus. This paper examines the socio‑political dynamics of Turkish settlement through the lens of critical geopolitics and biopolitical governance.\n\nThe analysis focuses both on settlers, approached as mobile populations organized and regulated by state power, and on indigenous Turkish Cypriots, whose positioning is marked by tensions between ethnic affiliation and geographically grounded forms of belonging. Drawing on an analysis of legal frameworks alongside demographic and population data, the paper situates settler presence within international legal debates while engaging with the lived realities produced by long‑term population displacement.\n\nBuilding on Ghassan Hage’s concept of “generalized domestication” (2017), the paper conceptualizes settlers as domesticated subjects: populations governed through intersecting racial, spatial, and political technologies that seek to regulate land, bodies, and social relations. This framing moves beyond treating settlers as mere demographic agents and instead highlights their role within a broader nationalist project that produces hierarchies and exclusions. In Nicosia, this process unfolds through housing allocation, property regimes, restricted mobility, and differentiated access to citizenship and rights, transforming the city into a frontier where national projects are materially enacted.\n\nThe settlers’ ambiguous legal status, constrained movement, and structural dependence on the Turkish state reveal the internal contradictions of settler colonial power. By tracing these dynamics across multiple spatial scales—from the urban to the international—the paper contributes to critical discussions on imperialism, racialization, and anticolonial resistance.\n\nKey Words:\nSettler Colonialism, Northern Cyprus, Nicosia, Biopolitics, Racialization, Critical Geopolitics, Displacement, Imperialism"
   },
   {
+   "code": "S_012",
+   "slot": 2,
+   "title": "Cities of Encounter: Everyday Geopolitics of Peace in Nicosia and Xanthi",
+   "authors": [
+    {
+     "name": "Ethan Chandler",
+     "affiliation": "National and Kapodistrian University of Athens"
+    }
+   ],
+   "abstract": "Geopolitical tensions between Greece and Turkey are often framed through elite-level diplomacy, territorial claims and statist narratives. Yet such macro-scale discourses are continuously negotiated, contested and subverted in the everyday spaces of cities situated on Europe’s geopolitical periphery. This paper examines how Nicosia (Cyprus) and Xanthi, (Western Thrace) function as borderland sites where hegemonic geopolitical imaginaries intersect with quotidian practices of coexistence, revealing a “double helix” that binds macro-level narratives to micro-level lived experience.\n\nNicosia exemplifies a “checkpoint city,” where the legacy of partition, the UN-controlled Buffer Zone and Orientalising discourses of the divided island shape socio-spatial life. By contrast, Xanthi represents an unpartitioned periphery where Muslim communities exempted from the Treaty of Lausanne population exchanges negotiate coexistence within the Greek nation-state. Both cities share histories of imperial governance and subsequent Westphalian nation-state imposition, yet their divergent geopolitical configurations – partition versus coexistence – produce distinct urban geographies of peace-making.\n\nDrawing on critical and feminist geopolitical frameworks as the theoretical foundation of an ethnographic PhD project, this paper conceptualises peace as plural, personal and place-specific – performed through everyday encounters in markets, schools, civic spaces and public institutions. It illustrates how marginal cities are constructed as liminal spaces subverting Westphalian statist territorial logics, whilst simultaneously offering sites of possibility in which local actors can reinterpret dominant geopolitical narratives through embodied everyday practices.\n\nBy foregrounding Southeast European cities as sites of geopolitical theorisation, this paper contributes to Critical Geopolitics, Geographies of Peace and Borderland Studies. It demonstrates that geopolitics is not produced at the political core, but negotiated continuously at the margins. By tracing the intersection between discursive geopolitical power and lived geopolitical experiences in cities of Greek-Turkish interaction, this comparative framing demonstrates how the geopolitical configuration of cities actively shapes the production, negotiation and spatialisation of everyday peace."
+  },
+  {
    "code": "S_294",
+   "slot": 2,
    "title": "Securitization Strategies in Greek Universities, The case of the National Technical University of Athens (Patision Str. Campus)",
    "authors": [
     {
@@ -3168,39 +3220,6 @@
     }
    ],
    "abstract": "Securitization strategies in Greek higher education institutions involve reframing issues of education and politics as matters of security and public order, thereby justifying increased control and intervention. In recent years, this shift is primarily driven by legislative changes, including the abolition of the academic asylum and the establishment of a university police force, alongside subsequent legislation introducing, among other measures, video surveillance systems, controlled access points and stricter disciplinary legal frameworks, all aimed at securing campus life and the educational process.\n\nAt the same time, the dominant narrative promoted by political actors, university administrations and the media, portrays universities as spaces of lawlessness requiring immediate and decisive intervention. Within this discourse, security is framed as freedom, while those who oppose such measures are marginalised as a reactive minority acting against public interest. By constructing a sense of urgency and cultivating social consent, political authorities reinforce strategies presented as necessary and inevitable.\n\nThe case of NTUA on Patission Street exemplifies this transformation in a historically symbolic context. Situated in the centre of Athens and serving as a landmark of democratic resistance during the 1973 student uprising against the military junta, the campus has been associated with political engagement, social ferment and struggles, openness and public accessibility. Over the past years, however, it has increasingly been subject to surveillance and control, reflecting the broader securitization of Greek universities. Framed as a risk hotspot, it has, following constant police interventions, become an example of the effectiveness of security policies.\n\nThis transformation highlights not only a change of policy, but also a spatial and symbolic redefinition of the university. The shift from an open, public and free space to a controlled and monitored environment raises critical questions about the implications for academic freedom, political expression and the overall quality of the educational process."
-  },
-  {
-   "code": "S_250",
-   "title": "The phenomenon of urbicide and models of post-conflict reconstruction and restructuring in zones of limited sovereignty and surveillance: The cases of Mogadishu, Aleppo, and Mosul",
-   "authors": [
-    {
-     "name": "Grigorios Patrikakos",
-     "affiliation": "Institute of International Relations/Panteion University"
-    }
-   ],
-   "abstract": "The announcement will highlight the field of urban geopolitics, with emphasis on the phenomenon of urbicide, in liquid modernity/urban pastiche. Synthesizing critical infrastructures, institutional restructuring, international relations, spatial planning, and the reconstruction of megacities, as fields of regional and international conflict poles in the Global South.\nThe first case will be Mogadishu. This is a city that has been affected by hostilities since 1991, initially in the context of a civil war and then as a field of power for Islamist networks. The city faces structural human-security problems within the institutional framework of a failed state, resulting in successive crises. Since 2023, its reconstruction has been attempted through the projects “Post-Conflict Reconstruction and Development Project” and the “New Mogadishu Project”.\nThe second case is that of Aleppo. With the beginning of the Syrian civil war, the city found itself at the target of the opposing sides and suffered a multi-year humanitarian crisis. Both its structural infrastructure and its social identity were battlegrounds, leading to the breakdown of its economic and urban structures. Since 2024, the city has been the stronghold of the new Syrian leadership, while ethnocultural neighborhoods are being militarized. The main reconstruction models are \"Law 10\" and the policy of \"selective restoration of emblematic monuments\".\nThe third case, that of Mosul, lies mainly in the three years 2014-2017, when the city was occupied by the Islamic State (ISIS). In this case, there was extensive destruction of monuments and the city's rich cultural heritage, as well as widespread population displacement. The dominant reconstruction model, carried out by UNESCO with international participation, is “Revive the Spirit of Mosul”.\nThe three case studies reveal the strategic value of cities in contemporary geopolitical rivalries in zones of limited sovereignty and surveillance, and a cognitive mapping of securitization as a geography of polycrisis."
-  },
-  {
-   "code": "S_214",
-   "title": "Mapping Israeli Real Estate Investments in Exarcheia neighborhood",
-   "authors": [
-    {
-     "name": "Thaleia Trakaki",
-     "affiliation": "NTUA"
-    }
-   ],
-   "abstract": "In the spring of 2026, a large billboard by the Israeli real estate company “Palmo” at Athens International Airport sparked considerable controversy. Addressed to Israelis, the billboard read: “We don’t return home without a home in Greece”. The campaign’s aggressive marketing—particularly striking in a period during which Israel acts as a key organizer of the war while simultaneously continuing to perpetrate genocide. From large-scale tourism investments in central Athens and beyond, to hybrid real estate schemes involving serviced apartments for short-term or mid-term rentals, Israeli capital has established an expanding presence in the city center.\nIn the contested neighborhood of Exarcheia—both a testing ground for urban securitization policies and a hotspot of touristification—Israeli investments are particularly intense. Based on primary research conducted at the National Cadastre as part of my doctoral project, which examines changes in property ownership in the area between 2018 and 2023, a clear trend emerges: the purchase and conversion of entire buildings. These properties are effectively withdrawn from the available housing stock, thereby significantly exacerbating the housing crisis. Corporate actors account for a substantial share of these transactions, with Israeli-linked investments standing out. More specifically, over half of the properties acquired by companies during the period under study were purchased by firms that are either directly or indirectly connected to Israeli capital.\nBuilding on these findings, this presentation seeks to map Israeli investments in the Exarcheia neighborhood. What specific forms do these investments take, and through which channels are they implemented? Under what conditions do they contribute to the touristification of the neighborhood and to the material and symbolic displacement of its residents? Why do Israeli investments display such intensity, and how is this intensity shaped by the broader geopolitical context, the strategic alliances of the Greek state, and ultimately the war itself?"
-  },
-  {
-   "code": "S_185",
-   "title": "Belgrade: The 1999 NATO bombing as urbicide and the politics of collective memory",
-   "authors": [
-    {
-     "name": "Dimitra Vlassaki",
-     "affiliation": "National Technical University of Athens"
-    }
-   ],
-   "abstract": "The city of Belgrade, as the capital of Serbia and former capital of the Socialist Federal Republic of Yugoslavia, has historically occupied a strategic position at the intersection of social, cultural and geopolitical transformations in Southeast Europe. In March 1999, during the Kosovo War and the broader process of Yugoslavia’s dissolution, Belgrade became one of the main targets of NATO’s aerial bombing campaign, known as Operation Allied Force. This study explores whether, and to what extent, the bombing of Belgrade can be interpreted through the concept of urbicide, understood as the deliberately or systematic destruction on the urban environment and the social relations embedded within it. More specifically, it is investigated how this military intervention impacted not only the city’s infrastructure, but also its social life, symbolic identity, and memory narratives. The destruction caused by the bombing is approached not merely as physical damage to buildings and infrastructure, but as an attack on the conditions that allow urban life to function: networks, communication systems, public services, everyday routines, and the sense of security among residents. In this context, Belgrade is examined as more than a passive backdrop to international conflict. It becomes a field where geopolitical power and lived urban experience intersect. Furthermore, the research argues whether the 1999 bombing can be deciphered as a form of violence directed against the city itself. At the same time, the aftermath of the bombing opens up questions of collective memory, concerning how the traces of the intervention are represented, or silenced. The city is therefore highlighted both as a target of geopolitical conflict and a space where its consequences are remembered, negotiated, and reproduced. The case of Belgrade offers an important example for understanding how war, destruction, and politics of memory can shape a city’s contemporary urban landscape and identity."
   }
  ],
  "23": [
@@ -4083,6 +4102,22 @@
    "abstract": "Mediterranean rural landscapes are shaped by long-term interactions between water management,\nagrarian practices, and local knowledge, generating hybrid environments where ecological\nfunctions, land-use patterns, and heritage values are tightly interwoven. This paper proposes a\nspatial decision-support framework that combines Historical GIS with Public Participation GIS\n(PPGIS) to construct a Heritage Potential Index capable of identifying areas of high heritage value\nand landscape fragility, with a specific focus on case studies in Italy and Greece.. Geo-historical\nlayers (multitemporal land-use/land-cover change, historical hydrography, archaeological records,\ntraditional rural features) are integrated with participatory and volunteered geographic information\n(community-mapped landmarks, perceived values and conflicts, PPGIS data, OSM-based\ncontributions) within a GIS-based Multi-Criteria Decision Analysis (MCDA) workflow. Criteria and\nindicators are structured into ecological, historical, and socio-cultural dimensions; they are\nweighted through an expert–stakeholder procedure and aggregated via a weighted linear\ncombination to derive a continuous Heritage Potential Index. The framework is designed for\napplication across Mediterranean contexts, enabling the identification of “core” zones where\nhistorical continuity, ecological connectivity, and community meanings converge, as well as\ncontested areas where land-use pressures and perceived values diverge. By explicitly integrating\ngeo-historical reconstruction and participatory spatial knowledge, the paper contributes to\ndemocratic landscape monitoring and offers a transparent, replicable tool to support heritage-\noriented planning in Mediterranean landscapes."
   },
   {
+   "code": "S_138",
+   "slot": 1,
+   "title": "THE GREAT WILDFIRES OF 2007 ΙΝ PELOPONNESE AND THE REGENERATION OF FORESTS",
+   "authors": [
+    {
+     "name": "Eleni Papaoikonomou",
+     "affiliation": "University of West Attica"
+    },
+    {
+     "name": "Sotiris Karalis",
+     "affiliation": "University of West Attica"
+    }
+   ],
+   "abstract": "The fires of the summer of 2007 in Greece have been recorded as the most destructive in Europe in recent decades. The total area burned exceeded 250,000 hectares, of which 30,132 were located within the Natura protected areas 2000 network. Furthermore, for the first time, the damage report included not only burned forests and agricultural land, but also entire villages, civil infrastructure and the loss of 57 lives.\nThis research thoroughly investigates and examines the short, middle, and long term impact of these catastrophic wildfires. It estimates the severity of the impact and the time needed for regeneration of the forests, regeneration implying that the forests returned to their previous extends and syntheses before the fires. The study is conducted using remote sensing data and methods, i.e., satellite images and products from NASA's MODIS satellites, namely the products MOD09A1 and MCD64A1.\nSeven different polygons (burned areas) were singled out as Regions of Interest (ROIs) and their evolution was monitored for the entire period of satellite data (2002-present) with the construction of the time series of the NDVI (Normalized Difference Vegetation Index) and NBR (Normalized Burn Ratio) ratios. The post-fire yearly evolution of these ratios was compared with the averaged pre-fire values leading to some first conclusions. It is noted that the NBR index is normally used as the difference pre-fire to post-fire (dNBR) but the particular point in time that is considered pre-fire can be varied to conform with the scope of the study. Additionally, the concurrent examination of the two indices can provide useful input for the timely growth of the forest vegetation.\nGiven the uncertainties inherent in remote sensing methods the results were compared with other similar studies, especially those that included field examinations, and the comparisons were favorable."
+  },
+  {
    "code": "S_022",
    "slot": 1,
    "title": "Mapping the dynamics of urban green-blue spaces and ecosystem health indicators in Varanasi, India",
@@ -4113,18 +4148,36 @@
  ],
  "32": [
   {
-   "code": "S_293",
-   "title": "Assessment of road network connectivity using GIS-based spatial analysis to enhance organized preventive evacuation planning.",
+   "code": "S_180",
+   "slot": 1,
+   "title": "Spatial Analysis and Local AI for Smart City Digital Twins: A Framework for Real-Time Urban Risk Monitoring",
    "authors": [
     {
-     "name": "Panagiotis Agourogiannis",
-     "affiliation": "University of the Aegean"
+     "name": "Dimitris Kavroudakis",
+     "affiliation": "University of the Aegean, Department of Geography"
     }
    ],
-   "abstract": "The climate crisis and the escalating frequency of natural disasters necessitate a comprehensive reassessment of civil protection strategies, especially in regions facing demographic pressure driven by tourism in both urban and insular environments. This influx of visitors, coupled with spatial heterogeneity, exacerbates the challenges of timely and efficient evacuation during emergencies such as seismic events, wildfires, or floods. Consequently, the formulation of targeted preventive measures and adaptive evacuation scenarios has become more critical than ever.\nThis study leverages GIS capabilities and spatial network analysis to evaluate road topology as a pivotal factor in evacuation efficacy. The research aims to establish an integrated geospatial framework for assessing accessibility to emergency shelters, grounded in fundamental metrics such as intersection density, clustering coefficients, link-node ratios, and the distribution of Points of Interest (POIs).\nUtilizing spatial modeling within a GIS environment, the study investigates how intersection density modulates evacuation dynamics by offering redundant routing options. Concurrently, clustering analysis identifies zones of high local connectivity that bolster resilience at the neighborhood scale. Furthermore, the interplay between links and nodes is employed to map network permeability, pinpointing critical bottlenecks and culdesacs that impede the flow of civilians and emergency response units.\nThe application of GIS facilitates the precise spatial pinpointing of network vulnerabilities and their spatial correlation with shelter locations. The findings indicate that geospatial connectivity analysis enables dynamic population rerouting and the prioritization of structural interventions. The study culminates in specific policy recommendations for refining civil protection protocols, proposing a robust decision-making tool to enhance urban safety and preparedness against emergencies."
+   "abstract": "Compound risks are growing in urban environments: infrastructure strain, crowd pressure, microclimate variability and operational disruptions. City planners need evidence-based, real-time tools to promote resilience and adaptive management. In this paper we propose a smart city framework that integrates IoT sensing, local (on-premise) AI for time series anomaly detection, spatial analytics, and Digital Twin models for enhanced urban monitoring and decision making.\nThe framework assumes the deployment of IoT devices in urban spaces to capture variables such as temperature, humidity, CO2, vibration and population density. Data is sent in near real-time with lightweight protocols and stored locally in time-series and GIS-enabled spatial databases. A local-first architecture provides low latency, operational autonomy, and satisfies data governance and privacy requirements.\nWe formulate an end-to-end anomaly detection pipeline that includes data ingestion, data validation, pre-processing, feature engineering, and model inference. It allows for different analytical approaches, from statistical baselines to machine learning and neural models (e.g. autoencoders, LSTM) to detect complex and non-linear patterns in urban dynamics.\nAnomaly outputs are integrated in a Digital Twin environment, combining 3D visualizations of buildings or districts with dynamic layers, such as environmental conditions, mobility flows and scenario simulations. Spatial AI methods (e.g., spatio-temporal clustering, hotspot detection) translate anomalies into actionable insights such as risk maps and vulnerability indices.\nIn general, the framework allows smart city management to transition from reactive monitoring to predictive, interpretable decision support, allowing early warning systems, optimized urban operations, and better resilience planning."
+  },
+  {
+   "code": "S_070",
+   "slot": 1,
+   "title": "A Geospatial Data Integration Framework for Urban Mobility Analysis in Small Island Cities: The Case of Mytilene, Greece",
+   "authors": [
+    {
+     "name": "Nikoleta-Nefeli Kofou",
+     "affiliation": "Laboratory of Spatial Analysis Geographic Information Systems and Remote Sensing (SAGISRS), Department of Geography, University of the Aegean, University Hill, 81100 Mytilene, Greece"
+    },
+    {
+     "name": "Dimitris Kavroudakis",
+     "affiliation": "University of the Aegean, Department of Geography"
+    }
+   ],
+   "abstract": "Urban mobility analysis increasingly relies on the integration of heterogeneous geospatial datasets that describe the physical structure, functional characteristics, and population dynamics of cities. However, in many small island cities, mobility research is constrained by fragmented datasets, limited availability of traffic information, and the absence of integrated geospatial data infrastructures. These limitations hinder the systematic analysis of urban mobility patterns and the development of evidence-based planning strategies.\nThis study proposes a geospatial data integration framework designed to support urban mobility analysis in small island cities. The framework combines multiple spatial datasets, including road network topology, pedestrian infrastructure, land use distribution, population patterns, and mobility-related observations, within a unified GIS environment. By harmonizing data from different sources and spatial resolutions, the proposed approach enables the creation of a comprehensive geospatial database suitable for advanced spatial analysis.\nThe methodological workflow includes spatial data preprocessing, network structuring, attribute harmonization, and the integration of spatial indicators that describe accessibility, connectivity, and urban activity patterns. The framework is applied to the island city of Mytilene (Lesvos, Greece), a representative example of a small island urban system characterized by spatial constraints and heterogeneous mobility dynamics.\nBy addressing challenges related to data fragmentation and interoperability, the study contributes to the development of geoinformatics methodologies for urban mobility research and demonstrates how integrated geospatial data infrastructures can enhance spatial intelligence applications in urban analysis and planning."
   },
   {
    "code": "S_245",
+   "slot": 1,
    "title": "Estimating care and support needs of older people at the small-area level: The case of Athens",
    "authors": [
     {
@@ -4143,7 +4196,176 @@
    "abstract": "Population ageing poses significant challenges for health and social care planning, particularly when policy decisions require granular, sub-national data that national surveys rarely provide. This study addresses the data gap by generating high-resolution, small-area estimates of care and support needs among older people in Athens.\nWe draw on data from the Survey of Health, Ageing and Retirement in Europe (SHARE), alongside the decennial Census of the population to produce neighbourhood-level estimates of local need. Iterative Proportional Fitting (IPF) is employed to construct synthetic populations whose sociodemographic profiles are constrained to match census track records. We apply spatial microsimulation techniques in order to estimate neighbourhood-level values of health and care indicators, such as limitations in daily activities, out-of-pocket care expenses, and perceived physical and mental health.\nWe combine indicators and construct a multi-dimensional index, describing care and support needs among local older populations. We map results and explore resulting patterns, illustrating the intra-urban variation presented. We further analyse results by exploring the relationships between the observed level of need and sociodemographic characteristics of neighbourhoods.\nThis work carries important implications for policy, particular within local government contexts. Local decision-making requires access to granular data for effective policy planning, and the resulting heterogeneity across neighbourhoods underscores the limitations of aggregate-level planning approaches. High-resolution care need estimates can be leveraged for more efficient resource allocation, targeted service delivery, and inform overall local government strategies, enabling authorities to identify priority areas, and plan interventions accordingly."
   },
   {
+   "code": "S_187",
+   "slot": 1,
+   "title": "Urban Informatics for Spatial Inequality: Making 3D Land Administration Accessible for Mapping Vertical Environmental Injustice",
+   "authors": [
+    {
+     "name": "Georgios Potamousis",
+     "affiliation": "University of West Attica"
+    },
+    {
+     "name": "Dionysia Perperidou",
+     "affiliation": "University of West Attica"
+    }
+   ],
+   "abstract": "Keywords: 3D Land Administration; LADM Edition II; Vertical Inequality; Urban Informatics; Spatial Justice; Environmental Justice; Voxel-Based Models;\n\nTraditionally, geoinformatics has focused on horizontal analysis at the neighborhood level, often overlooking how environmental factors such as air pollution fluctuate between different building floors. This study introduces a new workflow that connects geographic theory with practical technology by shifting from broad area analysis to detailed, parcel level assessment. Using the updated ISO 19152:2024 standard (LADM Edition II), we present a 3D Land Administration framework that incorporates atmospheric data directly into property records.\nOur approach uses high resolution 3D models of city structures and voxel-based pollutant dispersion models to measure air quality within dense urban areas. A voxel is a three dimensional unit, much like a digital building block that allows for detailed mapping of pollution as it moves and accumulates in the air. These models simulate the flow of pollutants through each \"block,\" helping planners understand which parts of buildings or floors are most affected.\nBy integrating these environmental datasets with the Unique Immovable Property Number (KAEK), the official cadastral identifier, we identify systematic vertical inequalities. In Athens, Greece, a city of dense apartment blocks, residents on lower floors typically experience poorer air quality due to pollutants trapped at street level within urban canyons. The implementation of a 3D Cadastre by authorities facilitates the identification of affected floors and the subsequent implementation of targeted interventions, such as enhanced air filtration, with the objective of reducing exposure. This framework transforms the Cadastre from a static registry into a dynamic tool for Spatial Intelligence. This approach ultimately empowers stakeholders to identify and address hidden vertical disparities, thereby upholding the \"Environmental Right to the City\" and promoting fair urban planning for all."
+  },
+  {
+   "code": "S_422",
+   "slot": 1,
+   "title": "Mapping Apartment Housing in the Eastern Mediterranean",
+   "authors": [
+    {
+     "name": "Athanasios V. Argyriou",
+     "affiliation": "Institute for Mediterranean Studies, Foundation for Research and Technology-Hellas, 74131 Rethymno, Greece"
+    },
+    {
+     "name": "Konstantina Kalfa",
+     "affiliation": "Institute for Mediterranean Studies, Foundation for Research and Technology-Hellas, 74131 Rethymno, Greece"
+    },
+    {
+     "name": "Angelos Hliaoutakis",
+     "affiliation": "Institute for Mediterranean Studies, Foundation for Research and Technology-Hellas, 74131 Rethymno, Greece"
+    },
+    {
+     "name": "Nikos Papadopoulos",
+     "affiliation": "Institute for Mediterranean Studies, Foundation for Research and Technology-Hellas, 74131 Rethymno, Greece"
+    }
+   ],
+   "abstract": "This research is part of the ERC-funded project MCH-EsMed: How the Middle Class Housed Itself in the Eastern Mediterranean, based at IMS, FORTH, which explores how inhabitants, in key Eastern Mediterranean cities, located themselves in the building environment and constructed their ordinary apartment buildings. Most of these cities are dominated by common apartment buildings, not grand landmarks, indicating the type of residential structures most people actually live. Examining the emergence and formation of such buildings requires analyzing large amounts of data collected during long periods of time, since thousands of contractors, architects, developers and residents all were actively involved in shaping the urban landscape. This study highlights the methodological framework to study this process utilizing GIS and other geospatial approaches. Using untapped demolition and building permit data, a combination of digital tools (GIS, photogrammetry) and traditional tools (censuses, surveys, aerial photography) was employed. Through these methods we can visualize and analyze the spread of apartment buildings over time, identify the contractors and key actors involved in their construction, and trace the architects who signed these permits. By bringing all of this together, what once appeared as an anonymous collection of identical buildings starts to reveal identifiable patterns, processes, and agents. It is possible to identify who build what, where and when by answering the following so far unaddressed questions: how was the wealth of the housing market in these cities distributed? Were there monopolies? What were the main strategies of developers in these real estate markets? Only by leveraging, we suggest, large-scale data in an iterative process can be meaningfully to understand how the Eastern Mediterranean cities were produced."
+  },
+  {
+   "code": "S_293",
+   "slot": 2,
+   "title": "Assessment of road network connectivity using GIS-based spatial analysis to enhance organized preventive evacuation planning.",
+   "authors": [
+    {
+     "name": "Panagiotis Agourogiannis",
+     "affiliation": "University of the Aegean"
+    }
+   ],
+   "abstract": "The climate crisis and the escalating frequency of natural disasters necessitate a comprehensive reassessment of civil protection strategies, especially in regions facing demographic pressure driven by tourism in both urban and insular environments. This influx of visitors, coupled with spatial heterogeneity, exacerbates the challenges of timely and efficient evacuation during emergencies such as seismic events, wildfires, or floods. Consequently, the formulation of targeted preventive measures and adaptive evacuation scenarios has become more critical than ever.\nThis study leverages GIS capabilities and spatial network analysis to evaluate road topology as a pivotal factor in evacuation efficacy. The research aims to establish an integrated geospatial framework for assessing accessibility to emergency shelters, grounded in fundamental metrics such as intersection density, clustering coefficients, link-node ratios, and the distribution of Points of Interest (POIs).\nUtilizing spatial modeling within a GIS environment, the study investigates how intersection density modulates evacuation dynamics by offering redundant routing options. Concurrently, clustering analysis identifies zones of high local connectivity that bolster resilience at the neighborhood scale. Furthermore, the interplay between links and nodes is employed to map network permeability, pinpointing critical bottlenecks and culdesacs that impede the flow of civilians and emergency response units.\nThe application of GIS facilitates the precise spatial pinpointing of network vulnerabilities and their spatial correlation with shelter locations. The findings indicate that geospatial connectivity analysis enables dynamic population rerouting and the prioritization of structural interventions. The study culminates in specific policy recommendations for refining civil protection protocols, proposing a robust decision-making tool to enhance urban safety and preparedness against emergencies."
+  },
+  {
+   "code": "S_104",
+   "slot": 2,
+   "title": "A Methodological Framework for Assessing Tourism Hotspots at Fire and/or Flood Risk – Implementation in Four Greek Islands",
+   "authors": [
+    {
+     "name": "Angeliki Papazoglou",
+     "affiliation": "Dept. of Geography and Regional Planning, School of Rural, Surveying and Geoinformatics Engineering, National Technical University of Athens"
+    },
+    {
+     "name": "Anastasia Stratigea",
+     "affiliation": "Dept. of Geography and Regional Planning, School of Rural, Surveying and Geoinformatics Engineering, National Technical University of Athens"
+    }
+   ],
+   "abstract": "In the Climate Change (CC) era, frequency and intensity of wildfire and flood occurrences are predicted to further amplify, resulting in severe socio-economic and environmental implications for the affected areas. Repercussions of such occurrences are expected to be more intense in the Mediterranean highly-urbanized, tourist-overloaded insular territories, highlighting the necessity for proactive –e.g. local/regional plans, land use etc.– but also reactive planning –e.g. Disaster Management Plans – in, mainly, tourism overloaded areas. In both proactive and reactive planning, efforts have to be carried out on the ground of the combined assessment/mapping of tourism hotspots and the spatially-defined fire/flood risk. In order for such a task to be accomplished, this work develops a framework for identifying tourism hotspot zones that are prone to fire and/or flood risk; and implements this framework in four Greek islands – Evia, Lesvos, Chios and Rhodes – as examples of different types of Mediterranean insular territories, exposed to both CC and (over)tourism. This framework integrates: i) a pool of fifteen literature-based, wildfire-related subcriteria that fall into four major criteria/factors, i.e. Topography, Climate, Environment and Urban Space, and are used as input to the Analytical Hierarchy Process (AHP) for producing, with the support of the Geographical Information Systems (GIS), Fire Risk maps for the study areas; ii) burned areas in the study islands in the time span 2000-2024 for validating fire risk assessments; iii) the officially-delineated flood-prone zones for identifying flood risk in the areas at hand; iv) tourist hotspots in the study regions, identified by means of tourist accommodation distribution. Results obtained by implementation of this framework demonstrate the urgent need for setting up proactive/reactive strategies/plans since coastal urban sprawl due to tourism pressure in the studied islands is steadily leading to the expansion of built up space in areas of high fire and/or flooding risk."
+  },
+  {
+   "code": "S_312",
+   "slot": 2,
+   "title": "Integrating Disaster Event Records and Earth Observation Data: A Geospatial Database for Spatial Intelligence in Southern Europe",
+   "authors": [
+    {
+     "name": "Olga Roussou",
+     "affiliation": "University of the Aegean, Department of Geography"
+    },
+    {
+     "name": "Kiosa Irint",
+     "affiliation": "University of the Aegean, Department of Geography"
+    },
+    {
+     "name": "Eftychia Sorligka",
+     "affiliation": "University of the Aegean, Department of Geography"
+    }
+   ],
+   "abstract": "A complex panorama of natural hazards, including wildfires, floods, heatwaves, earthquakes and landslides, is increasingly prevalent in Southern Europe. However, effective disaster management is often constrained by fragmented and heterogeneous datasets. Global databases such as EM-DAT provide essential standardized information on disaster types and impacts, yet they frequently exhibit significant temporal and spatial gaps, particularly for localized or small-scale catastrophes. To address these limitations, this study proposes a geoinformatics framework for the development of an extensive geospatial database of natural disasters in the Mediterranean region.\nThe proposed methodology adopts a multi-source data fusion approach, integrating high-resolution satellite-derived datasets from NASA, harmonized infrastructure datasets, and official event records from EM-DAT. The study improves the geographical completeness of traditional records by utilizing Earth observation (EO) data, enabling more accurate identification of the extent and frequency of hazard events. A strict harmonization and integrated process carried out in a PostgreSQL/PostGIS environment, that guarantees consistency across many spatial reference systems, temporal resolutions, and danger classification methods, is essential to this strategy.\nThe resulting geodatabase highlights the critical role of geoinformatics in standardizing disaster records and serves as a critical decision-support tool. It facilitates multi-hazard risk assessment, supports climate change adaptation strategies, and provides the spatial intelligence required for evidence-based urban planning and cross-border emergency management in Southern Europe. Overall, the study presents a scalable framework for improving disaster data integration, enhancing vulnerability analysis, and strengthening disaster resilience across the region."
+  },
+  {
+   "code": "S_051",
+   "slot": 2,
+   "title": "Assessment of urban green spaces and development of a vegetation cooling index using PRISMA hyperspectral data",
+   "authors": [
+    {
+     "name": "Olympia Kourounioti",
+     "affiliation": "University of West Attica"
+    }
+   ],
+   "abstract": "The management of urban ecosystems is a critical challenge in today's geographical research to ensure the quality of life in cities. Climate change and the Urban Heat Island (UHI) effect are changing the microclimate, making it essential to accurately map vegetation. This study focuses on Heraklion, Crete, a typical Mediterranean island city that experiences intense heat and persistent drought during the summer. This study aims to propose a methodology for assessing vegetation conditions and recommending targeted cooling measures. To this end, hyperspectral data from the PRISMA satellite were used for two dates (at the beginning and the end of summer). After preprocessing, the Normalized Difference Vegetation Index (NDVI) was applied to detect pixel density of vegetation, as well as the Normalized Difference Infrared Index (NDII) utilizing NIR (820nm) and SWIR (1650nm) bands, to assess the water status and health of the plants. Next, using the Linear Spectral Unmixing (LSU) method, density maps were created for five categories (ground, buildings, roads, water, vegetation). Finally, a cooling index was developed as the combination of vegetation density and vegetation health. The analysis revealed a significant deterioration in terms of health and a decline in the presence of vegetation during the summer months. In late summer, the number of pixels identified as “live vegetation” decreased significantly (~6.3 hectares), while those requiring immediate care increased, indicating severe dehydration. The study's findings highlight the fragility of urban green spaces under Mediterranean drought conditions. The resulting “Red Alert” map serves as a valuable decision-making tool for urban planners and stakeholders. As it is based on satellite data and vegetation indices, this methodology can be easily applied to any comparable urban center in the Mediterranean or Southern Europe facing similar climate challenges."
+  },
+  {
+   "code": "S_126",
+   "slot": 3,
+   "title": "Mapping dissolved oxygen (DO) spatial distribution of coastal aquaculture environment based on remotely sensed data and machine learning algorithm",
+   "authors": [
+    {
+     "name": "Androniki Dimoudi",
+     "affiliation": "University of Thessaly"
+    },
+    {
+     "name": "Christos Domenikiotis",
+     "affiliation": "University of Thessaly"
+    },
+    {
+     "name": "Dimitris Vafidis",
+     "affiliation": "University of Thessaly"
+    },
+    {
+     "name": "Giorgos Mallinis",
+     "affiliation": "Aristotle University of Thessaloniki"
+    },
+    {
+     "name": "Nikos Neofitou",
+     "affiliation": "University of Thessaly"
+    }
+   ],
+   "abstract": "Monitoring dissolved oxygen (DO) in marine environments where aquaculture operates is crucial for ensuring aquaculture productivity and preserving the ecological status of the surrounding ecosystem. This study aims to present and evaluate a methodological approach for predicting DO in a semi-enclosed cove, where floating cage farming is carried out. It integrates in situ measurements and remotely sensed data to develop a machine learning regression model. The study area is located in the southeastern part of Pagasitikos Gulf (Eastern Mediterranean). Surface DO measurements were carried out over six seasons, between summer 2021 and spring 2024, recording 152 measurements in total, using a CTD (Seabird-19plus). Atmospherically corrected Multispectral Sentinel-2 MSI images were selected close to the sampling dates. Based on the coordinates received during sampling, pixel-to-point matching was performed, and remote sensing reflectance (Rrs) was extracted using SNAP (v.13.0). A selected number of bands from the satellite data was imperative for applying machine learning models to remove collinearity. For this purpose, two criteria were utilized: (a) the Variance Inflation Factor (VIF ≤ 10) index and (b) the correlation coefficient (rho) between spectral bands and DO, using IBM SPSS Statistics (v.31). The support vector regression (SVR) model was developed using the Python scikit-learn library with 5-fold cross-validation. SVR was selected as it demonstrates better performance compared to other regression-based machine learning (ML) models and neural network (NN) architectures under limited data availability. The SVR was trained using five of the six sampling campaigns. The remaining season was utilized for validation, comparing the actual in situ measurements with the extracted predicted values. The model performance was examined with different statistical indices. The resulting map shows the spatial distribution of DO across the entire study area. This approach could serve as a basis for the systematic monitoring of DO in coastal aquaculture environment."
+  },
+  {
+   "code": "S_131",
+   "slot": 3,
+   "title": "A Spatiotemporal Pipeline for Detecting and Visualizing PM2.5 Pollution Events Using Low-Cost Sensors",
+   "authors": [
+    {
+     "name": "Sofia Zafeirelli",
+     "affiliation": "University of the Aegean"
+    },
+    {
+     "name": "Martin Dolejš",
+     "affiliation": "Jan Evangelista Purkyně University in Ústí nad Labem"
+    },
+    {
+     "name": "Dimitris Kavroudakis",
+     "affiliation": "University of the Aegean, Department of Geography"
+    }
+   ],
+   "abstract": "Urban growth has made air quality issues harder to overlook, especially in dense cities where emissions tend to build up rather than disperse. That shift seems to place new pressure on monitoring systems, not only to collect data but also to interpret it quickly enough to flag meaningful pollution episodes. This study focuses on Athens, Greece, using hourly PM2.5 data collected through a network of low-cost sensors. While these sensors are becoming more widespread, integrating their data into a consistent analytical workflow is still not straightforward. Despite the volume of available data, there is no widely used framework that combines cleaning, event detection, and spatial analysis at a fine temporal scale, which can limit how effectively the data is used. The approach developed here includes preprocessing, event detection, and spatiotemporal analysis. Between 2018 and 2022, more than 400 pollution events were identified. Many of these occurred during winter evenings and are likely linked to residential heating, along with atmospheric conditions such as temperature inversions. The framework does appear to capture large-scale events as well, including the wildfires in August 2021. Inverse Distance Weighting (IDW) was used to estimate pollution levels between sensor locations. Tracking the movement of event centroids provided a way to examine how these episodes expand, shift, or dissipate over time. While this method involves certain assumptions (for example, IDW may smooth local extremes), it offers a useful representation of spatial dynamics.\nTaken together, the results suggest that low-cost sensor networks, when handled carefully, can yield fairly detailed and reliable insights into urban air quality. They are perhaps best understood as a complementary layer, which adds granularity and responsiveness. With further refinement, the framework could be adapted for near real-time use, potentially informing local environmental management and public health responses."
+  },
+  {
+   "code": "S_046",
+   "slot": 3,
+   "title": "Geospatial Analysis of the Energy Landscape in the European Union with emphasis on Electricity",
+   "authors": [
+    {
+     "name": "Konstantinos Statheropoulos",
+     "affiliation": "National Technical University of Athens"
+    },
+    {
+     "name": "Marinos Kavouras",
+     "affiliation": "National Technical University of Athens"
+    },
+    {
+     "name": "Athanasia Darra",
+     "affiliation": "National Technical University of Athens"
+    }
+   ],
+   "abstract": "The ongoing energy crisis and the transition towards sustainable energy systems have highlighted the need for comprehensive spatial analysis of energy patterns across the European Union (EU). This study presents a geospatial approach to evaluating the energy landscape of EU member states, with a particular emphasis on electricity.\n\nThe main objective of this research is to identify spatial patterns and disparities in energy production, consumption, and efficiency, and to propose a representative energy model that could guide future policy decisions. The study integrates multiple datasets from international energy organizations and statistical sources, incorporating key indicators such as energy intensity, electricity production by source, and the contribution of fossil fuels and renewable energy.\n\nA Geographic Information Systems (GIS)-based methodology is applied to process, analyze, and visualize the data. Spatial indicators are developed to enable comparative evaluation among EU countries. The results are presented through thematic maps and statistical visualizations, allowing for a clear interpretation of spatial trends and temporal variations.\n\nThe analysis reveals significant differences in energy profiles across member states, reflecting diverse economic structures, policy frameworks, and levels of energy transition. By evaluating these differences, the study identifies best-performing countries and highlights potential pathways for improving energy efficiency and sustainability across the EU.\n\nThe research contributes to the field of geoinformatics by demonstrating the value of spatial analysis in understanding complex energy systems. Furthermore, it provides a decision-support framework for policymakers, supporting the development of a more integrated and sustainable European energy strategy."
+  },
+  {
    "code": "S_177",
+   "slot": 3,
    "title": "DigiFarm: Covering the digital training needs of agricultural advisors in Europe",
    "authors": [
     {
@@ -4214,70 +4436,26 @@
    "abstract": "With the development and expansion of smart and/or digital farming, geoinformatics is becoming increasingly central to agriculture. Yet, the effective uptake of Earth Observation, spatial data, sensors and decision-support tools into everyday farm practices remains slow and uneven. DigiFarm, an Erasmus+ project, addresses this gap by developing an open online training programme targeted to agricultural advisors, designed to strengthen spatial intelligence, digital literacy and sustainability-oriented advisory capacity. Building on a previous needs assessment of agricultural advisors in four European countries (Cyprus, Greece, Italy and Ireland) and on an extensive review of 26 existing digital-agriculture training initiatives/ courses, we present the development of DigiFarm’s modular training scenarios through the Cultivate Academy e-learning platform. The programme is organised around four interconnected modules: remote sensing technologies and applications; tools and data for smart farming; green and soft skills; and business development for digital agriculture. These modules place GIS, satellite imagery, sensor data, farm-management systems and decision-support workflows within real advisory contexts. Our pedagogical approach combines self-paced online learning, scenario-based examples, interactive quizzes, certification and quality-assurance indicators, and is aligned with vocational and adult-learning principles. We place emphasis on translating spatial and environmental data into practical recommendations concerning crop monitoring, phenology, soil and water conditions, resource efficiency, climate adaptation, and farm-level decision making. A common thread linking the modules of the programme is the integration of ethics-and-society concerns. This addresses data governance, trust in recommendations, digital tool access inequalities, AI and transparency, and the social role of advisors as mediators between technological innovation and farmers’ situated knowledge. By embedding these issues within geoinformatics training, DigiFarm frames spatial intelligence as a socially accountable advisory practice and not merely as a technical competence. We argue that this type of capacity-building is essential for useful and responsible geospatial applications in European agriculture."
   },
   {
-   "code": "S_422",
-   "title": "Mapping Apartment Housing in the Eastern Mediterranean",
+   "code": "S_418",
+   "slot": 4,
+   "title": "Optimizing Spatial Decision-Making: Integrating Multi-Criteria Decision Analysis (MCDA) and GIS for Robust Site Selection",
    "authors": [
     {
-     "name": "Athanasios V. Argyriou",
-     "affiliation": "Institute for Mediterranean Studies, Foundation for Research and Technology-Hellas, 74131 Rethymno, Greece"
-    },
-    {
-     "name": "Konstantina Kalfa",
-     "affiliation": "Institute for Mediterranean Studies, Foundation for Research and Technology-Hellas, 74131 Rethymno, Greece"
-    },
-    {
-     "name": "Angelos Hliaoutakis",
-     "affiliation": "Institute for Mediterranean Studies, Foundation for Research and Technology-Hellas, 74131 Rethymno, Greece"
-    },
-    {
-     "name": "Nikos Papadopoulos",
-     "affiliation": "Institute for Mediterranean Studies, Foundation for Research and Technology-Hellas, 74131 Rethymno, Greece"
+     "name": "Giannis Saitis",
+     "affiliation": "National and Kapodistrian University of Athens"
     }
    ],
-   "abstract": "This research is part of the ERC-funded project MCH-EsMed: How the Middle Class Housed Itself in the Eastern Mediterranean, based at IMS, FORTH, which explores how inhabitants, in key Eastern Mediterranean cities, located themselves in the building environment and constructed their ordinary apartment buildings. Most of these cities are dominated by common apartment buildings, not grand landmarks, indicating the type of residential structures most people actually live. Examining the emergence and formation of such buildings requires analyzing large amounts of data collected during long periods of time, since thousands of contractors, architects, developers and residents all were actively involved in shaping the urban landscape. This study highlights the methodological framework to study this process utilizing GIS and other geospatial approaches. Using untapped demolition and building permit data, a combination of digital tools (GIS, photogrammetry) and traditional tools (censuses, surveys, aerial photography) was employed. Through these methods we can visualize and analyze the spread of apartment buildings over time, identify the contractors and key actors involved in their construction, and trace the architects who signed these permits. By bringing all of this together, what once appeared as an anonymous collection of identical buildings starts to reveal identifiable patterns, processes, and agents. It is possible to identify who build what, where and when by answering the following so far unaddressed questions: how was the wealth of the housing market in these cities distributed? Were there monopolies? What were the main strategies of developers in these real estate markets? Only by leveraging, we suggest, large-scale data in an iterative process can be meaningfully to understand how the Eastern Mediterranean cities were produced."
+   "abstract": "Contemporary spatial planning faces the challenge of balancing economic goals with environmental and social needs. This paper presents an application that combines Geographic Information Systems (GIS) with Multi-Criteria Decision Analysis (MCDA) to provide a clear and scientific way to select the best possible sites for specific land uses. The methodology focuses on a screening stage that uses Boolean logic to apply \"hard constraints\" - such as legal restrictions and safety zones. This process effectively filters out unsuitable areas, leaving only the land that meets all necessary requirements. Within this framework, the criteria are evaluated to ensure the final decision is logical, consistent, and mathematically sound. This approach is demonstrated through a case study in Naxos, Greece. The analysis incorporates various parameters, including administrative boundaries, proximity to infrastructure, urban patterns, and environmental zones like NATURA 2000. Using official open data (from ELSTAT, GET SDI Portal, and Corine Land Cover), the entire workflow is automated within ArcGIS Pro using ModelBuilder to ensure the process is fast and easy to repeat. Ultimately, the results show that the combination of MCDA and GIS provides a reliable way for stakeholders to make objective, data-driven spatial decisions instead of relying on subjective judgment."
   },
   {
-   "code": "S_126",
-   "title": "Mapping dissolved oxygen (DO) spatial distribution of coastal aquaculture environment based on remotely sensed data and machine learning algorithm",
+   "code": "S_109",
+   "slot": 4,
+   "title": "Time Series Analysis in Geographical Data: (Seasonality) and (Cyclicality)",
    "authors": [
     {
-     "name": "Androniki Dimoudi",
-     "affiliation": "University of Thessaly"
+     "name": "Nikolaos Sorkos",
+     "affiliation": "Laboratory of Spatial Analysis Geographic Information Systems and Remote Sensing (SAGISRS), Department of Geography, University of the Aegean, University Hill, 81100 Mytilene, Greece"
     },
-    {
-     "name": "Christos Domenikiotis",
-     "affiliation": "University of Thessaly"
-    },
-    {
-     "name": "Dimitris Vafidis",
-     "affiliation": "University of Thessaly"
-    },
-    {
-     "name": "Giorgos Mallinis",
-     "affiliation": "Aristotle University of Thessaloniki"
-    },
-    {
-     "name": "Nikos Neofitou",
-     "affiliation": "University of Thessaly"
-    }
-   ],
-   "abstract": "Monitoring dissolved oxygen (DO) in marine environments where aquaculture operates is crucial for ensuring aquaculture productivity and preserving the ecological status of the surrounding ecosystem. This study aims to present and evaluate a methodological approach for predicting DO in a semi-enclosed cove, where floating cage farming is carried out. It integrates in situ measurements and remotely sensed data to develop a machine learning regression model. The study area is located in the southeastern part of Pagasitikos Gulf (Eastern Mediterranean). Surface DO measurements were carried out over six seasons, between summer 2021 and spring 2024, recording 152 measurements in total, using a CTD (Seabird-19plus). Atmospherically corrected Multispectral Sentinel-2 MSI images were selected close to the sampling dates. Based on the coordinates received during sampling, pixel-to-point matching was performed, and remote sensing reflectance (Rrs) was extracted using SNAP (v.13.0). A selected number of bands from the satellite data was imperative for applying machine learning models to remove collinearity. For this purpose, two criteria were utilized: (a) the Variance Inflation Factor (VIF ≤ 10) index and (b) the correlation coefficient (rho) between spectral bands and DO, using IBM SPSS Statistics (v.31). The support vector regression (SVR) model was developed using the Python scikit-learn library with 5-fold cross-validation. SVR was selected as it demonstrates better performance compared to other regression-based machine learning (ML) models and neural network (NN) architectures under limited data availability. The SVR was trained using five of the six sampling campaigns. The remaining season was utilized for validation, comparing the actual in situ measurements with the extracted predicted values. The model performance was examined with different statistical indices. The resulting map shows the spatial distribution of DO across the entire study area. This approach could serve as a basis for the systematic monitoring of DO in coastal aquaculture environment."
-  },
-  {
-   "code": "S_180",
-   "title": "Spatial Analysis and Local AI for Smart City Digital Twins: A Framework for Real-Time Urban Risk Monitoring",
-   "authors": [
-    {
-     "name": "Dimitris Kavroudakis",
-     "affiliation": "University of the Aegean, Department of Geography"
-    }
-   ],
-   "abstract": "Compound risks are growing in urban environments: infrastructure strain, crowd pressure, microclimate variability and operational disruptions. City planners need evidence-based, real-time tools to promote resilience and adaptive management. In this paper we propose a smart city framework that integrates IoT sensing, local (on-premise) AI for time series anomaly detection, spatial analytics, and Digital Twin models for enhanced urban monitoring and decision making.\nThe framework assumes the deployment of IoT devices in urban spaces to capture variables such as temperature, humidity, CO2, vibration and population density. Data is sent in near real-time with lightweight protocols and stored locally in time-series and GIS-enabled spatial databases. A local-first architecture provides low latency, operational autonomy, and satisfies data governance and privacy requirements.\nWe formulate an end-to-end anomaly detection pipeline that includes data ingestion, data validation, pre-processing, feature engineering, and model inference. It allows for different analytical approaches, from statistical baselines to machine learning and neural models (e.g. autoencoders, LSTM) to detect complex and non-linear patterns in urban dynamics.\nAnomaly outputs are integrated in a Digital Twin environment, combining 3D visualizations of buildings or districts with dynamic layers, such as environmental conditions, mobility flows and scenario simulations. Spatial AI methods (e.g., spatio-temporal clustering, hotspot detection) translate anomalies into actionable insights such as risk maps and vulnerability indices.\nIn general, the framework allows smart city management to transition from reactive monitoring to predictive, interpretable decision support, allowing early warning systems, optimized urban operations, and better resilience planning."
-  },
-  {
-   "code": "S_070",
-   "title": "A Geospatial Data Integration Framework for Urban Mobility Analysis in Small Island Cities: The Case of Mytilene, Greece",
-   "authors": [
     {
      "name": "Nikoleta-Nefeli Kofou",
      "affiliation": "Laboratory of Spatial Analysis Geographic Information Systems and Remote Sensing (SAGISRS), Department of Geography, University of the Aegean, University Hill, 81100 Mytilene, Greece"
@@ -4287,32 +4465,31 @@
      "affiliation": "University of the Aegean, Department of Geography"
     }
    ],
-   "abstract": "Urban mobility analysis increasingly relies on the integration of heterogeneous geospatial datasets that describe the physical structure, functional characteristics, and population dynamics of cities. However, in many small island cities, mobility research is constrained by fragmented datasets, limited availability of traffic information, and the absence of integrated geospatial data infrastructures. These limitations hinder the systematic analysis of urban mobility patterns and the development of evidence-based planning strategies.\nThis study proposes a geospatial data integration framework designed to support urban mobility analysis in small island cities. The framework combines multiple spatial datasets, including road network topology, pedestrian infrastructure, land use distribution, population patterns, and mobility-related observations, within a unified GIS environment. By harmonizing data from different sources and spatial resolutions, the proposed approach enables the creation of a comprehensive geospatial database suitable for advanced spatial analysis.\nThe methodological workflow includes spatial data preprocessing, network structuring, attribute harmonization, and the integration of spatial indicators that describe accessibility, connectivity, and urban activity patterns. The framework is applied to the island city of Mytilene (Lesvos, Greece), a representative example of a small island urban system characterized by spatial constraints and heterogeneous mobility dynamics.\nBy addressing challenges related to data fragmentation and interoperability, the study contributes to the development of geoinformatics methodologies for urban mobility research and demonstrates how integrated geospatial data infrastructures can enhance spatial intelligence applications in urban analysis and planning."
+   "abstract": "This study aims to analyze the time series of the Normalized Difference Vegetation Index (NDVI) using the technical analysis indicators MACD (Moving Average Convergence Divergence) and RSI (Relative Strength Index), with the objective of detecting, identifying, and interpreting changes in vegetation dynamics during the five-year period 2018–2022. The research was conducted in the selected study area through the utilization of high spatial and temporal resolution satellite data obtained from the Sentinel-2 platform, enabling the monitoring of vegetation dynamics at both seasonal and multi-annual temporal scales.The methodological approach was initially based on the calculation of mean monthly NDVI values for the study period, followed by the application of the MACD and RSI indicators in order to examine the temporal variability of vegetation. Specifically, the MACD indicator was employed to identify turning points and shifts in vegetation dynamics through the convergence and divergence between moving averages, while the RSI indicator was applied to capture the intensity and rate of change of NDVI values, allowing the distinction between periods of vegetation strengthening (increased greenness) and weakening (reduced greenness).The results demonstrate the effectiveness of both indicators in the temporal monitoring of vegetation and their ability to capture variations primarily associated with the seasonal and cyclical behavior of vegetation. The MACD proved to be more effective in identifying long-term trends and points of trend reversal, whereas the RSI showed greater sensitivity in detecting short-term fluctuations and distinguishing periods of relatively strong or weak vegetation activity. Overall, the findings indicate that technical analysis indicators such as MACD and RSI can provide a complementary and innovative approach to the analysis of vegetation time series. Their application to satellite-derived and geospatial data contributes to a better understanding of NDVI temporal patterns, particularly in relation to seasonality and cyclicality, and supports the interpretation of vegetation dynamics over time."
   },
   {
-   "code": "S_418",
-   "title": "Optimizing Spatial Decision-Making: Integrating Multi-Criteria Decision Analysis (MCDA) and GIS for Robust Site Selection",
+   "code": "S_335",
+   "slot": 4,
+   "title": "Towards Alternative Indicators of Touristification: An Approach based on GeoAI and ML",
    "authors": [
     {
-     "name": "Vasiliki Konstantinidou",
-     "affiliation": "National and Kapodistrian University of Athens"
-    }
-   ],
-   "abstract": "Contemporary spatial planning faces the challenge of balancing economic goals with environmental and social needs. This paper presents an application that combines Geographic Information Systems (GIS) with Multi-Criteria Decision Analysis (MCDA) to provide a clear and scientific way to select the best possible sites for specific land uses. The methodology focuses on a screening stage that uses Boolean logic to apply \"hard constraints\" - such as legal restrictions and safety zones. This process effectively filters out unsuitable areas, leaving only the land that meets all necessary requirements. Within this framework, the criteria are evaluated to ensure the final decision is logical, consistent, and mathematically sound. This approach is demonstrated through a case study in Naxos, Greece. The analysis incorporates various parameters, including administrative boundaries, proximity to infrastructure, urban patterns, and environmental zones like NATURA 2000. Using official open data (from ELSTAT, GET SDI Portal, and Corine Land Cover), the entire workflow is automated within ArcGIS Pro using ModelBuilder to ensure the process is fast and easy to repeat. Ultimately, the results show that the combination of MCDA and GIS provides a reliable way for stakeholders to make objective, data-driven spatial decisions instead of relying on subjective judgment."
-  },
-  {
-   "code": "S_051",
-   "title": "Assessment of urban green spaces and development of a vegetation cooling index using PRISMA hyperspectral data",
-   "authors": [
+     "name": "Dimitris Psarologos",
+     "affiliation": "University of the Aegean"
+    },
     {
-     "name": "Olympia Kourounioti",
-     "affiliation": "University of West Attica"
+     "name": "Athina Avagianou",
+     "affiliation": "University of the Aegean"
+    },
+    {
+     "name": "Maria Papadimitriou",
+     "affiliation": "University of the Aegean"
     }
    ],
-   "abstract": "The management of urban ecosystems is a critical challenge in today's geographical research to ensure the quality of life in cities. Climate change and the Urban Heat Island (UHI) effect are changing the microclimate, making it essential to accurately map vegetation. This study focuses on Heraklion, Crete, a typical Mediterranean island city that experiences intense heat and persistent drought during the summer. This study aims to propose a methodology for assessing vegetation conditions and recommending targeted cooling measures. To this end, hyperspectral data from the PRISMA satellite were used for two dates (at the beginning and the end of summer). After preprocessing, the Normalized Difference Vegetation Index (NDVI) was applied to detect pixel density of vegetation, as well as the Normalized Difference Infrared Index (NDII) utilizing NIR (820nm) and SWIR (1650nm) bands, to assess the water status and health of the plants. Next, using the Linear Spectral Unmixing (LSU) method, density maps were created for five categories (ground, buildings, roads, water, vegetation). Finally, a cooling index was developed as the combination of vegetation density and vegetation health. The analysis revealed a significant deterioration in terms of health and a decline in the presence of vegetation during the summer months. In late summer, the number of pixels identified as “live vegetation” decreased significantly (~6.3 hectares), while those requiring immediate care increased, indicating severe dehydration. The study's findings highlight the fragility of urban green spaces under Mediterranean drought conditions. The resulting “Red Alert” map serves as a valuable decision-making tool for urban planners and stakeholders. As it is based on satellite data and vegetation indices, this methodology can be easily applied to any comparable urban center in the Mediterranean or Southern Europe facing similar climate challenges."
+   "abstract": "This study presents a reproducible GeoAI-based framework for detecting and spatially analyzing swimming pools as proxy indicators of touristification in tourism-intensive island environments. The methodology combines pre-trained and custom-trained deep learning models optimized for small-object detection in high-resolution imagery, enabling automated, large-scale extraction of swimming pool features across Rhodes, Greece, for the period 2017–2024. Spatiotemporal analysis of the detected pools reveals a significant increase in their total number over the study period, with expansion extending well beyond established coastal resort zones into semi-rural and inland areas — a pattern that mirrors broader tourism and accommodation growth. To assess the touristic character of this expansion, detected pools are spatially associated with hotel and short-term rental locations; results confirm strong proximity, indicating that pool proliferation is predominantly tourism-driven. Further spatial analysis identifies considerable overlap between pool concentrations and active private groundwater extraction points, suggesting that tourism-induced landscape transformation is directly intensifying pressure on the island's already scarce freshwater resources. The study's principal contribution lies in documenting the intensification of touristification across Rhodes through the spatial diffusion of swimming pools, while addressing a methodological gap in Tourism Studies by demonstrating how GeoAI-derived datasets can serve as a foundation for spatial intelligence workflows that support environmental monitoring and the identification of touristification processes. Given the post-COVID rebound of tourism with limited sustainability transitions, and amid growing concerns over global freshwater depletion, the proposed framework offers a transferable approach applicable to other socio-spatial contexts facing analogous pressures."
   },
   {
    "code": "S_381",
+   "slot": 4,
    "title": "Immersive Geovisualization of the Moria Refugee Camp in Virtual Enviroments",
    "authors": [
     {
@@ -4341,131 +4518,6 @@
     }
    ],
    "abstract": "The aim of this study is to present the development of a digital twin of the Moria Refugee Camp on Lesvos Island, Greece, documenting its spatial transformation from 2017 to 2026 as an educational tool to enhance students understanding of spatial change in territories through geovisualization. Even though recent developments in geospatial technologies, digital twins, and immersive environments are available, there is still limited research concerning geovisualization methods for the effective representation of such complex spatiotemporal datasets. The Moria Refugee Camp is a suitable case for investigation, as it constitutes a dynamic case study characterized by continuous spatial transformations, shifting configurations, and changing land-use patterns over time.\n\nAn innovative methodology was developed, integrating: 1. high-resolution UAV imagery and 360° panoramas, 2. image-based 3D modelling techniques, and 3. immersive visualization approaches. To represent the temporal evolution of the refugee camp, separate reconstructions corresponding to selected years between 2017 and 2026 were created and implemented within a game-engine environment. Due to restricted access during earlier operational phases of the camp, systematic field-based data collection was not feasible. To address this limitation, archival aerial imagery and journalistic visual material were additionally utilized to approximate the spatial organization and infrastructure density of earlier periods.\n\nThe resulting application provides an immersive environment which allows users to navigate through the Moria Camp spatiotemporally. It allows the users to select different temporal stages in the evolution of the Moria camp and it can assist as a visual and conceptual aid towards the understanding of the concept and phenomenon of territorialization. Particularly, how state policies and practices organize space in order to control movements of people. Moreover, to assess the interaction of the above with the initiatives and actions of different organizations, asylum seekers and refugees in shaping the reality of space, power relations and human movements."
-  },
-  {
-   "code": "S_104",
-   "title": "A Methodological Framework for Assessing Tourism Hotspots at Fire and/or Flood Risk – Implementation in Four Greek Islands",
-   "authors": [
-    {
-     "name": "Angeliki Papazoglou",
-     "affiliation": "Dept. of Geography and Regional Planning, School of Rural, Surveying and Geoinformatics Engineering, National Technical University of Athens"
-    },
-    {
-     "name": "Anastasia Stratigea",
-     "affiliation": "Dept. of Geography and Regional Planning, School of Rural, Surveying and Geoinformatics Engineering, National Technical University of Athens"
-    }
-   ],
-   "abstract": "In the Climate Change (CC) era, frequency and intensity of wildfire and flood occurrences are predicted to further amplify, resulting in severe socio-economic and environmental implications for the affected areas. Repercussions of such occurrences are expected to be more intense in the Mediterranean highly-urbanized, tourist-overloaded insular territories, highlighting the necessity for proactive –e.g. local/regional plans, land use etc.– but also reactive planning –e.g. Disaster Management Plans – in, mainly, tourism overloaded areas. In both proactive and reactive planning, efforts have to be carried out on the ground of the combined assessment/mapping of tourism hotspots and the spatially-defined fire/flood risk. In order for such a task to be accomplished, this work develops a framework for identifying tourism hotspot zones that are prone to fire and/or flood risk; and implements this framework in four Greek islands – Evia, Lesvos, Chios and Rhodes – as examples of different types of Mediterranean insular territories, exposed to both CC and (over)tourism. This framework integrates: i) a pool of fifteen literature-based, wildfire-related subcriteria that fall into four major criteria/factors, i.e. Topography, Climate, Environment and Urban Space, and are used as input to the Analytical Hierarchy Process (AHP) for producing, with the support of the Geographical Information Systems (GIS), Fire Risk maps for the study areas; ii) burned areas in the study islands in the time span 2000-2024 for validating fire risk assessments; iii) the officially-delineated flood-prone zones for identifying flood risk in the areas at hand; iv) tourist hotspots in the study regions, identified by means of tourist accommodation distribution. Results obtained by implementation of this framework demonstrate the urgent need for setting up proactive/reactive strategies/plans since coastal urban sprawl due to tourism pressure in the studied islands is steadily leading to the expansion of built up space in areas of high fire and/or flooding risk."
-  },
-  {
-   "code": "S_187",
-   "title": "Urban Informatics for Spatial Inequality: Making 3D Land Administration Accessible for Mapping Vertical Environmental Injustice",
-   "authors": [
-    {
-     "name": "Georgios Potamousis",
-     "affiliation": "University of West Attica"
-    },
-    {
-     "name": "Dionysia Perperidou",
-     "affiliation": "University of West Attica"
-    }
-   ],
-   "abstract": "Keywords: 3D Land Administration; LADM Edition II; Vertical Inequality; Urban Informatics; Spatial Justice; Environmental Justice; Voxel-Based Models;\n\nTraditionally, geoinformatics has focused on horizontal analysis at the neighborhood level, often overlooking how environmental factors such as air pollution fluctuate between different building floors. This study introduces a new workflow that connects geographic theory with practical technology by shifting from broad area analysis to detailed, parcel level assessment. Using the updated ISO 19152:2024 standard (LADM Edition II), we present a 3D Land Administration framework that incorporates atmospheric data directly into property records.\nOur approach uses high resolution 3D models of city structures and voxel-based pollutant dispersion models to measure air quality within dense urban areas. A voxel is a three dimensional unit, much like a digital building block that allows for detailed mapping of pollution as it moves and accumulates in the air. These models simulate the flow of pollutants through each \"block,\" helping planners understand which parts of buildings or floors are most affected.\nBy integrating these environmental datasets with the Unique Immovable Property Number (KAEK), the official cadastral identifier, we identify systematic vertical inequalities. In Athens, Greece, a city of dense apartment blocks, residents on lower floors typically experience poorer air quality due to pollutants trapped at street level within urban canyons. The implementation of a 3D Cadastre by authorities facilitates the identification of affected floors and the subsequent implementation of targeted interventions, such as enhanced air filtration, with the objective of reducing exposure. This framework transforms the Cadastre from a static registry into a dynamic tool for Spatial Intelligence. This approach ultimately empowers stakeholders to identify and address hidden vertical disparities, thereby upholding the \"Environmental Right to the City\" and promoting fair urban planning for all."
-  },
-  {
-   "code": "S_335",
-   "title": "Towards Alternative Indicators of Touristification: An Approach based on GeoAI and ML",
-   "authors": [
-    {
-     "name": "Dimitris Psarologos",
-     "affiliation": "University of the Aegean"
-    },
-    {
-     "name": "Athina Avagianou",
-     "affiliation": "University of the Aegean"
-    },
-    {
-     "name": "Maria Papadimitriou",
-     "affiliation": "University of the Aegean"
-    }
-   ],
-   "abstract": "This study presents a reproducible GeoAI-based framework for detecting and spatially analyzing swimming pools as proxy indicators of touristification in tourism-intensive island environments. The methodology combines pre-trained and custom-trained deep learning models optimized for small-object detection in high-resolution imagery, enabling automated, large-scale extraction of swimming pool features across Rhodes, Greece, for the period 2017–2024. Spatiotemporal analysis of the detected pools reveals a significant increase in their total number over the study period, with expansion extending well beyond established coastal resort zones into semi-rural and inland areas — a pattern that mirrors broader tourism and accommodation growth. To assess the touristic character of this expansion, detected pools are spatially associated with hotel and short-term rental locations; results confirm strong proximity, indicating that pool proliferation is predominantly tourism-driven. Further spatial analysis identifies considerable overlap between pool concentrations and active private groundwater extraction points, suggesting that tourism-induced landscape transformation is directly intensifying pressure on the island's already scarce freshwater resources. The study's principal contribution lies in documenting the intensification of touristification across Rhodes through the spatial diffusion of swimming pools, while addressing a methodological gap in Tourism Studies by demonstrating how GeoAI-derived datasets can serve as a foundation for spatial intelligence workflows that support environmental monitoring and the identification of touristification processes. Given the post-COVID rebound of tourism with limited sustainability transitions, and amid growing concerns over global freshwater depletion, the proposed framework offers a transferable approach applicable to other socio-spatial contexts facing analogous pressures."
-  },
-  {
-   "code": "S_312",
-   "title": "Integrating Disaster Event Records and Earth Observation Data: A Geospatial Database for Spatial Intelligence in Southern Europe",
-   "authors": [
-    {
-     "name": "Olga Roussou",
-     "affiliation": "University of the Aegean, Department of Geography"
-    },
-    {
-     "name": "Kiosa Irint",
-     "affiliation": "University of the Aegean, Department of Geography"
-    },
-    {
-     "name": "Eftychia Sorligka",
-     "affiliation": "University of the Aegean, Department of Geography"
-    }
-   ],
-   "abstract": "A complex panorama of natural hazards, including wildfires, floods, heatwaves, earthquakes and landslides, is increasingly prevalent in Southern Europe. However, effective disaster management is often constrained by fragmented and heterogeneous datasets. Global databases such as EM-DAT provide essential standardized information on disaster types and impacts, yet they frequently exhibit significant temporal and spatial gaps, particularly for localized or small-scale catastrophes. To address these limitations, this study proposes a geoinformatics framework for the development of an extensive geospatial database of natural disasters in the Mediterranean region.\nThe proposed methodology adopts a multi-source data fusion approach, integrating high-resolution satellite-derived datasets from NASA, harmonized infrastructure datasets, and official event records from EM-DAT. The study improves the geographical completeness of traditional records by utilizing Earth observation (EO) data, enabling more accurate identification of the extent and frequency of hazard events. A strict harmonization and integrated process carried out in a PostgreSQL/PostGIS environment, that guarantees consistency across many spatial reference systems, temporal resolutions, and danger classification methods, is essential to this strategy.\nThe resulting geodatabase highlights the critical role of geoinformatics in standardizing disaster records and serves as a critical decision-support tool. It facilitates multi-hazard risk assessment, supports climate change adaptation strategies, and provides the spatial intelligence required for evidence-based urban planning and cross-border emergency management in Southern Europe. Overall, the study presents a scalable framework for improving disaster data integration, enhancing vulnerability analysis, and strengthening disaster resilience across the region."
-  },
-  {
-   "code": "S_109",
-   "title": "Time Series Analysis in Geographical Data: (Seasonality) and (Cyclicality)",
-   "authors": [
-    {
-     "name": "Nikolaos Sorkos",
-     "affiliation": "Laboratory of Spatial Analysis Geographic Information Systems and Remote Sensing (SAGISRS), Department of Geography, University of the Aegean, University Hill, 81100 Mytilene, Greece"
-    },
-    {
-     "name": "Nikoleta-Nefeli Kofou",
-     "affiliation": "Laboratory of Spatial Analysis Geographic Information Systems and Remote Sensing (SAGISRS), Department of Geography, University of the Aegean, University Hill, 81100 Mytilene, Greece"
-    },
-    {
-     "name": "Dimitris Kavroudakis",
-     "affiliation": "University of the Aegean, Department of Geography"
-    }
-   ],
-   "abstract": "This study aims to analyze the time series of the Normalized Difference Vegetation Index (NDVI) using the technical analysis indicators MACD (Moving Average Convergence Divergence) and RSI (Relative Strength Index), with the objective of detecting, identifying, and interpreting changes in vegetation dynamics during the five-year period 2018–2022. The research was conducted in the selected study area through the utilization of high spatial and temporal resolution satellite data obtained from the Sentinel-2 platform, enabling the monitoring of vegetation dynamics at both seasonal and multi-annual temporal scales.The methodological approach was initially based on the calculation of mean monthly NDVI values for the study period, followed by the application of the MACD and RSI indicators in order to examine the temporal variability of vegetation. Specifically, the MACD indicator was employed to identify turning points and shifts in vegetation dynamics through the convergence and divergence between moving averages, while the RSI indicator was applied to capture the intensity and rate of change of NDVI values, allowing the distinction between periods of vegetation strengthening (increased greenness) and weakening (reduced greenness).The results demonstrate the effectiveness of both indicators in the temporal monitoring of vegetation and their ability to capture variations primarily associated with the seasonal and cyclical behavior of vegetation. The MACD proved to be more effective in identifying long-term trends and points of trend reversal, whereas the RSI showed greater sensitivity in detecting short-term fluctuations and distinguishing periods of relatively strong or weak vegetation activity. Overall, the findings indicate that technical analysis indicators such as MACD and RSI can provide a complementary and innovative approach to the analysis of vegetation time series. Their application to satellite-derived and geospatial data contributes to a better understanding of NDVI temporal patterns, particularly in relation to seasonality and cyclicality, and supports the interpretation of vegetation dynamics over time."
-  },
-  {
-   "code": "S_046",
-   "title": "Geospatial Analysis of the Energy Landscape in the European Union with emphasis on Electricity",
-   "authors": [
-    {
-     "name": "Konstantinos Statheropoulos",
-     "affiliation": "National Technical University of Athens"
-    },
-    {
-     "name": "Marinos Kavouras",
-     "affiliation": "National Technical University of Athens"
-    },
-    {
-     "name": "Athanasia Darra",
-     "affiliation": "National Technical University of Athens"
-    }
-   ],
-   "abstract": "The ongoing energy crisis and the transition towards sustainable energy systems have highlighted the need for comprehensive spatial analysis of energy patterns across the European Union (EU). This study presents a geospatial approach to evaluating the energy landscape of EU member states, with a particular emphasis on electricity.\n\nThe main objective of this research is to identify spatial patterns and disparities in energy production, consumption, and efficiency, and to propose a representative energy model that could guide future policy decisions. The study integrates multiple datasets from international energy organizations and statistical sources, incorporating key indicators such as energy intensity, electricity production by source, and the contribution of fossil fuels and renewable energy.\n\nA Geographic Information Systems (GIS)-based methodology is applied to process, analyze, and visualize the data. Spatial indicators are developed to enable comparative evaluation among EU countries. The results are presented through thematic maps and statistical visualizations, allowing for a clear interpretation of spatial trends and temporal variations.\n\nThe analysis reveals significant differences in energy profiles across member states, reflecting diverse economic structures, policy frameworks, and levels of energy transition. By evaluating these differences, the study identifies best-performing countries and highlights potential pathways for improving energy efficiency and sustainability across the EU.\n\nThe research contributes to the field of geoinformatics by demonstrating the value of spatial analysis in understanding complex energy systems. Furthermore, it provides a decision-support framework for policymakers, supporting the development of a more integrated and sustainable European energy strategy."
-  },
-  {
-   "code": "S_131",
-   "title": "A Spatiotemporal Pipeline for Detecting and Visualizing PM2.5 Pollution Events Using Low-Cost Sensors",
-   "authors": [
-    {
-     "name": "Sofia Zafeirelli",
-     "affiliation": "University of the Aegean"
-    },
-    {
-     "name": "Martin Dolejš",
-     "affiliation": "Jan Evangelista Purkyně University in Ústí nad Labem"
-    },
-    {
-     "name": "Dimitris Kavroudakis",
-     "affiliation": "University of the Aegean, Department of Geography"
-    }
-   ],
-   "abstract": "Urban growth has made air quality issues harder to overlook, especially in dense cities where emissions tend to build up rather than disperse. That shift seems to place new pressure on monitoring systems, not only to collect data but also to interpret it quickly enough to flag meaningful pollution episodes. This study focuses on Athens, Greece, using hourly PM2.5 data collected through a network of low-cost sensors. While these sensors are becoming more widespread, integrating their data into a consistent analytical workflow is still not straightforward. Despite the volume of available data, there is no widely used framework that combines cleaning, event detection, and spatial analysis at a fine temporal scale, which can limit how effectively the data is used. The approach developed here includes preprocessing, event detection, and spatiotemporal analysis. Between 2018 and 2022, more than 400 pollution events were identified. Many of these occurred during winter evenings and are likely linked to residential heating, along with atmospheric conditions such as temperature inversions. The framework does appear to capture large-scale events as well, including the wildfires in August 2021. Inverse Distance Weighting (IDW) was used to estimate pollution levels between sensor locations. Tracking the movement of event centroids provided a way to examine how these episodes expand, shift, or dissipate over time. While this method involves certain assumptions (for example, IDW may smooth local extremes), it offers a useful representation of spatial dynamics.\nTaken together, the results suggest that low-cost sensor networks, when handled carefully, can yield fairly detailed and reliable insights into urban air quality. They are perhaps best understood as a complementary layer, which adds granularity and responsiveness. With further refinement, the framework could be adapted for near real-time use, potentially informing local environmental management and public health responses."
   }
  ],
  "33": [
@@ -5547,22 +5599,6 @@
   }
  ],
  "38": [
-  {
-   "code": "S_159",
-   "slot": 1,
-   "title": "THE GREAT WILDFIRES OF 2007 ΙΝ PELOPONNESE AND THE REGENERATION OF FORESTS",
-   "authors": [
-    {
-     "name": "Eleni Papaoikonomou",
-     "affiliation": "University of West Attica"
-    },
-    {
-     "name": "Sotiris Karalis",
-     "affiliation": "University of West Attica"
-    }
-   ],
-   "abstract": "The fires of the summer of 2007 in Greece have been recorded as the most destructive in Europe in recent decades. The total area burned exceeded 250,000 hectares, of which 30,132 were located within the Natura protected areas 2000 network. Furthermore, for the first time, the damage report included not only burned forests and agricultural land, but also entire villages, civil infrastructure and the loss of 57 lives.\nThis research thoroughly investigates and examines the short, middle, and long term impact of these catastrophic wildfires. It estimates the severity of the impact and the time needed for regeneration of the forests, regeneration implying that the forests returned to their previous extends and syntheses before the fires. The study is conducted using remote sensing data and methods, i.e., satellite images and products from NASA's MODIS satellites, namely the products MOD09A1 and MCD64A1.\nSeven different polygons (burned areas) were singled out as Regions of Interest (ROIs) and their evolution was monitored for the entire period of satellite data (2002-present) with the construction of the time series of the NDVI (Normalized Difference Vegetation Index) and NBR (Normalized Burn Ratio) ratios. The post-fire yearly evolution of these ratios was compared with the averaged pre-fire values leading to some first conclusions. It is noted that the NBR index is normally used as the difference pre-fire to post-fire (dNBR) but the particular point in time that is considered pre-fire can be varied to conform with the scope of the study. Additionally, the concurrent examination of the two indices can provide useful input for the timely growth of the forest vegetation.\nGiven the uncertainties inherent in remote sensing methods the results were compared with other similar studies, especially those that included field examinations, and the comparisons were favorable."
-  },
   {
    "code": "S_291",
    "slot": 1,

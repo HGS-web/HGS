@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft, ArrowRight, Info, MapPin } from "lucide-react"
 import { FadeIn, FadeInView } from "@/components/ui/motion"
@@ -139,10 +140,18 @@ function DaySchedule({ day, locale }: { day: ProgramDay; locale: Locale }) {
                     return (
                       <td key={`${slot.time}-${i}`} className="align-top">
                         {event ? (
-                          <div className="block min-h-[5.5rem] rounded-lg border border-black/10 bg-black/[0.02] p-2">
+                          <div
+                            title={event.title ? `${event.label}: ${event.title}` : undefined}
+                            className="block min-h-[5.5rem] rounded-lg border border-black/10 bg-black/[0.02] p-2"
+                          >
                             <span className="block text-xs font-semibold text-black">{event.label}</span>
-                            {event.note && (
+                            {event.title && (
                               <span className="mt-0.5 text-[11px] leading-snug text-black/60 line-clamp-3">
+                                {event.title}
+                              </span>
+                            )}
+                            {event.note && (
+                              <span className="mt-0.5 block text-[10px] uppercase tracking-wide text-black/40">
                                 {event.note}
                               </span>
                             )}
@@ -189,6 +198,9 @@ function DaySchedule({ day, locale }: { day: ProgramDay; locale: Locale }) {
                           <span className="mt-0.5 w-8 shrink-0" />
                           <span className="min-w-0">
                             <span className="block text-sm font-semibold leading-snug text-black/75">{cell.label}</span>
+                            {cell.title && (
+                              <span className="mt-0.5 block text-sm leading-snug text-black/75">{cell.title}</span>
+                            )}
                             <span className="mt-0.5 block text-[11px] text-black/40">
                               {cell.note ? `${cell.note} · ` : ""}
                               {roomLabel(day.rooms[i])}
@@ -349,9 +361,42 @@ export default async function ProgramPage({ params }: PageProps) {
               <ol className="mt-3 grid gap-3 md:grid-cols-3">
                 {keynoteSpeakers.map((speaker) => (
                   <li key={speaker.name} className="rounded-xl border border-black/[0.08] bg-black/[0.02] p-4">
-                    <p className="text-sm font-semibold leading-snug text-black">{speaker.title}</p>
-                    <p className="mt-2 text-sm text-black/75">{speaker.name}</p>
-                    <p className="mt-0.5 text-xs leading-relaxed text-black/50">{speaker.role}</p>
+                    <div className="flex items-start gap-3">
+                      {speaker.photo && (
+                        <Image
+                          src={speaker.photo}
+                          alt={speaker.name}
+                          width={56}
+                          height={56}
+                          className="h-14 w-14 shrink-0 rounded-full object-cover"
+                        />
+                      )}
+                      <div className="min-w-0">
+                        <p className="text-sm text-black/75">{speaker.name}</p>
+                        <p className="mt-0.5 text-xs leading-relaxed text-black/50">{speaker.role}</p>
+                      </div>
+                    </div>
+                    <p className="mt-3 text-sm font-semibold leading-snug text-black">{speaker.title}</p>
+                    {speaker.abstract && (
+                      <details className="group mt-3 border-t border-black/[0.06] pt-2">
+                        <summary className="cursor-pointer text-xs font-medium text-black/60 hover:text-black">
+                          Abstract
+                        </summary>
+                        <p className="mt-2 text-xs leading-relaxed text-black/65">{speaker.abstract}</p>
+                      </details>
+                    )}
+                    {speaker.bio && (
+                      <details className="group mt-2 border-t border-black/[0.06] pt-2">
+                        <summary className="cursor-pointer text-xs font-medium text-black/60 hover:text-black">
+                          About the speaker
+                        </summary>
+                        <div className="mt-2 space-y-2 text-xs leading-relaxed text-black/65">
+                          {speaker.bio.map((paragraph) => (
+                            <p key={paragraph}>{paragraph}</p>
+                          ))}
+                        </div>
+                      </details>
+                    )}
                   </li>
                 ))}
               </ol>

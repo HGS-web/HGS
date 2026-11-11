@@ -269,7 +269,7 @@ export const sessions: Session[] = [
   },
   {
     id: "36b",
-    title: "Spatializing Urban Vulnerability in Times of Crisis: Energy Poverty, Housing Deprivation, Homelessness, and Displacement",
+    title: "Geography in the Digital Era: Integrating Spatial Thinking, Geospatial Technologies, Education, and Environmental Applications",
     organizers: "Efthimios Karymbalis (Harokopio University of Athens)",
     topic: "11. Geography and Education – Educating Geographers",
     abstract: "This session explores the evolving role of geography in the digital era by integrating spatial thinking, geospatial technologies, education, and environmental applications. Contributions incorporating GIS, remote sensing, augmented reality, digital tools, and outdoor learning are welcome, with a focus on enhancing geographical education, fostering critical spatial literacy, and supporting environmental understanding. The session also invites applied geospatial research addressing contemporary environmental challenges through advanced spatial analysis and modeling. By bringing together educational and research perspectives, the session emphasizes the value of geographic knowledge and geospatial technologies in understanding complex socio-environmental processes and informing sustainable action.",

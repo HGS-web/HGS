@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, ArrowRight } from "lucide-react";
+import { Mail, ArrowRight, ArrowUpRight } from "lucide-react";
 import { getMarkdownContent } from "@/lib/markdown";
 import { FadeIn, FadeInView } from "@/components/ui/motion";
 import type { Locale } from "@/config/site";
@@ -421,21 +421,46 @@ export default async function Conference2026Page({ params }: PageProps) {
     <>
       {/* Hero */}
       <section className="relative pt-32 pb-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Same width as the cards below, so the title and the poster line up with them. */}
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <FadeIn>
-            <div className="text-center">
-              <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium bg-black/5 text-black/80 rounded-full">
-                2026
-              </span>
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-black tracking-tight">
-                {t.title}
-              </h1>
-              <h2 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-semibold text-black/70">
-                {t.theme}
-              </h2>
-              <p className="mt-4 text-sm sm:text-base text-black/60">
-                {t.dateValue} &bull; {t.locationValue}
-              </p>
+            <div className="flex flex-col items-center gap-10 lg:flex-row lg:justify-between lg:gap-16">
+              <div className="text-center lg:text-left">
+                <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium bg-black/5 text-black/80 rounded-full">
+                  2026
+                </span>
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-black tracking-tight text-balance">
+                  {t.title}
+                </h1>
+                <h2 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-semibold text-black/70">
+                  {t.theme}
+                </h2>
+                <p className="mt-4 text-sm sm:text-base text-black/60">
+                  {t.dateValue} &bull; {t.locationValue}
+                </p>
+              </div>
+
+              {/* Final poster from the organisers (17 Nov 2026); opens full size. */}
+              <a
+                href="/conference2026/poster.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block w-40 shrink-0 rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black lg:w-52 xl:w-56"
+              >
+                <Image
+                  src="/conference2026/poster.jpg"
+                  alt="Poster of the 13th International Conference of the Hellenic Geographical Society, Geography Matters, 27–28 November 2026"
+                  width={2480}
+                  height={3507}
+                  sizes="(min-width: 1280px) 224px, (min-width: 1024px) 208px, 160px"
+                  priority
+                  className="h-auto w-full rounded-md ring-1 ring-black/10 shadow-[0_20px_40px_-20px_rgba(0,0,0,0.4)] transition duration-300 ease-out motion-safe:group-hover:-translate-y-1 group-hover:shadow-[0_28px_48px_-22px_rgba(0,0,0,0.45)]"
+                />
+                <span className="mt-3 flex items-center justify-center gap-1 text-xs font-medium text-black/60 transition-colors group-hover:text-black">
+                  Conference poster
+                  <ArrowUpRight className="h-3.5 w-3.5" />
+                </span>
+              </a>
             </div>
           </FadeIn>
         </div>
@@ -686,40 +711,6 @@ export default async function Conference2026Page({ params }: PageProps) {
                           <p className="text-xs text-black/50">Archimidous 8, 17675, Kallithea, Athens</p>
                         </li>
                       </ul>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Conference poster (final version from the organisers, 17 Nov 2026) */}
-                <div className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
-                  <h3 className="text-xl font-semibold text-black mb-4">Conference Poster</h3>
-                  <div className="flex items-start gap-5">
-                    <a
-                      href="/conference2026/poster.jpg"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block w-32 shrink-0 overflow-hidden rounded-lg border border-black/10 hover:border-black/30 transition-colors sm:w-40"
-                    >
-                      <Image
-                        src="/conference2026/poster.jpg"
-                        alt="Poster of the 13th International Conference of the Hellenic Geographical Society, Geography Matters, 27–28 November 2026"
-                        width={320}
-                        height={453}
-                        sizes="160px"
-                        className="h-auto w-full"
-                      />
-                    </a>
-                    <div className="min-w-0 text-sm text-black/65 leading-relaxed">
-                      <p>The official poster of the conference.</p>
-                      <a
-                        href="/conference2026/poster.jpg"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-3 inline-flex items-center gap-1.5 font-medium text-black underline underline-offset-4 decoration-black/20 hover:decoration-black transition-colors"
-                      >
-                        View full size
-                        <ArrowRight className="h-3.5 w-3.5" />
-                      </a>
                     </div>
                   </div>
                 </div>

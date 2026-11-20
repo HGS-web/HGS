@@ -158,19 +158,20 @@ export interface KeynoteSpeaker {
   title: string
   /** Square portrait under public/. */
   photo?: string
-  abstract?: string
+  abstract?: string[]
   bio?: string[]
 }
 
-// Abstracts and bios as sent by the speakers (S. Spyrellis, 11 Nov 2026).
+// Abstracts and bios as sent by the speakers (S. Spyrellis, 11 and 20 Nov 2026).
 export const keynoteSpeakers: KeynoteSpeaker[] = [
   {
     name: "Robert Musil",
     role: "PD MMag. Dr., Director, Institute for Urban and Regional Research, Austrian Academy of Sciences (ÖAW)",
     title: "A Second Quantitative Revolution? The Potentials and Risks of AI in Human Geography",
     photo: "/keynotes/musil.jpg",
-    abstract:
+    abstract: [
       "During the 1950s, the growing availability of digital computing power triggered a sweeping transformation that reshaped scientific practice in the humanities and, consequently, in human geography. Given the profound impact of artificial intelligence (AI) on society, the media, the labor market, businesses, and science, this presentation examines the methodological and conceptual implications of AI-based applications for the field of human geography. On the one hand, new data sources and analytical tools allow us to revisit traditional questions in human geography – spatial inequalities, urban decline, and urban upgrading – from a fresh perspective. First, new microscale data will disaggregate research, enabling much finer-grained analysis of socio-spatial inequalities. Second, urban research will focus more on visual aspects, such as building condition, decline, and vacancy in ground-floor zones. These new methodological approaches and the data they generate will also have conceptual implications for existing concepts in human geography. On the other hand, implementing AI-based approaches requires new research practices and new collaborations. While the quantitative revolution of the 1960s took place amid increasing critique of the traditional Länderkundlichen paradigm, today an indifferent, passive attitude toward new technologies seems to dominate. From the perspective of our discipline, the risk of AI is that the main questions of human geography will be further developed by other disciplines. Historical experience shows that it is not the technology itself, but how we apply it, that will determine whether our discipline undergoes another revolution.",
+    ],
     bio: [
       "Robert Musil studied geography and history at the University of Vienna and finished his PhD at the University Innsbruck in 2005. His cumulative habilitation work in the field of human geography was approved in 2015 at the University of Vienna. Since 2001, Robert Musil has been a researcher at the Institute for Urban and Regional Research (ISR); between 2007 and 2009 he was post-doc assistant at the University of Salzburg, and between 2014 and 2016 he was visiting professor for economic geography at the University of Vienna.",
       "Robert Musil leads the research group ‘Housing and Urban Economy’ and since January 1, 2026, he has been appointed director of the ISR. His research interests lie at the juncture of economic and urban geography. His current research includes commodification strategies and ownership structures on urban and regional housing markets, urban inequalities in the context of ground floor zones and the impact of housing market segmentation on patterns of microsegregation.",
@@ -181,8 +182,9 @@ export const keynoteSpeakers: KeynoteSpeaker[] = [
     role: "Professor Emeritus, Department of Geography, Harokopio University of Athens (HUA)",
     title: "Reclaiming Critical Geographical Thinking",
     photo: "/keynotes/hadjimichalis.jpg",
-    abstract:
+    abstract: [
       "The lack of critical thinking in geography, is an international problem whose emergence I have been observing over the past several decades, long before the widespread use of AI. I am referring primarily to the choice of research topics, the methods used to approach them, and the absence of critical questions across all branches of physical and human geography, cartographic representations and statistical calculations, as reflected in academic publications, dissertations, conferences and applied policies. Using examples from published research and applications of wide-used concepts, such us sustainable development, I will try to draw an alternative agenda beyond the hegemonic neoliberal discourse, dominant in academia and everyday life.",
+    ],
     bio: [
       "Costis Hadjimichalis is Professor Emeritus at the Department of Geography, Harokopio University Athens. He previously held a position at the Department of Urban and Regional Planning, Aristotle University of Thessaloniki, and has been visiting professor at Roskilde University (Denmark), UCLA and Berkeley (USA), Panteion University, Athens (Greece), Oslo National University (Norway), NIRSA (Ireland), Macquarie University (Australia) and Universitá deggli Studi di Padova (Italy). His current research and publications concern uneven geographical development, local and regional development, radical geography, democracy and spatial justice and landscape analysis. He has been section editor of Regional Development for the International Encyclopaedia of Human Geographer, Elsevier and founding editor of the Greek journal Geographies. Among his recent books are Space in Left Thought (co-author Dina Vaiou, in Greek 2012), Debt Crisis and Land Dispossession (2014 in Greek, 2016 in German), Crises Spaces. Structures, struggles and solidarity in Southern Europe, London: Routledge (2017, paperback 2019, modified Greek edition 2018), Sketching urbanities in the Mediterranean (in Greek, 2021, in Spanish 2025), and forthcoming: Why Sustainable, Resilient, and Smart Development Is Unattainable: A Radical Geographical Response (2027).",
     ],
@@ -190,7 +192,20 @@ export const keynoteSpeakers: KeynoteSpeaker[] = [
   {
     name: "Maria Papadopoulou",
     role: "Professor, School of Rural, Surveying and Geoinformatics Engineering, National Technical University of Athens (NTUA)",
-    title: "From Geographical to Management Challenges",
+    title: "Protected Areas: From Geographical to Management Challenges",
+    photo: "/keynotes/papadopoulou.jpg",
+    abstract: [
+      "Protected areas play a central role in biodiversity conservation. Geographical location, ecological characteristics, connectivity, and the distribution of human pressures all influence what needs to be protected and, importantly, how protection measures should be designed and implemented in terrestrial and marine environment.",
+      "This presentation examines the geographical dimension of protected areas and the challenges, it explores how differences in biodiversity, climatic and hydrological conditions, and human activities across geographical regions call for conservation measures that respond to local ecological characteristics rather than relying on uniform management approaches.",
+      "The main outcome of the analysis is that effective biodiversity conservation requires moving beyond the geographical designation of protected areas towards more spatially differentiated, flexible, and adaptive management approaches. Integrating ecological knowledge, geospatial information, monitoring, and local stakeholder engagement is essential to ensure that protected areas remain effective under changing environmental and socio-economic conditions.",
+    ],
+    // The speaker sent her bio in Greek (20 Nov 2026); this is our English translation.
+    bio: [
+      "Dr. Maria P. Papadopoulou is Professor and Associate Dean of the School of Rural, Surveying and Geoinformatics Engineering of the National Technical University of Athens (NTUA), and Director of the School's Laboratory of Physical Geography and Environmental Impacts.",
+      "She is a member of the Special National Scientific Committee on Climate Change and of the National Water Council. In April 2020 she won first prize at the Pan-European EUvsVirus Hackathon with the Sewers4COVID team, for developing innovative solutions in the fight against the coronavirus.",
+      "Her main research interests focus on the environmental management of natural resources, the adaptation of water resources and ecosystems to climate change, the assessment of climate change impacts on public health and quality of life, the Water–Energy–Food–Ecosystems nexus in the terrestrial and marine environment, and the modelling and optimal management of groundwater aquifers and their ecosystem services (Groundwater Footprint).",
+      "She has served as an adviser to the Ministry of Rural Development and Food, responsible for monitoring the projects of the LEADER+ Community Initiative (2007–2009). She has participated as scientific coordinator and principal investigator in many research projects funded by European and national sources, and has authored more than 60 scientific papers in journals and international conferences. She works as an independent evaluator for EU programmes (FP7, H2020, PRIMA) as well as national ones, is a reviewer for many scientific journals, and is a member of national and international scientific societies. Since August 2020 she has chaired the Board of Directors of the Natural Environment and Climate Change Agency.",
+    ],
   },
 ]
 

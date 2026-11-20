@@ -386,7 +386,11 @@ export default async function ProgramPage({ params }: PageProps) {
                         <summary className="cursor-pointer text-xs font-medium text-black/60 hover:text-black">
                           Abstract
                         </summary>
-                        <p className="mt-2 text-xs leading-relaxed text-black/65">{speaker.abstract}</p>
+                        <div className="mt-2 space-y-2 text-xs leading-relaxed text-black/65">
+                          {speaker.abstract.map((paragraph) => (
+                            <p key={paragraph}>{paragraph}</p>
+                          ))}
+                        </div>
                       </details>
                     )}
                     {speaker.bio && (

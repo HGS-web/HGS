@@ -199,13 +199,15 @@ export default async function SessionProgramPage({ params }: PageProps) {
                       {p.title}
                     </h3>
                     <AuthorList presentation={p} />
-                    <details className="group mt-3">
-                      <summary className="inline-flex cursor-pointer list-none items-center gap-1 text-xs font-medium text-black/50 hover:text-black transition-colors [&::-webkit-details-marker]:hidden">
-                        Abstract
-                        <ChevronDown className="h-3.5 w-3.5 transition-transform group-open:rotate-180" />
-                      </summary>
-                      <div className="mt-2 text-sm text-black/65 leading-relaxed whitespace-pre-wrap">{p.abstract}</div>
-                    </details>
+                    {p.abstract && (
+                      <details className="group mt-3">
+                        <summary className="inline-flex cursor-pointer list-none items-center gap-1 text-xs font-medium text-black/50 hover:text-black transition-colors [&::-webkit-details-marker]:hidden">
+                          Abstract
+                          <ChevronDown className="h-3.5 w-3.5 transition-transform group-open:rotate-180" />
+                        </summary>
+                        <div className="mt-2 text-sm text-black/65 leading-relaxed whitespace-pre-wrap">{p.abstract}</div>
+                      </details>
+                    )}
                   </li>
                 ))}
               </ol>

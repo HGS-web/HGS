@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Mail, ArrowRight } from "lucide-react";
 import { getMarkdownContent } from "@/lib/markdown";
@@ -685,6 +686,40 @@ export default async function Conference2026Page({ params }: PageProps) {
                           <p className="text-xs text-black/50">Archimidous 8, 17675, Kallithea, Athens</p>
                         </li>
                       </ul>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Conference poster (final version from the organisers, 17 Nov 2026) */}
+                <div className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
+                  <h3 className="text-xl font-semibold text-black mb-4">Conference Poster</h3>
+                  <div className="flex items-start gap-5">
+                    <a
+                      href="/conference2026/poster.jpg"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-32 shrink-0 overflow-hidden rounded-lg border border-black/10 hover:border-black/30 transition-colors sm:w-40"
+                    >
+                      <Image
+                        src="/conference2026/poster.jpg"
+                        alt="Poster of the 13th International Conference of the Hellenic Geographical Society, Geography Matters, 27–28 November 2026"
+                        width={320}
+                        height={453}
+                        sizes="160px"
+                        className="h-auto w-full"
+                      />
+                    </a>
+                    <div className="min-w-0 text-sm text-black/65 leading-relaxed">
+                      <p>The official poster of the conference.</p>
+                      <a
+                        href="/conference2026/poster.jpg"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-3 inline-flex items-center gap-1.5 font-medium text-black underline underline-offset-4 decoration-black/20 hover:decoration-black transition-colors"
+                      >
+                        View full size
+                        <ArrowRight className="h-3.5 w-3.5" />
+                      </a>
                     </div>
                   </div>
                 </div>

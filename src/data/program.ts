@@ -15,6 +15,8 @@ export interface ProgramRoom {
 
 /** A room booking that is not a conference session, e.g. a sponsor presentation. */
 export interface ProgramEvent {
+  /** Anchor of the event's block on the programme page. */
+  id: string
   label: string
   /** Title of the talk, if the event is one. */
   title?: string
@@ -89,9 +91,9 @@ export const programDays: ProgramDay[] = [
       { kind: "break", time: "13:00–14:00", label: "Lunch break at HUA" },
       { kind: "plenary", time: "14:00–16:00", label: "Plenary session" },
       { kind: "break", time: "16:00–16:30", label: "Coffee break" },
-      { kind: "sessions", time: "16:30–18:00", sessions: ["6", "16", "22", "7", "17", "1", "32", "35", "21", "23"] },
+      { kind: "sessions", time: "16:30–18:00", sessions: [null, "16", "22", "7", "17", "1", "32", "35", "21", "23"] },
       { kind: "break", time: "18:00–18:30", label: "Break" },
-      { kind: "sessions", time: "18:30–20:00", sessions: ["6", "16", "22", "7", "17", "1", "32", "36a", "21", "34"] },
+      { kind: "sessions", time: "18:30–20:00", sessions: [null, "16", "22", "7", "17", "1", "32", "36a", "21", "34"] },
     ],
   },
   {
@@ -124,6 +126,7 @@ export const programDays: ProgramDay[] = [
         sessions: [
           "37",
           {
+            id: "sponsor-presentation",
             label: "Geosystems Hellas",
             title:
               "Octave Geospatial Solutions: Innovative Technologies and Applications (Presented by Geosystems Hellas, Official Distributor in Greece)",
@@ -237,6 +240,18 @@ export function getSessionSchedule(sessionId: string): SessionScheduleEntry[] {
 export function getSessionSlots(sessionId: string): { day: ProgramDay; room: ProgramRoom; time: string }[] {
   return getSessionSchedule(sessionId).flatMap((e) => e.times.map((time) => ({ day: e.day, room: e.room, time })))
 }
+
+/** Non-session events in the grid, with where and when they take place. */
+export const programEvents: { event: ProgramEvent; day: ProgramDay; room: ProgramRoom; time: string }[] =
+  programDays.flatMap((day) =>
+    day.slots.flatMap((slot) =>
+      slot.kind === "sessions"
+        ? slot.sessions.flatMap((cell, i) =>
+            cell && typeof cell === "object" ? [{ event: cell, day, room: day.rooms[i], time: slot.time }] : []
+          )
+        : []
+    )
+  )
 
 /** Sessions that appear in the programme, in sessions.ts order. */
 export const programSessions: Session[] = sessions.filter(

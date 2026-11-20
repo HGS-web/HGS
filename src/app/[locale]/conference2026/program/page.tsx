@@ -15,6 +15,7 @@ import {
   keynoteSpeakers,
   plenaryWelcome,
   programDays,
+  programEvents,
   programSessions,
   roomLabel,
   venues,
@@ -140,9 +141,10 @@ function DaySchedule({ day, locale }: { day: ProgramDay; locale: Locale }) {
                     return (
                       <td key={`${slot.time}-${i}`} className="align-top">
                         {event ? (
-                          <div
+                          <a
+                            href={`#${event.id}`}
                             title={event.title ? `${event.label}: ${event.title}` : undefined}
-                            className="block min-h-[5.5rem] rounded-lg border border-black/10 bg-black/[0.02] p-2"
+                            className="block min-h-[5.5rem] rounded-lg border border-black/10 bg-black/[0.02] p-2 hover:border-black/25 hover:bg-black/[0.05] transition-colors"
                           >
                             <span className="block text-xs font-semibold text-black">{event.label}</span>
                             {event.title && (
@@ -155,7 +157,7 @@ function DaySchedule({ day, locale }: { day: ProgramDay; locale: Locale }) {
                                 {event.note}
                               </span>
                             )}
-                          </div>
+                          </a>
                         ) : id && session ? (
                           <Link
                             href={sessionHref(id)}
@@ -191,10 +193,11 @@ function DaySchedule({ day, locale }: { day: ProgramDay; locale: Locale }) {
                   {slot.sessions.map((cell, i) => {
                     if (cell && typeof cell === "object") {
                       return (
-                        <li
-                          key={`${slot.time}-${i}`}
-                          className="flex items-start gap-3 rounded-xl border border-black/[0.08] bg-black/[0.02] px-3 py-2.5"
-                        >
+                        <li key={`${slot.time}-${i}`}>
+                          <a
+                            href={`#${cell.id}`}
+                            className="flex items-start gap-3 rounded-xl border border-black/[0.08] bg-black/[0.02] px-3 py-2.5 hover:bg-black/[0.05] transition-colors"
+                          >
                           <span className="mt-0.5 w-8 shrink-0" />
                           <span className="min-w-0">
                             <span className="block text-sm font-semibold leading-snug text-black/75">{cell.label}</span>
@@ -206,6 +209,7 @@ function DaySchedule({ day, locale }: { day: ProgramDay; locale: Locale }) {
                               {roomLabel(day.rooms[i])}
                             </span>
                           </span>
+                          </a>
                         </li>
                       )
                     }
@@ -402,6 +406,26 @@ export default async function ProgramPage({ params }: PageProps) {
               </ol>
             </div>
           </FadeInView>
+
+          {programEvents.map(({ event, day, room, time }) => (
+            <FadeInView key={event.id} delay={0.1}>
+              <div
+                id={event.id}
+                className="scroll-mt-28 rounded-2xl border border-black/10 bg-white p-4 sm:p-6 shadow-sm target:border-black/40 target:ring-2 target:ring-black/10"
+              >
+                <div className="flex flex-wrap items-baseline justify-between gap-2 mb-3">
+                  <h2 className="text-xl font-semibold text-black">{event.note ?? event.label}</h2>
+                  <p className="text-xs text-black/45">
+                    {day.weekday}, {day.date} · {time} · {roomLabel(room)}
+                  </p>
+                </div>
+                {event.note && <p className="text-sm text-black/75">{event.label}</p>}
+                {event.title && (
+                  <p className="mt-1 text-sm font-semibold leading-snug text-black">{event.title}</p>
+                )}
+              </div>
+            </FadeInView>
+          ))}
 
           <FadeInView delay={0.1}>
             <div className="grid gap-4 sm:grid-cols-2">

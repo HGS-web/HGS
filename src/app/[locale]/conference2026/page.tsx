@@ -472,7 +472,7 @@ export default async function Conference2026Page({ params }: PageProps) {
           <FadeInView delay={0.1}>
             <div className="grid gap-6 lg:grid-cols-2">
               {/* Registration spotlight */}
-              <div className="min-w-0 self-start rounded-2xl border border-black/10 bg-white p-6 shadow-sm flex flex-col">
+              <div className="min-w-0 rounded-2xl border border-black/10 bg-white p-6 shadow-sm flex flex-col">
                 <h3 className="text-xl font-semibold text-black">{ATTENDEE_REGISTRATION_TITLE}</h3>
 
                 <div className="mt-4 space-y-3 text-sm text-black/65 leading-relaxed">
@@ -505,8 +505,10 @@ export default async function Conference2026Page({ params }: PageProps) {
                 </p>
               </div>
 
+              {/* Right column: the venue card grows to fill the space beside the taller registration card. */}
+              <div className="min-w-0 flex flex-col gap-6">
               {/* Programme & Sessions */}
-              <div className="min-w-0 self-start rounded-2xl border border-black/10 bg-white p-6 shadow-sm flex flex-col">
+              <div className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm flex flex-col">
                 <div className="flex items-center justify-between gap-2 flex-wrap">
                   <h3 className="text-xl font-semibold text-black">Programme &amp; Sessions</h3>
                   <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700">
@@ -541,6 +543,37 @@ export default async function Conference2026Page({ params }: PageProps) {
                     <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
                 </div>
+              </div>
+
+              {/* Venues & Map (organisers' map, 25 Nov 2026); the full map is on the programme page. */}
+              <div className="flex-1 rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <h3 className="text-xl font-semibold text-black">Venues &amp; Map</h3>
+                  <Link
+                    href={`/${validLocale}/conference2026/program#venues`}
+                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-black text-white text-sm font-medium rounded-full hover:bg-black/80 transition-colors"
+                  >
+                    View map and rooms
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+                {/* Top two thirds of the organisers' map: the streets, without the room legend. */}
+                <Link
+                  href={`/${validLocale}/conference2026/program#venues`}
+                  tabIndex={-1}
+                  aria-hidden="true"
+                  className="mt-4 block overflow-hidden rounded-xl border border-black/10 hover:border-black/30 transition-colors"
+                >
+                  <Image
+                    src="/conference2026/venue-map.jpg"
+                    alt=""
+                    width={2714}
+                    height={1825}
+                    sizes="(min-width: 1024px) 440px, 100vw"
+                    className="aspect-[9/4] w-full object-cover object-top"
+                  />
+                </Link>
+              </div>
               </div>
             </div>
           </FadeInView>

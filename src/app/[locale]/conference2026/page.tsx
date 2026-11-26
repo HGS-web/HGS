@@ -708,9 +708,16 @@ export default async function Conference2026Page({ params }: PageProps) {
                         </li>
                         <li>
                           <p className="font-medium text-black/80">National Centre for Social Research</p>
-                          <p className="text-xs text-black/50">Archimidous 8, 17675, Kallithea, Athens</p>
+                          <p className="text-xs text-black/50">Archimidous 8, 17778, Tavros, Athens</p>
                         </li>
                       </ul>
+                      <Link
+                        href={`/${validLocale}/conference2026/program#venues`}
+                        className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-black underline underline-offset-4 decoration-black/20 hover:decoration-black transition-colors"
+                      >
+                        Venue map and rooms
+                        <ArrowRight className="h-3.5 w-3.5" />
+                      </Link>
                     </div>
                   </div>
                 </div>

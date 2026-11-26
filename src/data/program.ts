@@ -29,7 +29,7 @@ export type ProgramCell = string | ProgramEvent | null
 export type ProgramSlot =
   | { kind: "sessions"; time: string; sessions: ProgramCell[] }
   | { kind: "break"; time: string; label: string }
-  | { kind: "plenary"; time: string; label: string }
+  | { kind: "plenary"; time: string; label: string; location?: string }
 
 export interface ProgramDay {
   id: string
@@ -57,13 +57,41 @@ export interface Presentation {
 export const venues: Record<Venue, { name: string; address: string }> = {
   EKKE: {
     name: "National Centre for Social Research (EKKE)",
-    address: "Archimidous 8, 17675, Kallithea, Athens",
+    address: "Archimidous 8, 17778, Tavros, Athens",
   },
   HUA: {
     name: "Harokopio University of Athens (HUA)",
     address: "El. Venizelou Ave. 70, 17676, Kallithea, Athens",
   },
 }
+
+export const PLENARY_LOCATION = "HUA Main Auditorium"
+
+/** As announced to participants by the Organising Committee (25 Nov 2026). */
+export const ROOM_CHANGE_NOTE =
+  "Room change: all sessions originally scheduled in Room 3.1 at HUA have been moved to Room B.1, on Level −1 of the HUA main building."
+
+/** Where each room is, from the organisers' venue map (Map_HGSConference, 25 Nov 2026). */
+export const roomGuide: { building: string; levels: { level: string; rooms: string[] }[] }[] = [
+  {
+    building: "EKKE",
+    levels: [{ level: "Level 0", rooms: ["Room I.1", "Room I.2", "Main Hall"] }],
+  },
+  {
+    building: "HUA · Department of Geography Building",
+    levels: [
+      { level: "Level −1", rooms: ["Room 2.1", "Room 2.1 (Lab)", "Room 2.3"] },
+      { level: "Level −2", rooms: ["Room 1.1", "Room 1.1 (Lab)", "Room 1.2", "Ceremony Hall"] },
+    ],
+  },
+  {
+    building: "HUA · Main Building",
+    levels: [
+      { level: "Level 1", rooms: ["Main Auditorium"] },
+      { level: "Level −1", rooms: ["Room B.1"] },
+    ],
+  },
+]
 
 export const programDays: ProgramDay[] = [
   {
@@ -76,20 +104,21 @@ export const programDays: ProgramDay[] = [
       { venue: "EKKE", name: "Room I.2" },
       { venue: "EKKE", name: "Main Hall" },
       // HUA rooms use the university's own numbering (Changes_EGE4, 10 Nov 2026).
+      // Room 3.1 was replaced by Room B.1 in the main building (S. Spyrellis, 25 Nov 2026).
       { venue: "HUA", name: "Ceremony Hall" },
       { venue: "HUA", name: "Room 1.1" },
       { venue: "HUA", name: "Room 1.1 (Lab)" },
       { venue: "HUA", name: "Room 1.2" },
       { venue: "HUA", name: "Room 2.1" },
       { venue: "HUA", name: "Room 2.1 (Lab)" },
-      { venue: "HUA", name: "Room 3.1" },
+      { venue: "HUA", name: "Room B.1" },
     ],
     slots: [
       { kind: "sessions", time: "09:30–11:00", sessions: ["39", "3", "4", "7", "27", "5", "32", "35", "9", "23"] },
       { kind: "break", time: "11:00–11:30", label: "Coffee break" },
       { kind: "sessions", time: "11:30–13:00", sessions: ["38", "19", "4", "7", "27", "5", "32", "35", "9", "23"] },
       { kind: "break", time: "13:00–14:00", label: "Lunch break at HUA" },
-      { kind: "plenary", time: "14:00–16:00", label: "Plenary session" },
+      { kind: "plenary", time: "14:00–16:00", label: "Plenary session", location: PLENARY_LOCATION },
       { kind: "break", time: "16:00–16:30", label: "Coffee break" },
       { kind: "sessions", time: "16:30–18:00", sessions: [null, "16", "22", "7", "17", "1", "32", "35", "21", "23"] },
       { kind: "break", time: "18:00–18:30", label: "Break" },
@@ -109,7 +138,7 @@ export const programDays: ProgramDay[] = [
       { venue: "HUA", name: "Room 2.1" },
       { venue: "HUA", name: "Room 2.1 (Lab)" },
       { venue: "HUA", name: "Room 2.3" },
-      { venue: "HUA", name: "Room 3.1" },
+      { venue: "HUA", name: "Room B.1" },
     ],
     slots: [
       { kind: "sessions", time: "09:30–11:00", sessions: ["20", "29", "8", "18", "13", "12", "11", "28"] },
@@ -210,7 +239,7 @@ export const keynoteSpeakers: KeynoteSpeaker[] = [
 ]
 
 export const PRESENTATION_ORDER_NOTE =
-  "Where the session organisers have confirmed it, presentations are listed in their final order by time slot. The remaining sessions are listed in alphabetical order (by first author) until their final order is announced."
+  "Presentations are listed in their final order by time slot, as set by the session organisers."
 
 /** Shown on a session page whose order is not yet confirmed. */
 export const PROVISIONAL_ORDER_NOTE =

@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowLeft, ArrowRight, Info, MapPin } from "lucide-react"
+import { ArrowLeft, ArrowRight, ArrowUpRight, Info, MapPin } from "lucide-react"
 import { FadeIn, FadeInView } from "@/components/ui/motion"
 import {
   PresentationFinder,
@@ -8,7 +8,9 @@ import {
   type FinderSession,
 } from "@/components/conference/presentation-finder"
 import {
+  PLENARY_LOCATION,
   PRESENTATION_ORDER_NOTE,
+  ROOM_CHANGE_NOTE,
   getPresentations,
   getSession,
   getSessionSchedule,
@@ -17,6 +19,7 @@ import {
   programDays,
   programEvents,
   programSessions,
+  roomGuide,
   roomLabel,
   venues,
   type ProgramDay,
@@ -124,6 +127,7 @@ function DaySchedule({ day, locale }: { day: ProgramDay; locale: Locale }) {
                         className="block rounded-lg bg-black px-3 py-3 text-center text-sm font-semibold text-white hover:bg-black/80 transition-colors"
                       >
                         {slot.label}
+                        {slot.location && <span className="font-normal text-white/75"> · {slot.location}</span>}
                       </a>
                     </td>
                   </tr>
@@ -236,6 +240,7 @@ function DaySchedule({ day, locale }: { day: ProgramDay; locale: Locale }) {
             ) : slot.kind === "plenary" ? (
               <a href="#plenary" className="block rounded-xl bg-black px-4 py-3 text-sm font-semibold text-white">
                 <span className="tabular-nums">{slot.time}</span> · {slot.label}
+                {slot.location && <span className="font-normal text-white/75"> · {slot.location}</span>}
               </a>
             ) : (
               <div className="rounded-lg bg-black/[0.03] px-3 py-1.5 text-xs text-black/45">
@@ -311,6 +316,12 @@ export default async function ProgramPage({ params }: PageProps) {
               >
                 All sessions
               </a>
+              <a
+                href="#venues"
+                className="rounded-full border border-black/10 bg-white px-4 py-1.5 text-sm text-black/70 hover:border-black/25 hover:text-black transition-colors"
+              >
+                Venue map
+              </a>
             </div>
           </FadeIn>
         </div>
@@ -319,9 +330,15 @@ export default async function ProgramPage({ params }: PageProps) {
       <section className="pb-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-6">
           <FadeInView delay={0.05}>
-            <div className="flex items-start gap-3 rounded-2xl border border-amber-200/70 bg-amber-50 px-5 py-4">
-              <Info className="mt-0.5 h-4 w-4 shrink-0 text-amber-700" />
-              <p className="text-sm text-amber-900/90 leading-relaxed">{PRESENTATION_ORDER_NOTE}</p>
+            <div className="space-y-3">
+              <div className="flex items-start gap-3 rounded-2xl border border-amber-200/70 bg-amber-50 px-5 py-4">
+                <Info className="mt-0.5 h-4 w-4 shrink-0 text-amber-700" />
+                <p className="text-sm text-amber-900/90 leading-relaxed">{ROOM_CHANGE_NOTE}</p>
+              </div>
+              <div className="flex items-start gap-3 rounded-2xl border border-black/10 bg-black/[0.02] px-5 py-4">
+                <Info className="mt-0.5 h-4 w-4 shrink-0 text-black/40" />
+                <p className="text-sm text-black/65 leading-relaxed">{PRESENTATION_ORDER_NOTE}</p>
+              </div>
             </div>
           </FadeInView>
 
@@ -342,7 +359,7 @@ export default async function ProgramPage({ params }: PageProps) {
             <div id="plenary" className="scroll-mt-28 rounded-2xl border border-black/10 bg-white p-4 sm:p-6 shadow-sm">
               <div className="flex flex-wrap items-baseline justify-between gap-2 mb-5">
                 <h2 className="text-xl font-semibold text-black">Plenary Session</h2>
-                <p className="text-xs text-black/45">Friday, 27 November 2026 · 14:00–16:00</p>
+                <p className="text-xs text-black/45">Friday, 27 November 2026 · 14:00–16:00 · {PLENARY_LOCATION}</p>
               </div>
 
               <h3 className="text-xs font-semibold uppercase tracking-wider text-black/45">Welcome addresses</h3>
@@ -432,16 +449,63 @@ export default async function ProgramPage({ params }: PageProps) {
           ))}
 
           <FadeInView delay={0.1}>
-            <div className="grid gap-4 sm:grid-cols-2">
-              {(Object.keys(venues) as Venue[]).map((v) => (
-                <div key={v} className="flex items-start gap-3 rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
-                  <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-black/40" />
-                  <div>
-                    <p className="text-sm font-medium text-black/80">{venues[v].name}</p>
-                    <p className="text-xs text-black/50">{venues[v].address}</p>
+            <div id="venues" className="scroll-mt-28 rounded-2xl border border-black/10 bg-white p-4 sm:p-6 shadow-sm">
+              <div className="flex flex-wrap items-baseline justify-between gap-2 mb-4">
+                <h2 className="text-xl font-semibold text-black">Venues and rooms</h2>
+                <a
+                  href="/conference2026/venue-map.jpg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-xs font-medium text-black/60 hover:text-black transition-colors"
+                >
+                  Open the map full size
+                  <ArrowUpRight className="h-3.5 w-3.5" />
+                </a>
+              </div>
+
+              <a
+                href="/conference2026/venue-map.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block overflow-hidden rounded-xl border border-black/10 hover:border-black/25 transition-colors"
+              >
+                <Image
+                  src="/conference2026/venue-map.jpg"
+                  alt="Map of the two conference venues: Harokopio University (El. Venizelou Ave. 70) and the National Centre for Social Research, EKKE (Archimidous St. 8), with the Kallithea and Tavros–El. Venizelos metro stations, the walking routes between them and the rooms in each building"
+                  width={2714}
+                  height={1825}
+                  sizes="(min-width: 1280px) 1168px, 100vw"
+                  className="h-auto w-full"
+                />
+              </a>
+
+              <div className="mt-5 grid gap-5 sm:grid-cols-3">
+                {roomGuide.map((b) => (
+                  <div key={b.building}>
+                    <h3 className="text-sm font-semibold text-black">{b.building}</h3>
+                    <dl className="mt-2 space-y-2">
+                      {b.levels.map((l) => (
+                        <div key={l.level}>
+                          <dt className="text-xs font-semibold uppercase tracking-wider text-black/45">{l.level}</dt>
+                          <dd className="mt-0.5 text-sm text-black/70">{l.rooms.join(", ")}</dd>
+                        </div>
+                      ))}
+                    </dl>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
+
+              <div className="mt-5 grid gap-4 border-t border-black/[0.06] pt-5 sm:grid-cols-2">
+                {(Object.keys(venues) as Venue[]).map((v) => (
+                  <div key={v} className="flex items-start gap-3">
+                    <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-black/40" />
+                    <div>
+                      <p className="text-sm font-medium text-black/80">{venues[v].name}</p>
+                      <p className="text-xs text-black/60">{venues[v].address}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </FadeInView>
 

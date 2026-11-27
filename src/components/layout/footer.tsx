@@ -1,6 +1,8 @@
+import { Suspense } from "react";
 import Link from "next/link";
 import { Facebook, Linkedin, Mail, MapPin } from "lucide-react";
 import { siteConfig, type Locale } from "@/config/site";
+import { PageVisits } from "./page-visits";
 
 interface FooterProps {
   locale: Locale;
@@ -156,6 +158,9 @@ export function Footer({ locale }: FooterProps) {
             <p className="text-xs text-black/40">
               © {currentYear} {siteConfig.name[locale]}. {t.rights}.
             </p>
+            <Suspense fallback={null}>
+              <PageVisits locale={locale} />
+            </Suspense>
             <p className="text-xs text-black/40">
               Developed by{" "}
               <a

@@ -557,30 +557,6 @@
  ],
  "5": [
   {
-   "code": "S_421",
-   "slot": 1,
-   "title": "A Mediterranean-Wide Spatial Analysis of Tidal Notches: Calibrating Holocene Relative Sea-Level Changes and Tectonic Drivers.",
-   "authors": [
-    {
-     "name": "Konstantina Lymperopoulou",
-     "affiliation": "National and Kapodistrian University of Athens"
-    },
-    {
-     "name": "Anna Karkani",
-     "affiliation": "National and Kapodistrian University of Athens"
-    },
-    {
-     "name": "Alexandros Liaskos",
-     "affiliation": "National and Kapodistrian University of Athens"
-    },
-    {
-     "name": "Niki Evelpidou",
-     "affiliation": "National and Kapodistrian University of Athens"
-    }
-   ],
-   "abstract": "Tidal notches are among the most reliable geomorphological indicators of past sea levels, providing high-resolution data on the interaction between eustatic changes and regional tectonics. This study presents a comprehensive spatial analysis of a newly developed database comprising over 650 tidal notch sites across the Mediterranean basin, including Greece, Italy, Malta, Croatia, France, Spain and Turkey.\nThe research employs a multi-proxy approach, integrating morphological parameters such as notch height, vertex depth, and profile geometry with lithological data and bioerosion rates. A key component of this study is the application of a rigorous chronological framework, utilizing calibrated carbon-14 dating and biological markers to establish a precise timeline for Holocene relative sea-level (RSL) changes.\nPreliminary results indicate that tidal notches are a widespread geomorphological feature found throughout the Mediterranean basin. The presence of tidal notches throughout the basin, regardless of local tectonic movements, underscores their value as a fundamental tool for understanding the evolution of Mediterranean coasts. Despite the abundance of these landforms, a lot of them remain undated due to the destructive effects of bioerosion on biological markers. The findings offer a refined model for Mediterranean coastal evolution, distinguishing between climate-driven sea-level rise and geodynamic land movements. This work provides essential baseline data for assessing the future vulnerability of coasts in the context of accelerating global sea-level rise."
-  },
-  {
    "code": "S_343",
    "slot": 1,
    "title": "Treeline Dynamics: How Much Do We Know? Addressing Local Specificities and Global Trends",

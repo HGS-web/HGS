@@ -609,30 +609,6 @@
    "abstract": "Treeline ecotones constitute dynamic transitional landscapes that have exhibited global upward altitudinal shifts in recent years, a phenomenon closely linked to climate change. The climatic signal of these dynamics has triggered an explosion of research interest over the last two decades. Changes in forest limits represent complex processes with profound ecological consequences, including changes in biodiversity and carbon storage dynamics.\nDespite the general global trend of treeline advancement, the literature frequently documents divergent responses to climate change, including stability or even recession. These discrepancies highlight a prevailing \"climate bias,\" as ecotone dynamics rarely follow climatic warming in a linear manner. Factors such as time lags in tree response, water stress, biotic interactions, and disturbances decisively shape their evolution. Overlooking these processes, combined with short-term time series, often leads to the misinterpretation of transient fluctuations as permanent trends.\nThis complexity is particularly evident in the Mediterranean basin, a climate change \"hotspot,\" where rising temperatures are accompanied by intensifying aridity that potentially constrains growth in forests at their ecological margins. Despite its significance, the region remains underrepresented in research. Furthermore, in Mediterranean mountain landscapes, distinguishing between climate-driven shifts and secondary forest succession—related to historical land-use changes (e.g., grazing abandonment)—further complicates the interpretation of observed range shift patterns.\nUnderstanding the natural processes of treeline dynamics requires moving beyond single-factor approaches toward multifactorial analytical frameworks, with a particular emphasis on complex and understudied environments."
   },
   {
-   "code": "S_419",
-   "slot": 1,
-   "title": "Coastal Lagoons of Greece: An inventory and implications for future challenges",
-   "authors": [
-    {
-     "name": "Georgia Kakoura",
-     "affiliation": "National and Kapodistrian University of Athens"
-    },
-    {
-     "name": "Evangelos Spyrou",
-     "affiliation": "National and Kapodistrian University of Athens"
-    },
-    {
-     "name": "Alexandros Liaskos",
-     "affiliation": "National and Kapodistrian University of Athens"
-    },
-    {
-     "name": "Niki Evelpidou",
-     "affiliation": "National and Kapodistrian University of Athens"
-    }
-   ],
-   "abstract": "Coastal lagoons are unique ecosystems that provide a wide range of environmental services. However, they are prone to sea-level rise (SLR), due to both human activities and climate change. The Greek coastline is characterized by several coastal lagoons. In this work, we digitized all coastal lagoons along the Greek coastline (a total of 152 lagoons), using satellite images. We calculated their dimensions and physiographical characteristics, such as such as lagoon length, width, area, perimeter and sandspit morphology. We further conducted a multi-temporal analysis using Sentinel-2 imagery (2015–2025) to assess water surface extent and water quality trends for the five largest lagoons. In order to highlight their vulnerability to sea level rise, we considered two Shared Socioeconomic Pathways (SSP1-2.6 and SSP5-8.5) scenarios for future sea-level rise in the Mediterranean context. Where there were available projections also considering Vertical Land Motion (VLM), we used those instead. All lagoons, their computed parameters and projections have been integrated into a freely accessible WebGIS application. Our results show that 8 to 25% of the Greek lagoons will be fully inundated, depending on the scenario considered, while a substantially larger number are expected to experience partial breaching. Regarding the five largest lagoons, remote sensing analysis revealed predominantly stable conditions. However, Tsoukali lagoon exhibited a significant expansion trend; likely linked to sediment starvation caused by dam construction. In terms of water quality, all lagoons remain eutrophic, with Vistonis as the most ecologically stressed with recorded anoxia events. Collectively, these findings underscore the critical susceptibility of Greek coastal lagoons to both climatic and anthropogenic stressors."
-  },
-  {
    "code": "S_420",
    "slot": 1,
    "title": "Shoreline evolution of Naxos Airport Lagoon",

@@ -609,34 +609,6 @@
    "abstract": "Treeline ecotones constitute dynamic transitional landscapes that have exhibited global upward altitudinal shifts in recent years, a phenomenon closely linked to climate change. The climatic signal of these dynamics has triggered an explosion of research interest over the last two decades. Changes in forest limits represent complex processes with profound ecological consequences, including changes in biodiversity and carbon storage dynamics.\nDespite the general global trend of treeline advancement, the literature frequently documents divergent responses to climate change, including stability or even recession. These discrepancies highlight a prevailing \"climate bias,\" as ecotone dynamics rarely follow climatic warming in a linear manner. Factors such as time lags in tree response, water stress, biotic interactions, and disturbances decisively shape their evolution. Overlooking these processes, combined with short-term time series, often leads to the misinterpretation of transient fluctuations as permanent trends.\nThis complexity is particularly evident in the Mediterranean basin, a climate change \"hotspot,\" where rising temperatures are accompanied by intensifying aridity that potentially constrains growth in forests at their ecological margins. Despite its significance, the region remains underrepresented in research. Furthermore, in Mediterranean mountain landscapes, distinguishing between climate-driven shifts and secondary forest succession—related to historical land-use changes (e.g., grazing abandonment)—further complicates the interpretation of observed range shift patterns.\nUnderstanding the natural processes of treeline dynamics requires moving beyond single-factor approaches toward multifactorial analytical frameworks, with a particular emphasis on complex and understudied environments."
   },
   {
-   "code": "S_420",
-   "slot": 1,
-   "title": "Shoreline evolution of Naxos Airport Lagoon",
-   "authors": [
-    {
-     "name": "Eleni Achmakidou",
-     "affiliation": "National and Kapodistrian University of Athens"
-    },
-    {
-     "name": "Evangelos Spyrou",
-     "affiliation": "National and Kapodistrian University of Athens"
-    },
-    {
-     "name": "Anna Karkani",
-     "affiliation": "National and Kapodistrian University of Athens"
-    },
-    {
-     "name": "Giannis Saitis",
-     "affiliation": "National and Kapodistrian University of Athens"
-    },
-    {
-     "name": "Niki Evelpidou",
-     "affiliation": "National and Kapodistrian University of Athens"
-    }
-   ],
-   "abstract": "Coastal lagoons and dunes are highly valuable but vulnerable systems, impacted by sea-level rise, storms and intense human pressures, including tourism and infrastructure development. Robust multi-temporal shoreline mapping is essential for understanding coastal evolution and supporting effective protection and management strategies. This study investigates shoreline evolution at the Naxos Airport Lagoon, located along the western coast of Naxos, within the Cyclades, one of the Mediterranean regions most vulnerable to climate change impacts. The analysis combines historical aerial imagery (1960–1989) with recent high-precision RTK-GNSS shoreline surveys conducted between 2022 and 2024. Historical shorelines are digitized from georeferenced aerial photographs following established photointerpretation approaches. Contemporary shoreline positions are measured using RTK-GNSS techniques. All shoreline datasets are integrated in a GIS environment and analyzed with the Digital Shoreline Analysis System (DSAS), using standard metrics such as End Point Rate (EPR), Net Shoreline Movement (NSM), and Linear/Weighted Linear Regression Rates to quantify erosion and accretion trends over both long (multi-decadal) and short (2022–2024) periods. The combined analysis clarifies how natural processes and human interventions have reshaped the lagoon’s fringe over ~60 years. The results support identification of critical stretches requiring protection or restoration of dunes and wetlands and offer a quantitative baseline for future monitoring, coastal hazard assessment and integrated management of the Naxos Airport Lagoon system."
-  },
-  {
    "code": "S_224",
    "slot": 1,
    "title": "Movement of Bactrocera oleae Across Olive Grove–Forest Interfaces in a Mediterranean Landscape",

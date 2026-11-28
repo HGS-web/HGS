@@ -4307,26 +4307,18 @@
   {
    "code": "S_376",
    "slot": 1,
-   "title": "Transforming Spatial Datasets into Dynamic Web Platforms: A Cost-Free, Open-Source WebGIS Blueprint",
+   "title": "Transforming Spatial Datasets into Dynamic Web Platforms: The WebGIS Builder",
    "authors": [
     {
      "name": "Alexandros Liaskos",
      "affiliation": "National and Kapodistrian University of Athens"
     },
     {
-     "name": "Evangelos Spyrou",
+     "name": "Niki Evelpidou",
      "affiliation": "National and Kapodistrian University of Athens"
     },
     {
-     "name": "Konstantina Lymperopoulou",
-     "affiliation": "National and Kapodistrian University of Athens"
-    },
-    {
-     "name": "Eleni Achmakidou",
-     "affiliation": "National and Kapodistrian University of Athens"
-    },
-    {
-     "name": "Georgia Kakoura",
+     "name": "Eleana Karkani",
      "affiliation": "National and Kapodistrian University of Athens"
     },
     {
@@ -4334,15 +4326,11 @@
      "affiliation": "National and Kapodistrian University of Athens"
     },
     {
-     "name": "Anna Karkani",
-     "affiliation": "National and Kapodistrian University of Athens"
-    },
-    {
-     "name": "Niki Evelpidou",
+     "name": "Evangelos Spyrou",
      "affiliation": "National and Kapodistrian University of Athens"
     }
    ],
-   "abstract": "This initiative presents an open-source WebGIS architecture for publishing spatial datasets as interactive, free and open web platforms. The framework will be demonstrated through Coastal Lagoons of Earth (lagoons.vercel.app), an interactive, web-based repository of coastal lagoons, structured as a dynamic, node-based geoinformatics system. The WebGIS framework consists of 3 major layers: the Leaflet-based map, the Supabase (Postgress, PostGIS) database, and the vanilla Javascript, alongside the custom User Interface (UI) components. The frontend is lightweight and fast, providing an appealing user experience through the interactive map, nodes, modals, filters, statistics, etc.. Through the example project, at macro scales, lagoons are visualized as discrete nodes color-coded to denote their projected 2100 inundation risk under varying climatic scenarios, while upon high-resolution zoom, these nodes transition to reveal precise polygon geometries. Interacting with any individual lagoon node triggers a detailed modal interface exposing its underlying data. The platform excels in real-time spatial, statistical and analysis, allowing users to refine datasets via multi-criteria filtering that utilizes interactive categorical lists alongside dynamic sliders for numerical variables. Based on these active filters, the system automatically calculates dynamic interactive plots per variable, while at the same time supporting global searches, variable-specific database queries, and advanced filtering. Client-server communication follows a standard HTTPS request–response pattern through parameterized calls to a web API of predefined functions. Additionally, the entire infrastructure is version-controlled via GitHub and deployed through Vercel. As a proof of concept, the application currently hosts a dataset of 152 Greek lagoons, while similar projects utilizing this scalable framework, like Historic Floods (HistoricFloods.org), seamlessly support 2,000+ flood events as nodes. Ultimately, this architecture provides a highly reproducible, cost-free blueprint for converting complex datasets into visually engaging, dynamic web platforms."
+   "abstract": "The WebGIS Builder is a web application that turns a spatial dataset into a website with an interactive map, with no code and no desktop GIS software required. A research team works in a graphical editor in the browser, in four steps. First, one file is uploaded: vector data (GeoPackage, GeoJSON, KML, zipped shapefile) or a CSV or Excel table with point coordinates. The file is read on the server, the type and range of every field are detected, and the records appear on the map with colours and filters already proposed. Second, the map is configured from a ribbon whose tabs hold the tools and the settings: basemap, symbology by unique values with named groups, clustering, record title and details, filters and charts. Third, the website is previewed as visitors see it. Fourth, a team owner publishes it at its own address, public for anyone with the link or private for the team. The published website offers filters by category and numeric range with live counts, search, charts of the filtered records, an advanced query joining conditions with AND and OR, and the details of every record, on a computer and on a phone. Teams work with roles, and every project keeps an activity log and a version history. The workflow is demonstrated with the World Atlas of Last Interglacial Shorelines (WALIS; Rovere et al., 2023), one CSV file of 7,139 records and 52 fields. The application runs on one server with PostgreSQL/PostGIS, Django, GDAL, MapLibre GL JS and React. Five of its components are published as open source under the AGPL-3.0 licence on GitHub, npm and PyPI, each with a DOI on Zenodo. The Builder is in an alpha version at webgis.nkua.cloud, where early access can be requested."
   },
   {
    "code": "S_114",
